@@ -1,0 +1,60 @@
+\section{mscommon.h File Reference}
+\label{mscommon_8h}\index{mscommon.h@{mscommon.h}}
+
+
+mediastreamer2 \doxyref{mscommon.h}{p.}{mscommon_8h} include file  
+{\ttfamily \#include $<$ortp/logging.h$>$}\par
+{\ttfamily \#include $<$ortp/port.h$>$}\par
+{\ttfamily \#include $<$ortp/str\_\-utils.h$>$}\par
+{\ttfamily \#include $<$ortp/payloadtype.h$>$}\par
+{\ttfamily \#include $<$time.h$>$}\par
+Include dependency graph for mscommon.h:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=261pt]{mscommon_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{mscommon_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf ms\_\-init}()~ms\_\-base\_\-init(), ms\_\-voip\_\-init(), ms\_\-plugins\_\-init()
+\item 
+\#define {\bf ms\_\-exit}()~ms\_\-voip\_\-exit(), ms\_\-base\_\-exit()
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf ms\_\-base\_\-init} (void)
+\item 
+void {\bf ms\_\-voip\_\-init} (void)
+\item 
+void {\bf ms\_\-plugins\_\-init} (void)
+\item 
+int {\bf ms\_\-load\_\-plugins} (const char $\ast$directory)
+\item 
+void {\bf ms\_\-base\_\-exit} (void)
+\item 
+void {\bf ms\_\-voip\_\-exit} (void)
+\item 
+int {\bf ms\_\-get\_\-payload\_\-max\_\-size} ()
+\item 
+int {\bf ms\_\-discover\_\-mtu} (const char $\ast$destination\_\-host)
+\item 
+void {\bf ms\_\-set\_\-mtu} (int mtu)
+\item 
+int {\bf ms\_\-get\_\-mtu} (void)
+\item 
+void {\bf ms\_\-set\_\-cpu\_\-count} (unsigned int c)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+mediastreamer2 \doxyref{mscommon.h}{p.}{mscommon_8h} include file This file provide the API needed to initialize and reset the mediastreamer2 library. 

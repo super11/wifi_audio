@@ -1,0 +1,253 @@
+\section{Sound Card Filter API}
+\label{group__mediastreamer2__soundcardfilter}\index{Sound Card Filter API@{Sound Card Filter API}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \_\-MSFilter $\ast$ {\bf ms\_\-snd\_\-card\_\-create\_\-reader} ({\bf MSSndCard} $\ast$obj)
+\item 
+struct \_\-MSFilter $\ast$ {\bf ms\_\-snd\_\-card\_\-create\_\-writer} ({\bf MSSndCard} $\ast$obj)
+\item 
+{\bf MSSndCard} $\ast$ {\bf ms\_\-snd\_\-card\_\-new} ({\bf MSSndCardDesc} $\ast$desc)
+\item 
+{\bf MSSndCard} $\ast$ {\bf ms\_\-snd\_\-card\_\-new\_\-with\_\-name} ({\bf MSSndCardDesc} $\ast$desc, const char $\ast$name)
+\item 
+void {\bf ms\_\-snd\_\-card\_\-destroy} ({\bf MSSndCard} $\ast$obj)
+\item 
+{\bf MSSndCard} $\ast$ {\bf ms\_\-snd\_\-card\_\-dup} ({\bf MSSndCard} $\ast$card)
+\item 
+const char $\ast$ {\bf ms\_\-snd\_\-card\_\-get\_\-driver\_\-type} (const {\bf MSSndCard} $\ast$obj)
+\item 
+const char $\ast$ {\bf ms\_\-snd\_\-card\_\-get\_\-name} (const {\bf MSSndCard} $\ast$obj)
+\item 
+const char $\ast$ {\bf ms\_\-snd\_\-card\_\-get\_\-string\_\-id} ({\bf MSSndCard} $\ast$obj)
+\item 
+unsigned int {\bf ms\_\-snd\_\-card\_\-get\_\-capabilities} (const {\bf MSSndCard} $\ast$obj)
+\item 
+int {\bf ms\_\-snd\_\-card\_\-get\_\-minimal\_\-latency} ({\bf MSSndCard} $\ast$obj)
+\item 
+void {\bf ms\_\-snd\_\-card\_\-set\_\-level} ({\bf MSSndCard} $\ast$obj, {\bf MSSndCardMixerElem} e, int percent)
+\item 
+int {\bf ms\_\-snd\_\-card\_\-get\_\-level} ({\bf MSSndCard} $\ast$obj, {\bf MSSndCardMixerElem} e)
+\item 
+void {\bf ms\_\-snd\_\-card\_\-set\_\-capture} ({\bf MSSndCard} $\ast$obj, {\bf MSSndCardCapture} c)
+\item 
+int {\bf ms\_\-snd\_\-card\_\-set\_\-control} ({\bf MSSndCard} $\ast$obj, {\bf MSSndCardControlElem} e, int val)
+\item 
+int {\bf ms\_\-snd\_\-card\_\-get\_\-control} ({\bf MSSndCard} $\ast$obj, {\bf MSSndCardControlElem} e)
+\item 
+int {\bf ms\_\-snd\_\-card\_\-get\_\-preferred\_\-sample\_\-rate} (const {\bf MSSndCard} $\ast$obj)
+\item 
+int {\bf ms\_\-snd\_\-card\_\-set\_\-preferred\_\-sample\_\-rate} ({\bf MSSndCard} $\ast$obj, int rate)
+\item 
+{\bf MSSndCard} $\ast$ {\bf ms\_\-alsa\_\-card\_\-new\_\-custom} (const char $\ast$pcmdev, const char $\ast$mixdev)
+\item 
+void {\bf ms\_\-alsa\_\-card\_\-set\_\-forced\_\-sample\_\-rate} (int samplerate)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-snd\_\-card\_\-create\_\-reader@{ms\_\-snd\_\-card\_\-create\_\-reader}}
+\index{ms\_\-snd\_\-card\_\-create\_\-reader@{ms\_\-snd\_\-card\_\-create\_\-reader}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-snd\_\-card\_\-create\_\-reader}]{\setlength{\rightskip}{0pt plus 5cm}struct \_\-MSFilter$\ast$ ms\_\-snd\_\-card\_\-create\_\-reader ({\bf MSSndCard} $\ast$ {\em obj})\hspace{0.3cm}{\ttfamily  [read]}}\label{group__mediastreamer2__soundcardfilter_ga32de8c5c905b869764f59d0d3f0c9fb5}
+Create an INPUT filter based on the selected sound card.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A sound card object.\end{DoxyParams}
+Returns: A MSFilter if successfull, NULL otherwise. \index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-snd\_\-card\_\-create\_\-writer@{ms\_\-snd\_\-card\_\-create\_\-writer}}
+\index{ms\_\-snd\_\-card\_\-create\_\-writer@{ms\_\-snd\_\-card\_\-create\_\-writer}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-snd\_\-card\_\-create\_\-writer}]{\setlength{\rightskip}{0pt plus 5cm}struct \_\-MSFilter$\ast$ ms\_\-snd\_\-card\_\-create\_\-writer ({\bf MSSndCard} $\ast$ {\em obj})\hspace{0.3cm}{\ttfamily  [read]}}\label{group__mediastreamer2__soundcardfilter_gada18baa91af814626e4ac647d5700435}
+Create an OUPUT filter based on the selected sound card.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A sound card object.\end{DoxyParams}
+Returns: A MSFilter if successfull, NULL otherwise. \index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-snd\_\-card\_\-new@{ms\_\-snd\_\-card\_\-new}}
+\index{ms\_\-snd\_\-card\_\-new@{ms\_\-snd\_\-card\_\-new}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-snd\_\-card\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSSndCard}$\ast$ ms\_\-snd\_\-card\_\-new ({\bf MSSndCardDesc} $\ast$ {\em desc})}\label{group__mediastreamer2__soundcardfilter_ga10b0988ae644d95a96d36f61da12353e}
+Create a new sound card object.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em desc}]A sound card description object.\end{DoxyParams}
+Returns: MSSndCard if successfull, NULL otherwise. \index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-snd\_\-card\_\-new\_\-with\_\-name@{ms\_\-snd\_\-card\_\-new\_\-with\_\-name}}
+\index{ms\_\-snd\_\-card\_\-new\_\-with\_\-name@{ms\_\-snd\_\-card\_\-new\_\-with\_\-name}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-snd\_\-card\_\-new\_\-with\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSSndCard}$\ast$ ms\_\-snd\_\-card\_\-new\_\-with\_\-name ({\bf MSSndCardDesc} $\ast$ {\em desc}, \/  const char $\ast$ {\em name})}\label{group__mediastreamer2__soundcardfilter_gaf24956c9ec67d11de53e5f866bdbdf80}
+Create a new sound card object.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em desc}]A sound card description object. \item[{\em card}]mame\end{DoxyParams}
+Returns: MSSndCard if successfull, NULL otherwise. \index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-snd\_\-card\_\-destroy@{ms\_\-snd\_\-card\_\-destroy}}
+\index{ms\_\-snd\_\-card\_\-destroy@{ms\_\-snd\_\-card\_\-destroy}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-snd\_\-card\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-snd\_\-card\_\-destroy ({\bf MSSndCard} $\ast$ {\em obj})}\label{group__mediastreamer2__soundcardfilter_gae43714f334f9098e4ab8aa0d6aa1f6bf}
+Destroy sound card object.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A MSSndCard object. \end{DoxyParams}
+\index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-snd\_\-card\_\-dup@{ms\_\-snd\_\-card\_\-dup}}
+\index{ms\_\-snd\_\-card\_\-dup@{ms\_\-snd\_\-card\_\-dup}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-snd\_\-card\_\-dup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSSndCard}$\ast$ ms\_\-snd\_\-card\_\-dup ({\bf MSSndCard} $\ast$ {\em card})}\label{group__mediastreamer2__soundcardfilter_ga16a62db158078a8ff7cf1c17fefe74a6}
+Duplicate a sound card object.
+
+This helps to open several time a sound card.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em card}]A sound card object.\end{DoxyParams}
+Returns: MSSndCard if successfull, NULL otherwise. \index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-snd\_\-card\_\-get\_\-driver\_\-type@{ms\_\-snd\_\-card\_\-get\_\-driver\_\-type}}
+\index{ms\_\-snd\_\-card\_\-get\_\-driver\_\-type@{ms\_\-snd\_\-card\_\-get\_\-driver\_\-type}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-snd\_\-card\_\-get\_\-driver\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ ms\_\-snd\_\-card\_\-get\_\-driver\_\-type (const {\bf MSSndCard} $\ast$ {\em obj})}\label{group__mediastreamer2__soundcardfilter_ga9b7d26ee313ab9aa4cc2b345bcc3a951}
+Retreive a sound card's driver type string.
+
+Internal driver types are either: \char`\"{}OSS, ALSA, WINSND, PASND, CA\char`\"{}
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A sound card object.\end{DoxyParams}
+Returns: a string if successfull, NULL otherwise. \index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-snd\_\-card\_\-get\_\-name@{ms\_\-snd\_\-card\_\-get\_\-name}}
+\index{ms\_\-snd\_\-card\_\-get\_\-name@{ms\_\-snd\_\-card\_\-get\_\-name}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-snd\_\-card\_\-get\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ ms\_\-snd\_\-card\_\-get\_\-name (const {\bf MSSndCard} $\ast$ {\em obj})}\label{group__mediastreamer2__soundcardfilter_ga3ba0c050467cb0c072c30dc0792d64d1}
+Retreive a sound card's name.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A sound card object.\end{DoxyParams}
+Returns: a string if successfull, NULL otherwise. \index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-snd\_\-card\_\-get\_\-string\_\-id@{ms\_\-snd\_\-card\_\-get\_\-string\_\-id}}
+\index{ms\_\-snd\_\-card\_\-get\_\-string\_\-id@{ms\_\-snd\_\-card\_\-get\_\-string\_\-id}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-snd\_\-card\_\-get\_\-string\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ ms\_\-snd\_\-card\_\-get\_\-string\_\-id ({\bf MSSndCard} $\ast$ {\em obj})}\label{group__mediastreamer2__soundcardfilter_ga2e5a658e85966099e5697d770952f5e3}
+Retreive sound card's name (driver\_\-type}
+name).
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A sound card object.\end{DoxyParams}
+Returns: A string if successfull, NULL otherwise. \index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-snd\_\-card\_\-get\_\-capabilities@{ms\_\-snd\_\-card\_\-get\_\-capabilities}}
+\index{ms\_\-snd\_\-card\_\-get\_\-capabilities@{ms\_\-snd\_\-card\_\-get\_\-capabilities}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-snd\_\-card\_\-get\_\-capabilities}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int ms\_\-snd\_\-card\_\-get\_\-capabilities (const {\bf MSSndCard} $\ast$ {\em obj})}\label{group__mediastreamer2__soundcardfilter_ga0268ea0348487e0ff4f9617a207fc1ae}
+Retreive sound card's capabilities.
+
+
+\begin{DoxyPre}
+   MS\_SND\_CARD\_CAP\_CAPTURE
+   MS\_SND\_CARD\_CAP\_PLAYBACK
+   MS\_SND\_CARD\_CAP\_CAPTURE|MS\_SND\_CARD\_CAP\_PLAYBACK
+   MS\_SND\_CARD\_CAP\_BUILTIN\_ECHO\_CANCELLER
+ \end{DoxyPre}
+
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A sound card object.\end{DoxyParams}
+Returns: A unsigned int if successfull, 0 otherwise. \index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-snd\_\-card\_\-get\_\-minimal\_\-latency@{ms\_\-snd\_\-card\_\-get\_\-minimal\_\-latency}}
+\index{ms\_\-snd\_\-card\_\-get\_\-minimal\_\-latency@{ms\_\-snd\_\-card\_\-get\_\-minimal\_\-latency}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-snd\_\-card\_\-get\_\-minimal\_\-latency}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-snd\_\-card\_\-get\_\-minimal\_\-latency ({\bf MSSndCard} $\ast$ {\em obj})}\label{group__mediastreamer2__soundcardfilter_ga7c85d1aa93e587e8c07f4e200b645628}
+Returns the sound card minimal latency (playback+record), in milliseconds. This value is to be used by the software echo cancellers to know where to search for the echo (optimization). Typically, an echo shall not be found before the value returned by this function. If this value is not known, then it should return 0. 
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A sound card object. \end{DoxyParams}
+\index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-snd\_\-card\_\-set\_\-level@{ms\_\-snd\_\-card\_\-set\_\-level}}
+\index{ms\_\-snd\_\-card\_\-set\_\-level@{ms\_\-snd\_\-card\_\-set\_\-level}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-snd\_\-card\_\-set\_\-level}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-snd\_\-card\_\-set\_\-level ({\bf MSSndCard} $\ast$ {\em obj}, \/  {\bf MSSndCardMixerElem} {\em e}, \/  int {\em percent})}\label{group__mediastreamer2__soundcardfilter_gaf52ce0d93b3e4d53feabe962456b5c16}
+Set some mixer level value.
+
+
+\begin{DoxyPre}
+   MS\_SND\_CARD\_MASTER,
+   MS\_SND\_CARD\_PLAYBACK,
+   MS\_SND\_CARD\_CAPTURE
+ \end{DoxyPre}
+ Note: not implemented on all sound card filters.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A sound card object. \item[{\em e}]A sound card mixer object. \item[{\em percent}]A volume level. \end{DoxyParams}
+\index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-snd\_\-card\_\-get\_\-level@{ms\_\-snd\_\-card\_\-get\_\-level}}
+\index{ms\_\-snd\_\-card\_\-get\_\-level@{ms\_\-snd\_\-card\_\-get\_\-level}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-snd\_\-card\_\-get\_\-level}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-snd\_\-card\_\-get\_\-level ({\bf MSSndCard} $\ast$ {\em obj}, \/  {\bf MSSndCardMixerElem} {\em e})}\label{group__mediastreamer2__soundcardfilter_ga23baf9854671654f982944f2deeca905}
+Get some mixer level value.
+
+
+\begin{DoxyPre}
+   MS\_SND\_CARD\_MASTER,
+   MS\_SND\_CARD\_PLAYBACK,
+   MS\_SND\_CARD\_CAPTURE
+ \end{DoxyPre}
+ Note: not implemented on all sound card filters.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A sound card object. \item[{\em e}]A sound card mixer object.\end{DoxyParams}
+Returns: A int if successfull, $<$0 otherwise. \index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-snd\_\-card\_\-set\_\-capture@{ms\_\-snd\_\-card\_\-set\_\-capture}}
+\index{ms\_\-snd\_\-card\_\-set\_\-capture@{ms\_\-snd\_\-card\_\-set\_\-capture}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-snd\_\-card\_\-set\_\-capture}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-snd\_\-card\_\-set\_\-capture ({\bf MSSndCard} $\ast$ {\em obj}, \/  {\bf MSSndCardCapture} {\em c})}\label{group__mediastreamer2__soundcardfilter_gad82af792f27b04b9220f2406a2c84fc1}
+Set some source for capture.
+
+
+\begin{DoxyPre}
+   MS\_SND\_CARD\_MIC,
+   MS\_SND\_CARD\_LINE
+ \end{DoxyPre}
+ Note: not implemented on all sound card filters.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A sound card object. \item[{\em c}]A sound card capture value.\end{DoxyParams}
+Returns: A int if successfull, 0 otherwise. \index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-snd\_\-card\_\-set\_\-control@{ms\_\-snd\_\-card\_\-set\_\-control}}
+\index{ms\_\-snd\_\-card\_\-set\_\-control@{ms\_\-snd\_\-card\_\-set\_\-control}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-snd\_\-card\_\-set\_\-control}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-snd\_\-card\_\-set\_\-control ({\bf MSSndCard} $\ast$ {\em obj}, \/  {\bf MSSndCardControlElem} {\em e}, \/  int {\em val})}\label{group__mediastreamer2__soundcardfilter_ga48c957a6033dd92979545744a95d2de5}
+Set some mixer control.
+
+
+\begin{DoxyPre}
+   MS\_SND\_CARD\_MASTER\_MUTE, -> 0: unmute, 1: mute
+   MS\_SND\_CARD\_PLAYBACK\_MUTE, -> 0: unmute, 1: mute
+   MS\_SND\_CARD\_CAPTURE\_MUTE -> 0: unmute, 1: mute
+ \end{DoxyPre}
+ Note: not implemented on all sound card filters.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A sound card object. \item[{\em e}]A sound card control object. \item[{\em percent}]A value for control.\end{DoxyParams}
+Returns: 0 if successfull, $<$0 otherwise. \index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-snd\_\-card\_\-get\_\-control@{ms\_\-snd\_\-card\_\-get\_\-control}}
+\index{ms\_\-snd\_\-card\_\-get\_\-control@{ms\_\-snd\_\-card\_\-get\_\-control}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-snd\_\-card\_\-get\_\-control}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-snd\_\-card\_\-get\_\-control ({\bf MSSndCard} $\ast$ {\em obj}, \/  {\bf MSSndCardControlElem} {\em e})}\label{group__mediastreamer2__soundcardfilter_ga9cb2d05a4fdc5b915035ff444e51ae6d}
+Get some mixer control.
+
+
+\begin{DoxyPre}
+   MS\_SND\_CARD\_MASTER\_MUTE, -> return 0: unmute, 1: mute
+   MS\_SND\_CARD\_PLAYBACK\_MUTE, -> return 0: unmute, 1: mute
+   MS\_SND\_CARD\_CAPTURE\_MUTE -> return 0: unmute, 1: mute
+ \end{DoxyPre}
+ Note: not implemented on all sound card filters.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A sound card object. \item[{\em e}]A sound card mixer object.\end{DoxyParams}
+Returns: A int if successfull, $<$0 otherwise. \index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-snd\_\-card\_\-get\_\-preferred\_\-sample\_\-rate@{ms\_\-snd\_\-card\_\-get\_\-preferred\_\-sample\_\-rate}}
+\index{ms\_\-snd\_\-card\_\-get\_\-preferred\_\-sample\_\-rate@{ms\_\-snd\_\-card\_\-get\_\-preferred\_\-sample\_\-rate}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-snd\_\-card\_\-get\_\-preferred\_\-sample\_\-rate}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-snd\_\-card\_\-get\_\-preferred\_\-sample\_\-rate (const {\bf MSSndCard} $\ast$ {\em obj})}\label{group__mediastreamer2__soundcardfilter_ga80af63f473c08af92fbed6f9682febc2}
+Get preferred sample rate
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A sound card object.\end{DoxyParams}
+Returns: return sample rate in khz \index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-snd\_\-card\_\-set\_\-preferred\_\-sample\_\-rate@{ms\_\-snd\_\-card\_\-set\_\-preferred\_\-sample\_\-rate}}
+\index{ms\_\-snd\_\-card\_\-set\_\-preferred\_\-sample\_\-rate@{ms\_\-snd\_\-card\_\-set\_\-preferred\_\-sample\_\-rate}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-snd\_\-card\_\-set\_\-preferred\_\-sample\_\-rate}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-snd\_\-card\_\-set\_\-preferred\_\-sample\_\-rate ({\bf MSSndCard} $\ast$ {\em obj}, \/  int {\em rate})}\label{group__mediastreamer2__soundcardfilter_ga76830e16cf70fe664e1a34e379acc177}
+set preferred sample rate. The underlying card will try to avoid any resampling for this samplerate.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A sound card object. \item[{\em rate}]sampling rate.\end{DoxyParams}
+Returns: 0 if successfull, $<$0 otherwise. \index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-alsa\_\-card\_\-new\_\-custom@{ms\_\-alsa\_\-card\_\-new\_\-custom}}
+\index{ms\_\-alsa\_\-card\_\-new\_\-custom@{ms\_\-alsa\_\-card\_\-new\_\-custom}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-alsa\_\-card\_\-new\_\-custom}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSSndCard}$\ast$ ms\_\-alsa\_\-card\_\-new\_\-custom (const char $\ast$ {\em pcmdev}, \/  const char $\ast$ {\em mixdev})}\label{group__mediastreamer2__soundcardfilter_gac467a6da38344bd6ea5aa54ff7f0ddbd}
+Create a alsa card with user supplied pcm name and mixer name. 
+\begin{DoxyParams}{Parameters}
+\item[{\em pcmdev}]The pcm device name following alsa conventions (ex: plughw:0) \item[{\em mixdev}]The mixer device name following alsa conventions.\end{DoxyParams}
+Returns: a MSSndCard object, NULL if alsa support is not available. \index{mediastreamer2\_\-soundcardfilter@{mediastreamer2\_\-soundcardfilter}!ms\_\-alsa\_\-card\_\-set\_\-forced\_\-sample\_\-rate@{ms\_\-alsa\_\-card\_\-set\_\-forced\_\-sample\_\-rate}}
+\index{ms\_\-alsa\_\-card\_\-set\_\-forced\_\-sample\_\-rate@{ms\_\-alsa\_\-card\_\-set\_\-forced\_\-sample\_\-rate}!mediastreamer2_soundcardfilter@{mediastreamer2\_\-soundcardfilter}}
+\subsubsection[{ms\_\-alsa\_\-card\_\-set\_\-forced\_\-sample\_\-rate}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-alsa\_\-card\_\-set\_\-forced\_\-sample\_\-rate (int {\em samplerate})}\label{group__mediastreamer2__soundcardfilter_ga59b3c314af71e8246a46d4eae133aeab}
+Use supplied sample rate to open alsa devices (forced rate). Has no interest except workarouding driver bugs. Use -\/1 to revert to normal behavior. 

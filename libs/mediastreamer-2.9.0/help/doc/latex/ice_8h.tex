@@ -1,0 +1,826 @@
+\section{ice.h File Reference}
+\label{ice_8h}\index{ice.h@{ice.h}}
+
+
+mediastreamer2 \doxyref{ice.h}{p.}{ice_8h} include file  
+{\ttfamily \#include \char`\"{}mscommon.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}ortp/stun\_\-udp.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}ortp/stun.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}ortp/ortp.h\char`\"{}}\par
+Include dependency graph for ice.h:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=305pt]{ice_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf \_\-IceSession}
+\item 
+struct {\bf \_\-IceTransportAddress}
+\item 
+struct {\bf \_\-IceCandidate}
+\item 
+struct {\bf \_\-IceCandidatePair}
+\item 
+struct {\bf \_\-IcePairFoundation}
+\item 
+struct {\bf \_\-IceCheckList}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf \_\-IceSession} {\bf IceSession}
+\item 
+typedef struct {\bf \_\-IceTransportAddress} {\bf IceTransportAddress}
+\item 
+typedef struct {\bf \_\-IceCandidate} {\bf IceCandidate}
+\item 
+typedef struct {\bf \_\-IceCandidatePair} {\bf IceCandidatePair}
+\item 
+typedef struct {\bf \_\-IcePairFoundation} {\bf IcePairFoundation}
+\item 
+typedef struct {\bf \_\-IceCheckList} {\bf IceCheckList}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf IceRole} 
+\item 
+enum {\bf IceCandidateType} 
+\item 
+enum {\bf IceCandidatePairState} 
+\item 
+enum {\bf IceCheckListState} 
+\item 
+enum {\bf IceSessionState} 
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+MS2\_\-PUBLIC {\bf IceSession} $\ast$ {\bf ice\_\-session\_\-new} (void)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-session\_\-destroy} ({\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC {\bf IceCheckList} $\ast$ {\bf ice\_\-check\_\-list\_\-new} (void)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-check\_\-list\_\-destroy} ({\bf IceCheckList} $\ast$cl)
+\item 
+MS2\_\-PUBLIC bool\_\-t {\bf ice\_\-check\_\-list\_\-candidates\_\-gathered} (const {\bf IceCheckList} $\ast$cl)
+\item 
+MS2\_\-PUBLIC {\bf IceCheckList} $\ast$ {\bf ice\_\-session\_\-check\_\-list} (const {\bf IceSession} $\ast$session, unsigned int n)
+\item 
+MS2\_\-PUBLIC const char $\ast$ {\bf ice\_\-session\_\-local\_\-ufrag} (const {\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC const char $\ast$ {\bf ice\_\-session\_\-local\_\-pwd} (const {\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC const char $\ast$ {\bf ice\_\-session\_\-remote\_\-ufrag} (const {\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC const char $\ast$ {\bf ice\_\-session\_\-remote\_\-pwd} (const {\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC {\bf IceSessionState} {\bf ice\_\-session\_\-state} (const {\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC {\bf IceRole} {\bf ice\_\-session\_\-role} (const {\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-session\_\-set\_\-role} ({\bf IceSession} $\ast$session, {\bf IceRole} role)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-session\_\-set\_\-local\_\-credentials} ({\bf IceSession} $\ast$session, const char $\ast$ufrag, const char $\ast$pwd)
+\item 
+MS2\_\-PUBLIC bool\_\-t {\bf ice\_\-session\_\-remote\_\-credentials\_\-changed} ({\bf IceSession} $\ast$session, const char $\ast$ufrag, const char $\ast$pwd)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-session\_\-set\_\-remote\_\-credentials} ({\bf IceSession} $\ast$session, const char $\ast$ufrag, const char $\ast$pwd)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-session\_\-set\_\-max\_\-connectivity\_\-checks} ({\bf IceSession} $\ast$session, uint8\_\-t max\_\-connectivity\_\-checks)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-session\_\-set\_\-keepalive\_\-timeout} ({\bf IceSession} $\ast$session, uint8\_\-t timeout)
+\item 
+MS2\_\-PUBLIC int {\bf ice\_\-session\_\-nb\_\-check\_\-lists} ({\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC bool\_\-t {\bf ice\_\-session\_\-has\_\-completed\_\-check\_\-list} (const {\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-session\_\-add\_\-check\_\-list} ({\bf IceSession} $\ast$session, {\bf IceCheckList} $\ast$cl)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-session\_\-remove\_\-check\_\-list} ({\bf IceSession} $\ast$session, {\bf IceCheckList} $\ast$cl)
+\item 
+MS2\_\-PUBLIC bool\_\-t {\bf ice\_\-session\_\-candidates\_\-gathered} (const {\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-session\_\-gather\_\-candidates} ({\bf IceSession} $\ast$session, struct sockaddr\_\-storage ss, socklen\_\-t ss\_\-len)
+\item 
+MS2\_\-PUBLIC int {\bf ice\_\-session\_\-gathering\_\-duration} ({\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC int {\bf ice\_\-session\_\-average\_\-gathering\_\-round\_\-trip\_\-time} ({\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-session\_\-select\_\-candidates} ({\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-session\_\-restart} ({\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC {\bf IceCheckListState} {\bf ice\_\-check\_\-list\_\-state} (const {\bf IceCheckList} $\ast$cl)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-check\_\-list\_\-set\_\-state} ({\bf IceCheckList} $\ast$cl, {\bf IceCheckListState} state)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-check\_\-list\_\-set\_\-rtp\_\-session} ({\bf IceCheckList} $\ast$cl, RtpSession $\ast$rtp\_\-session)
+\item 
+MS2\_\-PUBLIC const char $\ast$ {\bf ice\_\-check\_\-list\_\-local\_\-ufrag} (const {\bf IceCheckList} $\ast$cl)
+\item 
+MS2\_\-PUBLIC const char $\ast$ {\bf ice\_\-check\_\-list\_\-local\_\-pwd} (const {\bf IceCheckList} $\ast$cl)
+\item 
+MS2\_\-PUBLIC const char $\ast$ {\bf ice\_\-check\_\-list\_\-remote\_\-ufrag} (const {\bf IceCheckList} $\ast$cl)
+\item 
+MS2\_\-PUBLIC const char $\ast$ {\bf ice\_\-check\_\-list\_\-remote\_\-pwd} (const {\bf IceCheckList} $\ast$cl)
+\item 
+MS2\_\-PUBLIC bool\_\-t {\bf ice\_\-check\_\-list\_\-is\_\-mismatch} (const {\bf IceCheckList} $\ast$cl)
+\item 
+MS2\_\-PUBLIC bool\_\-t {\bf ice\_\-check\_\-list\_\-remote\_\-credentials\_\-changed} ({\bf IceCheckList} $\ast$cl, const char $\ast$ufrag, const char $\ast$pwd)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-check\_\-list\_\-set\_\-remote\_\-credentials} ({\bf IceCheckList} $\ast$cl, const char $\ast$ufrag, const char $\ast$pwd)
+\item 
+MS2\_\-PUBLIC bool\_\-t {\bf ice\_\-check\_\-list\_\-default\_\-local\_\-candidate} (const {\bf IceCheckList} $\ast$cl, const char $\ast$$\ast$rtp\_\-addr, int $\ast$rtp\_\-port, const char $\ast$$\ast$rtcp\_\-addr, int $\ast$rtcp\_\-port)
+\item 
+MS2\_\-PUBLIC bool\_\-t {\bf ice\_\-check\_\-list\_\-selected\_\-valid\_\-local\_\-candidate} (const {\bf IceCheckList} $\ast$cl, const char $\ast$$\ast$rtp\_\-addr, int $\ast$rtp\_\-port, const char $\ast$$\ast$rtcp\_\-addr, int $\ast$rtcp\_\-port)
+\item 
+MS2\_\-PUBLIC bool\_\-t {\bf ice\_\-check\_\-list\_\-selected\_\-valid\_\-remote\_\-candidate} (const {\bf IceCheckList} $\ast$cl, const char $\ast$$\ast$rtp\_\-addr, int $\ast$rtp\_\-port, const char $\ast$$\ast$rtcp\_\-addr, int $\ast$rtcp\_\-port)
+\item 
+MS2\_\-PUBLIC {\bf IceCandidateType} {\bf ice\_\-check\_\-list\_\-selected\_\-valid\_\-candidate\_\-type} (const {\bf IceCheckList} $\ast$cl)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-check\_\-list\_\-check\_\-completed} ({\bf IceCheckList} $\ast$cl)
+\item 
+MS2\_\-PUBLIC const char $\ast$ {\bf ice\_\-candidate\_\-type} (const {\bf IceCandidate} $\ast$candidate)
+\item 
+MS2\_\-PUBLIC {\bf IceCandidate} $\ast$ {\bf ice\_\-add\_\-local\_\-candidate} ({\bf IceCheckList} $\ast$cl, const char $\ast$type, const char $\ast$ip, int port, uint16\_\-t componentID, {\bf IceCandidate} $\ast$base)
+\item 
+MS2\_\-PUBLIC {\bf IceCandidate} $\ast$ {\bf ice\_\-add\_\-remote\_\-candidate} ({\bf IceCheckList} $\ast$cl, const char $\ast$type, const char $\ast$ip, int port, uint16\_\-t componentID, uint32\_\-t priority, const char $\ast$const foundation, bool\_\-t is\_\-default)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-add\_\-losing\_\-pair} ({\bf IceCheckList} $\ast$cl, uint16\_\-t componentID, const char $\ast$local\_\-addr, int local\_\-port, const char $\ast$remote\_\-addr, int remote\_\-port)
+\item 
+MS2\_\-PUBLIC int {\bf ice\_\-session\_\-nb\_\-losing\_\-pairs} (const {\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-check\_\-list\_\-unselect\_\-valid\_\-pairs} ({\bf IceCheckList} $\ast$cl)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-session\_\-set\_\-base\_\-for\_\-srflx\_\-candidates} ({\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-session\_\-compute\_\-candidates\_\-foundations} ({\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-session\_\-eliminate\_\-redundant\_\-candidates} ({\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-session\_\-choose\_\-default\_\-candidates} ({\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-session\_\-choose\_\-default\_\-remote\_\-candidates} ({\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-session\_\-start\_\-connectivity\_\-checks} ({\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-session\_\-check\_\-mismatch} ({\bf IceSession} $\ast$session)
+\item 
+void {\bf ice\_\-check\_\-list\_\-process} ({\bf IceCheckList} $\ast$cl, RtpSession $\ast$rtp\_\-session)
+\item 
+void {\bf ice\_\-handle\_\-stun\_\-packet} ({\bf IceCheckList} $\ast$cl, RtpSession $\ast$rtp\_\-session, const OrtpEventData $\ast$evt\_\-data)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-get\_\-remote\_\-addr\_\-and\_\-ports\_\-from\_\-valid\_\-pairs} (const {\bf IceCheckList} $\ast$cl, char $\ast$rtp\_\-addr, int $\ast$rtp\_\-port, char $\ast$rtcp\_\-addr, int $\ast$rtcp\_\-port, int addr\_\-len)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-check\_\-list\_\-print\_\-route} (const {\bf IceCheckList} $\ast$cl, const char $\ast$message)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-dump\_\-session} (const {\bf IceSession} $\ast$session)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-dump\_\-candidates} (const {\bf IceCheckList} $\ast$cl)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-dump\_\-candidate\_\-pairs} (const {\bf IceCheckList} $\ast$cl)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-dump\_\-valid\_\-list} (const {\bf IceCheckList} $\ast$cl)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-dump\_\-candidate\_\-pairs\_\-foundations} (const {\bf IceCheckList} $\ast$cl)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-dump\_\-componentIDs} (const {\bf IceCheckList} $\ast$cl)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-dump\_\-check\_\-list} (const {\bf IceCheckList} $\ast$cl)
+\item 
+MS2\_\-PUBLIC void {\bf ice\_\-dump\_\-triggered\_\-checks\_\-queue} (const {\bf IceCheckList} $\ast$cl)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+mediastreamer2 \doxyref{ice.h}{p.}{ice_8h} include file This file provides the API to handle the ICE protocol defined in the RFC 5245. 
+
+\subsection{Typedef Documentation}
+\index{ice.h@{ice.h}!IceSession@{IceSession}}
+\index{IceSession@{IceSession}!ice.h@{ice.h}}
+\subsubsection[{IceSession}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-IceSession}  {\bf IceSession}}\label{ice_8h_a77fcf2b97be3d12e7d1a7fc656ecf552}
+Structure representing an ICE session. \index{ice.h@{ice.h}!IceTransportAddress@{IceTransportAddress}}
+\index{IceTransportAddress@{IceTransportAddress}!ice.h@{ice.h}}
+\subsubsection[{IceTransportAddress}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-IceTransportAddress}  {\bf IceTransportAddress}}\label{ice_8h_a26d98082cf8e4fabb291b2ec847c6eb8}
+Structure representing an ICE transport address. \index{ice.h@{ice.h}!IceCandidate@{IceCandidate}}
+\index{IceCandidate@{IceCandidate}!ice.h@{ice.h}}
+\subsubsection[{IceCandidate}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-IceCandidate}  {\bf IceCandidate}}\label{ice_8h_aca3b4c32e393623df5394ca1b7c8021e}
+Structure representing an ICE candidate. \index{ice.h@{ice.h}!IceCandidatePair@{IceCandidatePair}}
+\index{IceCandidatePair@{IceCandidatePair}!ice.h@{ice.h}}
+\subsubsection[{IceCandidatePair}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-IceCandidatePair}  {\bf IceCandidatePair}}\label{ice_8h_a3914f568cd83e6aa10b90bba8ce26491}
+Structure representing an ICE candidate pair. \index{ice.h@{ice.h}!IcePairFoundation@{IcePairFoundation}}
+\index{IcePairFoundation@{IcePairFoundation}!ice.h@{ice.h}}
+\subsubsection[{IcePairFoundation}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-IcePairFoundation}  {\bf IcePairFoundation}}\label{ice_8h_a4b40c1344c06100879f3606af293b791}
+Structure representing the foundation of an ICE candidate pair.
+
+It is the concatenation of the foundation of a local candidate and the foundation of a remote candidate. \index{ice.h@{ice.h}!IceCheckList@{IceCheckList}}
+\index{IceCheckList@{IceCheckList}!ice.h@{ice.h}}
+\subsubsection[{IceCheckList}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-IceCheckList}  {\bf IceCheckList}}\label{ice_8h_aa1e6817b42f9c2d4827c733dc530a319}
+Structure representing an ICE check list.
+
+Each media stream must be assigned a check list. Check lists are added to an ICE session using the \doxyref{ice\_\-session\_\-add\_\-check\_\-list()}{p.}{ice_8h_ae3899b071d5d6b981ff85c7d42f91077} function. 
+
+\subsection{Enumeration Type Documentation}
+\index{ice.h@{ice.h}!IceRole@{IceRole}}
+\index{IceRole@{IceRole}!ice.h@{ice.h}}
+\subsubsection[{IceRole}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf IceRole}}\label{ice_8h_a96ac2312027b622d7b52b56768ed1962}
+ICE agent role.
+
+See the terminology in paragraph 3 of the RFC 5245 for more details. \index{ice.h@{ice.h}!IceCandidateType@{IceCandidateType}}
+\index{IceCandidateType@{IceCandidateType}!ice.h@{ice.h}}
+\subsubsection[{IceCandidateType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf IceCandidateType}}\label{ice_8h_a74087cd2d4ac0b86a6e80a10fd054599}
+ICE candidate type.
+
+See the terminology in paragraph 3 of the RFC 5245 for more details. \index{ice.h@{ice.h}!IceCandidatePairState@{IceCandidatePairState}}
+\index{IceCandidatePairState@{IceCandidatePairState}!ice.h@{ice.h}}
+\subsubsection[{IceCandidatePairState}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf IceCandidatePairState}}\label{ice_8h_a8cd719687b30dac763a21bcaa70cf136}
+ICE candidate pair state.
+
+See paragraph 5.7.4 (\char`\"{}Computing states\char`\"{}) of RFC 5245 for more details. \index{ice.h@{ice.h}!IceCheckListState@{IceCheckListState}}
+\index{IceCheckListState@{IceCheckListState}!ice.h@{ice.h}}
+\subsubsection[{IceCheckListState}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf IceCheckListState}}\label{ice_8h_adf2bbb74ede3189b381afd9959d341f0}
+ICE check list state.
+
+See paragraph 5.7.4 (\char`\"{}Computing states\char`\"{}) of RFC 5245 for more details. \index{ice.h@{ice.h}!IceSessionState@{IceSessionState}}
+\index{IceSessionState@{IceSessionState}!ice.h@{ice.h}}
+\subsubsection[{IceSessionState}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf IceSessionState}}\label{ice_8h_a68712e1ce9db420be64f2036cde61121}
+ICE session state. 
+
+\subsection{Function Documentation}
+\index{ice.h@{ice.h}!ice\_\-session\_\-new@{ice\_\-session\_\-new}}
+\index{ice\_\-session\_\-new@{ice\_\-session\_\-new}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC {\bf IceSession}$\ast$ ice\_\-session\_\-new (void)}\label{ice_8h_a06432264ea729d8d407541fc5b1c7049}
+Allocate a new ICE session.
+
+\begin{DoxyReturn}{Returns}
+Pointer to the allocated session
+\end{DoxyReturn}
+This must be performed for each media session that is to use ICE. \index{ice.h@{ice.h}!ice\_\-session\_\-destroy@{ice\_\-session\_\-destroy}}
+\index{ice\_\-session\_\-destroy@{ice\_\-session\_\-destroy}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-session\_\-destroy ({\bf IceSession} $\ast$ {\em session})}\label{ice_8h_af8727bd58cd47db1856ad9296eac7e2f}
+Destroy a previously allocated ICE session.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]The session to destroy.\end{DoxyParams}
+To be used when a media session using ICE is tore down. \index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-new@{ice\_\-check\_\-list\_\-new}}
+\index{ice\_\-check\_\-list\_\-new@{ice\_\-check\_\-list\_\-new}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC {\bf IceCheckList}$\ast$ ice\_\-check\_\-list\_\-new (void)}\label{ice_8h_a1b86edf5373f379150c19cd53a7c5b8f}
+Allocate a new ICE check list.
+
+\begin{DoxyReturn}{Returns}
+Pointer to the allocated check list
+\end{DoxyReturn}
+A check list must be allocated for each media stream of a media session and be added to an ICE session using the \doxyref{ice\_\-session\_\-add\_\-check\_\-list()}{p.}{ice_8h_ae3899b071d5d6b981ff85c7d42f91077} function. \index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-destroy@{ice\_\-check\_\-list\_\-destroy}}
+\index{ice\_\-check\_\-list\_\-destroy@{ice\_\-check\_\-list\_\-destroy}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-check\_\-list\_\-destroy ({\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_afd40f5d61686d625d24ca305488d4a23}
+Destroy a previously allocated ICE check list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]The check list to destroy \end{DoxyParams}
+\index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-candidates\_\-gathered@{ice\_\-check\_\-list\_\-candidates\_\-gathered}}
+\index{ice\_\-check\_\-list\_\-candidates\_\-gathered@{ice\_\-check\_\-list\_\-candidates\_\-gathered}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-candidates\_\-gathered}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC bool\_\-t ice\_\-check\_\-list\_\-candidates\_\-gathered (const {\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_a416ba4e8e3ce3e7c5cac8c9ad3812d82}
+Tell whether ICE local candidates have been gathered for an ICE check list or not.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a check list \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if local candidates have been gathered for the check list, FALSE otherwise. 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-session\_\-check\_\-list@{ice\_\-session\_\-check\_\-list}}
+\index{ice\_\-session\_\-check\_\-list@{ice\_\-session\_\-check\_\-list}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-check\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC {\bf IceCheckList}$\ast$ ice\_\-session\_\-check\_\-list (const {\bf IceSession} $\ast$ {\em session}, \/  unsigned int {\em n})}\label{ice_8h_ac12f473b60e5ba65bfa7bfaaf49f3fed}
+Get the nth check list of an ICE session.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \item[{\em n}]The number of the check list to access \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the nth check list of the session if it exists, NULL otherwise 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-session\_\-local\_\-ufrag@{ice\_\-session\_\-local\_\-ufrag}}
+\index{ice\_\-session\_\-local\_\-ufrag@{ice\_\-session\_\-local\_\-ufrag}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-local\_\-ufrag}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC const char$\ast$ ice\_\-session\_\-local\_\-ufrag (const {\bf IceSession} $\ast$ {\em session})}\label{ice_8h_ac07063892c7f7fbd40bf578aaeab2946}
+Get the local username fragment of an ICE session.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the local username fragment of the session 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-session\_\-local\_\-pwd@{ice\_\-session\_\-local\_\-pwd}}
+\index{ice\_\-session\_\-local\_\-pwd@{ice\_\-session\_\-local\_\-pwd}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-local\_\-pwd}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC const char$\ast$ ice\_\-session\_\-local\_\-pwd (const {\bf IceSession} $\ast$ {\em session})}\label{ice_8h_ad4b0d916e54de4860ca85f3713e3e18a}
+Get the local password of an ICE session.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the local password of the session 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-session\_\-remote\_\-ufrag@{ice\_\-session\_\-remote\_\-ufrag}}
+\index{ice\_\-session\_\-remote\_\-ufrag@{ice\_\-session\_\-remote\_\-ufrag}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-remote\_\-ufrag}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC const char$\ast$ ice\_\-session\_\-remote\_\-ufrag (const {\bf IceSession} $\ast$ {\em session})}\label{ice_8h_a5bb5803ed3d9021f93c30faaa57b2f3d}
+Get the remote username fragment of an ICE session.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the remote username fragment of the session 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-session\_\-remote\_\-pwd@{ice\_\-session\_\-remote\_\-pwd}}
+\index{ice\_\-session\_\-remote\_\-pwd@{ice\_\-session\_\-remote\_\-pwd}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-remote\_\-pwd}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC const char$\ast$ ice\_\-session\_\-remote\_\-pwd (const {\bf IceSession} $\ast$ {\em session})}\label{ice_8h_a3eeeac7da15ee57eefc8f80f5f38355d}
+Get the remote password of an ICE session.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the remote password of the session 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-session\_\-state@{ice\_\-session\_\-state}}
+\index{ice\_\-session\_\-state@{ice\_\-session\_\-state}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC {\bf IceSessionState} ice\_\-session\_\-state (const {\bf IceSession} $\ast$ {\em session})}\label{ice_8h_a1f1113f14f77d93d684fda595a43408f}
+Get the state of an ICE session.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The state of the session 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-session\_\-role@{ice\_\-session\_\-role}}
+\index{ice\_\-session\_\-role@{ice\_\-session\_\-role}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-role}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC {\bf IceRole} ice\_\-session\_\-role (const {\bf IceSession} $\ast$ {\em session})}\label{ice_8h_aa0e7670598b85df88c2449d0f14d08c1}
+Gte the role of the agent for an ICE session.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The role of the agent for the session 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-session\_\-set\_\-role@{ice\_\-session\_\-set\_\-role}}
+\index{ice\_\-session\_\-set\_\-role@{ice\_\-session\_\-set\_\-role}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-set\_\-role}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-session\_\-set\_\-role ({\bf IceSession} $\ast$ {\em session}, \/  {\bf IceRole} {\em role})}\label{ice_8h_a6e79696786c85624d23aee83fb6d702e}
+Set the role of the agent for an ICE session.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]The session for which to set the role \item[{\em role}]The role to set the session to \end{DoxyParams}
+\index{ice.h@{ice.h}!ice\_\-session\_\-set\_\-local\_\-credentials@{ice\_\-session\_\-set\_\-local\_\-credentials}}
+\index{ice\_\-session\_\-set\_\-local\_\-credentials@{ice\_\-session\_\-set\_\-local\_\-credentials}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-set\_\-local\_\-credentials}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-session\_\-set\_\-local\_\-credentials ({\bf IceSession} $\ast$ {\em session}, \/  const char $\ast$ {\em ufrag}, \/  const char $\ast$ {\em pwd})}\label{ice_8h_ab573f0dee31af148f5a3f01fb63a6d45}
+Set the local credentials of an ICE session.
+
+This function SHOULD not be used. However, it is used by mediastream for testing purpose to apply the same credentials for local and remote agents because the SDP exchange is bypassed. \index{ice.h@{ice.h}!ice\_\-session\_\-remote\_\-credentials\_\-changed@{ice\_\-session\_\-remote\_\-credentials\_\-changed}}
+\index{ice\_\-session\_\-remote\_\-credentials\_\-changed@{ice\_\-session\_\-remote\_\-credentials\_\-changed}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-remote\_\-credentials\_\-changed}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC bool\_\-t ice\_\-session\_\-remote\_\-credentials\_\-changed ({\bf IceSession} $\ast$ {\em session}, \/  const char $\ast$ {\em ufrag}, \/  const char $\ast$ {\em pwd})}\label{ice_8h_a5bada7195dcb66ab1a666f9235845c31}
+Tell if remote credentials of an ICE session have changed or not.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \item[{\em ufrag}]The new remote username fragment \item[{\em pwd}]The new remote password \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if the remote credentials of the session have changed, FALSE otherwise. 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-session\_\-set\_\-remote\_\-credentials@{ice\_\-session\_\-set\_\-remote\_\-credentials}}
+\index{ice\_\-session\_\-set\_\-remote\_\-credentials@{ice\_\-session\_\-set\_\-remote\_\-credentials}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-set\_\-remote\_\-credentials}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-session\_\-set\_\-remote\_\-credentials ({\bf IceSession} $\ast$ {\em session}, \/  const char $\ast$ {\em ufrag}, \/  const char $\ast$ {\em pwd})}\label{ice_8h_a69dacc2910a2a0491e3a669d3aca7582}
+Set the remote credentials of an ICE session.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \item[{\em ufrag}]The remote username fragment \item[{\em pwd}]The remote password\end{DoxyParams}
+This function is to be called once the remote credentials have been received via SDP. \index{ice.h@{ice.h}!ice\_\-session\_\-set\_\-max\_\-connectivity\_\-checks@{ice\_\-session\_\-set\_\-max\_\-connectivity\_\-checks}}
+\index{ice\_\-session\_\-set\_\-max\_\-connectivity\_\-checks@{ice\_\-session\_\-set\_\-max\_\-connectivity\_\-checks}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-set\_\-max\_\-connectivity\_\-checks}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-session\_\-set\_\-max\_\-connectivity\_\-checks ({\bf IceSession} $\ast$ {\em session}, \/  uint8\_\-t {\em max\_\-connectivity\_\-checks})}\label{ice_8h_ab411753ef30236630e580dfca7b5fb70}
+Define the maximum number of connectivity checks that will be performed by the agent.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \item[{\em max\_\-connectivity\_\-checks}]The maximum number of connectivity checks to perform\end{DoxyParams}
+This function is to be called just after the creation of the session, before any connectivity check is performed. The default number of connectivity checks is 100. \index{ice.h@{ice.h}!ice\_\-session\_\-set\_\-keepalive\_\-timeout@{ice\_\-session\_\-set\_\-keepalive\_\-timeout}}
+\index{ice\_\-session\_\-set\_\-keepalive\_\-timeout@{ice\_\-session\_\-set\_\-keepalive\_\-timeout}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-set\_\-keepalive\_\-timeout}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-session\_\-set\_\-keepalive\_\-timeout ({\bf IceSession} $\ast$ {\em session}, \/  uint8\_\-t {\em timeout})}\label{ice_8h_a311677db280358ca9382ff67aaf77df1}
+Define the timeout between each keepalive packet in seconds.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \item[{\em timeout}]The duration of the keepalive timeout in seconds\end{DoxyParams}
+The default keepalive timeout is set to 15 seconds. \index{ice.h@{ice.h}!ice\_\-session\_\-nb\_\-check\_\-lists@{ice\_\-session\_\-nb\_\-check\_\-lists}}
+\index{ice\_\-session\_\-nb\_\-check\_\-lists@{ice\_\-session\_\-nb\_\-check\_\-lists}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-nb\_\-check\_\-lists}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC int ice\_\-session\_\-nb\_\-check\_\-lists ({\bf IceSession} $\ast$ {\em session})}\label{ice_8h_a569a6f16c8eda745afa6e70d3b2790c8}
+Get the number of check lists in an ICE session.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of check lists in the ICE session 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-session\_\-has\_\-completed\_\-check\_\-list@{ice\_\-session\_\-has\_\-completed\_\-check\_\-list}}
+\index{ice\_\-session\_\-has\_\-completed\_\-check\_\-list@{ice\_\-session\_\-has\_\-completed\_\-check\_\-list}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-has\_\-completed\_\-check\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC bool\_\-t ice\_\-session\_\-has\_\-completed\_\-check\_\-list (const {\bf IceSession} $\ast$ {\em session})}\label{ice_8h_a7158276d4cdc7d04985b17d489853ca3}
+Tell whether an ICE session has at least one completed check list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if the session has at least one completed check list, FALSE otherwise 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-session\_\-add\_\-check\_\-list@{ice\_\-session\_\-add\_\-check\_\-list}}
+\index{ice\_\-session\_\-add\_\-check\_\-list@{ice\_\-session\_\-add\_\-check\_\-list}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-add\_\-check\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-session\_\-add\_\-check\_\-list ({\bf IceSession} $\ast$ {\em session}, \/  {\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_ae3899b071d5d6b981ff85c7d42f91077}
+Add an ICE check list to an ICE session.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]The session that is assigned the check list \item[{\em cl}]The check list to assign to the session \end{DoxyParams}
+\index{ice.h@{ice.h}!ice\_\-session\_\-remove\_\-check\_\-list@{ice\_\-session\_\-remove\_\-check\_\-list}}
+\index{ice\_\-session\_\-remove\_\-check\_\-list@{ice\_\-session\_\-remove\_\-check\_\-list}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-remove\_\-check\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-session\_\-remove\_\-check\_\-list ({\bf IceSession} $\ast$ {\em session}, \/  {\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_a5f6f6ee4a6c62d2b98aa5292fca19a4e}
+Remove an ICE check list from an ICE session.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]The session from which to remove the check list \item[{\em cl}]The check list to remove from the session \end{DoxyParams}
+\index{ice.h@{ice.h}!ice\_\-session\_\-candidates\_\-gathered@{ice\_\-session\_\-candidates\_\-gathered}}
+\index{ice\_\-session\_\-candidates\_\-gathered@{ice\_\-session\_\-candidates\_\-gathered}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-candidates\_\-gathered}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC bool\_\-t ice\_\-session\_\-candidates\_\-gathered (const {\bf IceSession} $\ast$ {\em session})}\label{ice_8h_a491456a238fd3c3f449f761859bc7715}
+Tell whether ICE local candidates have been gathered for an ICE session or not.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if local candidates have been gathered for the session, FALSE otherwise. 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-session\_\-gather\_\-candidates@{ice\_\-session\_\-gather\_\-candidates}}
+\index{ice\_\-session\_\-gather\_\-candidates@{ice\_\-session\_\-gather\_\-candidates}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-gather\_\-candidates}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-session\_\-gather\_\-candidates ({\bf IceSession} $\ast$ {\em session}, \/  struct sockaddr\_\-storage {\em ss}, \/  socklen\_\-t {\em ss\_\-len})}\label{ice_8h_afdebcfc08fe5b3f3e1f4d13c6b4e9c74}
+Gather ICE local candidates for an ICE session.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \item[{\em ss}]The STUN server address \item[{\em ss\_\-len}]The length of the STUN server address \end{DoxyParams}
+\index{ice.h@{ice.h}!ice\_\-session\_\-gathering\_\-duration@{ice\_\-session\_\-gathering\_\-duration}}
+\index{ice\_\-session\_\-gathering\_\-duration@{ice\_\-session\_\-gathering\_\-duration}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-gathering\_\-duration}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC int ice\_\-session\_\-gathering\_\-duration ({\bf IceSession} $\ast$ {\em session})}\label{ice_8h_a3d781d1a8cecd63d03f4c1e0a8d98290}
+Tell the duration of the gathering process for an ICE session in ms.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if gathering has not been run, the duration of the gathering process in ms otherwise. 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-session\_\-average\_\-gathering\_\-round\_\-trip\_\-time@{ice\_\-session\_\-average\_\-gathering\_\-round\_\-trip\_\-time}}
+\index{ice\_\-session\_\-average\_\-gathering\_\-round\_\-trip\_\-time@{ice\_\-session\_\-average\_\-gathering\_\-round\_\-trip\_\-time}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-average\_\-gathering\_\-round\_\-trip\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC int ice\_\-session\_\-average\_\-gathering\_\-round\_\-trip\_\-time ({\bf IceSession} $\ast$ {\em session})}\label{ice_8h_a223ea251c33f6230ddc24d21999b5c70}
+Tell the average round trip time during the gathering process for an ICE session in ms.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if gathering has not been run, the average round trip time in ms otherwise. 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-session\_\-select\_\-candidates@{ice\_\-session\_\-select\_\-candidates}}
+\index{ice\_\-session\_\-select\_\-candidates@{ice\_\-session\_\-select\_\-candidates}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-select\_\-candidates}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-session\_\-select\_\-candidates ({\bf IceSession} $\ast$ {\em session})}\label{ice_8h_a856c2b3224e7c89bf1c7e9b3b77db5ee}
+Select ICE candidates that will be used and notified in the SDP.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session\end{DoxyParams}
+This function is to be used by the Controlling agent when ICE processing has finished. \index{ice.h@{ice.h}!ice\_\-session\_\-restart@{ice\_\-session\_\-restart}}
+\index{ice\_\-session\_\-restart@{ice\_\-session\_\-restart}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-restart}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-session\_\-restart ({\bf IceSession} $\ast$ {\em session})}\label{ice_8h_a5d9fc845d12499c52071635dee08f4fe}
+Restart an ICE session.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \end{DoxyParams}
+\index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-state@{ice\_\-check\_\-list\_\-state}}
+\index{ice\_\-check\_\-list\_\-state@{ice\_\-check\_\-list\_\-state}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC {\bf IceCheckListState} ice\_\-check\_\-list\_\-state (const {\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_ab89a2ab62613d60ef50d626fe03829ef}
+Get the state of an ICE check list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The check list state 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-set\_\-state@{ice\_\-check\_\-list\_\-set\_\-state}}
+\index{ice\_\-check\_\-list\_\-set\_\-state@{ice\_\-check\_\-list\_\-set\_\-state}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-set\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-check\_\-list\_\-set\_\-state ({\bf IceCheckList} $\ast$ {\em cl}, \/  {\bf IceCheckListState} {\em state})}\label{ice_8h_a2dac368dfee28fa0dddfc90e121aee0b}
+Set the state of an ICE check list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \item[{\em state}]The new state of the check list \end{DoxyParams}
+\index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-set\_\-rtp\_\-session@{ice\_\-check\_\-list\_\-set\_\-rtp\_\-session}}
+\index{ice\_\-check\_\-list\_\-set\_\-rtp\_\-session@{ice\_\-check\_\-list\_\-set\_\-rtp\_\-session}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-set\_\-rtp\_\-session}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-check\_\-list\_\-set\_\-rtp\_\-session ({\bf IceCheckList} $\ast$ {\em cl}, \/  RtpSession $\ast$ {\em rtp\_\-session})}\label{ice_8h_a4996a7e0c0796008bf0e44bb39fe7e30}
+Assign an RTP session to an ICE check list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \item[{\em rtp\_\-session}]A pointer to the RTP session to assign to the check list \end{DoxyParams}
+\index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-local\_\-ufrag@{ice\_\-check\_\-list\_\-local\_\-ufrag}}
+\index{ice\_\-check\_\-list\_\-local\_\-ufrag@{ice\_\-check\_\-list\_\-local\_\-ufrag}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-local\_\-ufrag}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC const char$\ast$ ice\_\-check\_\-list\_\-local\_\-ufrag (const {\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_a0d87394ac3cefaf15a645006aeaded0d}
+Get the local username fragment of an ICE check list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the local username fragment of the check list 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-local\_\-pwd@{ice\_\-check\_\-list\_\-local\_\-pwd}}
+\index{ice\_\-check\_\-list\_\-local\_\-pwd@{ice\_\-check\_\-list\_\-local\_\-pwd}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-local\_\-pwd}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC const char$\ast$ ice\_\-check\_\-list\_\-local\_\-pwd (const {\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_a04a43c9e02044d9b98a3cc76081f403c}
+Get the local password of an ICE check list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the local password of the check list 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-remote\_\-ufrag@{ice\_\-check\_\-list\_\-remote\_\-ufrag}}
+\index{ice\_\-check\_\-list\_\-remote\_\-ufrag@{ice\_\-check\_\-list\_\-remote\_\-ufrag}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-remote\_\-ufrag}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC const char$\ast$ ice\_\-check\_\-list\_\-remote\_\-ufrag (const {\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_a36ce589ee1a1afe1c6520ec6aa971252}
+Get the remote username fragment of an ICE check list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the remote username fragment of the check list 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-remote\_\-pwd@{ice\_\-check\_\-list\_\-remote\_\-pwd}}
+\index{ice\_\-check\_\-list\_\-remote\_\-pwd@{ice\_\-check\_\-list\_\-remote\_\-pwd}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-remote\_\-pwd}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC const char$\ast$ ice\_\-check\_\-list\_\-remote\_\-pwd (const {\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_a9c7a7ab49adaf73b82932c40ece83eb6}
+Get the remote password of an ICE check list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the remote password of the check list 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-is\_\-mismatch@{ice\_\-check\_\-list\_\-is\_\-mismatch}}
+\index{ice\_\-check\_\-list\_\-is\_\-mismatch@{ice\_\-check\_\-list\_\-is\_\-mismatch}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-is\_\-mismatch}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC bool\_\-t ice\_\-check\_\-list\_\-is\_\-mismatch (const {\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_a9ff201706c331160674f7a73b7f20c2e}
+Get the mismatch property of an ICE check list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if there was a mismatch for the check list, FALSE otherwise 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-remote\_\-credentials\_\-changed@{ice\_\-check\_\-list\_\-remote\_\-credentials\_\-changed}}
+\index{ice\_\-check\_\-list\_\-remote\_\-credentials\_\-changed@{ice\_\-check\_\-list\_\-remote\_\-credentials\_\-changed}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-remote\_\-credentials\_\-changed}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC bool\_\-t ice\_\-check\_\-list\_\-remote\_\-credentials\_\-changed ({\bf IceCheckList} $\ast$ {\em cl}, \/  const char $\ast$ {\em ufrag}, \/  const char $\ast$ {\em pwd})}\label{ice_8h_a6481710a1ee2e5b81c8c6592c6e2678b}
+Tell if remote credentials of an ICE check list have changed or not.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \item[{\em ufrag}]The new remote username fragment \item[{\em pwd}]The new remote password \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if the remote credentials of the check list have changed, FALSE otherwise. 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-set\_\-remote\_\-credentials@{ice\_\-check\_\-list\_\-set\_\-remote\_\-credentials}}
+\index{ice\_\-check\_\-list\_\-set\_\-remote\_\-credentials@{ice\_\-check\_\-list\_\-set\_\-remote\_\-credentials}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-set\_\-remote\_\-credentials}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-check\_\-list\_\-set\_\-remote\_\-credentials ({\bf IceCheckList} $\ast$ {\em cl}, \/  const char $\ast$ {\em ufrag}, \/  const char $\ast$ {\em pwd})}\label{ice_8h_af9b7df2518bad126556a73a23c515ccb}
+Set the remote credentials of an ICE check list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \item[{\em ufrag}]The remote username fragment \item[{\em pwd}]The remote password\end{DoxyParams}
+This function is to be called once the remote credentials have been received via SDP. \index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-default\_\-local\_\-candidate@{ice\_\-check\_\-list\_\-default\_\-local\_\-candidate}}
+\index{ice\_\-check\_\-list\_\-default\_\-local\_\-candidate@{ice\_\-check\_\-list\_\-default\_\-local\_\-candidate}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-default\_\-local\_\-candidate}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC bool\_\-t ice\_\-check\_\-list\_\-default\_\-local\_\-candidate (const {\bf IceCheckList} $\ast$ {\em cl}, \/  const char $\ast$$\ast$ {\em rtp\_\-addr}, \/  int $\ast$ {\em rtp\_\-port}, \/  const char $\ast$$\ast$ {\em rtcp\_\-addr}, \/  int $\ast$ {\em rtcp\_\-port})}\label{ice_8h_a516240af3315254ab43af323c96ea748}
+Get the default local candidate for an ICE check list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \item[{\em rtp\_\-addr}]A pointer to store the RTP address \item[{\em rtp\_\-port}]A pointer to store the RTP port \item[{\em rtcp\_\-addr}]A pointer to store the RTCP address \item[{\em rtcp\_\-port}]A pointer to store the RTCP port \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if the information have been successfully retrieved, FALSE otherwise 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-selected\_\-valid\_\-local\_\-candidate@{ice\_\-check\_\-list\_\-selected\_\-valid\_\-local\_\-candidate}}
+\index{ice\_\-check\_\-list\_\-selected\_\-valid\_\-local\_\-candidate@{ice\_\-check\_\-list\_\-selected\_\-valid\_\-local\_\-candidate}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-selected\_\-valid\_\-local\_\-candidate}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC bool\_\-t ice\_\-check\_\-list\_\-selected\_\-valid\_\-local\_\-candidate (const {\bf IceCheckList} $\ast$ {\em cl}, \/  const char $\ast$$\ast$ {\em rtp\_\-addr}, \/  int $\ast$ {\em rtp\_\-port}, \/  const char $\ast$$\ast$ {\em rtcp\_\-addr}, \/  int $\ast$ {\em rtcp\_\-port})}\label{ice_8h_a51ceccb0fde503d92b9e03c73e68d451}
+Get the selected valid local candidate for an ICE check list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \item[{\em rtp\_\-addr}]A pointer to store the RTP address \item[{\em rtp\_\-port}]A pointer to store the RTP port \item[{\em rtcp\_\-addr}]A pointer to store the RTCP address \item[{\em rtcp\_\-port}]A pointer to store the RTCP port \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if the information have been successfully retrieved, FALSE otherwise 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-selected\_\-valid\_\-remote\_\-candidate@{ice\_\-check\_\-list\_\-selected\_\-valid\_\-remote\_\-candidate}}
+\index{ice\_\-check\_\-list\_\-selected\_\-valid\_\-remote\_\-candidate@{ice\_\-check\_\-list\_\-selected\_\-valid\_\-remote\_\-candidate}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-selected\_\-valid\_\-remote\_\-candidate}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC bool\_\-t ice\_\-check\_\-list\_\-selected\_\-valid\_\-remote\_\-candidate (const {\bf IceCheckList} $\ast$ {\em cl}, \/  const char $\ast$$\ast$ {\em rtp\_\-addr}, \/  int $\ast$ {\em rtp\_\-port}, \/  const char $\ast$$\ast$ {\em rtcp\_\-addr}, \/  int $\ast$ {\em rtcp\_\-port})}\label{ice_8h_aebabd03f884b4a804be77dba0c254d6c}
+Get the selected valid remote candidate for an ICE check list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \item[{\em rtp\_\-addr}]A pointer to store the RTP address \item[{\em rtp\_\-port}]A pointer to store the RTP port \item[{\em rtcp\_\-addr}]A pointer to store the RTCP address \item[{\em rtcp\_\-port}]A pointer to store the RTCP port \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if the information have been successfully retrieved, FALSE otherwise 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-selected\_\-valid\_\-candidate\_\-type@{ice\_\-check\_\-list\_\-selected\_\-valid\_\-candidate\_\-type}}
+\index{ice\_\-check\_\-list\_\-selected\_\-valid\_\-candidate\_\-type@{ice\_\-check\_\-list\_\-selected\_\-valid\_\-candidate\_\-type}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-selected\_\-valid\_\-candidate\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC {\bf IceCandidateType} ice\_\-check\_\-list\_\-selected\_\-valid\_\-candidate\_\-type (const {\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_a36c7cdc380d1a96a2c174d2e5cb97a20}
+Get the type of the selected valid candidate for an ICE check list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The type of the selected valid candidate 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-check\_\-completed@{ice\_\-check\_\-list\_\-check\_\-completed}}
+\index{ice\_\-check\_\-list\_\-check\_\-completed@{ice\_\-check\_\-list\_\-check\_\-completed}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-check\_\-completed}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-check\_\-list\_\-check\_\-completed ({\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_a7e8d03df465438b349bbf25bfc6f818f}
+Check if an ICE check list can be set in the Completed state after handling losing pairs.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \end{DoxyParams}
+\index{ice.h@{ice.h}!ice\_\-candidate\_\-type@{ice\_\-candidate\_\-type}}
+\index{ice\_\-candidate\_\-type@{ice\_\-candidate\_\-type}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-candidate\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC const char$\ast$ ice\_\-candidate\_\-type (const {\bf IceCandidate} $\ast$ {\em candidate})}\label{ice_8h_ac9c7d48af4ce62583a86b5f17b7a6747}
+Get the candidate type as a string.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em candidate}]A pointer to a candidate \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the candidate type as a string 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-add\_\-local\_\-candidate@{ice\_\-add\_\-local\_\-candidate}}
+\index{ice\_\-add\_\-local\_\-candidate@{ice\_\-add\_\-local\_\-candidate}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-add\_\-local\_\-candidate}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC {\bf IceCandidate}$\ast$ ice\_\-add\_\-local\_\-candidate ({\bf IceCheckList} $\ast$ {\em cl}, \/  const char $\ast$ {\em type}, \/  const char $\ast$ {\em ip}, \/  int {\em port}, \/  uint16\_\-t {\em componentID}, \/  {\bf IceCandidate} $\ast$ {\em base})}\label{ice_8h_ab0bf539c591c7e94428908c3e5186d5f}
+Add a local candidate to an ICE check list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \item[{\em type}]The type of the local candidate to add as a string (must be one of: \char`\"{}host\char`\"{}, \char`\"{}srflx\char`\"{}, \char`\"{}prflx\char`\"{} or \char`\"{}relay\char`\"{}) \item[{\em ip}]The IP address of the local candidate as a string (eg. 192.168.0.10) \item[{\em port}]The port of the local candidate \item[{\em componentID}]The component ID of the local candidate (usually 1 for RTP and 2 for RTCP) \item[{\em base}]A pointer to the base candidate of the candidate to add.\end{DoxyParams}
+This function is to be called when gathering local candidates. \index{ice.h@{ice.h}!ice\_\-add\_\-remote\_\-candidate@{ice\_\-add\_\-remote\_\-candidate}}
+\index{ice\_\-add\_\-remote\_\-candidate@{ice\_\-add\_\-remote\_\-candidate}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-add\_\-remote\_\-candidate}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC {\bf IceCandidate}$\ast$ ice\_\-add\_\-remote\_\-candidate ({\bf IceCheckList} $\ast$ {\em cl}, \/  const char $\ast$ {\em type}, \/  const char $\ast$ {\em ip}, \/  int {\em port}, \/  uint16\_\-t {\em componentID}, \/  uint32\_\-t {\em priority}, \/  const char $\ast$const  {\em foundation}, \/  bool\_\-t {\em is\_\-default})}\label{ice_8h_a261748aad78c45dcaf6afd573d84df15}
+Add a remote candidate to an ICE check list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \item[{\em type}]The type of the remote candidate to add as a string (must be one of: \char`\"{}host\char`\"{}, \char`\"{}srflx\char`\"{}, \char`\"{}prflx\char`\"{} or \char`\"{}relay\char`\"{}) \item[{\em ip}]The IP address of the remote candidate as a string (eg. 192.168.0.10) \item[{\em port}]The port of the remote candidate \item[{\em componentID}]The component ID of the remote candidate (usually 1 for RTP and 2 for RTCP) \item[{\em priority}]The priority of the remote candidate \item[{\em foundation}]The foundation of the remote candidate \item[{\em is\_\-default}]Boolean value telling whether the remote candidate is a default candidate or not\end{DoxyParams}
+This function is to be called once the remote candidate list has been received via SDP. \index{ice.h@{ice.h}!ice\_\-add\_\-losing\_\-pair@{ice\_\-add\_\-losing\_\-pair}}
+\index{ice\_\-add\_\-losing\_\-pair@{ice\_\-add\_\-losing\_\-pair}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-add\_\-losing\_\-pair}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-add\_\-losing\_\-pair ({\bf IceCheckList} $\ast$ {\em cl}, \/  uint16\_\-t {\em componentID}, \/  const char $\ast$ {\em local\_\-addr}, \/  int {\em local\_\-port}, \/  const char $\ast$ {\em remote\_\-addr}, \/  int {\em remote\_\-port})}\label{ice_8h_a4db0cbe935cfcafeb52623499df205c8}
+Add a losing pair to an ICE check list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \item[{\em componentID}]The component ID of the candidates of the pair to add \item[{\em local\_\-addr}]The address of the local candidate of the pair to add \item[{\em local\_\-port}]The port of the local candidate of the pair to add \item[{\em remote\_\-addr}]The address of the remote candidate of the pair to add \item[{\em remote\_\-port}]The port of the remote candidate of the pair to add\end{DoxyParams}
+This function is to be called when a RE-\/INVITE with an SDP containing a remote-\/candidates attribute is received. \index{ice.h@{ice.h}!ice\_\-session\_\-nb\_\-losing\_\-pairs@{ice\_\-session\_\-nb\_\-losing\_\-pairs}}
+\index{ice\_\-session\_\-nb\_\-losing\_\-pairs@{ice\_\-session\_\-nb\_\-losing\_\-pairs}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-nb\_\-losing\_\-pairs}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC int ice\_\-session\_\-nb\_\-losing\_\-pairs (const {\bf IceSession} $\ast$ {\em session})}\label{ice_8h_a9e435af4b8c9dec5ac1cd4f2e4bbc966}
+Get the number of losing candidate pairs for an ICE session.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of losing candidate pairs for the session. 
+\end{DoxyReturn}
+\index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-unselect\_\-valid\_\-pairs@{ice\_\-check\_\-list\_\-unselect\_\-valid\_\-pairs}}
+\index{ice\_\-check\_\-list\_\-unselect\_\-valid\_\-pairs@{ice\_\-check\_\-list\_\-unselect\_\-valid\_\-pairs}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-unselect\_\-valid\_\-pairs}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-check\_\-list\_\-unselect\_\-valid\_\-pairs ({\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_a1bd449f8a33c5a1ff078ae4db034a5eb}
+Unselect the previously selected valid pairs.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list\end{DoxyParams}
+This function is to be used to use the pairs given by the remote controlling agent instead of the pairs we found ourselves. \index{ice.h@{ice.h}!ice\_\-session\_\-set\_\-base\_\-for\_\-srflx\_\-candidates@{ice\_\-session\_\-set\_\-base\_\-for\_\-srflx\_\-candidates}}
+\index{ice\_\-session\_\-set\_\-base\_\-for\_\-srflx\_\-candidates@{ice\_\-session\_\-set\_\-base\_\-for\_\-srflx\_\-candidates}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-set\_\-base\_\-for\_\-srflx\_\-candidates}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-session\_\-set\_\-base\_\-for\_\-srflx\_\-candidates ({\bf IceSession} $\ast$ {\em session})}\label{ice_8h_ad883099e44e1154d72395f425d114ddf}
+Set the base for the local server reflexive candidates of an ICE session.
+
+This function SHOULD not be used. However, it is used by mediastream for testing purpose to work around the fact that it does not use candidates gathering. It is to be called automatically when the gathering process finishes. \index{ice.h@{ice.h}!ice\_\-session\_\-compute\_\-candidates\_\-foundations@{ice\_\-session\_\-compute\_\-candidates\_\-foundations}}
+\index{ice\_\-session\_\-compute\_\-candidates\_\-foundations@{ice\_\-session\_\-compute\_\-candidates\_\-foundations}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-compute\_\-candidates\_\-foundations}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-session\_\-compute\_\-candidates\_\-foundations ({\bf IceSession} $\ast$ {\em session})}\label{ice_8h_a6a9da88d6e09d2c5ce334f12330f5bec}
+Compute the foundations of the local candidates of an ICE session.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session\end{DoxyParams}
+This function is to be called at the end of the local candidates gathering process, before sending the SDP to the remote agent. \index{ice.h@{ice.h}!ice\_\-session\_\-eliminate\_\-redundant\_\-candidates@{ice\_\-session\_\-eliminate\_\-redundant\_\-candidates}}
+\index{ice\_\-session\_\-eliminate\_\-redundant\_\-candidates@{ice\_\-session\_\-eliminate\_\-redundant\_\-candidates}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-eliminate\_\-redundant\_\-candidates}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-session\_\-eliminate\_\-redundant\_\-candidates ({\bf IceSession} $\ast$ {\em session})}\label{ice_8h_a0137f74795396388176932741eedbfb0}
+Eliminate the redundant candidates of an ICE session.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session\end{DoxyParams}
+This function is to be called at the end of the local candidates gathering process, before sending the SDP to the remote agent. \index{ice.h@{ice.h}!ice\_\-session\_\-choose\_\-default\_\-candidates@{ice\_\-session\_\-choose\_\-default\_\-candidates}}
+\index{ice\_\-session\_\-choose\_\-default\_\-candidates@{ice\_\-session\_\-choose\_\-default\_\-candidates}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-choose\_\-default\_\-candidates}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-session\_\-choose\_\-default\_\-candidates ({\bf IceSession} $\ast$ {\em session})}\label{ice_8h_a5cdc4e986ad3ef3834952756b6e6a5ce}
+Choose the default candidates of an ICE session.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session\end{DoxyParams}
+This function is to be called at the end of the local candidates gathering process, before sending the SDP to the remote agent. \index{ice.h@{ice.h}!ice\_\-session\_\-choose\_\-default\_\-remote\_\-candidates@{ice\_\-session\_\-choose\_\-default\_\-remote\_\-candidates}}
+\index{ice\_\-session\_\-choose\_\-default\_\-remote\_\-candidates@{ice\_\-session\_\-choose\_\-default\_\-remote\_\-candidates}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-choose\_\-default\_\-remote\_\-candidates}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-session\_\-choose\_\-default\_\-remote\_\-candidates ({\bf IceSession} $\ast$ {\em session})}\label{ice_8h_a170d02620b0fac990de32c577b6e9f3f}
+Choose the default remote candidates of an ICE session.
+
+This function SHOULD not be used. Instead, the default remote candidates MUST be defined as default when creating them with \doxyref{ice\_\-add\_\-remote\_\-candidate()}{p.}{ice_8h_a261748aad78c45dcaf6afd573d84df15}. However, this function is used by mediastream for testing purpose. \index{ice.h@{ice.h}!ice\_\-session\_\-start\_\-connectivity\_\-checks@{ice\_\-session\_\-start\_\-connectivity\_\-checks}}
+\index{ice\_\-session\_\-start\_\-connectivity\_\-checks@{ice\_\-session\_\-start\_\-connectivity\_\-checks}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-start\_\-connectivity\_\-checks}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-session\_\-start\_\-connectivity\_\-checks ({\bf IceSession} $\ast$ {\em session})}\label{ice_8h_ab980f39f56c22d116a3280ccfc5ac674}
+Pair the local and the remote candidates for an ICE session and start sending connectivity checks.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \end{DoxyParams}
+\index{ice.h@{ice.h}!ice\_\-session\_\-check\_\-mismatch@{ice\_\-session\_\-check\_\-mismatch}}
+\index{ice\_\-session\_\-check\_\-mismatch@{ice\_\-session\_\-check\_\-mismatch}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-session\_\-check\_\-mismatch}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-session\_\-check\_\-mismatch ({\bf IceSession} $\ast$ {\em session})}\label{ice_8h_a491d837c1db2c19e13f2fd91b0a34c64}
+Check whether all the ICE check lists of the session includes a default candidate for each component ID in its remote candidates list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em session}]A pointer to a session \end{DoxyParams}
+\index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-process@{ice\_\-check\_\-list\_\-process}}
+\index{ice\_\-check\_\-list\_\-process@{ice\_\-check\_\-list\_\-process}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-process}]{\setlength{\rightskip}{0pt plus 5cm}void ice\_\-check\_\-list\_\-process ({\bf IceCheckList} $\ast$ {\em cl}, \/  RtpSession $\ast$ {\em rtp\_\-session})}\label{ice_8h_aab2ceff5f936e95feb8505e85605bf88}
+Core ICE check list processing.
+
+This function is called from the audiostream or the videostream and is NOT to be called by the user. \index{ice.h@{ice.h}!ice\_\-handle\_\-stun\_\-packet@{ice\_\-handle\_\-stun\_\-packet}}
+\index{ice\_\-handle\_\-stun\_\-packet@{ice\_\-handle\_\-stun\_\-packet}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-handle\_\-stun\_\-packet}]{\setlength{\rightskip}{0pt plus 5cm}void ice\_\-handle\_\-stun\_\-packet ({\bf IceCheckList} $\ast$ {\em cl}, \/  RtpSession $\ast$ {\em rtp\_\-session}, \/  const OrtpEventData $\ast$ {\em evt\_\-data})}\label{ice_8h_a213e4a22ddbdaf31514142630eac173a}
+Handle a STUN packet that has been received.
+
+This function is called from the audiostream or the videostream and is NOT to be called by the user. \index{ice.h@{ice.h}!ice\_\-get\_\-remote\_\-addr\_\-and\_\-ports\_\-from\_\-valid\_\-pairs@{ice\_\-get\_\-remote\_\-addr\_\-and\_\-ports\_\-from\_\-valid\_\-pairs}}
+\index{ice\_\-get\_\-remote\_\-addr\_\-and\_\-ports\_\-from\_\-valid\_\-pairs@{ice\_\-get\_\-remote\_\-addr\_\-and\_\-ports\_\-from\_\-valid\_\-pairs}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-get\_\-remote\_\-addr\_\-and\_\-ports\_\-from\_\-valid\_\-pairs}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-get\_\-remote\_\-addr\_\-and\_\-ports\_\-from\_\-valid\_\-pairs (const {\bf IceCheckList} $\ast$ {\em cl}, \/  char $\ast$ {\em rtp\_\-addr}, \/  int $\ast$ {\em rtp\_\-port}, \/  char $\ast$ {\em rtcp\_\-addr}, \/  int $\ast$ {\em rtcp\_\-port}, \/  int {\em addr\_\-len})}\label{ice_8h_a28b7e57439057ccb531c3355e9aa5559}
+Get the remote address, RTP port and RTCP port to use to send the stream once the ICE process has finished successfully.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \item[{\em rtp\_\-addr}]A pointer to the buffer to use to store the remote RTP address \item[{\em rtp\_\-port}]A pointer to the location to store the RTP port to \item[{\em rtcp\_\-aadr}]A pointer to the buffer to use to store the remote RTCP address \item[{\em rtcp\_\-port}]A pointer to the location to store the RTCP port to \item[{\em addr\_\-len}]The size of the buffer to use to store the remote addresses\end{DoxyParams}
+This function will usually be called from within the success callback defined while creating the ICE check list with \doxyref{ice\_\-check\_\-list\_\-new()}{p.}{ice_8h_a1b86edf5373f379150c19cd53a7c5b8f}. \index{ice.h@{ice.h}!ice\_\-check\_\-list\_\-print\_\-route@{ice\_\-check\_\-list\_\-print\_\-route}}
+\index{ice\_\-check\_\-list\_\-print\_\-route@{ice\_\-check\_\-list\_\-print\_\-route}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-check\_\-list\_\-print\_\-route}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-check\_\-list\_\-print\_\-route (const {\bf IceCheckList} $\ast$ {\em cl}, \/  const char $\ast$ {\em message})}\label{ice_8h_a47e2053f969bb7a62ccd5e8647e14cab}
+Print the route used to send the stream if the ICE process has finished successfully.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cl}]A pointer to a check list \item[{\em message}]A message to print before the route \end{DoxyParams}
+\index{ice.h@{ice.h}!ice\_\-dump\_\-session@{ice\_\-dump\_\-session}}
+\index{ice\_\-dump\_\-session@{ice\_\-dump\_\-session}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-dump\_\-session}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-dump\_\-session (const {\bf IceSession} $\ast$ {\em session})}\label{ice_8h_aba6dce3a3da1aa82de932cd7f739ca91}
+Dump an ICE session in the traces (debug function). \index{ice.h@{ice.h}!ice\_\-dump\_\-candidates@{ice\_\-dump\_\-candidates}}
+\index{ice\_\-dump\_\-candidates@{ice\_\-dump\_\-candidates}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-dump\_\-candidates}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-dump\_\-candidates (const {\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_a8b197b9247d95701b7d9f68aa46e1ebf}
+Dump the candidates of an ICE check list in the traces (debug function). \index{ice.h@{ice.h}!ice\_\-dump\_\-candidate\_\-pairs@{ice\_\-dump\_\-candidate\_\-pairs}}
+\index{ice\_\-dump\_\-candidate\_\-pairs@{ice\_\-dump\_\-candidate\_\-pairs}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-dump\_\-candidate\_\-pairs}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-dump\_\-candidate\_\-pairs (const {\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_aecd152834ad93c019c8d600d5fad7477}
+Dump the candidate pairs of an ICE check list in the traces (debug function). \index{ice.h@{ice.h}!ice\_\-dump\_\-valid\_\-list@{ice\_\-dump\_\-valid\_\-list}}
+\index{ice\_\-dump\_\-valid\_\-list@{ice\_\-dump\_\-valid\_\-list}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-dump\_\-valid\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-dump\_\-valid\_\-list (const {\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_a558d490e2b7502f50bb6d111309df1b7}
+Dump the valid list of an ICE check list in the traces (debug function). \index{ice.h@{ice.h}!ice\_\-dump\_\-candidate\_\-pairs\_\-foundations@{ice\_\-dump\_\-candidate\_\-pairs\_\-foundations}}
+\index{ice\_\-dump\_\-candidate\_\-pairs\_\-foundations@{ice\_\-dump\_\-candidate\_\-pairs\_\-foundations}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-dump\_\-candidate\_\-pairs\_\-foundations}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-dump\_\-candidate\_\-pairs\_\-foundations (const {\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_a6352a7e46d57f24bc9b6795d4011de98}
+Dump the list of candidate pair foundations of an ICE check list in the traces (debug function). \index{ice.h@{ice.h}!ice\_\-dump\_\-componentIDs@{ice\_\-dump\_\-componentIDs}}
+\index{ice\_\-dump\_\-componentIDs@{ice\_\-dump\_\-componentIDs}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-dump\_\-componentIDs}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-dump\_\-componentIDs (const {\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_a30e7b3357b9ca9a6097b8eb35cd084e2}
+Dump the list of component IDs of an ICE check list in the traces (debug function). \index{ice.h@{ice.h}!ice\_\-dump\_\-check\_\-list@{ice\_\-dump\_\-check\_\-list}}
+\index{ice\_\-dump\_\-check\_\-list@{ice\_\-dump\_\-check\_\-list}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-dump\_\-check\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-dump\_\-check\_\-list (const {\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_ac446509c5729bbd173312c31556d010a}
+Dump an ICE check list in the traces (debug function). \index{ice.h@{ice.h}!ice\_\-dump\_\-triggered\_\-checks\_\-queue@{ice\_\-dump\_\-triggered\_\-checks\_\-queue}}
+\index{ice\_\-dump\_\-triggered\_\-checks\_\-queue@{ice\_\-dump\_\-triggered\_\-checks\_\-queue}!ice.h@{ice.h}}
+\subsubsection[{ice\_\-dump\_\-triggered\_\-checks\_\-queue}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void ice\_\-dump\_\-triggered\_\-checks\_\-queue (const {\bf IceCheckList} $\ast$ {\em cl})}\label{ice_8h_a80d70e05e4c06b4596e4f9b2682166c2}
+Dump the triggered checks queue of an ICE check list in the traces (debug function). 

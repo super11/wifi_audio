@@ -1,0 +1,33 @@
+.TH "_IcePairFoundation" 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_IcePairFoundation \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ice.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "char \fBlocal\fP [32]"
+.br
+.ti -1c
+.RI "char \fBremote\fP [32]"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Structure representing the foundation of an ICE candidate pair.
+.PP
+It is the concatenation of the foundation of a local candidate and the foundation of a remote candidate. 
+.SH "Field Documentation"
+.PP 
+.SS "char \fB_IcePairFoundation::local\fP[32]"Foundation of the local candidate 
+.SS "char \fB_IcePairFoundation::remote\fP[32]"Foundation of the remote candidate 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

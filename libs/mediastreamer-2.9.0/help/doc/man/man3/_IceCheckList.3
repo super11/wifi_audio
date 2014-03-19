@@ -1,0 +1,129 @@
+.TH "_IceCheckList" 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_IceCheckList \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ice.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBIceSession\fP * \fBsession\fP"
+.br
+.ti -1c
+.RI "RtpSession * \fBrtp_session\fP"
+.br
+.ti -1c
+.RI "char * \fBremote_ufrag\fP"
+.br
+.ti -1c
+.RI "char * \fBremote_pwd\fP"
+.br
+.ti -1c
+.RI "MSList * \fBstun_server_checks\fP"
+.br
+.ti -1c
+.RI "MSList * \fBlocal_candidates\fP"
+.br
+.ti -1c
+.RI "MSList * \fBremote_candidates\fP"
+.br
+.ti -1c
+.RI "MSList * \fBpairs\fP"
+.br
+.ti -1c
+.RI "MSList * \fBlosing_pairs\fP"
+.br
+.ti -1c
+.RI "MSList * \fBtriggered_checks_queue\fP"
+.br
+.ti -1c
+.RI "MSList * \fBcheck_list\fP"
+.br
+.ti -1c
+.RI "MSList * \fBvalid_list\fP"
+.br
+.ti -1c
+.RI "MSList * \fBfoundations\fP"
+.br
+.ti -1c
+.RI "MSList * \fBlocal_componentIDs\fP"
+.br
+.ti -1c
+.RI "MSList * \fBremote_componentIDs\fP"
+.br
+.ti -1c
+.RI "MSList * \fBtransaction_list\fP"
+.br
+.ti -1c
+.RI "\fBIceCheckListState\fP \fBstate\fP"
+.br
+.ti -1c
+.RI "MSTimeSpec \fBta_time\fP"
+.br
+.ti -1c
+.RI "MSTimeSpec \fBkeepalive_time\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBfoundation_generator\fP"
+.br
+.ti -1c
+.RI "bool_t \fBmismatch\fP"
+.br
+.ti -1c
+.RI "bool_t \fBgathering_candidates\fP"
+.br
+.ti -1c
+.RI "bool_t \fBgathering_finished\fP"
+.br
+.ti -1c
+.RI "bool_t \fBnomination_delay_running\fP"
+.br
+.ti -1c
+.RI "MSTimeSpec \fBgathering_start_time\fP"
+.br
+.ti -1c
+.RI "MSTimeSpec \fBnomination_delay_start_time\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Structure representing an ICE check list.
+.PP
+Each media stream must be assigned a check list. Check lists are added to an ICE session using the \fBice_session_add_check_list()\fP function. 
+.SH "Field Documentation"
+.PP 
+.SS "\fBIceSession\fP* \fB_IceCheckList::session\fP"Pointer to the ICE session 
+.SS "RtpSession* \fB_IceCheckList::rtp_session\fP"Pointer to the RTP session associated with this ICE check list 
+.SS "char* \fB_IceCheckList::remote_ufrag\fP"Remote username fragment for this check list (provided via SDP by the peer) 
+.SS "char* \fB_IceCheckList::remote_pwd\fP"Remote password for this check list (provided via SDP by the peer) 
+.SS "MSList* \fB_IceCheckList::stun_server_checks\fP"List of IceStunServerCheck structures 
+.SS "MSList* \fB_IceCheckList::local_candidates\fP"List of IceCandidate structures 
+.SS "MSList* \fB_IceCheckList::remote_candidates\fP"List of IceCandidate structures 
+.SS "MSList* \fB_IceCheckList::pairs\fP"List of IceCandidatePair structures 
+.SS "MSList* \fB_IceCheckList::losing_pairs\fP"List of IceCandidatePair structures 
+.SS "MSList* \fB_IceCheckList::triggered_checks_queue\fP"List of IceCandidatePair structures 
+.SS "MSList* \fB_IceCheckList::check_list\fP"List of IceCandidatePair structures 
+.SS "MSList* \fB_IceCheckList::valid_list\fP"List of IceValidCandidatePair structures 
+.SS "MSList* \fB_IceCheckList::foundations\fP"List of IcePairFoundation structures 
+.SS "MSList* \fB_IceCheckList::local_componentIDs\fP"List of uint16_t 
+.SS "MSList* \fB_IceCheckList::remote_componentIDs\fP"List of uint16_t 
+.SS "MSList* \fB_IceCheckList::transaction_list\fP"List of IceTransaction structures 
+.SS "\fBIceCheckListState\fP \fB_IceCheckList::state\fP"Global state of the ICE check list 
+.SS "MSTimeSpec \fB_IceCheckList::ta_time\fP"Time when the Ta timer has been processed for the last time 
+.SS "MSTimeSpec \fB_IceCheckList::keepalive_time\fP"Time when the last keepalive packet has been sent for this stream 
+.SS "uint32_t \fB_IceCheckList::foundation_generator\fP"Autoincremented integer to generate unique foundation values 
+.SS "bool_t \fB_IceCheckList::mismatch\fP"Boolean value telling whether there was a mismatch during the answer/offer process 
+.SS "bool_t \fB_IceCheckList::gathering_candidates\fP"Boolean value telling whether a candidate gathering process is running or not 
+.SS "bool_t \fB_IceCheckList::gathering_finished\fP"Boolean value telling whether the candidate gathering process has finished or not 
+.SS "bool_t \fB_IceCheckList::nomination_delay_running\fP"Boolean value telling whether the nomination process has been delayed or not 
+.SS "MSTimeSpec \fB_IceCheckList::gathering_start_time\fP"Time when the gathering process was started 
+.SS "MSTimeSpec \fB_IceCheckList::nomination_delay_start_time\fP"Time when the nomination process has been delayed 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

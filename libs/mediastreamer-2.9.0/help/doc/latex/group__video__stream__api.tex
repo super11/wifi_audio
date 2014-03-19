@@ -1,0 +1,40 @@
+\section{Video streaming API -\/ Create and run video streams.}
+\label{group__video__stream__api}\index{Video streaming API -\/ Create and run video streams.@{Video streaming API -\/ Create and run video streams.}}
+
+
+Video streaming API -\/ Easily run video streams from camera capture or static picture files to RTP.  
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef VideoStream {\bf VideoPreview}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+MS2\_\-PUBLIC int {\bf video\_\-stream\_\-get\_\-camera\_\-sensor\_\-rotation} (VideoStream $\ast$stream)
+\begin{DoxyCompactList}\small\item\em Gets the camera sensor rotation. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Video streaming API -\/ Easily run video streams from camera capture or static picture files to RTP. 
+
+\subsection{Typedef Documentation}
+\index{video\_\-stream\_\-api@{video\_\-stream\_\-api}!VideoPreview@{VideoPreview}}
+\index{VideoPreview@{VideoPreview}!video_stream_api@{video\_\-stream\_\-api}}
+\subsubsection[{VideoPreview}]{\setlength{\rightskip}{0pt plus 5cm}typedef VideoStream {\bf VideoPreview}}\label{group__video__stream__api_ga305d6ba6aa486545212ced06855c467a}
+Small API to display a local preview window. 
+
+\subsection{Function Documentation}
+\index{video\_\-stream\_\-api@{video\_\-stream\_\-api}!video\_\-stream\_\-get\_\-camera\_\-sensor\_\-rotation@{video\_\-stream\_\-get\_\-camera\_\-sensor\_\-rotation}}
+\index{video\_\-stream\_\-get\_\-camera\_\-sensor\_\-rotation@{video\_\-stream\_\-get\_\-camera\_\-sensor\_\-rotation}!video_stream_api@{video\_\-stream\_\-api}}
+\subsubsection[{video\_\-stream\_\-get\_\-camera\_\-sensor\_\-rotation}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC int video\_\-stream\_\-get\_\-camera\_\-sensor\_\-rotation (VideoStream $\ast$ {\em stream})}\label{group__video__stream__api_gaf25cfc554090527e3033e9da4ef8b77f}
+
+
+Gets the camera sensor rotation. This is needed on some mobile platforms to get the number of degrees the camera sensor is rotated relative to the screen.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em stream}]The video stream related to the operation \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The camera sensor rotation in degrees (0 to 360) or -\/1 if it could not be retrieved 
+\end{DoxyReturn}

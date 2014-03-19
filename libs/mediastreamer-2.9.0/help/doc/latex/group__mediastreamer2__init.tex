@@ -1,0 +1,101 @@
+\section{Starting mediastreamer2 library}
+\label{group__mediastreamer2__init}\index{Starting mediastreamer2 library@{Starting mediastreamer2 library}}
+
+
+Starting mediastreamer2 library.  
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf ms\_\-init}()~ms\_\-base\_\-init(), ms\_\-voip\_\-init(), ms\_\-plugins\_\-init()
+\item 
+\#define {\bf ms\_\-exit}()~ms\_\-voip\_\-exit(), ms\_\-base\_\-exit()
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf ms\_\-base\_\-init} (void)
+\item 
+void {\bf ms\_\-voip\_\-init} (void)
+\item 
+void {\bf ms\_\-plugins\_\-init} (void)
+\item 
+int {\bf ms\_\-load\_\-plugins} (const char $\ast$directory)
+\item 
+void {\bf ms\_\-base\_\-exit} (void)
+\item 
+void {\bf ms\_\-voip\_\-exit} (void)
+\item 
+int {\bf ms\_\-get\_\-payload\_\-max\_\-size} ()
+\item 
+int {\bf ms\_\-discover\_\-mtu} (const char $\ast$destination\_\-host)
+\item 
+void {\bf ms\_\-set\_\-mtu} (int mtu)
+\item 
+int {\bf ms\_\-get\_\-mtu} (void)
+\item 
+void {\bf ms\_\-set\_\-cpu\_\-count} (unsigned int c)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Starting mediastreamer2 library. 
+
+\subsection{Define Documentation}
+\index{mediastreamer2\_\-init@{mediastreamer2\_\-init}!ms\_\-init@{ms\_\-init}}
+\index{ms\_\-init@{ms\_\-init}!mediastreamer2_init@{mediastreamer2\_\-init}}
+\subsubsection[{ms\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}\#define ms\_\-init()~ms\_\-base\_\-init(), ms\_\-voip\_\-init(), ms\_\-plugins\_\-init()}\label{group__mediastreamer2__init_ga49838cffa093bdcdb1abfb4a78f3f3d7}
+Helper macro for backward compatibility. Use \doxyref{ms\_\-base\_\-init()}{p.}{group__mediastreamer2__init_gad56c2d6f1f1c173f937677d3b4d952b4} and \doxyref{ms\_\-voip\_\-init()}{p.}{group__mediastreamer2__init_ga61ef9eeacacbaec10323cee19e5a4cce} instead. \index{mediastreamer2\_\-init@{mediastreamer2\_\-init}!ms\_\-exit@{ms\_\-exit}}
+\index{ms\_\-exit@{ms\_\-exit}!mediastreamer2_init@{mediastreamer2\_\-init}}
+\subsubsection[{ms\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}\#define ms\_\-exit()~ms\_\-voip\_\-exit(), ms\_\-base\_\-exit()}\label{group__mediastreamer2__init_gaca8e8a912d44890203b694e77653fddd}
+Helper macro for backward compatibility. Use \doxyref{ms\_\-base\_\-exit()}{p.}{group__mediastreamer2__init_ga3011234954ccc3228f00ad39371fd658} and \doxyref{ms\_\-voip\_\-exit()}{p.}{group__mediastreamer2__init_ga2d88845fc364e261154e9760eff4e9f6} instead. 
+
+\subsection{Function Documentation}
+\index{mediastreamer2\_\-init@{mediastreamer2\_\-init}!ms\_\-base\_\-init@{ms\_\-base\_\-init}}
+\index{ms\_\-base\_\-init@{ms\_\-base\_\-init}!mediastreamer2_init@{mediastreamer2\_\-init}}
+\subsubsection[{ms\_\-base\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-base\_\-init (void)}\label{group__mediastreamer2__init_gad56c2d6f1f1c173f937677d3b4d952b4}
+Initialize the mediastreamer2 base library.
+
+This must be called once before calling any other API. \index{mediastreamer2\_\-init@{mediastreamer2\_\-init}!ms\_\-voip\_\-init@{ms\_\-voip\_\-init}}
+\index{ms\_\-voip\_\-init@{ms\_\-voip\_\-init}!mediastreamer2_init@{mediastreamer2\_\-init}}
+\subsubsection[{ms\_\-voip\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-voip\_\-init (void)}\label{group__mediastreamer2__init_ga61ef9eeacacbaec10323cee19e5a4cce}
+Initialize the mediastreamer2 VoIP library.
+
+This must be called one before calling any other API. \index{mediastreamer2\_\-init@{mediastreamer2\_\-init}!ms\_\-plugins\_\-init@{ms\_\-plugins\_\-init}}
+\index{ms\_\-plugins\_\-init@{ms\_\-plugins\_\-init}!mediastreamer2_init@{mediastreamer2\_\-init}}
+\subsubsection[{ms\_\-plugins\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-plugins\_\-init (void)}\label{group__mediastreamer2__init_ga1d8b5f43fb3d17d4e7ec874ac24c5d53}
+Load the plugins from the default plugin directory.
+
+This is just a wrapper around \doxyref{ms\_\-load\_\-plugins()}{p.}{group__mediastreamer2__init_gab09ceb0032c3befd3796ec913720d62c}. This must be called after \doxyref{ms\_\-base\_\-init()}{p.}{group__mediastreamer2__init_gad56c2d6f1f1c173f937677d3b4d952b4} and after \doxyref{ms\_\-voip\_\-init()}{p.}{group__mediastreamer2__init_ga61ef9eeacacbaec10323cee19e5a4cce}. \index{mediastreamer2\_\-init@{mediastreamer2\_\-init}!ms\_\-load\_\-plugins@{ms\_\-load\_\-plugins}}
+\index{ms\_\-load\_\-plugins@{ms\_\-load\_\-plugins}!mediastreamer2_init@{mediastreamer2\_\-init}}
+\subsubsection[{ms\_\-load\_\-plugins}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-load\_\-plugins (const char $\ast$ {\em directory})}\label{group__mediastreamer2__init_gab09ceb0032c3befd3796ec913720d62c}
+Load plugins from a specific directory. This method basically loads all libraries in the specified directory and attempts to call a C function called $<$libraryname$>$\_\-init. For example if a library 'libdummy.so' or 'libdummy.dll' is found, then the loader tries to locate a C function called 'libdummy\_\-init()' and calls it if it exists. \doxyref{ms\_\-load\_\-plugins()}{p.}{group__mediastreamer2__init_gab09ceb0032c3befd3796ec913720d62c} can be used to load non-\/mediastreamer2 plugins as it does not expect mediastreamer2 specific entry points.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em directory}]A directory where plugins library are available.\end{DoxyParams}
+Returns: $>$0 if successfull, 0 if not plugins loaded, -\/1 otherwise. \index{mediastreamer2\_\-init@{mediastreamer2\_\-init}!ms\_\-base\_\-exit@{ms\_\-base\_\-exit}}
+\index{ms\_\-base\_\-exit@{ms\_\-base\_\-exit}!mediastreamer2_init@{mediastreamer2\_\-init}}
+\subsubsection[{ms\_\-base\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-base\_\-exit (void)}\label{group__mediastreamer2__init_ga3011234954ccc3228f00ad39371fd658}
+Release resource allocated in the mediastreamer2 base library.
+
+This must be called once before closing program. \index{mediastreamer2\_\-init@{mediastreamer2\_\-init}!ms\_\-voip\_\-exit@{ms\_\-voip\_\-exit}}
+\index{ms\_\-voip\_\-exit@{ms\_\-voip\_\-exit}!mediastreamer2_init@{mediastreamer2\_\-init}}
+\subsubsection[{ms\_\-voip\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-voip\_\-exit (void)}\label{group__mediastreamer2__init_ga2d88845fc364e261154e9760eff4e9f6}
+Release resource allocated in the mediastreamer2 VoIP library.
+
+This must be called once before closing program. \index{mediastreamer2\_\-init@{mediastreamer2\_\-init}!ms\_\-get\_\-payload\_\-max\_\-size@{ms\_\-get\_\-payload\_\-max\_\-size}}
+\index{ms\_\-get\_\-payload\_\-max\_\-size@{ms\_\-get\_\-payload\_\-max\_\-size}!mediastreamer2_init@{mediastreamer2\_\-init}}
+\subsubsection[{ms\_\-get\_\-payload\_\-max\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-get\_\-payload\_\-max\_\-size ()}\label{group__mediastreamer2__init_ga4ece81cd0cd6772e6f38797d97f3abc1}
+The max payload size allowed. Filters that generate data that can be sent through RTP should make packets whose size is below \doxyref{ms\_\-get\_\-payload\_\-max\_\-size()}{p.}{group__mediastreamer2__init_ga4ece81cd0cd6772e6f38797d97f3abc1}. The default value is 1440 computed as the standard internet MTU minus IPv6 header, UDP header and RTP header. As IPV4 header is smaller than IPv6 header, this value works for both. \index{mediastreamer2\_\-init@{mediastreamer2\_\-init}!ms\_\-discover\_\-mtu@{ms\_\-discover\_\-mtu}}
+\index{ms\_\-discover\_\-mtu@{ms\_\-discover\_\-mtu}!mediastreamer2_init@{mediastreamer2\_\-init}}
+\subsubsection[{ms\_\-discover\_\-mtu}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-discover\_\-mtu (const char $\ast$ {\em destination\_\-host})}\label{group__mediastreamer2__init_ga5aa494e655734ca8ed53c1a7a3e70734}
+Returns the network Max Transmission Unit to reach destination\_\-host. This will attempt to send one or more big packets to destination\_\-host, to a random port. Those packets are filled with zeroes. \index{mediastreamer2\_\-init@{mediastreamer2\_\-init}!ms\_\-set\_\-mtu@{ms\_\-set\_\-mtu}}
+\index{ms\_\-set\_\-mtu@{ms\_\-set\_\-mtu}!mediastreamer2_init@{mediastreamer2\_\-init}}
+\subsubsection[{ms\_\-set\_\-mtu}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-set\_\-mtu (int {\em mtu})}\label{group__mediastreamer2__init_ga92d1410d478ec2fe80cd3c8ae93b2e08}
+Set mediastreamer default mtu, used to compute the default RTP max payload size. This function will call ms\_\-set\_\-payload\_\-max\_\-size(mtu-\/[ipv6 header size]). \index{mediastreamer2\_\-init@{mediastreamer2\_\-init}!ms\_\-get\_\-mtu@{ms\_\-get\_\-mtu}}
+\index{ms\_\-get\_\-mtu@{ms\_\-get\_\-mtu}!mediastreamer2_init@{mediastreamer2\_\-init}}
+\subsubsection[{ms\_\-get\_\-mtu}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-get\_\-mtu (void)}\label{group__mediastreamer2__init_ga0a9dfa233654d4f6726756fd2c214e66}
+Get mediastreamer default mtu, used to compute the default RTP max payload size. \index{mediastreamer2\_\-init@{mediastreamer2\_\-init}!ms\_\-set\_\-cpu\_\-count@{ms\_\-set\_\-cpu\_\-count}}
+\index{ms\_\-set\_\-cpu\_\-count@{ms\_\-set\_\-cpu\_\-count}!mediastreamer2_init@{mediastreamer2\_\-init}}
+\subsubsection[{ms\_\-set\_\-cpu\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-set\_\-cpu\_\-count (unsigned int {\em c})}\label{group__mediastreamer2__init_gacd624a35b1ce9f974077923d9e7b4d16}
+Declare how many cpu (cores) are available on the platform 

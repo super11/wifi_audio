@@ -1,0 +1,74 @@
+\section{msticker.h File Reference}
+\label{msticker_8h}\index{msticker.h@{msticker.h}}
+
+
+mediastreamer2 \doxyref{msticker.h}{p.}{msticker_8h} include file  
+{\ttfamily \#include $<$mediastreamer2/msfilter.h$>$}\par
+Include dependency graph for msticker.h:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=261pt]{msticker_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint64\_\-t($\ast$ {\bf MSTickerTimeFunc} )(void $\ast$)
+\item 
+typedef int($\ast$ {\bf MSTickerTickFunc} )(void $\ast$, uint64\_\-t ticker\_\-virtual\_\-time)
+\item 
+typedef struct \_\-MSTicker {\bf MSTicker}
+\item 
+typedef struct \_\-MSTickerSynchronizer {\bf MSTickerSynchronizer}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf \_\-MSTickerPrio} \{ \par
+{\bf MS\_\-TICKER\_\-PRIO\_\-NORMAL}, 
+\par
+{\bf MS\_\-TICKER\_\-PRIO\_\-HIGH}, 
+\par
+{\bf MS\_\-TICKER\_\-PRIO\_\-REALTIME}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf MSTicker} $\ast$ {\bf ms\_\-ticker\_\-new} (void)
+\item 
+{\bf MSTicker} $\ast$ {\bf ms\_\-ticker\_\-new\_\-with\_\-params} (const MSTickerParams $\ast$params)
+\item 
+void {\bf ms\_\-ticker\_\-set\_\-name} ({\bf MSTicker} $\ast$ticker, const char $\ast$name)
+\item 
+void {\bf ms\_\-ticker\_\-set\_\-priority} ({\bf MSTicker} $\ast$ticker, MSTickerPrio prio)
+\item 
+int {\bf ms\_\-ticker\_\-attach} ({\bf MSTicker} $\ast$ticker, {\bf MSFilter} $\ast$f)
+\item 
+int {\bf ms\_\-ticker\_\-attach\_\-multiple} ({\bf MSTicker} $\ast$ticker, {\bf MSFilter} $\ast$f,...)
+\item 
+int {\bf ms\_\-ticker\_\-detach} ({\bf MSTicker} $\ast$ticker, {\bf MSFilter} $\ast$f)
+\item 
+void {\bf ms\_\-ticker\_\-destroy} ({\bf MSTicker} $\ast$ticker)
+\item 
+void {\bf ms\_\-ticker\_\-set\_\-time\_\-func} ({\bf MSTicker} $\ast$ticker, {\bf MSTickerTimeFunc} func, void $\ast$user\_\-data)
+\item 
+void {\bf ms\_\-ticker\_\-set\_\-tick\_\-func} ({\bf MSTicker} $\ast$ticker, {\bf MSTickerTickFunc} func, void $\ast$user\_\-data)
+\item 
+void {\bf ms\_\-ticker\_\-print\_\-graphs} ({\bf MSTicker} $\ast$ticker)
+\item 
+float {\bf ms\_\-ticker\_\-get\_\-average\_\-load} ({\bf MSTicker} $\ast$ticker)
+\item 
+{\bf MSTickerSynchronizer} $\ast$ {\bf ms\_\-ticker\_\-synchronizer\_\-new} (void)
+\item 
+double {\bf ms\_\-ticker\_\-synchronizer\_\-set\_\-external\_\-time} ({\bf MSTickerSynchronizer} $\ast$ts, const MSTimeSpec $\ast$time)
+\item 
+uint64\_\-t {\bf ms\_\-ticker\_\-synchronizer\_\-get\_\-corrected\_\-time} ({\bf MSTickerSynchronizer} $\ast$ts)
+\item 
+void {\bf ms\_\-ticker\_\-synchronizer\_\-destroy} ({\bf MSTickerSynchronizer} $\ast$ts)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+mediastreamer2 \doxyref{msticker.h}{p.}{msticker_8h} include file This file provide the API needed to create, start and stop a graph. 

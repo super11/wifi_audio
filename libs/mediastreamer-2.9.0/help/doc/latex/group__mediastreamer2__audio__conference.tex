@@ -1,0 +1,182 @@
+\section{Audio conferencing API -\/ Easily create conferences.}
+\label{group__mediastreamer2__audio__conference}\index{Audio conferencing API -\/ Easily create conferences.@{Audio conferencing API -\/ Easily create conferences.}}
+
+
+Audio conferencing API -\/ Easily create conferences.  
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf \_\-MSAudioConferenceParams}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf \_\-MSAudioConferenceParams} {\bf MSAudioConferenceParams}
+\item 
+typedef struct \_\-MSAudioConference {\bf MSAudioConference}
+\item 
+typedef struct \_\-MSAudioEndpoint {\bf MSAudioEndpoint}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf MSAudioConference} $\ast$ {\bf ms\_\-audio\_\-conference\_\-new} (const {\bf MSAudioConferenceParams} $\ast$params)
+\item 
+const {\bf MSAudioConferenceParams} $\ast$ {\bf ms\_\-audio\_\-conference\_\-get\_\-params} ({\bf MSAudioConference} $\ast$obj)
+\item 
+void {\bf ms\_\-audio\_\-conference\_\-add\_\-member} ({\bf MSAudioConference} $\ast$obj, {\bf MSAudioEndpoint} $\ast$ep)
+\item 
+void {\bf ms\_\-audio\_\-conference\_\-remove\_\-member} ({\bf MSAudioConference} $\ast$obj, {\bf MSAudioEndpoint} $\ast$ep)
+\item 
+void {\bf ms\_\-audio\_\-conference\_\-mute\_\-member} ({\bf MSAudioConference} $\ast$obj, {\bf MSAudioEndpoint} $\ast$ep, bool\_\-t muted)
+\item 
+int {\bf ms\_\-audio\_\-conference\_\-get\_\-size} ({\bf MSAudioConference} $\ast$obj)
+\item 
+void {\bf ms\_\-audio\_\-conference\_\-destroy} ({\bf MSAudioConference} $\ast$obj)
+\item 
+{\bf MSAudioEndpoint} $\ast$ {\bf ms\_\-audio\_\-endpoint\_\-get\_\-from\_\-stream} ({\bf AudioStream} $\ast$st, bool\_\-t is\_\-remote)
+\item 
+void {\bf ms\_\-audio\_\-endpoint\_\-release\_\-from\_\-stream} ({\bf MSAudioEndpoint} $\ast$obj)
+\item 
+{\bf MSAudioEndpoint} $\ast$ {\bf ms\_\-audio\_\-endpoint\_\-new\_\-recorder} (void)
+\item 
+int {\bf ms\_\-audio\_\-recorder\_\-endpoint\_\-start} ({\bf MSAudioEndpoint} $\ast$ep, const char $\ast$path)
+\item 
+int {\bf ms\_\-audio\_\-recorder\_\-endpoint\_\-stop} ({\bf MSAudioEndpoint} $\ast$ep)
+\item 
+void {\bf ms\_\-audio\_\-endpoint\_\-destroy} ({\bf MSAudioEndpoint} $\ast$ep)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Audio conferencing API -\/ Easily create conferences. 
+
+\subsection{Typedef Documentation}
+\index{mediastreamer2\_\-audio\_\-conference@{mediastreamer2\_\-audio\_\-conference}!MSAudioConferenceParams@{MSAudioConferenceParams}}
+\index{MSAudioConferenceParams@{MSAudioConferenceParams}!mediastreamer2_audio_conference@{mediastreamer2\_\-audio\_\-conference}}
+\subsubsection[{MSAudioConferenceParams}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-MSAudioConferenceParams} {\bf MSAudioConferenceParams}}\label{group__mediastreamer2__audio__conference_ga9026c5db09a7851b8307cba35511a530}
+Typedef to structure that holds conference parameters \index{mediastreamer2\_\-audio\_\-conference@{mediastreamer2\_\-audio\_\-conference}!MSAudioConference@{MSAudioConference}}
+\index{MSAudioConference@{MSAudioConference}!mediastreamer2_audio_conference@{mediastreamer2\_\-audio\_\-conference}}
+\subsubsection[{MSAudioConference}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct \_\-MSAudioConference {\bf MSAudioConference}}\label{group__mediastreamer2__audio__conference_ga91492cc71aece8924dbe2350eff1b631}
+The MSAudioConference is the object representing an audio conference.
+
+First, the conference has to be created with \doxyref{ms\_\-audio\_\-conference\_\-new()}{p.}{group__mediastreamer2__audio__conference_ga21a0cb5a2cd2dd82bd92208c5219f88a}, with parameters supplied. Then, participants to the conference can be added with \doxyref{ms\_\-audio\_\-conference\_\-add\_\-member()}{p.}{group__mediastreamer2__audio__conference_ga1e1a12a357decf9ff8658ed09b364f7d}. The MSAudioConference takes in charge the mixing and dispatching of the audio to the participants. If participants (MSAudioEndpoint) are using sampling rate different from the conference, then sample rate converters are automatically added and configured. Participants can be removed from the conference with \doxyref{ms\_\-audio\_\-conference\_\-remove\_\-member()}{p.}{group__mediastreamer2__audio__conference_ga5357862e3c256b50f7f79208d47d19e6}. The conference processing is performed in a new thread run by a MSTicker object, which is owned by the conference. When all participants are removed, the MSAudioConference object can then be safely destroyed with \doxyref{ms\_\-audio\_\-conference\_\-destroy()}{p.}{group__mediastreamer2__audio__conference_ga385461fab9421cabfb0cdac54243de62}. \index{mediastreamer2\_\-audio\_\-conference@{mediastreamer2\_\-audio\_\-conference}!MSAudioEndpoint@{MSAudioEndpoint}}
+\index{MSAudioEndpoint@{MSAudioEndpoint}!mediastreamer2_audio_conference@{mediastreamer2\_\-audio\_\-conference}}
+\subsubsection[{MSAudioEndpoint}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct \_\-MSAudioEndpoint {\bf MSAudioEndpoint}}\label{group__mediastreamer2__audio__conference_ga756393b04b28c474043d5ca389293f61}
+The MSAudioEndpoint represents a participant in the conference. It can be constructed from an existing AudioStream object with \doxyref{ms\_\-audio\_\-endpoint\_\-get\_\-from\_\-stream()}{p.}{group__mediastreamer2__audio__conference_ga862302797a4668844dc217248eb7ac8f}. 
+
+\subsection{Function Documentation}
+\index{mediastreamer2\_\-audio\_\-conference@{mediastreamer2\_\-audio\_\-conference}!ms\_\-audio\_\-conference\_\-new@{ms\_\-audio\_\-conference\_\-new}}
+\index{ms\_\-audio\_\-conference\_\-new@{ms\_\-audio\_\-conference\_\-new}!mediastreamer2_audio_conference@{mediastreamer2\_\-audio\_\-conference}}
+\subsubsection[{ms\_\-audio\_\-conference\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSAudioConference}$\ast$ ms\_\-audio\_\-conference\_\-new (const {\bf MSAudioConferenceParams} $\ast$ {\em params})}\label{group__mediastreamer2__audio__conference_ga21a0cb5a2cd2dd82bd92208c5219f88a}
+Creates a conference. 
+\begin{DoxyParams}{Parameters}
+\item[{\em params}]a MSAudioConferenceParams structure, containing conference parameters. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a MSAudioConference object. 
+\end{DoxyReturn}
+\index{mediastreamer2\_\-audio\_\-conference@{mediastreamer2\_\-audio\_\-conference}!ms\_\-audio\_\-conference\_\-get\_\-params@{ms\_\-audio\_\-conference\_\-get\_\-params}}
+\index{ms\_\-audio\_\-conference\_\-get\_\-params@{ms\_\-audio\_\-conference\_\-get\_\-params}!mediastreamer2_audio_conference@{mediastreamer2\_\-audio\_\-conference}}
+\subsubsection[{ms\_\-audio\_\-conference\_\-get\_\-params}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf MSAudioConferenceParams}$\ast$ ms\_\-audio\_\-conference\_\-get\_\-params ({\bf MSAudioConference} $\ast$ {\em obj})}\label{group__mediastreamer2__audio__conference_gaef282bae3d970592f0d6305e5d654d66}
+Gets conference's current parameters. 
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]the conference. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a read-\/only pointer to the conference parameters. 
+\end{DoxyReturn}
+\index{mediastreamer2\_\-audio\_\-conference@{mediastreamer2\_\-audio\_\-conference}!ms\_\-audio\_\-conference\_\-add\_\-member@{ms\_\-audio\_\-conference\_\-add\_\-member}}
+\index{ms\_\-audio\_\-conference\_\-add\_\-member@{ms\_\-audio\_\-conference\_\-add\_\-member}!mediastreamer2_audio_conference@{mediastreamer2\_\-audio\_\-conference}}
+\subsubsection[{ms\_\-audio\_\-conference\_\-add\_\-member}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-audio\_\-conference\_\-add\_\-member ({\bf MSAudioConference} $\ast$ {\em obj}, \/  {\bf MSAudioEndpoint} $\ast$ {\em ep})}\label{group__mediastreamer2__audio__conference_ga1e1a12a357decf9ff8658ed09b364f7d}
+Adds a participant to the conference. 
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]the conference \item[{\em ep}]the participant, represented as a MSAudioEndpoint object \end{DoxyParams}
+\index{mediastreamer2\_\-audio\_\-conference@{mediastreamer2\_\-audio\_\-conference}!ms\_\-audio\_\-conference\_\-remove\_\-member@{ms\_\-audio\_\-conference\_\-remove\_\-member}}
+\index{ms\_\-audio\_\-conference\_\-remove\_\-member@{ms\_\-audio\_\-conference\_\-remove\_\-member}!mediastreamer2_audio_conference@{mediastreamer2\_\-audio\_\-conference}}
+\subsubsection[{ms\_\-audio\_\-conference\_\-remove\_\-member}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-audio\_\-conference\_\-remove\_\-member ({\bf MSAudioConference} $\ast$ {\em obj}, \/  {\bf MSAudioEndpoint} $\ast$ {\em ep})}\label{group__mediastreamer2__audio__conference_ga5357862e3c256b50f7f79208d47d19e6}
+Removes a participant from the conference. 
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]the conference \item[{\em ep}]the participant, represented as a MSAudioEndpoint object \end{DoxyParams}
+\index{mediastreamer2\_\-audio\_\-conference@{mediastreamer2\_\-audio\_\-conference}!ms\_\-audio\_\-conference\_\-mute\_\-member@{ms\_\-audio\_\-conference\_\-mute\_\-member}}
+\index{ms\_\-audio\_\-conference\_\-mute\_\-member@{ms\_\-audio\_\-conference\_\-mute\_\-member}!mediastreamer2_audio_conference@{mediastreamer2\_\-audio\_\-conference}}
+\subsubsection[{ms\_\-audio\_\-conference\_\-mute\_\-member}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-audio\_\-conference\_\-mute\_\-member ({\bf MSAudioConference} $\ast$ {\em obj}, \/  {\bf MSAudioEndpoint} $\ast$ {\em ep}, \/  bool\_\-t {\em muted})}\label{group__mediastreamer2__audio__conference_ga0eeba38b237b84d7ca247fe6877e304a}
+Mutes or unmutes a participant.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]the conference \item[{\em ep}]the participant, represented as a MSAudioEndpoint object\end{DoxyParams}
+By default all participants are unmuted. \index{mediastreamer2\_\-audio\_\-conference@{mediastreamer2\_\-audio\_\-conference}!ms\_\-audio\_\-conference\_\-get\_\-size@{ms\_\-audio\_\-conference\_\-get\_\-size}}
+\index{ms\_\-audio\_\-conference\_\-get\_\-size@{ms\_\-audio\_\-conference\_\-get\_\-size}!mediastreamer2_audio_conference@{mediastreamer2\_\-audio\_\-conference}}
+\subsubsection[{ms\_\-audio\_\-conference\_\-get\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-audio\_\-conference\_\-get\_\-size ({\bf MSAudioConference} $\ast$ {\em obj})}\label{group__mediastreamer2__audio__conference_ga5f5465f6b0c122dae8e8b91d355dc4fc}
+Returns the size (ie the number of participants) of a conference. 
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]the conference \end{DoxyParams}
+\index{mediastreamer2\_\-audio\_\-conference@{mediastreamer2\_\-audio\_\-conference}!ms\_\-audio\_\-conference\_\-destroy@{ms\_\-audio\_\-conference\_\-destroy}}
+\index{ms\_\-audio\_\-conference\_\-destroy@{ms\_\-audio\_\-conference\_\-destroy}!mediastreamer2_audio_conference@{mediastreamer2\_\-audio\_\-conference}}
+\subsubsection[{ms\_\-audio\_\-conference\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-audio\_\-conference\_\-destroy ({\bf MSAudioConference} $\ast$ {\em obj})}\label{group__mediastreamer2__audio__conference_ga385461fab9421cabfb0cdac54243de62}
+Destroys a conference. 
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]the conference All participants must have been removed before destroying the conference. \end{DoxyParams}
+\index{mediastreamer2\_\-audio\_\-conference@{mediastreamer2\_\-audio\_\-conference}!ms\_\-audio\_\-endpoint\_\-get\_\-from\_\-stream@{ms\_\-audio\_\-endpoint\_\-get\_\-from\_\-stream}}
+\index{ms\_\-audio\_\-endpoint\_\-get\_\-from\_\-stream@{ms\_\-audio\_\-endpoint\_\-get\_\-from\_\-stream}!mediastreamer2_audio_conference@{mediastreamer2\_\-audio\_\-conference}}
+\subsubsection[{ms\_\-audio\_\-endpoint\_\-get\_\-from\_\-stream}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSAudioEndpoint}$\ast$ ms\_\-audio\_\-endpoint\_\-get\_\-from\_\-stream ({\bf AudioStream} $\ast$ {\em st}, \/  bool\_\-t {\em is\_\-remote})}\label{group__mediastreamer2__audio__conference_ga862302797a4668844dc217248eb7ac8f}
+Creates an MSAudioEndpoint from an existing AudioStream.
+
+In order to create graphs for audio processing of each participant, the AudioStream object is used, because this object already handles all the processing for volume control, encoding, decoding, etc...
+
+The construction of the participants depends whether it is a remote participant, that is somebody in the network sending and receiving audio through RTP, or a local participant, that is somebody using the local soundcard to capture and play audio.
+
+To create a remote participant, first create and start an AudioStream for the participant with \doxyref{audio\_\-stream\_\-new()}{p.}{group__audio__stream__api_ga90bb2b40afbb681ee0757d7bc9806a5f} and audio\_\-stream\_\-start\_\-with\_\-files(), given NULL arguments as input and output files. This participant does not interact with soundcards, this is why we suggest to use \doxyref{audio\_\-stream\_\-start\_\-full()}{p.}{group__audio__stream__api_ga16b4d05fcc54d238ebc808d0b0ee26b9} to avoid holding any reference to the sound system. Then, create a MSAudioEndpoint representing this participant by calling \doxyref{ms\_\-audio\_\-endpoint\_\-get\_\-from\_\-stream()}{p.}{group__mediastreamer2__audio__conference_ga862302797a4668844dc217248eb7ac8f} with is\_\-remote=TRUE.
+
+To create a local participant, first create and start an AudioStream with \doxyref{audio\_\-stream\_\-new()}{p.}{group__audio__stream__api_ga90bb2b40afbb681ee0757d7bc9806a5f} and \doxyref{audio\_\-stream\_\-start\_\-full()}{p.}{group__audio__stream__api_ga16b4d05fcc54d238ebc808d0b0ee26b9}, with real soundcard arguments. Arguments controlling RTP should be filled with placeholders value and will not be used for conferencing. Then, create a MSAudioEndpoint representing this local participant by calling \doxyref{ms\_\-audio\_\-endpoint\_\-get\_\-from\_\-stream()}{p.}{group__mediastreamer2__audio__conference_ga862302797a4668844dc217248eb7ac8f} with the audiostream and is\_\-remote=FALSE.\par
+ For example:\par
+ 
+\begin{DoxyPre}
+ AudioStream *st=audio\_stream\_new(65000,65001,FALSE);
+ audio\_stream\_start\_full(st, conf->local\_dummy\_profile,
+				"127.0.0.1",
+				65000,
+				"127.0.0.1",
+				65001,
+				0,
+				40,
+				NULL,
+				NULL,
+				playcard,
+				captcard,
+				needs\_echocancellation,
+				);
+ MSAudioEndpoint *local\_endpoint=ms\_audio\_endpoint\_get\_from\_stream(st,FALSE);
+ \end{DoxyPre}
+ \index{mediastreamer2\_\-audio\_\-conference@{mediastreamer2\_\-audio\_\-conference}!ms\_\-audio\_\-endpoint\_\-release\_\-from\_\-stream@{ms\_\-audio\_\-endpoint\_\-release\_\-from\_\-stream}}
+\index{ms\_\-audio\_\-endpoint\_\-release\_\-from\_\-stream@{ms\_\-audio\_\-endpoint\_\-release\_\-from\_\-stream}!mediastreamer2_audio_conference@{mediastreamer2\_\-audio\_\-conference}}
+\subsubsection[{ms\_\-audio\_\-endpoint\_\-release\_\-from\_\-stream}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-audio\_\-endpoint\_\-release\_\-from\_\-stream ({\bf MSAudioEndpoint} $\ast$ {\em obj})}\label{group__mediastreamer2__audio__conference_gaca81a0dbb3ca7f10952a0a4cc21854ad}
+Destroys a MSAudioEndpoint that was created from an AudioStream with \doxyref{ms\_\-audio\_\-endpoint\_\-get\_\-from\_\-stream()}{p.}{group__mediastreamer2__audio__conference_ga862302797a4668844dc217248eb7ac8f}. The AudioStream can then be destroyed if needed. \index{mediastreamer2\_\-audio\_\-conference@{mediastreamer2\_\-audio\_\-conference}!ms\_\-audio\_\-endpoint\_\-new\_\-recorder@{ms\_\-audio\_\-endpoint\_\-new\_\-recorder}}
+\index{ms\_\-audio\_\-endpoint\_\-new\_\-recorder@{ms\_\-audio\_\-endpoint\_\-new\_\-recorder}!mediastreamer2_audio_conference@{mediastreamer2\_\-audio\_\-conference}}
+\subsubsection[{ms\_\-audio\_\-endpoint\_\-new\_\-recorder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSAudioEndpoint}$\ast$ ms\_\-audio\_\-endpoint\_\-new\_\-recorder (void)}\label{group__mediastreamer2__audio__conference_ga4ce03a4764c7bf7547e8eeacaf31ad71}
+Creates an audio endpoint (or virtual participant) to record the conference into a wav file. 
+\begin{DoxyParams}{Parameters}
+\item[{\em path}]Path to the wav file to record. \end{DoxyParams}
+\index{mediastreamer2\_\-audio\_\-conference@{mediastreamer2\_\-audio\_\-conference}!ms\_\-audio\_\-recorder\_\-endpoint\_\-start@{ms\_\-audio\_\-recorder\_\-endpoint\_\-start}}
+\index{ms\_\-audio\_\-recorder\_\-endpoint\_\-start@{ms\_\-audio\_\-recorder\_\-endpoint\_\-start}!mediastreamer2_audio_conference@{mediastreamer2\_\-audio\_\-conference}}
+\subsubsection[{ms\_\-audio\_\-recorder\_\-endpoint\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-audio\_\-recorder\_\-endpoint\_\-start ({\bf MSAudioEndpoint} $\ast$ {\em ep}, \/  const char $\ast$ {\em path})}\label{group__mediastreamer2__audio__conference_gaf0dc2c4c82983e747575e94232afe290}
+Start audio recording. The endpoint must have been created by \doxyref{ms\_\-audio\_\-endpoint\_\-new\_\-recorder()}{p.}{group__mediastreamer2__audio__conference_ga4ce03a4764c7bf7547e8eeacaf31ad71}. 
+\begin{DoxyParams}{Parameters}
+\item[{\em ep}]the endpoint \item[{\em path}]path for the wav file where to record samples. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, -\/1 if the path is invalid. 
+\end{DoxyReturn}
+\index{mediastreamer2\_\-audio\_\-conference@{mediastreamer2\_\-audio\_\-conference}!ms\_\-audio\_\-recorder\_\-endpoint\_\-stop@{ms\_\-audio\_\-recorder\_\-endpoint\_\-stop}}
+\index{ms\_\-audio\_\-recorder\_\-endpoint\_\-stop@{ms\_\-audio\_\-recorder\_\-endpoint\_\-stop}!mediastreamer2_audio_conference@{mediastreamer2\_\-audio\_\-conference}}
+\subsubsection[{ms\_\-audio\_\-recorder\_\-endpoint\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-audio\_\-recorder\_\-endpoint\_\-stop ({\bf MSAudioEndpoint} $\ast$ {\em ep})}\label{group__mediastreamer2__audio__conference_ga1f5f9dd837a27393066c5b673102c8ca}
+Stop audio recording. The endpoint must have been created by \doxyref{ms\_\-audio\_\-endpoint\_\-new\_\-recorder()}{p.}{group__mediastreamer2__audio__conference_ga4ce03a4764c7bf7547e8eeacaf31ad71}. 
+\begin{DoxyParams}{Parameters}
+\item[{\em ep}]the endpoint \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, -\/1 if the record wasn't started. 
+\end{DoxyReturn}
+\index{mediastreamer2\_\-audio\_\-conference@{mediastreamer2\_\-audio\_\-conference}!ms\_\-audio\_\-endpoint\_\-destroy@{ms\_\-audio\_\-endpoint\_\-destroy}}
+\index{ms\_\-audio\_\-endpoint\_\-destroy@{ms\_\-audio\_\-endpoint\_\-destroy}!mediastreamer2_audio_conference@{mediastreamer2\_\-audio\_\-conference}}
+\subsubsection[{ms\_\-audio\_\-endpoint\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-audio\_\-endpoint\_\-destroy ({\bf MSAudioEndpoint} $\ast$ {\em ep})}\label{group__mediastreamer2__audio__conference_ga8c1974166ab7ec7e67868a9a142f8c00}
+Destroy an audio endpoint. \begin{DoxyNote}{Note}
+Endpoints created by \doxyref{ms\_\-audio\_\-endpoint\_\-get\_\-from\_\-stream()}{p.}{group__mediastreamer2__audio__conference_ga862302797a4668844dc217248eb7ac8f} must be released by \doxyref{ms\_\-audio\_\-endpoint\_\-release\_\-from\_\-stream()}{p.}{group__mediastreamer2__audio__conference_gaca81a0dbb3ca7f10952a0a4cc21854ad}. 
+\end{DoxyNote}

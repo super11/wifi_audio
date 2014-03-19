@@ -1,0 +1,78 @@
+\section{Sound Card API -\/ Manage audio capture/play filters}
+\label{group__mediastreamer2__soundcard}\index{Sound Card API -\/ Manage audio capture/play filters@{Sound Card API -\/ Manage audio capture/play filters}}
+
+
+Sound Card API to manage audio capture/play filters.  
+\subsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Sound Card Manager API}
+\item 
+{\bf Sound Card Filter API}
+\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf MS\_\-SND\_\-CARD\_\-CAP\_\-DISABLED}~(0)
+\item 
+\#define {\bf MS\_\-SND\_\-CARD\_\-CAP\_\-CAPTURE}~(1)
+\item 
+\#define {\bf MS\_\-SND\_\-CARD\_\-CAP\_\-PLAYBACK}~(1$<$$<$1)
+\item 
+\#define {\bf MS\_\-SND\_\-CARD\_\-CAP\_\-BUILTIN\_\-ECHO\_\-CANCELLER}~(1$<$$<$2)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \_\-MSSndCardManager {\bf MSSndCardManager}
+\item 
+typedef enum \_\-MSSndCardMixerElem {\bf MSSndCardMixerElem}
+\item 
+typedef enum \_\-MSSndCardCapture {\bf MSSndCardCapture}
+\item 
+typedef enum \_\-MSSndCardControlElem {\bf MSSndCardControlElem}
+\item 
+typedef struct \_\-MSSndCardDesc {\bf MSSndCardDesc}
+\item 
+typedef struct \_\-MSSndCard {\bf MSSndCard}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Sound Card API to manage audio capture/play filters. 
+
+\subsection{Define Documentation}
+\index{mediastreamer2\_\-soundcard@{mediastreamer2\_\-soundcard}!MS\_\-SND\_\-CARD\_\-CAP\_\-DISABLED@{MS\_\-SND\_\-CARD\_\-CAP\_\-DISABLED}}
+\index{MS\_\-SND\_\-CARD\_\-CAP\_\-DISABLED@{MS\_\-SND\_\-CARD\_\-CAP\_\-DISABLED}!mediastreamer2_soundcard@{mediastreamer2\_\-soundcard}}
+\subsubsection[{MS\_\-SND\_\-CARD\_\-CAP\_\-DISABLED}]{\setlength{\rightskip}{0pt plus 5cm}\#define MS\_\-SND\_\-CARD\_\-CAP\_\-DISABLED~(0)}\label{group__mediastreamer2__soundcard_gac4bc71c63b265b48dcac662c702b78f7}
+This soundcard is disabled. \index{mediastreamer2\_\-soundcard@{mediastreamer2\_\-soundcard}!MS\_\-SND\_\-CARD\_\-CAP\_\-CAPTURE@{MS\_\-SND\_\-CARD\_\-CAP\_\-CAPTURE}}
+\index{MS\_\-SND\_\-CARD\_\-CAP\_\-CAPTURE@{MS\_\-SND\_\-CARD\_\-CAP\_\-CAPTURE}!mediastreamer2_soundcard@{mediastreamer2\_\-soundcard}}
+\subsubsection[{MS\_\-SND\_\-CARD\_\-CAP\_\-CAPTURE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MS\_\-SND\_\-CARD\_\-CAP\_\-CAPTURE~(1)}\label{group__mediastreamer2__soundcard_ga51c264d8a16a35d2e5950dc244fdd512}
+This sound card can capture sound \index{mediastreamer2\_\-soundcard@{mediastreamer2\_\-soundcard}!MS\_\-SND\_\-CARD\_\-CAP\_\-PLAYBACK@{MS\_\-SND\_\-CARD\_\-CAP\_\-PLAYBACK}}
+\index{MS\_\-SND\_\-CARD\_\-CAP\_\-PLAYBACK@{MS\_\-SND\_\-CARD\_\-CAP\_\-PLAYBACK}!mediastreamer2_soundcard@{mediastreamer2\_\-soundcard}}
+\subsubsection[{MS\_\-SND\_\-CARD\_\-CAP\_\-PLAYBACK}]{\setlength{\rightskip}{0pt plus 5cm}\#define MS\_\-SND\_\-CARD\_\-CAP\_\-PLAYBACK~(1$<$$<$1)}\label{group__mediastreamer2__soundcard_ga435e796062e03cc939625ce17a463803}
+This sound card can playback sound \index{mediastreamer2\_\-soundcard@{mediastreamer2\_\-soundcard}!MS\_\-SND\_\-CARD\_\-CAP\_\-BUILTIN\_\-ECHO\_\-CANCELLER@{MS\_\-SND\_\-CARD\_\-CAP\_\-BUILTIN\_\-ECHO\_\-CANCELLER}}
+\index{MS\_\-SND\_\-CARD\_\-CAP\_\-BUILTIN\_\-ECHO\_\-CANCELLER@{MS\_\-SND\_\-CARD\_\-CAP\_\-BUILTIN\_\-ECHO\_\-CANCELLER}!mediastreamer2_soundcard@{mediastreamer2\_\-soundcard}}
+\subsubsection[{MS\_\-SND\_\-CARD\_\-CAP\_\-BUILTIN\_\-ECHO\_\-CANCELLER}]{\setlength{\rightskip}{0pt plus 5cm}\#define MS\_\-SND\_\-CARD\_\-CAP\_\-BUILTIN\_\-ECHO\_\-CANCELLER~(1$<$$<$2)}\label{group__mediastreamer2__soundcard_ga0128bc630cb6882fbefe4dcf1d3753b0}
+This sound card has built-\/in echo cancellation 
+
+\subsection{Typedef Documentation}
+\index{mediastreamer2\_\-soundcard@{mediastreamer2\_\-soundcard}!MSSndCardManager@{MSSndCardManager}}
+\index{MSSndCardManager@{MSSndCardManager}!mediastreamer2_soundcard@{mediastreamer2\_\-soundcard}}
+\subsubsection[{MSSndCardManager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSSndCardManager}}\label{group__mediastreamer2__soundcard_ga9949d5c2eb2aa3e12513ef37315d352a}
+Structure for sound card manager object. \index{mediastreamer2\_\-soundcard@{mediastreamer2\_\-soundcard}!MSSndCardMixerElem@{MSSndCardMixerElem}}
+\index{MSSndCardMixerElem@{MSSndCardMixerElem}!mediastreamer2_soundcard@{mediastreamer2\_\-soundcard}}
+\subsubsection[{MSSndCardMixerElem}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSSndCardMixerElem}}\label{group__mediastreamer2__soundcard_gaff4e6267aca49e2fe22d90422ad3606e}
+Structure for sound card mixer values. \index{mediastreamer2\_\-soundcard@{mediastreamer2\_\-soundcard}!MSSndCardCapture@{MSSndCardCapture}}
+\index{MSSndCardCapture@{MSSndCardCapture}!mediastreamer2_soundcard@{mediastreamer2\_\-soundcard}}
+\subsubsection[{MSSndCardCapture}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSSndCardCapture}}\label{group__mediastreamer2__soundcard_gabd73b986390f63127ce9144031de2ff5}
+Structure for sound card capture source values. \index{mediastreamer2\_\-soundcard@{mediastreamer2\_\-soundcard}!MSSndCardControlElem@{MSSndCardControlElem}}
+\index{MSSndCardControlElem@{MSSndCardControlElem}!mediastreamer2_soundcard@{mediastreamer2\_\-soundcard}}
+\subsubsection[{MSSndCardControlElem}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSSndCardControlElem}}\label{group__mediastreamer2__soundcard_gaa4323b16a5a783ba0f40002389c53b2d}
+Structure for sound card mixer values. \index{mediastreamer2\_\-soundcard@{mediastreamer2\_\-soundcard}!MSSndCardDesc@{MSSndCardDesc}}
+\index{MSSndCardDesc@{MSSndCardDesc}!mediastreamer2_soundcard@{mediastreamer2\_\-soundcard}}
+\subsubsection[{MSSndCardDesc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSSndCardDesc}}\label{group__mediastreamer2__soundcard_gaed4c8098f2092c63f77cd1b284789cf2}
+Structure for sound card description object. \index{mediastreamer2\_\-soundcard@{mediastreamer2\_\-soundcard}!MSSndCard@{MSSndCard}}
+\index{MSSndCard@{MSSndCard}!mediastreamer2_soundcard@{mediastreamer2\_\-soundcard}}
+\subsubsection[{MSSndCard}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSSndCard}}\label{group__mediastreamer2__soundcard_ga183435ffafe51b0a11e13326041f9bf8}
+Structure for sound card object. 

@@ -1,0 +1,157 @@
+\section{\_\-IceCheckList Struct Reference}
+\label{struct__IceCheckList}\index{\_\-IceCheckList@{\_\-IceCheckList}}
+
+
+{\ttfamily \#include $<$ice.h$>$}Collaboration diagram for \_\-IceCheckList:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=132pt]{struct__IceCheckList__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf IceSession} $\ast$ {\bf session}
+\item 
+RtpSession $\ast$ {\bf rtp\_\-session}
+\item 
+char $\ast$ {\bf remote\_\-ufrag}
+\item 
+char $\ast$ {\bf remote\_\-pwd}
+\item 
+MSList $\ast$ {\bf stun\_\-server\_\-checks}
+\item 
+MSList $\ast$ {\bf local\_\-candidates}
+\item 
+MSList $\ast$ {\bf remote\_\-candidates}
+\item 
+MSList $\ast$ {\bf pairs}
+\item 
+MSList $\ast$ {\bf losing\_\-pairs}
+\item 
+MSList $\ast$ {\bf triggered\_\-checks\_\-queue}
+\item 
+MSList $\ast$ {\bf check\_\-list}
+\item 
+MSList $\ast$ {\bf valid\_\-list}
+\item 
+MSList $\ast$ {\bf foundations}
+\item 
+MSList $\ast$ {\bf local\_\-componentIDs}
+\item 
+MSList $\ast$ {\bf remote\_\-componentIDs}
+\item 
+MSList $\ast$ {\bf transaction\_\-list}
+\item 
+{\bf IceCheckListState} {\bf state}
+\item 
+MSTimeSpec {\bf ta\_\-time}
+\item 
+MSTimeSpec {\bf keepalive\_\-time}
+\item 
+uint32\_\-t {\bf foundation\_\-generator}
+\item 
+bool\_\-t {\bf mismatch}
+\item 
+bool\_\-t {\bf gathering\_\-candidates}
+\item 
+bool\_\-t {\bf gathering\_\-finished}
+\item 
+bool\_\-t {\bf nomination\_\-delay\_\-running}
+\item 
+MSTimeSpec {\bf gathering\_\-start\_\-time}
+\item 
+MSTimeSpec {\bf nomination\_\-delay\_\-start\_\-time}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Structure representing an ICE check list.
+
+Each media stream must be assigned a check list. Check lists are added to an ICE session using the \doxyref{ice\_\-session\_\-add\_\-check\_\-list()}{p.}{ice_8h_ae3899b071d5d6b981ff85c7d42f91077} function. 
+
+\subsection{Field Documentation}
+\index{\_\-IceCheckList@{\_\-IceCheckList}!session@{session}}
+\index{session@{session}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{session}]{\setlength{\rightskip}{0pt plus 5cm}{\bf IceSession}$\ast$ {\bf \_\-IceCheckList::session}}\label{struct__IceCheckList_a4e17bc7625339b5dd79d6ba2cace4969}
+Pointer to the ICE session \index{\_\-IceCheckList@{\_\-IceCheckList}!rtp\_\-session@{rtp\_\-session}}
+\index{rtp\_\-session@{rtp\_\-session}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{rtp\_\-session}]{\setlength{\rightskip}{0pt plus 5cm}RtpSession$\ast$ {\bf \_\-IceCheckList::rtp\_\-session}}\label{struct__IceCheckList_a82fdc60e3db1ebfebf337feba2976c3d}
+Pointer to the RTP session associated with this ICE check list \index{\_\-IceCheckList@{\_\-IceCheckList}!remote\_\-ufrag@{remote\_\-ufrag}}
+\index{remote\_\-ufrag@{remote\_\-ufrag}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{remote\_\-ufrag}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf \_\-IceCheckList::remote\_\-ufrag}}\label{struct__IceCheckList_a536fbba34574f6cab297ed83c1a8d575}
+Remote username fragment for this check list (provided via SDP by the peer) \index{\_\-IceCheckList@{\_\-IceCheckList}!remote\_\-pwd@{remote\_\-pwd}}
+\index{remote\_\-pwd@{remote\_\-pwd}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{remote\_\-pwd}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf \_\-IceCheckList::remote\_\-pwd}}\label{struct__IceCheckList_a628499e00c65e0f37e427c3eacc1e55f}
+Remote password for this check list (provided via SDP by the peer) \index{\_\-IceCheckList@{\_\-IceCheckList}!stun\_\-server\_\-checks@{stun\_\-server\_\-checks}}
+\index{stun\_\-server\_\-checks@{stun\_\-server\_\-checks}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{stun\_\-server\_\-checks}]{\setlength{\rightskip}{0pt plus 5cm}MSList$\ast$ {\bf \_\-IceCheckList::stun\_\-server\_\-checks}}\label{struct__IceCheckList_ac41018957bae1a1338abc6a85c0a46ae}
+List of IceStunServerCheck structures \index{\_\-IceCheckList@{\_\-IceCheckList}!local\_\-candidates@{local\_\-candidates}}
+\index{local\_\-candidates@{local\_\-candidates}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{local\_\-candidates}]{\setlength{\rightskip}{0pt plus 5cm}MSList$\ast$ {\bf \_\-IceCheckList::local\_\-candidates}}\label{struct__IceCheckList_a697aea8d80bc90d0efb40c1876efd3c1}
+List of IceCandidate structures \index{\_\-IceCheckList@{\_\-IceCheckList}!remote\_\-candidates@{remote\_\-candidates}}
+\index{remote\_\-candidates@{remote\_\-candidates}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{remote\_\-candidates}]{\setlength{\rightskip}{0pt plus 5cm}MSList$\ast$ {\bf \_\-IceCheckList::remote\_\-candidates}}\label{struct__IceCheckList_a838ef5bc3893d2549df1961bf132b91b}
+List of IceCandidate structures \index{\_\-IceCheckList@{\_\-IceCheckList}!pairs@{pairs}}
+\index{pairs@{pairs}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{pairs}]{\setlength{\rightskip}{0pt plus 5cm}MSList$\ast$ {\bf \_\-IceCheckList::pairs}}\label{struct__IceCheckList_abc2d4f61a4fca143084e7fa4a650caa0}
+List of IceCandidatePair structures \index{\_\-IceCheckList@{\_\-IceCheckList}!losing\_\-pairs@{losing\_\-pairs}}
+\index{losing\_\-pairs@{losing\_\-pairs}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{losing\_\-pairs}]{\setlength{\rightskip}{0pt plus 5cm}MSList$\ast$ {\bf \_\-IceCheckList::losing\_\-pairs}}\label{struct__IceCheckList_ad237bd7edd68ca0910c92cd7740ad6a3}
+List of IceCandidatePair structures \index{\_\-IceCheckList@{\_\-IceCheckList}!triggered\_\-checks\_\-queue@{triggered\_\-checks\_\-queue}}
+\index{triggered\_\-checks\_\-queue@{triggered\_\-checks\_\-queue}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{triggered\_\-checks\_\-queue}]{\setlength{\rightskip}{0pt plus 5cm}MSList$\ast$ {\bf \_\-IceCheckList::triggered\_\-checks\_\-queue}}\label{struct__IceCheckList_a29ae2074e4875cbfce61fae7ecc3a60f}
+List of IceCandidatePair structures \index{\_\-IceCheckList@{\_\-IceCheckList}!check\_\-list@{check\_\-list}}
+\index{check\_\-list@{check\_\-list}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{check\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}MSList$\ast$ {\bf \_\-IceCheckList::check\_\-list}}\label{struct__IceCheckList_a87e7e4b2fe9f31085219ee078995f2a7}
+List of IceCandidatePair structures \index{\_\-IceCheckList@{\_\-IceCheckList}!valid\_\-list@{valid\_\-list}}
+\index{valid\_\-list@{valid\_\-list}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{valid\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}MSList$\ast$ {\bf \_\-IceCheckList::valid\_\-list}}\label{struct__IceCheckList_adb18d9ba261a604a477cf9239149770b}
+List of IceValidCandidatePair structures \index{\_\-IceCheckList@{\_\-IceCheckList}!foundations@{foundations}}
+\index{foundations@{foundations}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{foundations}]{\setlength{\rightskip}{0pt plus 5cm}MSList$\ast$ {\bf \_\-IceCheckList::foundations}}\label{struct__IceCheckList_add05993df91073fe778f01a059f3a637}
+List of IcePairFoundation structures \index{\_\-IceCheckList@{\_\-IceCheckList}!local\_\-componentIDs@{local\_\-componentIDs}}
+\index{local\_\-componentIDs@{local\_\-componentIDs}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{local\_\-componentIDs}]{\setlength{\rightskip}{0pt plus 5cm}MSList$\ast$ {\bf \_\-IceCheckList::local\_\-componentIDs}}\label{struct__IceCheckList_abf533a46168c69c2eb64fcf97a854589}
+List of uint16\_\-t \index{\_\-IceCheckList@{\_\-IceCheckList}!remote\_\-componentIDs@{remote\_\-componentIDs}}
+\index{remote\_\-componentIDs@{remote\_\-componentIDs}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{remote\_\-componentIDs}]{\setlength{\rightskip}{0pt plus 5cm}MSList$\ast$ {\bf \_\-IceCheckList::remote\_\-componentIDs}}\label{struct__IceCheckList_a7d8290bc21fa5d31beee21aeef7cbb10}
+List of uint16\_\-t \index{\_\-IceCheckList@{\_\-IceCheckList}!transaction\_\-list@{transaction\_\-list}}
+\index{transaction\_\-list@{transaction\_\-list}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{transaction\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}MSList$\ast$ {\bf \_\-IceCheckList::transaction\_\-list}}\label{struct__IceCheckList_a981cc53234eaf7ff391b267dfc11b5c7}
+List of IceTransaction structures \index{\_\-IceCheckList@{\_\-IceCheckList}!state@{state}}
+\index{state@{state}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{state}]{\setlength{\rightskip}{0pt plus 5cm}{\bf IceCheckListState} {\bf \_\-IceCheckList::state}}\label{struct__IceCheckList_a3186a9a9537975fc90b1093a1fc8dd1f}
+Global state of the ICE check list \index{\_\-IceCheckList@{\_\-IceCheckList}!ta\_\-time@{ta\_\-time}}
+\index{ta\_\-time@{ta\_\-time}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{ta\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}MSTimeSpec {\bf \_\-IceCheckList::ta\_\-time}}\label{struct__IceCheckList_a2df6a07a76a53282011101930ea876ca}
+Time when the Ta timer has been processed for the last time \index{\_\-IceCheckList@{\_\-IceCheckList}!keepalive\_\-time@{keepalive\_\-time}}
+\index{keepalive\_\-time@{keepalive\_\-time}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{keepalive\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}MSTimeSpec {\bf \_\-IceCheckList::keepalive\_\-time}}\label{struct__IceCheckList_a4fc5c44c0c07a180dac39454fa2598eb}
+Time when the last keepalive packet has been sent for this stream \index{\_\-IceCheckList@{\_\-IceCheckList}!foundation\_\-generator@{foundation\_\-generator}}
+\index{foundation\_\-generator@{foundation\_\-generator}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{foundation\_\-generator}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t {\bf \_\-IceCheckList::foundation\_\-generator}}\label{struct__IceCheckList_a12bf4656ef13a5b4ba110614d69f6b62}
+Autoincremented integer to generate unique foundation values \index{\_\-IceCheckList@{\_\-IceCheckList}!mismatch@{mismatch}}
+\index{mismatch@{mismatch}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{mismatch}]{\setlength{\rightskip}{0pt plus 5cm}bool\_\-t {\bf \_\-IceCheckList::mismatch}}\label{struct__IceCheckList_afce3d48a67d787b0adef28192e876f5b}
+Boolean value telling whether there was a mismatch during the answer/offer process \index{\_\-IceCheckList@{\_\-IceCheckList}!gathering\_\-candidates@{gathering\_\-candidates}}
+\index{gathering\_\-candidates@{gathering\_\-candidates}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{gathering\_\-candidates}]{\setlength{\rightskip}{0pt plus 5cm}bool\_\-t {\bf \_\-IceCheckList::gathering\_\-candidates}}\label{struct__IceCheckList_a6252b74c18392f97a366d9ca235e0cc8}
+Boolean value telling whether a candidate gathering process is running or not \index{\_\-IceCheckList@{\_\-IceCheckList}!gathering\_\-finished@{gathering\_\-finished}}
+\index{gathering\_\-finished@{gathering\_\-finished}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{gathering\_\-finished}]{\setlength{\rightskip}{0pt plus 5cm}bool\_\-t {\bf \_\-IceCheckList::gathering\_\-finished}}\label{struct__IceCheckList_afd864a1f138afbf4bca8df28e3c7ffeb}
+Boolean value telling whether the candidate gathering process has finished or not \index{\_\-IceCheckList@{\_\-IceCheckList}!nomination\_\-delay\_\-running@{nomination\_\-delay\_\-running}}
+\index{nomination\_\-delay\_\-running@{nomination\_\-delay\_\-running}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{nomination\_\-delay\_\-running}]{\setlength{\rightskip}{0pt plus 5cm}bool\_\-t {\bf \_\-IceCheckList::nomination\_\-delay\_\-running}}\label{struct__IceCheckList_ab517e2e49fbd9c00622481df20f106d0}
+Boolean value telling whether the nomination process has been delayed or not \index{\_\-IceCheckList@{\_\-IceCheckList}!gathering\_\-start\_\-time@{gathering\_\-start\_\-time}}
+\index{gathering\_\-start\_\-time@{gathering\_\-start\_\-time}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{gathering\_\-start\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}MSTimeSpec {\bf \_\-IceCheckList::gathering\_\-start\_\-time}}\label{struct__IceCheckList_a37b91037c9b721563c09e98bdd07c6b1}
+Time when the gathering process was started \index{\_\-IceCheckList@{\_\-IceCheckList}!nomination\_\-delay\_\-start\_\-time@{nomination\_\-delay\_\-start\_\-time}}
+\index{nomination\_\-delay\_\-start\_\-time@{nomination\_\-delay\_\-start\_\-time}!_IceCheckList@{\_\-IceCheckList}}
+\subsubsection[{nomination\_\-delay\_\-start\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}MSTimeSpec {\bf \_\-IceCheckList::nomination\_\-delay\_\-start\_\-time}}\label{struct__IceCheckList_afbfc749e21131aed1693ede4ff11488c}
+Time when the nomination process has been delayed 
+
+The documentation for this struct was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+{\bf ice.h}\end{DoxyCompactItemize}

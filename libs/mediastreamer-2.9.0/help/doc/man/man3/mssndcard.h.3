@@ -1,0 +1,154 @@
+.TH "mssndcard.h" 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mssndcard.h \- 
+.PP
+mediastreamer2 \fBmssndcard.h\fP include file  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <mediastreamer2/mscommon.h>\fP
+.br
+
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMS_SND_CARD_CAP_DISABLED\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBMS_SND_CARD_CAP_CAPTURE\fP   (1)"
+.br
+.ti -1c
+.RI "#define \fBMS_SND_CARD_CAP_PLAYBACK\fP   (1<<1)"
+.br
+.ti -1c
+.RI "#define \fBMS_SND_CARD_CAP_BUILTIN_ECHO_CANCELLER\fP   (1<<2)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct _MSSndCardManager \fBMSSndCardManager\fP"
+.br
+.ti -1c
+.RI "typedef enum _MSSndCardMixerElem \fBMSSndCardMixerElem\fP"
+.br
+.ti -1c
+.RI "typedef enum _MSSndCardCapture \fBMSSndCardCapture\fP"
+.br
+.ti -1c
+.RI "typedef enum _MSSndCardControlElem \fBMSSndCardControlElem\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSSndCardDesc \fBMSSndCardDesc\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSSndCard \fBMSSndCard\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMSSndCardManager\fP * \fBms_snd_card_manager_get\fP (void)"
+.br
+.ti -1c
+.RI "void \fBms_snd_card_manager_destroy\fP (void)"
+.br
+.ti -1c
+.RI "\fBMSSndCard\fP * \fBms_snd_card_manager_get_card\fP (\fBMSSndCardManager\fP *m, const char *id)"
+.br
+.ti -1c
+.RI "\fBMSSndCard\fP * \fBms_snd_card_manager_get_default_card\fP (\fBMSSndCardManager\fP *m)"
+.br
+.ti -1c
+.RI "\fBMSSndCard\fP * \fBms_snd_card_manager_get_default_capture_card\fP (\fBMSSndCardManager\fP *m)"
+.br
+.ti -1c
+.RI "\fBMSSndCard\fP * \fBms_snd_card_manager_get_default_playback_card\fP (\fBMSSndCardManager\fP *m)"
+.br
+.ti -1c
+.RI "const MSList * \fBms_snd_card_manager_get_list\fP (\fBMSSndCardManager\fP *m)"
+.br
+.ti -1c
+.RI "void \fBms_snd_card_manager_add_card\fP (\fBMSSndCardManager\fP *m, \fBMSSndCard\fP *c)"
+.br
+.ti -1c
+.RI "void \fBms_snd_card_manager_register_desc\fP (\fBMSSndCardManager\fP *m, \fBMSSndCardDesc\fP *desc)"
+.br
+.ti -1c
+.RI "void \fBms_snd_card_manager_reload\fP (\fBMSSndCardManager\fP *m)"
+.br
+.ti -1c
+.RI "struct _MSFilter * \fBms_snd_card_create_reader\fP (\fBMSSndCard\fP *obj)"
+.br
+.ti -1c
+.RI "struct _MSFilter * \fBms_snd_card_create_writer\fP (\fBMSSndCard\fP *obj)"
+.br
+.ti -1c
+.RI "\fBMSSndCard\fP * \fBms_snd_card_new\fP (\fBMSSndCardDesc\fP *desc)"
+.br
+.ti -1c
+.RI "\fBMSSndCard\fP * \fBms_snd_card_new_with_name\fP (\fBMSSndCardDesc\fP *desc, const char *name)"
+.br
+.ti -1c
+.RI "void \fBms_snd_card_destroy\fP (\fBMSSndCard\fP *obj)"
+.br
+.ti -1c
+.RI "\fBMSSndCard\fP * \fBms_snd_card_dup\fP (\fBMSSndCard\fP *card)"
+.br
+.ti -1c
+.RI "const char * \fBms_snd_card_get_driver_type\fP (const \fBMSSndCard\fP *obj)"
+.br
+.ti -1c
+.RI "const char * \fBms_snd_card_get_name\fP (const \fBMSSndCard\fP *obj)"
+.br
+.ti -1c
+.RI "const char * \fBms_snd_card_get_string_id\fP (\fBMSSndCard\fP *obj)"
+.br
+.ti -1c
+.RI "unsigned int \fBms_snd_card_get_capabilities\fP (const \fBMSSndCard\fP *obj)"
+.br
+.ti -1c
+.RI "int \fBms_snd_card_get_minimal_latency\fP (\fBMSSndCard\fP *obj)"
+.br
+.ti -1c
+.RI "void \fBms_snd_card_set_level\fP (\fBMSSndCard\fP *obj, \fBMSSndCardMixerElem\fP e, int percent)"
+.br
+.ti -1c
+.RI "int \fBms_snd_card_get_level\fP (\fBMSSndCard\fP *obj, \fBMSSndCardMixerElem\fP e)"
+.br
+.ti -1c
+.RI "void \fBms_snd_card_set_capture\fP (\fBMSSndCard\fP *obj, \fBMSSndCardCapture\fP c)"
+.br
+.ti -1c
+.RI "int \fBms_snd_card_set_control\fP (\fBMSSndCard\fP *obj, \fBMSSndCardControlElem\fP e, int val)"
+.br
+.ti -1c
+.RI "int \fBms_snd_card_get_control\fP (\fBMSSndCard\fP *obj, \fBMSSndCardControlElem\fP e)"
+.br
+.ti -1c
+.RI "int \fBms_snd_card_get_preferred_sample_rate\fP (const \fBMSSndCard\fP *obj)"
+.br
+.ti -1c
+.RI "int \fBms_snd_card_set_preferred_sample_rate\fP (\fBMSSndCard\fP *obj, int rate)"
+.br
+.ti -1c
+.RI "\fBMSSndCard\fP * \fBms_alsa_card_new_custom\fP (const char *pcmdev, const char *mixdev)"
+.br
+.ti -1c
+.RI "void \fBms_alsa_card_set_forced_sample_rate\fP (int samplerate)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+mediastreamer2 \fBmssndcard.h\fP include file 
+
+This file provide the API needed to manage soundcard filters. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

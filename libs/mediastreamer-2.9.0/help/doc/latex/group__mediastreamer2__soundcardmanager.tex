@@ -1,0 +1,98 @@
+\section{Sound Card Manager API}
+\label{group__mediastreamer2__soundcardmanager}\index{Sound Card Manager API@{Sound Card Manager API}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf MSSndCardManager} $\ast$ {\bf ms\_\-snd\_\-card\_\-manager\_\-get} (void)
+\item 
+void {\bf ms\_\-snd\_\-card\_\-manager\_\-destroy} (void)
+\item 
+{\bf MSSndCard} $\ast$ {\bf ms\_\-snd\_\-card\_\-manager\_\-get\_\-card} ({\bf MSSndCardManager} $\ast$m, const char $\ast$id)
+\item 
+{\bf MSSndCard} $\ast$ {\bf ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-card} ({\bf MSSndCardManager} $\ast$m)
+\item 
+{\bf MSSndCard} $\ast$ {\bf ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-capture\_\-card} ({\bf MSSndCardManager} $\ast$m)
+\item 
+{\bf MSSndCard} $\ast$ {\bf ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-playback\_\-card} ({\bf MSSndCardManager} $\ast$m)
+\item 
+const MSList $\ast$ {\bf ms\_\-snd\_\-card\_\-manager\_\-get\_\-list} ({\bf MSSndCardManager} $\ast$m)
+\item 
+void {\bf ms\_\-snd\_\-card\_\-manager\_\-add\_\-card} ({\bf MSSndCardManager} $\ast$m, {\bf MSSndCard} $\ast$c)
+\item 
+void {\bf ms\_\-snd\_\-card\_\-manager\_\-register\_\-desc} ({\bf MSSndCardManager} $\ast$m, {\bf MSSndCardDesc} $\ast$desc)
+\item 
+void {\bf ms\_\-snd\_\-card\_\-manager\_\-reload} ({\bf MSSndCardManager} $\ast$m)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{mediastreamer2\_\-soundcardmanager@{mediastreamer2\_\-soundcardmanager}!ms\_\-snd\_\-card\_\-manager\_\-get@{ms\_\-snd\_\-card\_\-manager\_\-get}}
+\index{ms\_\-snd\_\-card\_\-manager\_\-get@{ms\_\-snd\_\-card\_\-manager\_\-get}!mediastreamer2_soundcardmanager@{mediastreamer2\_\-soundcardmanager}}
+\subsubsection[{ms\_\-snd\_\-card\_\-manager\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSSndCardManager}$\ast$ ms\_\-snd\_\-card\_\-manager\_\-get (void)}\label{group__mediastreamer2__soundcardmanager_gaa787408facfb672bab5afd8d86967602}
+Retreive a sound card manager object.
+
+Returns: MSSndCardManager if successfull, NULL otherwise. \index{mediastreamer2\_\-soundcardmanager@{mediastreamer2\_\-soundcardmanager}!ms\_\-snd\_\-card\_\-manager\_\-destroy@{ms\_\-snd\_\-card\_\-manager\_\-destroy}}
+\index{ms\_\-snd\_\-card\_\-manager\_\-destroy@{ms\_\-snd\_\-card\_\-manager\_\-destroy}!mediastreamer2_soundcardmanager@{mediastreamer2\_\-soundcardmanager}}
+\subsubsection[{ms\_\-snd\_\-card\_\-manager\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-snd\_\-card\_\-manager\_\-destroy (void)}\label{group__mediastreamer2__soundcardmanager_ga440d188f7555b2a59922d675c93cfc4b}
+Destroy a sound card manager object. \index{mediastreamer2\_\-soundcardmanager@{mediastreamer2\_\-soundcardmanager}!ms\_\-snd\_\-card\_\-manager\_\-get\_\-card@{ms\_\-snd\_\-card\_\-manager\_\-get\_\-card}}
+\index{ms\_\-snd\_\-card\_\-manager\_\-get\_\-card@{ms\_\-snd\_\-card\_\-manager\_\-get\_\-card}!mediastreamer2_soundcardmanager@{mediastreamer2\_\-soundcardmanager}}
+\subsubsection[{ms\_\-snd\_\-card\_\-manager\_\-get\_\-card}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSSndCard}$\ast$ ms\_\-snd\_\-card\_\-manager\_\-get\_\-card ({\bf MSSndCardManager} $\ast$ {\em m}, \/  const char $\ast$ {\em id})}\label{group__mediastreamer2__soundcardmanager_ga849c411f10647dc4616e8f23eb5672d3}
+Retreive a sound card object based on its name.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em m}]A sound card manager containing sound cards. \item[{\em id}]A name for card to search.\end{DoxyParams}
+Returns: MSSndCard if successfull, NULL otherwise. \index{mediastreamer2\_\-soundcardmanager@{mediastreamer2\_\-soundcardmanager}!ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-card@{ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-card}}
+\index{ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-card@{ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-card}!mediastreamer2_soundcardmanager@{mediastreamer2\_\-soundcardmanager}}
+\subsubsection[{ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-card}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSSndCard}$\ast$ ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-card ({\bf MSSndCardManager} $\ast$ {\em m})}\label{group__mediastreamer2__soundcardmanager_gadcfd4ca5ae0c67935cef202afb3efdaa}
+Retreive the default sound card object.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em m}]A sound card manager containing sound cards.\end{DoxyParams}
+Returns: MSSndCard if successfull, NULL otherwise. \index{mediastreamer2\_\-soundcardmanager@{mediastreamer2\_\-soundcardmanager}!ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-capture\_\-card@{ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-capture\_\-card}}
+\index{ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-capture\_\-card@{ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-capture\_\-card}!mediastreamer2_soundcardmanager@{mediastreamer2\_\-soundcardmanager}}
+\subsubsection[{ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-capture\_\-card}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSSndCard}$\ast$ ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-capture\_\-card ({\bf MSSndCardManager} $\ast$ {\em m})}\label{group__mediastreamer2__soundcardmanager_gaa78dc16cef612442727a1bff3584b5d7}
+Retreive the default capture sound card object.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em m}]A sound card manager containing sound cards.\end{DoxyParams}
+Returns: MSSndCard if successfull, NULL otherwise. \index{mediastreamer2\_\-soundcardmanager@{mediastreamer2\_\-soundcardmanager}!ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-playback\_\-card@{ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-playback\_\-card}}
+\index{ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-playback\_\-card@{ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-playback\_\-card}!mediastreamer2_soundcardmanager@{mediastreamer2\_\-soundcardmanager}}
+\subsubsection[{ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-playback\_\-card}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSSndCard}$\ast$ ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-playback\_\-card ({\bf MSSndCardManager} $\ast$ {\em m})}\label{group__mediastreamer2__soundcardmanager_gac0e9f66b3bd286d68c0b31df32475255}
+Retreive the default playback sound card object.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em m}]A sound card manager containing sound cards.\end{DoxyParams}
+Returns: MSSndCard if successfull, NULL otherwise. \index{mediastreamer2\_\-soundcardmanager@{mediastreamer2\_\-soundcardmanager}!ms\_\-snd\_\-card\_\-manager\_\-get\_\-list@{ms\_\-snd\_\-card\_\-manager\_\-get\_\-list}}
+\index{ms\_\-snd\_\-card\_\-manager\_\-get\_\-list@{ms\_\-snd\_\-card\_\-manager\_\-get\_\-list}!mediastreamer2_soundcardmanager@{mediastreamer2\_\-soundcardmanager}}
+\subsubsection[{ms\_\-snd\_\-card\_\-manager\_\-get\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}const MSList$\ast$ ms\_\-snd\_\-card\_\-manager\_\-get\_\-list ({\bf MSSndCardManager} $\ast$ {\em m})}\label{group__mediastreamer2__soundcardmanager_ga8cbccf9957b2aa1a384a82a5ba7f6136}
+Retreive the list of sound card objects.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em m}]A sound card manager containing sound cards.\end{DoxyParams}
+Returns: MSList of cards if successfull, NULL otherwise. \index{mediastreamer2\_\-soundcardmanager@{mediastreamer2\_\-soundcardmanager}!ms\_\-snd\_\-card\_\-manager\_\-add\_\-card@{ms\_\-snd\_\-card\_\-manager\_\-add\_\-card}}
+\index{ms\_\-snd\_\-card\_\-manager\_\-add\_\-card@{ms\_\-snd\_\-card\_\-manager\_\-add\_\-card}!mediastreamer2_soundcardmanager@{mediastreamer2\_\-soundcardmanager}}
+\subsubsection[{ms\_\-snd\_\-card\_\-manager\_\-add\_\-card}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-snd\_\-card\_\-manager\_\-add\_\-card ({\bf MSSndCardManager} $\ast$ {\em m}, \/  {\bf MSSndCard} $\ast$ {\em c})}\label{group__mediastreamer2__soundcardmanager_ga413e7eca0a776dfd4074247f95ccb9b3}
+Add a sound card object in a sound card manager's list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em m}]A sound card manager containing sound cards. \item[{\em c}]A sound card object. \end{DoxyParams}
+\index{mediastreamer2\_\-soundcardmanager@{mediastreamer2\_\-soundcardmanager}!ms\_\-snd\_\-card\_\-manager\_\-register\_\-desc@{ms\_\-snd\_\-card\_\-manager\_\-register\_\-desc}}
+\index{ms\_\-snd\_\-card\_\-manager\_\-register\_\-desc@{ms\_\-snd\_\-card\_\-manager\_\-register\_\-desc}!mediastreamer2_soundcardmanager@{mediastreamer2\_\-soundcardmanager}}
+\subsubsection[{ms\_\-snd\_\-card\_\-manager\_\-register\_\-desc}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-snd\_\-card\_\-manager\_\-register\_\-desc ({\bf MSSndCardManager} $\ast$ {\em m}, \/  {\bf MSSndCardDesc} $\ast$ {\em desc})}\label{group__mediastreamer2__soundcardmanager_ga7150e34a175c0cf3464a45d439f4ae88}
+Register a sound card description in a sound card manager.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em m}]A sound card manager containing sound cards. \item[{\em desc}]A sound card description object. \end{DoxyParams}
+\index{mediastreamer2\_\-soundcardmanager@{mediastreamer2\_\-soundcardmanager}!ms\_\-snd\_\-card\_\-manager\_\-reload@{ms\_\-snd\_\-card\_\-manager\_\-reload}}
+\index{ms\_\-snd\_\-card\_\-manager\_\-reload@{ms\_\-snd\_\-card\_\-manager\_\-reload}!mediastreamer2_soundcardmanager@{mediastreamer2\_\-soundcardmanager}}
+\subsubsection[{ms\_\-snd\_\-card\_\-manager\_\-reload}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-snd\_\-card\_\-manager\_\-reload ({\bf MSSndCardManager} $\ast$ {\em m})}\label{group__mediastreamer2__soundcardmanager_ga9c323efa5db417b97231fe9f293ee463}
+Ask all registered MSSndCardDesc to re-\/detect their soundcards. 
+\begin{DoxyParams}{Parameters}
+\item[{\em m}]The sound card manager. \end{DoxyParams}

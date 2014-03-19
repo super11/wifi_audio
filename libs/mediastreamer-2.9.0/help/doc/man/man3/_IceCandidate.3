@@ -1,0 +1,51 @@
+.TH "_IceCandidate" 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_IceCandidate \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ice.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "char \fBfoundation\fP [32]"
+.br
+.ti -1c
+.RI "\fBIceTransportAddress\fP \fBtaddr\fP"
+.br
+.ti -1c
+.RI "\fBIceCandidateType\fP \fBtype\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBpriority\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBcomponentID\fP"
+.br
+.ti -1c
+.RI "struct \fB_IceCandidate\fP * \fBbase\fP"
+.br
+.ti -1c
+.RI "bool_t \fBis_default\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Structure representing an ICE candidate. 
+.SH "Field Documentation"
+.PP 
+.SS "char \fB_IceCandidate::foundation\fP[32]"Foundation of the candidate (see paragraph 3 of the RFC 5245 for more details 
+.SS "\fBIceTransportAddress\fP \fB_IceCandidate::taddr\fP"Transport address of the candidate 
+.SS "\fBIceCandidateType\fP \fB_IceCandidate::type\fP"Type of the candidate 
+.SS "uint32_t \fB_IceCandidate::priority\fP"Priority of the candidate 
+.SS "uint16_t \fB_IceCandidate::componentID\fP"component ID between 1 and 256: usually 1 for RTP component and 2 for RTCP component 
+.SS "struct \fB_IceCandidate\fP* \fB_IceCandidate::base\fP\fC [read]\fP"Pointer to the candidate that is the base of the current one 
+.SS "bool_t \fB_IceCandidate::is_default\fP"Boolean value telling whether this candidate is a default candidate or not 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

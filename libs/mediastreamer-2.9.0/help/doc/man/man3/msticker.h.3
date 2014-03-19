@@ -1,0 +1,97 @@
+.TH "msticker.h" 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+msticker.h \- 
+.PP
+mediastreamer2 \fBmsticker.h\fP include file  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <mediastreamer2/msfilter.h>\fP
+.br
+
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef uint64_t(* \fBMSTickerTimeFunc\fP )(void *)"
+.br
+.ti -1c
+.RI "typedef int(* \fBMSTickerTickFunc\fP )(void *, uint64_t ticker_virtual_time)"
+.br
+.ti -1c
+.RI "typedef struct _MSTicker \fBMSTicker\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSTickerSynchronizer \fBMSTickerSynchronizer\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fB_MSTickerPrio\fP { \fBMS_TICKER_PRIO_NORMAL\fP, \fBMS_TICKER_PRIO_HIGH\fP, \fBMS_TICKER_PRIO_REALTIME\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMSTicker\fP * \fBms_ticker_new\fP (void)"
+.br
+.ti -1c
+.RI "\fBMSTicker\fP * \fBms_ticker_new_with_params\fP (const MSTickerParams *params)"
+.br
+.ti -1c
+.RI "void \fBms_ticker_set_name\fP (\fBMSTicker\fP *ticker, const char *name)"
+.br
+.ti -1c
+.RI "void \fBms_ticker_set_priority\fP (\fBMSTicker\fP *ticker, MSTickerPrio prio)"
+.br
+.ti -1c
+.RI "int \fBms_ticker_attach\fP (\fBMSTicker\fP *ticker, \fBMSFilter\fP *f)"
+.br
+.ti -1c
+.RI "int \fBms_ticker_attach_multiple\fP (\fBMSTicker\fP *ticker, \fBMSFilter\fP *f,...)"
+.br
+.ti -1c
+.RI "int \fBms_ticker_detach\fP (\fBMSTicker\fP *ticker, \fBMSFilter\fP *f)"
+.br
+.ti -1c
+.RI "void \fBms_ticker_destroy\fP (\fBMSTicker\fP *ticker)"
+.br
+.ti -1c
+.RI "void \fBms_ticker_set_time_func\fP (\fBMSTicker\fP *ticker, \fBMSTickerTimeFunc\fP func, void *user_data)"
+.br
+.ti -1c
+.RI "void \fBms_ticker_set_tick_func\fP (\fBMSTicker\fP *ticker, \fBMSTickerTickFunc\fP func, void *user_data)"
+.br
+.ti -1c
+.RI "void \fBms_ticker_print_graphs\fP (\fBMSTicker\fP *ticker)"
+.br
+.ti -1c
+.RI "float \fBms_ticker_get_average_load\fP (\fBMSTicker\fP *ticker)"
+.br
+.ti -1c
+.RI "\fBMSTickerSynchronizer\fP * \fBms_ticker_synchronizer_new\fP (void)"
+.br
+.ti -1c
+.RI "double \fBms_ticker_synchronizer_set_external_time\fP (\fBMSTickerSynchronizer\fP *ts, const MSTimeSpec *time)"
+.br
+.ti -1c
+.RI "uint64_t \fBms_ticker_synchronizer_get_corrected_time\fP (\fBMSTickerSynchronizer\fP *ts)"
+.br
+.ti -1c
+.RI "void \fBms_ticker_synchronizer_destroy\fP (\fBMSTickerSynchronizer\fP *ts)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+mediastreamer2 \fBmsticker.h\fP include file 
+
+This file provide the API needed to create, start and stop a graph. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

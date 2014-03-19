@@ -1,0 +1,83 @@
+.TH "_IceSession" 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_IceSession \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ice.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "MSList * \fBstreams\fP"
+.br
+.ti -1c
+.RI "char * \fBlocal_ufrag\fP"
+.br
+.ti -1c
+.RI "char * \fBlocal_pwd\fP"
+.br
+.ti -1c
+.RI "char * \fBremote_ufrag\fP"
+.br
+.ti -1c
+.RI "char * \fBremote_pwd\fP"
+.br
+.ti -1c
+.RI "\fBIceRole\fP \fBrole\fP"
+.br
+.ti -1c
+.RI "\fBIceSessionState\fP \fBstate\fP"
+.br
+.ti -1c
+.RI "uint64_t \fBtie_breaker\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBta\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBmax_connectivity_checks\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBkeepalive_timeout\fP"
+.br
+.ti -1c
+.RI "MSTimeSpec \fBevent_time\fP"
+.br
+.ti -1c
+.RI "bool_t \fBsend_event\fP"
+.br
+.ti -1c
+.RI "struct sockaddr_storage \fBss\fP"
+.br
+.ti -1c
+.RI "socklen_t \fBss_len\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Structure representing an ICE session. 
+.SH "Field Documentation"
+.PP 
+.SS "MSList* \fB_IceSession::streams\fP"List of IceChecklist structures. Each element of the list represents a media stream 
+.SS "char* \fB_IceSession::local_ufrag\fP"Local username fragment for the session (assigned during the session creation) 
+.SS "char* \fB_IceSession::local_pwd\fP"Local password for the session (assigned during the session creation) 
+.SS "char* \fB_IceSession::remote_ufrag\fP"Remote username fragment for the session (provided via SDP by the peer) 
+.SS "char* \fB_IceSession::remote_pwd\fP"Remote password for the session (provided via SDP by the peer) 
+.SS "\fBIceRole\fP \fB_IceSession::role\fP"Role played by the agent for this session 
+.SS "\fBIceSessionState\fP \fB_IceSession::state\fP"State of the session 
+.SS "uint64_t \fB_IceSession::tie_breaker\fP"Random number used to resolve role conflicts (see paragraph 5.2 of the RFC 5245) 
+.SS "uint32_t \fB_IceSession::ta\fP"Duration of timer for sending connectivity checks in ms 
+.SS "uint8_t \fB_IceSession::max_connectivity_checks\fP"Configuration parameter to limit the number of connectivity checks performed by the agent (default is 100) 
+.SS "uint8_t \fB_IceSession::keepalive_timeout\fP"Configuration parameter to define the timeout between each keepalive packets (default is 15s) 
+.SS "MSTimeSpec \fB_IceSession::event_time\fP"Time when an event must be sent 
+.SS "bool_t \fB_IceSession::send_event\fP"Value of the event to send Boolean value telling whether an event must be sent or not 
+.SS "struct sockaddr_storage \fB_IceSession::ss\fP\fC [read]\fP"STUN server address to use for the candidates gathering process 
+.SS "socklen_t \fB_IceSession::ss_len\fP"Length of the STUN server address to use for the candidates gathering process 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

@@ -1,0 +1,95 @@
+.TH "Starting mediastreamer2 library" 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Starting mediastreamer2 library \- 
+.PP
+Starting mediastreamer2 library.  
+
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBms_init\fP()   ms_base_init(), ms_voip_init(), ms_plugins_init()"
+.br
+.ti -1c
+.RI "#define \fBms_exit\fP()   ms_voip_exit(), ms_base_exit()"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBms_base_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBms_voip_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBms_plugins_init\fP (void)"
+.br
+.ti -1c
+.RI "int \fBms_load_plugins\fP (const char *directory)"
+.br
+.ti -1c
+.RI "void \fBms_base_exit\fP (void)"
+.br
+.ti -1c
+.RI "void \fBms_voip_exit\fP (void)"
+.br
+.ti -1c
+.RI "int \fBms_get_payload_max_size\fP ()"
+.br
+.ti -1c
+.RI "int \fBms_discover_mtu\fP (const char *destination_host)"
+.br
+.ti -1c
+.RI "void \fBms_set_mtu\fP (int mtu)"
+.br
+.ti -1c
+.RI "int \fBms_get_mtu\fP (void)"
+.br
+.ti -1c
+.RI "void \fBms_set_cpu_count\fP (unsigned int c)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Starting mediastreamer2 library. 
+.SH "Define Documentation"
+.PP 
+.SS "#define ms_init()   ms_base_init(), ms_voip_init(), ms_plugins_init()"Helper macro for backward compatibility. Use \fBms_base_init()\fP and \fBms_voip_init()\fP instead. 
+.SS "#define ms_exit()   ms_voip_exit(), ms_base_exit()"Helper macro for backward compatibility. Use \fBms_base_exit()\fP and \fBms_voip_exit()\fP instead. 
+.SH "Function Documentation"
+.PP 
+.SS "void ms_base_init (void)"Initialize the mediastreamer2 base library.
+.PP
+This must be called once before calling any other API. 
+.SS "void ms_voip_init (void)"Initialize the mediastreamer2 VoIP library.
+.PP
+This must be called one before calling any other API. 
+.SS "void ms_plugins_init (void)"Load the plugins from the default plugin directory.
+.PP
+This is just a wrapper around \fBms_load_plugins()\fP. This must be called after \fBms_base_init()\fP and after \fBms_voip_init()\fP. 
+.SS "int ms_load_plugins (const char * directory)"Load plugins from a specific directory. This method basically loads all libraries in the specified directory and attempts to call a C function called <libraryname>_init. For example if a library 'libdummy.so' or 'libdummy.dll' is found, then the loader tries to locate a C function called 'libdummy_init()' and calls it if it exists. \fBms_load_plugins()\fP can be used to load non-mediastreamer2 plugins as it does not expect mediastreamer2 specific entry points.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdirectory\fP A directory where plugins library are available.
+.RE
+.PP
+Returns: >0 if successfull, 0 if not plugins loaded, -1 otherwise. 
+.SS "void ms_base_exit (void)"Release resource allocated in the mediastreamer2 base library.
+.PP
+This must be called once before closing program. 
+.SS "void ms_voip_exit (void)"Release resource allocated in the mediastreamer2 VoIP library.
+.PP
+This must be called once before closing program. 
+.SS "int ms_get_payload_max_size ()"The max payload size allowed. Filters that generate data that can be sent through RTP should make packets whose size is below \fBms_get_payload_max_size()\fP. The default value is 1440 computed as the standard internet MTU minus IPv6 header, UDP header and RTP header. As IPV4 header is smaller than IPv6 header, this value works for both. 
+.SS "int ms_discover_mtu (const char * destination_host)"Returns the network Max Transmission Unit to reach destination_host. This will attempt to send one or more big packets to destination_host, to a random port. Those packets are filled with zeroes. 
+.SS "void ms_set_mtu (int mtu)"Set mediastreamer default mtu, used to compute the default RTP max payload size. This function will call ms_set_payload_max_size(mtu-[ipv6 header size]). 
+.SS "int ms_get_mtu (void)"Get mediastreamer default mtu, used to compute the default RTP max payload size. 
+.SS "void ms_set_cpu_count (unsigned int c)"Declare how many cpu (cores) are available on the platform 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

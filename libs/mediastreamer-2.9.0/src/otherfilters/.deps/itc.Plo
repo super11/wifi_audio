@@ -1,0 +1,242 @@
+otherfilters/itc.lo: otherfilters/itc.c ../include/mediastreamer2/msitc.h \
+ ../include/mediastreamer2/msfilter.h \
+ ../include/mediastreamer2/mscommon.h \
+ /home/yyz/tiny210/data/fake_root/include/ortp/logging.h \
+ /home/yyz/tiny210/data/fake_root/include/ortp/port.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/errno.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/features.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sys/cdefs.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/wordsize.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/gnu/stubs.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/errno.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/linux/errno.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/asm/errno.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/asm-generic/errno.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/asm-generic/errno-base.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sys/types.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/types.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/typesizes.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/time.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/include/stddef.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/endian.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/endian.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/byteswap.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sys/select.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/select.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/sigset.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/time.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sys/sysmacros.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/pthreadtypes.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/pthread.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sched.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/sched.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/xlocale.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/signal.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/setjmp.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/unistd.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/posix_opt.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/confname.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/getopt.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/fcntl.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/fcntl.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/stdlib.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/alloca.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/stdio.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/libio.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/_G_config.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/wchar.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/include/stdarg.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/stdio_lim.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/sys_errlist.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/stdio.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/string.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/string.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/string2.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/include/stdint.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/stdint.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/wchar.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sys/socket.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sys/uio.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/uio.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/socket.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/sockaddr.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/asm/socket.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/asm/sockios.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/netinet/in.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/in.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/arpa/inet.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sys/time.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/netdb.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/rpc/netdb.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/netdb.h \
+ /home/yyz/tiny210/data/fake_root/include/ortp/str_utils.h \
+ /home/yyz/tiny210/data/fake_root/include/ortp/payloadtype.h \
+ ../mediastreamer-config.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/libintl.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/locale.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/locale.h \
+ ../include/mediastreamer2/msqueue.h ../include/mediastreamer2/mscommon.h \
+ ../include/mediastreamer2/allfilters.h \
+ ../include/mediastreamer2/msinterfaces.h
+
+../include/mediastreamer2/msitc.h:
+
+../include/mediastreamer2/msfilter.h:
+
+../include/mediastreamer2/mscommon.h:
+
+/home/yyz/tiny210/data/fake_root/include/ortp/logging.h:
+
+/home/yyz/tiny210/data/fake_root/include/ortp/port.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/errno.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/features.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sys/cdefs.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/wordsize.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/gnu/stubs.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/errno.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/linux/errno.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/asm/errno.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/asm-generic/errno.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/asm-generic/errno-base.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sys/types.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/types.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/typesizes.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/time.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/include/stddef.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/endian.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/endian.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/byteswap.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sys/select.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/select.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/sigset.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/time.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sys/sysmacros.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/pthreadtypes.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/pthread.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sched.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/sched.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/xlocale.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/signal.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/setjmp.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/unistd.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/posix_opt.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/confname.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/getopt.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/fcntl.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/fcntl.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/stdlib.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/alloca.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/stdio.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/libio.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/_G_config.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/wchar.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/include/stdarg.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/stdio_lim.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/sys_errlist.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/stdio.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/string.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/string.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/string2.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/include/stdint.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/stdint.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/wchar.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sys/socket.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sys/uio.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/uio.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/socket.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/sockaddr.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/asm/socket.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/asm/sockios.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/netinet/in.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/in.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/arpa/inet.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sys/time.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/netdb.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/rpc/netdb.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/netdb.h:
+
+/home/yyz/tiny210/data/fake_root/include/ortp/str_utils.h:
+
+/home/yyz/tiny210/data/fake_root/include/ortp/payloadtype.h:
+
+../mediastreamer-config.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/libintl.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/locale.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/locale.h:
+
+../include/mediastreamer2/msqueue.h:
+
+../include/mediastreamer2/mscommon.h:
+
+../include/mediastreamer2/allfilters.h:
+
+../include/mediastreamer2/msinterfaces.h:

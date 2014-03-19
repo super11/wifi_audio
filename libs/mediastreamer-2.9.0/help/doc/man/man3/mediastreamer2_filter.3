@@ -1,0 +1,542 @@
+.TH "Filter API - Manage mediastreamer2 filters" 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Filter API - Manage mediastreamer2 filters \- 
+.PP
+Filter API to manage mediastreamer2 filters.  
+
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMS_FILTER_METHOD\fP(_id_, _count_, _argtype_)   MS_FILTER_METHOD_ID(_id_,_count_,sizeof(_argtype_))"
+.br
+.ti -1c
+.RI "#define \fBMS_FILTER_METHOD_NO_ARG\fP(_id_, _count_)   MS_FILTER_METHOD_ID(_id_,_count_,0)"
+.br
+.ti -1c
+.RI "#define \fBMS_FILTER_SET_SAMPLE_RATE\fP   MS_FILTER_BASE_METHOD(0,int)"
+.br
+.ti -1c
+.RI "#define \fBMS_FILTER_GET_SAMPLE_RATE\fP   MS_FILTER_BASE_METHOD(1,int)"
+.br
+.ti -1c
+.RI "#define \fBMS_FILTER_SET_BITRATE\fP   MS_FILTER_BASE_METHOD(2,int)"
+.br
+.ti -1c
+.RI "#define \fBMS_FILTER_GET_BITRATE\fP   MS_FILTER_BASE_METHOD(3,int)"
+.br
+.ti -1c
+.RI "#define \fBMS_FILTER_ADD_FMTP\fP   MS_FILTER_BASE_METHOD(7,const char)"
+.br
+.ti -1c
+.RI "#define \fBMS_FILTER_GET_LATENCY\fP   MS_FILTER_BASE_METHOD(11,int)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBMSFilterFunc\fP )(struct _MSFilter *f)"
+.br
+.ti -1c
+.RI "typedef int(* \fBMSFilterMethodFunc\fP )(struct _MSFilter *f, void *arg)"
+.br
+.ti -1c
+.RI "typedef void(* \fBMSFilterNotifyFunc\fP )(void *userdata, struct _MSFilter *f, unsigned int id, void *arg)"
+.br
+.ti -1c
+.RI "typedef struct _MSFilterMethod \fBMSFilterMethod\fP"
+.br
+.ti -1c
+.RI "typedef enum \fB_MSFilterCategory\fP \fBMSFilterCategory\fP"
+.br
+.ti -1c
+.RI "typedef enum \fB_MSFilterFlags\fP \fBMSFilterFlags\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSFilterDesc \fBMSFilterDesc\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSFilter \fBMSFilter\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSConnectionPoint \fBMSConnectionPoint\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSConnectionHelper \fBMSConnectionHelper\fP"
+.br
+.ti -1c
+.RI "typedef enum \fB_MSFilterInterfaceId\fP \fBMSFilterInterfaceId\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fB_MSFilterCategory\fP { \fBMS_FILTER_OTHER\fP, \fBMS_FILTER_ENCODER\fP, \fBMS_FILTER_DECODER\fP, \fBMS_FILTER_ENCODING_CAPTURER\fP, \fBMS_FILTER_DECODING_RENDERER\fP }"
+.br
+.ti -1c
+.RI "enum \fB_MSFilterFlags\fP { \fBMS_FILTER_IS_PUMP\fP =  1 }"
+.br
+.ti -1c
+.RI "enum \fB_MSFilterInterfaceId\fP { , \fBMSFilterPlayerInterface\fP, \fBMSFilterRecorderInterface\fP, \fBMSFilterVideoDisplayInterface\fP, \fBMSFilterVideoDecoderInterface\fP, \fBMSFilterVideoCaptureInterface\fP, \fBMSFilterAudioDecoderInterface\fP, \fBMSFilterVideoEncoderInterface\fP, \fBMSFilterAudioCaptureInterface\fP, \fBMSFilterAudioEncoderInterface\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBms_filter_register\fP (\fBMSFilterDesc\fP *desc)"
+.br
+.ti -1c
+.RI "\fBMSFilterDesc\fP * \fBms_filter_get_encoding_capturer\fP (const char *mime)"
+.br
+.ti -1c
+.RI "\fBMSFilterDesc\fP * \fBms_filter_get_decoding_renderer\fP (const char *mime)"
+.br
+.ti -1c
+.RI "\fBMSFilterDesc\fP * \fBms_filter_get_encoder\fP (const char *mime)"
+.br
+.ti -1c
+.RI "\fBMSFilterDesc\fP * \fBms_filter_get_decoder\fP (const char *mime)"
+.br
+.ti -1c
+.RI "\fBMSFilterDesc\fP * \fBms_filter_lookup_by_name\fP (const char *filter_name)"
+.br
+.ti -1c
+.RI "\fBMSFilter\fP * \fBms_filter_create_encoder\fP (const char *mime)"
+.br
+.ti -1c
+.RI "\fBMSFilter\fP * \fBms_filter_create_decoder\fP (const char *mime)"
+.br
+.ti -1c
+.RI "bool_t \fBms_filter_codec_supported\fP (const char *mime)"
+.br
+.ti -1c
+.RI "\fBMSFilter\fP * \fBms_filter_new\fP (MSFilterId id)"
+.br
+.ti -1c
+.RI "\fBMSFilter\fP * \fBms_filter_new_from_name\fP (const char *name)"
+.br
+.ti -1c
+.RI "\fBMSFilter\fP * \fBms_filter_new_from_desc\fP (\fBMSFilterDesc\fP *desc)"
+.br
+.ti -1c
+.RI "int \fBms_filter_link\fP (\fBMSFilter\fP *f1, int pin1, \fBMSFilter\fP *f2, int pin2)"
+.br
+.ti -1c
+.RI "int \fBms_filter_unlink\fP (\fBMSFilter\fP *f1, int pin1, \fBMSFilter\fP *f2, int pin2)"
+.br
+.ti -1c
+.RI "int \fBms_filter_call_method\fP (\fBMSFilter\fP *f, unsigned int id, void *arg)"
+.br
+.ti -1c
+.RI "int \fBms_filter_call_method_noarg\fP (\fBMSFilter\fP *f, unsigned int id)"
+.br
+.ti -1c
+.RI "bool_t \fBms_filter_has_method\fP (\fBMSFilter\fP *f, unsigned int id)"
+.br
+.ti -1c
+.RI "void \fBms_filter_set_notify_callback\fP (\fBMSFilter\fP *f, \fBMSFilterNotifyFunc\fP fn, void *userdata)"
+.br
+.ti -1c
+.RI "MSFilterId \fBms_filter_get_id\fP (\fBMSFilter\fP *f)"
+.br
+.ti -1c
+.RI "MSList * \fBms_filter_find_neighbours\fP (\fBMSFilter\fP *me)"
+.br
+.ti -1c
+.RI "void \fBms_filter_destroy\fP (\fBMSFilter\fP *f)"
+.br
+.ti -1c
+.RI "void \fBms_connection_helper_start\fP (\fBMSConnectionHelper\fP *h)"
+.br
+.ti -1c
+.RI "int \fBms_connection_helper_link\fP (\fBMSConnectionHelper\fP *h, \fBMSFilter\fP *f, int inpin, int outpin)"
+.br
+.RI "\fIEnter a MSFilter to be connected into the MSConnectionHelper object. \fP"
+.ti -1c
+.RI "int \fBms_connection_helper_unlink\fP (\fBMSConnectionHelper\fP *h, \fBMSFilter\fP *f, int inpin, int outpin)"
+.br
+.RI "\fIEnter a MSFilter to be disconnected into the MSConnectionHelper object. Process exactly the same way as \fBms_connection_helper_link()\fP but calls \fBms_filter_unlink()\fP on the entered filters. \fP"
+.ti -1c
+.RI "void \fBms_filter_enable_statistics\fP (bool_t enabled)"
+.br
+.RI "\fIEnable processing time measurements statistics for filters. \fP"
+.ti -1c
+.RI "void \fBms_filter_reset_statistics\fP (void)"
+.br
+.RI "\fIReset processing time statistics for filters. \fP"
+.ti -1c
+.RI "const MSList * \fBms_filter_get_statistics\fP (void)"
+.br
+.RI "\fIRetrieves statistics for running filters. Returns a list of MSFilterStats. \fP"
+.ti -1c
+.RI "void \fBms_filter_log_statistics\fP (void)"
+.br
+.RI "\fILogs runtime statistics for running filters. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Filter API to manage mediastreamer2 filters. 
+
+This section documents the API needed to create, link, unlink, find and destroy filters.
+.PP
+It also provides definitions if you wish to implement your own filters. 
+.SH "Define Documentation"
+.PP 
+.SS "#define MS_FILTER_METHOD(_id_, _count_, _argtype_)   MS_FILTER_METHOD_ID(_id_,_count_,sizeof(_argtype_))"Macro to create a method id, unique per filter. First argument shall be the filter's ID (MSFilterId) or interface ID (MSFilterInterfaceId). Second argument is the method index within the context of the filter. It should start from 0 and increment for each new method. Third argument is the argument type of the method, for example 'int', 'float' or any structure. 
+.SS "#define MS_FILTER_METHOD_NO_ARG(_id_, _count_)   MS_FILTER_METHOD_ID(_id_,_count_,0)"Same as MS_FILTER_METHOD, but for method that do not take any argument. 
+.SS "#define MS_FILTER_SET_SAMPLE_RATE   MS_FILTER_BASE_METHOD(0,int)"some MSFilter base generic methods: Set filter output/input sampling frequency in hertz 
+.SS "#define MS_FILTER_GET_SAMPLE_RATE   MS_FILTER_BASE_METHOD(1,int)"Get filter output/input sampling frequency in hertz 
+.SS "#define MS_FILTER_SET_BITRATE   MS_FILTER_BASE_METHOD(2,int)"Set filter output network bitrate in bit per seconds, this value include IP+UDP+RTP overhead 
+.SS "#define MS_FILTER_GET_BITRATE   MS_FILTER_BASE_METHOD(3,int)"Get filter output network bitrate in bit per seconds, this value include IP+UDP+RTP overhead 
+.SS "#define MS_FILTER_ADD_FMTP   MS_FILTER_BASE_METHOD(7,const char)"Set codec dependent attributes as taken from the SDP 
+.SS "#define MS_FILTER_GET_LATENCY   MS_FILTER_BASE_METHOD(11,int)"Filters can return their latency in milliseconds (if known) using this method: 
+.SH "Typedef Documentation"
+.PP 
+.SS "\fBMSFilterFunc\fP"Structure for filter's methods (init, preprocess, process, postprocess, uninit). 
+.SS "\fBMSFilterMethodFunc\fP"Structure for filter's methods used to set filter's options. 
+.SS "\fBMSFilterNotifyFunc\fP"Structure for filter's methods used as a callback to notify events. 
+.SS "\fBMSFilterMethod\fP"Structure for holding filter's methods to set filter's options. 
+.SS "\fBMSFilterCategory\fP"Structure to describe filter's category. 
+.PP
+.nf
+
+     MS_FILTER_OTHER
+     MS_FILTER_ENCODER
+     MS_FILTER_DECODER
+     MS_FILTER_ENCODING_CAPTURER
+     MS_FILTER_DECODING_RENDERER
+ 
+.fi
+.PP
+ 
+.SS "typedef enum \fB_MSFilterFlags\fP \fBMSFilterFlags\fP"Filter's flags controlling special behaviours. 
+.SS "\fBMSFilterDesc\fP"Structure for filter's description. 
+.SS "\fBMSFilter\fP"Structure of filter's object. 
+.SS "\fBMSConnectionPoint\fP"Structure that represents a connection point of a MSFilter 
+.SS "\fBMSConnectionHelper\fP"Structure that holds data when using the ms_connection_helper_* functions. 
+.SS "typedef enum \fB_MSFilterInterfaceId\fP \fBMSFilterInterfaceId\fP"Interface IDs, used to generate method names (see MS_FILTER_METHOD macro). 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fB_MSFilterCategory\fP"Filter's category 
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fIMS_FILTER_OTHER \fP\fP
+others 
+.TP
+\fB\fIMS_FILTER_ENCODER \fP\fP
+used by encoders 
+.TP
+\fB\fIMS_FILTER_DECODER \fP\fP
+used by decoders 
+.TP
+\fB\fIMS_FILTER_ENCODING_CAPTURER \fP\fP
+used by capture filters that perform encoding 
+.TP
+\fB\fIMS_FILTER_DECODING_RENDERER \fP\fP
+used by render filters that perform decoding 
+.SS "enum \fB_MSFilterFlags\fP"Filter's flags controlling special behaviours. 
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fIMS_FILTER_IS_PUMP \fP\fP
+The filter must be called in process function every tick. 
+.SS "enum \fB_MSFilterInterfaceId\fP"Interface IDs, used to generate method names (see MS_FILTER_METHOD macro). The purpose of these interfaces is to allow different filter implementations to share the same methods, by implementing the method definitions for these interfaces. For example every video encoder implementation would need a method to request the generation of a key frame. Instead of having each implementation defining its own method to do this, each implementation can just implement the MS_VIDEO_ENCODER_REQ_VFU method of the MSFilterVideoEncoderInterface. 
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fIMSFilterPlayerInterface \fP\fP
+Player interface, used to control playing of files. 
+.TP
+\fB\fIMSFilterRecorderInterface \fP\fP
+Recorder interface, used to control recording of stream into files. 
+.TP
+\fB\fIMSFilterVideoDisplayInterface \fP\fP
+Video display interface, used to control the rendering of raw pictures onscreen. 
+.TP
+\fB\fIMSFilterVideoDecoderInterface \fP\fP
+Echo canceller interface, used to control echo canceller implementations. Video decoder interface 
+.TP
+\fB\fIMSFilterVideoCaptureInterface \fP\fP
+Video capture interface 
+.TP
+\fB\fIMSFilterAudioDecoderInterface \fP\fP
+Audio Decoder interface 
+.TP
+\fB\fIMSFilterVideoEncoderInterface \fP\fP
+Video encoder interface 
+.TP
+\fB\fIMSFilterAudioCaptureInterface \fP\fP
+Interface for audio capture filters 
+.TP
+\fB\fIMSFilterAudioEncoderInterface \fP\fP
+Interface for audio playback filters. Video encoder interface 
+.SH "Function Documentation"
+.PP 
+.SS "void ms_filter_register (\fBMSFilterDesc\fP * desc)"Register a filter description. (plugins use only!)
+.PP
+When you build your own plugin, this method will add the encoder or decoder to the internal list of supported codec. Then, this plugin can be used transparently from the application.
+.PP
+ms_filter_get_encoder, ms_filter_get_decoder, ms_filter_create_encoder, ms_filter_create_decoder and ms_filter_codec_supported can then be used as if the codec was internally. supported.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdesc\fP a filter description. 
+.RE
+.PP
+
+.SS "\fBMSFilterDesc\fP* ms_filter_get_encoding_capturer (const char * mime)"Retrieve capture filter that supports encoding to codec name.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImime\fP A string indicating the codec.
+.RE
+.PP
+Returns: a MSFilterDesc if successfull, NULL otherwise. 
+.SS "\fBMSFilterDesc\fP* ms_filter_get_decoding_renderer (const char * mime)"Retrieve render filter that supports decoding to codec name.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImime\fP A string indicating the codec.
+.RE
+.PP
+Returns: a MSFilterDesc if successfull, NULL otherwise. 
+.SS "\fBMSFilterDesc\fP* ms_filter_get_encoder (const char * mime)"Retrieve encoders according to codec name.
+.PP
+Internal supported codecs: PCMU, PCMA, speex, gsm Existing Public plugins: iLBC
+.PP
+\fBParameters:\fP
+.RS 4
+\fImime\fP A string indicating the codec.
+.RE
+.PP
+Returns: a MSFilterDesc if successfull, NULL otherwise. 
+.SS "\fBMSFilterDesc\fP* ms_filter_get_decoder (const char * mime)"Retrieve decoders according to codec name.
+.PP
+Internal supported codecs: PCMU, PCMA, speex, gsm Existing Public plugins: iLBC
+.PP
+\fBParameters:\fP
+.RS 4
+\fImime\fP A string indicating the codec.
+.RE
+.PP
+Returns: a MSFilterDesc if successfull, NULL otherwise. 
+.SS "\fBMSFilterDesc\fP* ms_filter_lookup_by_name (const char * filter_name)"Lookup a mediastreamer2 filter using its name. If found, the descriptor (MSFilterDesc) is returned. This descriptor can be used to instanciate the filter using \fBms_filter_new_from_desc()\fP This function can be useful to query the presence of a filter loaded as a plugin, for example.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The filter name. 
+.RE
+.PP
+
+.SS "\fBMSFilter\fP* ms_filter_create_encoder (const char * mime)"Create encoder filter according to codec name.
+.PP
+Internal supported codecs: PCMU, PCMA, speex, gsm Existing Public plugins: iLBC
+.PP
+\fBParameters:\fP
+.RS 4
+\fImime\fP A string indicating the codec.
+.RE
+.PP
+Returns: a MSFilter if successfull, NULL otherwise. 
+.SS "\fBMSFilter\fP* ms_filter_create_decoder (const char * mime)"Create decoder filter according to codec name.
+.PP
+Internal supported codecs: PCMU, PCMA, speex, gsm Existing Public plugins: iLBC
+.PP
+\fBParameters:\fP
+.RS 4
+\fImime\fP A string indicating the codec.
+.RE
+.PP
+Returns: a MSFilter if successfull, NULL otherwise. 
+.SS "bool_t ms_filter_codec_supported (const char * mime)"Check if a encode or decode filter exists for a codec name.
+.PP
+Internal supported codecs: PCMU, PCMA, speex, gsm Existing Public plugins: iLBC
+.PP
+\fBParameters:\fP
+.RS 4
+\fImime\fP A string indicating the codec.
+.RE
+.PP
+Returns: TRUE if successfull, FALSE otherwise. 
+.SS "\fBMSFilter\fP* ms_filter_new (MSFilterId id)"Create decoder filter according to a filter's MSFilterId.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP A MSFilterId identifier for the filter.
+.RE
+.PP
+Returns: a MSFilter if successfull, NULL otherwise. 
+.SS "\fBMSFilter\fP* ms_filter_new_from_name (const char * name)"Create decoder filter according to a filter's name.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP A name for the filter.
+.RE
+.PP
+Returns: a MSFilter if successfull, NULL otherwise. 
+.SS "\fBMSFilter\fP* ms_filter_new_from_desc (\fBMSFilterDesc\fP * desc)"Create decoder filter according to a filter's description.
+.PP
+The primary use is to create your own filter's in your application and avoid registration inside mediastreamer2.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdesc\fP A MSFilterDesc for the filter.
+.RE
+.PP
+Returns: a MSFilter if successfull, NULL otherwise. 
+.SS "int ms_filter_link (\fBMSFilter\fP * f1, int pin1, \fBMSFilter\fP * f2, int pin2)"Link one OUTPUT pin from a filter to an INPUT pin of another filter.
+.PP
+All data coming from the OUTPUT pin of one filter will be distributed to the INPUT pin of the second filter.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf1\fP A MSFilter object containing the OUTPUT pin 
+.br
+\fIpin1\fP An index of an OUTPUT pin. 
+.br
+\fIf2\fP A MSFilter object containing the INPUT pin 
+.br
+\fIpin2\fP An index of an INPUT pin.
+.RE
+.PP
+Returns: 0 if sucessful, -1 otherwise. 
+.SS "int ms_filter_unlink (\fBMSFilter\fP * f1, int pin1, \fBMSFilter\fP * f2, int pin2)"Unlink one OUTPUT pin from a filter to an INPUT pin of another filter.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf1\fP A MSFilter object containing the OUTPUT pin 
+.br
+\fIpin1\fP An index of an OUTPUT pin. 
+.br
+\fIf2\fP A MSFilter object containing the INPUT pin 
+.br
+\fIpin2\fP An index of an INPUT pin.
+.RE
+.PP
+Returns: 0 if sucessful, -1 otherwise. 
+.SS "int ms_filter_call_method (\fBMSFilter\fP * f, unsigned int id, void * arg)"Call a filter's method to set or get options.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP A MSFilter object. 
+.br
+\fIid\fP A private filter ID for the option. 
+.br
+\fIarg\fP A private user data for the filter.
+.RE
+.PP
+Returns: 0 if successfull, -1 otherwise. 
+.SS "int ms_filter_call_method_noarg (\fBMSFilter\fP * f, unsigned int id)"Call a filter's method to set options.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP A MSFilter object. 
+.br
+\fIid\fP A method ID.
+.RE
+.PP
+Returns: 0 if successfull, -1 otherwise. 
+.SS "bool_t ms_filter_has_method (\fBMSFilter\fP * f, unsigned int id)"Returns whether the filter implements a given method
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP A MSFilter object. 
+.br
+\fIid\fP A method ID.
+.RE
+.PP
+Returns: 0 if successfull, -1 otherwise. 
+.SS "void ms_filter_set_notify_callback (\fBMSFilter\fP * f, \fBMSFilterNotifyFunc\fP fn, void * userdata)"Set a callback on filter's to be informed of private filter's event. This callback is called from the filter's MSTicker, unless a global event queue is created to receive all filter's notification asynchronously. See ms_event_queue_new() for details.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP A MSFilter object. 
+.br
+\fIfn\fP A MSFilterNotifyFunc that will be called. 
+.br
+\fIuserdata\fP A pointer to private data. 
+.RE
+.PP
+
+.SS "MSFilterId ms_filter_get_id (\fBMSFilter\fP * f)"Get MSFilterId's filter.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP A MSFilter object.
+.RE
+.PP
+Returns: MSFilterId if successfull, -1 otherwise. 
+.SS "MSList* ms_filter_find_neighbours (\fBMSFilter\fP * me)"Obtain the list of current filter's neighbours, ie filters that are part of same graph.
+.PP
+Returns: a MSList of MSFilter, that needs to be freed by the caller when no more needed. 
+.SS "void ms_filter_destroy (\fBMSFilter\fP * f)"Destroy a filter object.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP A MSFilter object. 
+.RE
+.PP
+
+.SS "void ms_connection_helper_start (\fBMSConnectionHelper\fP * h)"Initialize a MSConnectionHelper.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIh\fP A MSConnectionHelper, usually (but not necessarily) on stack 
+.RE
+.PP
+
+.SS "int ms_connection_helper_link (\fBMSConnectionHelper\fP * h, \fBMSFilter\fP * f, int inpin, int outpin)"
+.PP
+Enter a MSFilter to be connected into the MSConnectionHelper object. This functions enters a MSFilter to be connected into the MSConnectionHelper object and connects it to the last entered if not the first one. The MSConnectionHelper is useful to reduce the amount of code necessary to create graphs in case the connections are made in an ordered manner and some filters are present conditionally in graphs. For example, instead of writing 
+.PP
+.nf
+ ms_filter_link(f1,0,f2,1);
+ ms_filter_link(f2,0,f3,0);
+ ms_filter_link(f3,1,f4,0);
+
+.fi
+.PP
+ You can write: 
+.PP
+.nf
+ MSConnectionHelper h;
+ ms_connection_helper_start(&h);
+ ms_connection_helper_link(&h,f1,-1,0);
+ ms_connection_helper_link(&h,f2,1,0);
+ ms_connection_helper_link(&h,f3,0,1);
+ ms_connection_helper_link(&h,f4,0,-1);
+
+.fi
+.PP
+ Which is a bit longer to write here, but now imagine f2 needs to be present in the graph only in certain conditions: in the first case you have rewrite the two first lines, in the second case you just need to replace the fourth line by: 
+.PP
+.nf
+ if (my_condition) ms_connection_helper_link(&h,f2,1,0);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIh\fP a connection helper 
+.br
+\fIf\fP a MSFilter 
+.br
+\fIinpin\fP an input pin number with which the MSFilter needs to connect to previously entered MSFilter 
+.br
+\fIoutpin\fP an output pin number with which the MSFilter needs to be connected to the next entered MSFilter
+.RE
+.PP
+Returns: the return value of \fBms_filter_link()\fP that is called internally to this function. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

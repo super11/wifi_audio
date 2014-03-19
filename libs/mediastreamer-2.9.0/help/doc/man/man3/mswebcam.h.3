@@ -1,0 +1,91 @@
+.TH "mswebcam.h" 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mswebcam.h \- 
+.PP
+mediastreamer2 \fBmswebcam.h\fP include file  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <mediastreamer2/mscommon.h>\fP
+.br
+
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMS_STATIC_IMAGE_SET_IMAGE\fP   MS_FILTER_METHOD(MS_STATIC_IMAGE_ID,0,const char)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct _MSWebCamManager \fBMSWebCamManager\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSWebCamDesc \fBMSWebCamDesc\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSWebCam \fBMSWebCam\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMSWebCamManager\fP * \fBms_web_cam_manager_get\fP (void)"
+.br
+.ti -1c
+.RI "void \fBms_web_cam_manager_destroy\fP (void)"
+.br
+.ti -1c
+.RI "\fBMSWebCam\fP * \fBms_web_cam_manager_get_cam\fP (\fBMSWebCamManager\fP *m, const char *id)"
+.br
+.ti -1c
+.RI "\fBMSWebCam\fP * \fBms_web_cam_manager_get_default_cam\fP (\fBMSWebCamManager\fP *m)"
+.br
+.ti -1c
+.RI "const MSList * \fBms_web_cam_manager_get_list\fP (\fBMSWebCamManager\fP *m)"
+.br
+.ti -1c
+.RI "void \fBms_web_cam_manager_add_cam\fP (\fBMSWebCamManager\fP *m, \fBMSWebCam\fP *c)"
+.br
+.ti -1c
+.RI "void \fBms_web_cam_manager_prepend_cam\fP (\fBMSWebCamManager\fP *m, \fBMSWebCam\fP *c)"
+.br
+.ti -1c
+.RI "void \fBms_web_cam_manager_register_desc\fP (\fBMSWebCamManager\fP *m, \fBMSWebCamDesc\fP *desc)"
+.br
+.ti -1c
+.RI "void \fBms_web_cam_manager_reload\fP (\fBMSWebCamManager\fP *m)"
+.br
+.ti -1c
+.RI "struct _MSFilter * \fBms_web_cam_create_reader\fP (\fBMSWebCam\fP *obj)"
+.br
+.ti -1c
+.RI "\fBMSWebCam\fP * \fBms_web_cam_new\fP (\fBMSWebCamDesc\fP *desc)"
+.br
+.ti -1c
+.RI "void \fBms_web_cam_destroy\fP (\fBMSWebCam\fP *obj)"
+.br
+.ti -1c
+.RI "const char * \fBms_web_cam_get_driver_type\fP (const \fBMSWebCam\fP *obj)"
+.br
+.ti -1c
+.RI "const char * \fBms_web_cam_get_name\fP (const \fBMSWebCam\fP *obj)"
+.br
+.ti -1c
+.RI "const char * \fBms_web_cam_get_string_id\fP (\fBMSWebCam\fP *obj)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+mediastreamer2 \fBmswebcam.h\fP include file 
+
+This file provide the API needed to manage soundcard filters. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

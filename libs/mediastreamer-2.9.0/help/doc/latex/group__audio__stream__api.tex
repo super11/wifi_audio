@@ -1,0 +1,69 @@
+\section{Audio streaming API -\/ Create and run VoIP audio streams.}
+\label{group__audio__stream__api}\index{Audio streaming API -\/ Create and run VoIP audio streams.@{Audio streaming API -\/ Create and run VoIP audio streams.}}
+
+
+Audio streaming API -\/ Easily run audio streams from soundcard or wav files to RTP.  
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \_\-AudioStream {\bf AudioStream}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+MS2\_\-PUBLIC int {\bf audio\_\-stream\_\-start\_\-full} ({\bf AudioStream} $\ast$stream, RtpProfile $\ast$profile, const char $\ast$rem\_\-rtp\_\-ip, int rem\_\-rtp\_\-port, const char $\ast$rem\_\-rtcp\_\-ip, int rem\_\-rtcp\_\-port, int payload, int jitt\_\-comp, const char $\ast$infile, const char $\ast$outfile, {\bf MSSndCard} $\ast$playcard, {\bf MSSndCard} $\ast$captcard, bool\_\-t use\_\-ec)
+\item 
+MS2\_\-PUBLIC {\bf AudioStream} $\ast$ {\bf audio\_\-stream\_\-new} (int loc\_\-rtp\_\-port, int loc\_\-rtcp\_\-port, bool\_\-t ipv6)
+\item 
+MS2\_\-PUBLIC int {\bf audio\_\-stream\_\-start\_\-now} ({\bf AudioStream} $\ast$stream, RtpProfile $\ast$prof, const char $\ast$remip, int remport, int rem\_\-rtcp\_\-port, int payload\_\-type, int jitt\_\-comp, {\bf MSSndCard} $\ast$playcard, {\bf MSSndCard} $\ast$captcard, bool\_\-t echo\_\-cancel)
+\item 
+MS2\_\-PUBLIC void {\bf audio\_\-stream\_\-iterate} ({\bf AudioStream} $\ast$stream)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Audio streaming API -\/ Easily run audio streams from soundcard or wav files to RTP. 
+
+\subsection{Typedef Documentation}
+\index{audio\_\-stream\_\-api@{audio\_\-stream\_\-api}!AudioStream@{AudioStream}}
+\index{AudioStream@{AudioStream}!audio_stream_api@{audio\_\-stream\_\-api}}
+\subsubsection[{AudioStream}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct \_\-AudioStream {\bf AudioStream}}\label{group__audio__stream__api_ga9e8d8f2dbcc208a83179961032fc76b4}
+The AudioStream holds all resources to create and run typical VoIP audiostream. 
+
+\subsection{Function Documentation}
+\index{audio\_\-stream\_\-api@{audio\_\-stream\_\-api}!audio\_\-stream\_\-start\_\-full@{audio\_\-stream\_\-start\_\-full}}
+\index{audio\_\-stream\_\-start\_\-full@{audio\_\-stream\_\-start\_\-full}!audio_stream_api@{audio\_\-stream\_\-api}}
+\subsubsection[{audio\_\-stream\_\-start\_\-full}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC int audio\_\-stream\_\-start\_\-full ({\bf AudioStream} $\ast$ {\em stream}, \/  RtpProfile $\ast$ {\em profile}, \/  const char $\ast$ {\em rem\_\-rtp\_\-ip}, \/  int {\em rem\_\-rtp\_\-port}, \/  const char $\ast$ {\em rem\_\-rtcp\_\-ip}, \/  int {\em rem\_\-rtcp\_\-port}, \/  int {\em payload}, \/  int {\em jitt\_\-comp}, \/  const char $\ast$ {\em infile}, \/  const char $\ast$ {\em outfile}, \/  {\bf MSSndCard} $\ast$ {\em playcard}, \/  {\bf MSSndCard} $\ast$ {\em captcard}, \/  bool\_\-t {\em use\_\-ec})}\label{group__audio__stream__api_ga16b4d05fcc54d238ebc808d0b0ee26b9}
+Starts an audio stream from/to local wav files or soundcards.
+
+This method starts the processing of the audio stream, that is playing from wav file or soundcard, voice processing, encoding, sending through RTP, receiving from RTP, decoding, voice processing and wav file recording or soundcard playback.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em stream}]an AudioStream previously created with \doxyref{audio\_\-stream\_\-new()}{p.}{group__audio__stream__api_ga90bb2b40afbb681ee0757d7bc9806a5f}. \item[{\em prof}]a RtpProfile containing all PayloadType possible during the audio session. \item[{\em rem\_\-rtp\_\-ip}]remote IP address where to send the encoded audio. \item[{\em rem\_\-rtp\_\-port}]remote IP port where to send the encoded audio. \item[{\em rem\_\-rtcp\_\-ip}]remote IP address for RTCP. \item[{\em rem\_\-rtcp\_\-port}]remote port for RTCP. \item[{\em payload\_\-type}]payload type index to use for the sending stream. This index must point to a valid PayloadType in the RtpProfile. \item[{\em jitt\_\-comp}]Nominal jitter buffer size in milliseconds. \item[{\em infile}]path to wav file to play out (can be NULL) \item[{\em outfile}]path to wav file to record into (can be NULL) \item[{\em playcard}]The soundcard to be used for playback (can be NULL) \item[{\em captcard}]The soundcard to be used for catpure. (can be NULL) \item[{\em echo\_\-cancel}]whether echo cancellation is to be performed. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if sucessful, -\/1 otherwise. 
+\end{DoxyReturn}
+\index{audio\_\-stream\_\-api@{audio\_\-stream\_\-api}!audio\_\-stream\_\-new@{audio\_\-stream\_\-new}}
+\index{audio\_\-stream\_\-new@{audio\_\-stream\_\-new}!audio_stream_api@{audio\_\-stream\_\-api}}
+\subsubsection[{audio\_\-stream\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC {\bf AudioStream}$\ast$ audio\_\-stream\_\-new (int {\em loc\_\-rtp\_\-port}, \/  int {\em loc\_\-rtcp\_\-port}, \/  bool\_\-t {\em ipv6})}\label{group__audio__stream__api_ga90bb2b40afbb681ee0757d7bc9806a5f}
+Creates an AudioStream object listening on a RTP port. 
+\begin{DoxyParams}{Parameters}
+\item[{\em loc\_\-rtp\_\-port}]the local UDP port to listen for RTP packets. \item[{\em loc\_\-rtcp\_\-port}]the local UDP port to listen for RTCP packets \item[{\em ipv6}]TRUE if ipv6 must be used. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a new AudioStream. 
+\end{DoxyReturn}
+\index{audio\_\-stream\_\-api@{audio\_\-stream\_\-api}!audio\_\-stream\_\-start\_\-now@{audio\_\-stream\_\-start\_\-now}}
+\index{audio\_\-stream\_\-start\_\-now@{audio\_\-stream\_\-start\_\-now}!audio_stream_api@{audio\_\-stream\_\-api}}
+\subsubsection[{audio\_\-stream\_\-start\_\-now}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC int audio\_\-stream\_\-start\_\-now ({\bf AudioStream} $\ast$ {\em stream}, \/  RtpProfile $\ast$ {\em prof}, \/  const char $\ast$ {\em remip}, \/  int {\em remport}, \/  int {\em rem\_\-rtcp\_\-port}, \/  int {\em payload\_\-type}, \/  int {\em jitt\_\-comp}, \/  {\bf MSSndCard} $\ast$ {\em playcard}, \/  {\bf MSSndCard} $\ast$ {\em captcard}, \/  bool\_\-t {\em echo\_\-cancel})}\label{group__audio__stream__api_ga245f085458e2325150e61f1ffd750850}
+Starts an audio stream from local soundcards.
+
+This method starts the processing of the audio stream, that is capture from soundcard, voice processing, encoding, sending through RTP, receiving from RTP, decoding, voice processing and soundcard playback.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em stream}]an AudioStream previously created with \doxyref{audio\_\-stream\_\-new()}{p.}{group__audio__stream__api_ga90bb2b40afbb681ee0757d7bc9806a5f}. \item[{\em prof}]a RtpProfile containing all PayloadType possible during the audio session. \item[{\em remip}]remote IP address where to send the encoded audio. \item[{\em remport}]remote IP port where to send the encoded audio \item[{\em rem\_\-rtcp\_\-port}]remote port for RTCP. \item[{\em payload\_\-type}]payload type index to use for the sending stream. This index must point to a valid PayloadType in the RtpProfile. \item[{\em jitt\_\-comp}]Nominal jitter buffer size in milliseconds. \item[{\em playcard}]The soundcard to be used for playback \item[{\em captcard}]The soundcard to be used for catpure. \item[{\em echo\_\-cancel}]whether echo cancellation is to be performed. \end{DoxyParams}
+\index{audio\_\-stream\_\-api@{audio\_\-stream\_\-api}!audio\_\-stream\_\-iterate@{audio\_\-stream\_\-iterate}}
+\index{audio\_\-stream\_\-iterate@{audio\_\-stream\_\-iterate}!audio_stream_api@{audio\_\-stream\_\-api}}
+\subsubsection[{audio\_\-stream\_\-iterate}]{\setlength{\rightskip}{0pt plus 5cm}MS2\_\-PUBLIC void audio\_\-stream\_\-iterate ({\bf AudioStream} $\ast$ {\em stream})}\label{group__audio__stream__api_ga40714ac4d954903adb27cca6477b680a}
+Executes background low priority tasks related to audio processing (RTP statistics analysis). It should be called periodically, for example with an interval of 100 ms or so. 

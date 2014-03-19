@@ -1,0 +1,76 @@
+modes.lo: modes.c ../config.h modes.h ../include/speex/speex.h \
+ ../include/speex/speex_bits.h ../include/speex/speex_types.h \
+ ../include/speex/speex_config_types.h arch.h ltp.h quant_lsp.h \
+ cb_search.h sb_celp.h nb_celp.h ../include/speex/speex_callbacks.h \
+ ../include/speex/speex.h vbr.h filters.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/math.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/features.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sys/cdefs.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/wordsize.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/gnu/stubs.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/huge_val.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/huge_valf.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/huge_vall.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/inf.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/nan.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/mathdef.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/mathcalls.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/mathinline.h
+
+../config.h:
+
+modes.h:
+
+../include/speex/speex.h:
+
+../include/speex/speex_bits.h:
+
+../include/speex/speex_types.h:
+
+../include/speex/speex_config_types.h:
+
+arch.h:
+
+ltp.h:
+
+quant_lsp.h:
+
+cb_search.h:
+
+sb_celp.h:
+
+nb_celp.h:
+
+../include/speex/speex_callbacks.h:
+
+../include/speex/speex.h:
+
+vbr.h:
+
+filters.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/math.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/features.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sys/cdefs.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/wordsize.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/gnu/stubs.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/huge_val.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/huge_valf.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/huge_vall.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/inf.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/nan.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/mathdef.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/mathcalls.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/mathinline.h:

@@ -1,0 +1,511 @@
+\section{Filter API -\/ Manage mediastreamer2 filters}
+\label{group__mediastreamer2__filter}\index{Filter API -\/ Manage mediastreamer2 filters@{Filter API -\/ Manage mediastreamer2 filters}}
+
+
+Filter API to manage mediastreamer2 filters.  
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf MS\_\-FILTER\_\-METHOD}(\_\-id\_\-, \_\-count\_\-, \_\-argtype\_\-)~MS\_\-FILTER\_\-METHOD\_\-ID(\_\-id\_\-,\_\-count\_\-,sizeof(\_\-argtype\_\-))
+\item 
+\#define {\bf MS\_\-FILTER\_\-METHOD\_\-NO\_\-ARG}(\_\-id\_\-, \_\-count\_\-)~MS\_\-FILTER\_\-METHOD\_\-ID(\_\-id\_\-,\_\-count\_\-,0)
+\item 
+\#define {\bf MS\_\-FILTER\_\-SET\_\-SAMPLE\_\-RATE}~MS\_\-FILTER\_\-BASE\_\-METHOD(0,int)
+\item 
+\#define {\bf MS\_\-FILTER\_\-GET\_\-SAMPLE\_\-RATE}~MS\_\-FILTER\_\-BASE\_\-METHOD(1,int)
+\item 
+\#define {\bf MS\_\-FILTER\_\-SET\_\-BITRATE}~MS\_\-FILTER\_\-BASE\_\-METHOD(2,int)
+\item 
+\#define {\bf MS\_\-FILTER\_\-GET\_\-BITRATE}~MS\_\-FILTER\_\-BASE\_\-METHOD(3,int)
+\item 
+\#define {\bf MS\_\-FILTER\_\-ADD\_\-FMTP}~MS\_\-FILTER\_\-BASE\_\-METHOD(7,const char)
+\item 
+\#define {\bf MS\_\-FILTER\_\-GET\_\-LATENCY}~MS\_\-FILTER\_\-BASE\_\-METHOD(11,int)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ {\bf MSFilterFunc} )(struct \_\-MSFilter $\ast$f)
+\item 
+typedef int($\ast$ {\bf MSFilterMethodFunc} )(struct \_\-MSFilter $\ast$f, void $\ast$arg)
+\item 
+typedef void($\ast$ {\bf MSFilterNotifyFunc} )(void $\ast$userdata, struct \_\-MSFilter $\ast$f, unsigned int id, void $\ast$arg)
+\item 
+typedef struct \_\-MSFilterMethod {\bf MSFilterMethod}
+\item 
+typedef enum {\bf \_\-MSFilterCategory} {\bf MSFilterCategory}
+\item 
+typedef enum {\bf \_\-MSFilterFlags} {\bf MSFilterFlags}
+\item 
+typedef struct \_\-MSFilterDesc {\bf MSFilterDesc}
+\item 
+typedef struct \_\-MSFilter {\bf MSFilter}
+\item 
+typedef struct \_\-MSConnectionPoint {\bf MSConnectionPoint}
+\item 
+typedef struct \_\-MSConnectionHelper {\bf MSConnectionHelper}
+\item 
+typedef enum {\bf \_\-MSFilterInterfaceId} {\bf MSFilterInterfaceId}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf \_\-MSFilterCategory} \{ \par
+{\bf MS\_\-FILTER\_\-OTHER}, 
+\par
+{\bf MS\_\-FILTER\_\-ENCODER}, 
+\par
+{\bf MS\_\-FILTER\_\-DECODER}, 
+\par
+{\bf MS\_\-FILTER\_\-ENCODING\_\-CAPTURER}, 
+\par
+{\bf MS\_\-FILTER\_\-DECODING\_\-RENDERER}
+ \}
+\item 
+enum {\bf \_\-MSFilterFlags} \{ {\bf MS\_\-FILTER\_\-IS\_\-PUMP} =  1
+ \}
+\item 
+enum {\bf \_\-MSFilterInterfaceId} \{ , \par
+{\bf MSFilterPlayerInterface}, 
+\par
+{\bf MSFilterRecorderInterface}, 
+\par
+{\bf MSFilterVideoDisplayInterface}
+, \par
+{\bf MSFilterVideoDecoderInterface}, 
+\par
+{\bf MSFilterVideoCaptureInterface}, 
+\par
+{\bf MSFilterAudioDecoderInterface}, 
+\par
+{\bf MSFilterVideoEncoderInterface}, 
+\par
+{\bf MSFilterAudioCaptureInterface}
+, \par
+{\bf MSFilterAudioEncoderInterface}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf ms\_\-filter\_\-register} ({\bf MSFilterDesc} $\ast$desc)
+\item 
+{\bf MSFilterDesc} $\ast$ {\bf ms\_\-filter\_\-get\_\-encoding\_\-capturer} (const char $\ast$mime)
+\item 
+{\bf MSFilterDesc} $\ast$ {\bf ms\_\-filter\_\-get\_\-decoding\_\-renderer} (const char $\ast$mime)
+\item 
+{\bf MSFilterDesc} $\ast$ {\bf ms\_\-filter\_\-get\_\-encoder} (const char $\ast$mime)
+\item 
+{\bf MSFilterDesc} $\ast$ {\bf ms\_\-filter\_\-get\_\-decoder} (const char $\ast$mime)
+\item 
+{\bf MSFilterDesc} $\ast$ {\bf ms\_\-filter\_\-lookup\_\-by\_\-name} (const char $\ast$filter\_\-name)
+\item 
+{\bf MSFilter} $\ast$ {\bf ms\_\-filter\_\-create\_\-encoder} (const char $\ast$mime)
+\item 
+{\bf MSFilter} $\ast$ {\bf ms\_\-filter\_\-create\_\-decoder} (const char $\ast$mime)
+\item 
+bool\_\-t {\bf ms\_\-filter\_\-codec\_\-supported} (const char $\ast$mime)
+\item 
+{\bf MSFilter} $\ast$ {\bf ms\_\-filter\_\-new} (MSFilterId id)
+\item 
+{\bf MSFilter} $\ast$ {\bf ms\_\-filter\_\-new\_\-from\_\-name} (const char $\ast$name)
+\item 
+{\bf MSFilter} $\ast$ {\bf ms\_\-filter\_\-new\_\-from\_\-desc} ({\bf MSFilterDesc} $\ast$desc)
+\item 
+int {\bf ms\_\-filter\_\-link} ({\bf MSFilter} $\ast$f1, int pin1, {\bf MSFilter} $\ast$f2, int pin2)
+\item 
+int {\bf ms\_\-filter\_\-unlink} ({\bf MSFilter} $\ast$f1, int pin1, {\bf MSFilter} $\ast$f2, int pin2)
+\item 
+int {\bf ms\_\-filter\_\-call\_\-method} ({\bf MSFilter} $\ast$f, unsigned int id, void $\ast$arg)
+\item 
+int {\bf ms\_\-filter\_\-call\_\-method\_\-noarg} ({\bf MSFilter} $\ast$f, unsigned int id)
+\item 
+bool\_\-t {\bf ms\_\-filter\_\-has\_\-method} ({\bf MSFilter} $\ast$f, unsigned int id)
+\item 
+void {\bf ms\_\-filter\_\-set\_\-notify\_\-callback} ({\bf MSFilter} $\ast$f, {\bf MSFilterNotifyFunc} fn, void $\ast$userdata)
+\item 
+MSFilterId {\bf ms\_\-filter\_\-get\_\-id} ({\bf MSFilter} $\ast$f)
+\item 
+MSList $\ast$ {\bf ms\_\-filter\_\-find\_\-neighbours} ({\bf MSFilter} $\ast$me)
+\item 
+void {\bf ms\_\-filter\_\-destroy} ({\bf MSFilter} $\ast$f)
+\item 
+void {\bf ms\_\-connection\_\-helper\_\-start} ({\bf MSConnectionHelper} $\ast$h)
+\item 
+int {\bf ms\_\-connection\_\-helper\_\-link} ({\bf MSConnectionHelper} $\ast$h, {\bf MSFilter} $\ast$f, int inpin, int outpin)
+\begin{DoxyCompactList}\small\item\em Enter a MSFilter to be connected into the MSConnectionHelper object. \item\end{DoxyCompactList}\item 
+int {\bf ms\_\-connection\_\-helper\_\-unlink} ({\bf MSConnectionHelper} $\ast$h, {\bf MSFilter} $\ast$f, int inpin, int outpin)\label{group__mediastreamer2__filter_ga4edec12d0853c3773cf89783d4e6415e}
+
+\begin{DoxyCompactList}\small\item\em Enter a MSFilter to be disconnected into the MSConnectionHelper object. Process exactly the same way as \doxyref{ms\_\-connection\_\-helper\_\-link()}{p.}{group__mediastreamer2__filter_ga83c60765bfda1674f419c6f2686274b9} but calls \doxyref{ms\_\-filter\_\-unlink()}{p.}{group__mediastreamer2__filter_ga41d3d0194e8e925097a8e663a544de1b} on the entered filters. \item\end{DoxyCompactList}\item 
+void {\bf ms\_\-filter\_\-enable\_\-statistics} (bool\_\-t enabled)\label{group__mediastreamer2__filter_gaa5cd1d9de53863e3151f25e3c5f303a8}
+
+\begin{DoxyCompactList}\small\item\em Enable processing time measurements statistics for filters. \item\end{DoxyCompactList}\item 
+void {\bf ms\_\-filter\_\-reset\_\-statistics} (void)\label{group__mediastreamer2__filter_gad1ceb3036597d4745d51e8e797236513}
+
+\begin{DoxyCompactList}\small\item\em Reset processing time statistics for filters. \item\end{DoxyCompactList}\item 
+const MSList $\ast$ {\bf ms\_\-filter\_\-get\_\-statistics} (void)\label{group__mediastreamer2__filter_gaf30c049e9901ad50dca99c2573cade7e}
+
+\begin{DoxyCompactList}\small\item\em Retrieves statistics for running filters. Returns a list of MSFilterStats. \item\end{DoxyCompactList}\item 
+void {\bf ms\_\-filter\_\-log\_\-statistics} (void)\label{group__mediastreamer2__filter_ga3c1a6d38d8243d9cff8d5a0be32ab346}
+
+\begin{DoxyCompactList}\small\item\em Logs runtime statistics for running filters. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Filter API to manage mediastreamer2 filters. This section documents the API needed to create, link, unlink, find and destroy filters.
+
+It also provides definitions if you wish to implement your own filters. 
+
+\subsection{Define Documentation}
+\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MS\_\-FILTER\_\-METHOD@{MS\_\-FILTER\_\-METHOD}}
+\index{MS\_\-FILTER\_\-METHOD@{MS\_\-FILTER\_\-METHOD}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{MS\_\-FILTER\_\-METHOD}]{\setlength{\rightskip}{0pt plus 5cm}\#define MS\_\-FILTER\_\-METHOD(\_\-id\_\-, \/  \_\-count\_\-, \/  \_\-argtype\_\-)~MS\_\-FILTER\_\-METHOD\_\-ID(\_\-id\_\-,\_\-count\_\-,sizeof(\_\-argtype\_\-))}\label{group__mediastreamer2__filter_gaf270a9da34a396452034f3a5210dbbff}
+Macro to create a method id, unique per filter. First argument shall be the filter's ID (MSFilterId) or interface ID (MSFilterInterfaceId). Second argument is the method index within the context of the filter. It should start from 0 and increment for each new method. Third argument is the argument type of the method, for example \char`\"{}int\char`\"{}, \char`\"{}float\char`\"{} or any structure. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MS\_\-FILTER\_\-METHOD\_\-NO\_\-ARG@{MS\_\-FILTER\_\-METHOD\_\-NO\_\-ARG}}
+\index{MS\_\-FILTER\_\-METHOD\_\-NO\_\-ARG@{MS\_\-FILTER\_\-METHOD\_\-NO\_\-ARG}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{MS\_\-FILTER\_\-METHOD\_\-NO\_\-ARG}]{\setlength{\rightskip}{0pt plus 5cm}\#define MS\_\-FILTER\_\-METHOD\_\-NO\_\-ARG(\_\-id\_\-, \/  \_\-count\_\-)~MS\_\-FILTER\_\-METHOD\_\-ID(\_\-id\_\-,\_\-count\_\-,0)}\label{group__mediastreamer2__filter_gab70bff42cbdb8e2e6efbb53982819656}
+Same as MS\_\-FILTER\_\-METHOD, but for method that do not take any argument. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MS\_\-FILTER\_\-SET\_\-SAMPLE\_\-RATE@{MS\_\-FILTER\_\-SET\_\-SAMPLE\_\-RATE}}
+\index{MS\_\-FILTER\_\-SET\_\-SAMPLE\_\-RATE@{MS\_\-FILTER\_\-SET\_\-SAMPLE\_\-RATE}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{MS\_\-FILTER\_\-SET\_\-SAMPLE\_\-RATE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MS\_\-FILTER\_\-SET\_\-SAMPLE\_\-RATE~MS\_\-FILTER\_\-BASE\_\-METHOD(0,int)}\label{group__mediastreamer2__filter_ga72923806f1bca717d45e9b96423f1ca8}
+some MSFilter base generic methods: Set filter output/input sampling frequency in hertz \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MS\_\-FILTER\_\-GET\_\-SAMPLE\_\-RATE@{MS\_\-FILTER\_\-GET\_\-SAMPLE\_\-RATE}}
+\index{MS\_\-FILTER\_\-GET\_\-SAMPLE\_\-RATE@{MS\_\-FILTER\_\-GET\_\-SAMPLE\_\-RATE}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{MS\_\-FILTER\_\-GET\_\-SAMPLE\_\-RATE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MS\_\-FILTER\_\-GET\_\-SAMPLE\_\-RATE~MS\_\-FILTER\_\-BASE\_\-METHOD(1,int)}\label{group__mediastreamer2__filter_ga7d62679ccdbc094834398bb33363cf2a}
+Get filter output/input sampling frequency in hertz \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MS\_\-FILTER\_\-SET\_\-BITRATE@{MS\_\-FILTER\_\-SET\_\-BITRATE}}
+\index{MS\_\-FILTER\_\-SET\_\-BITRATE@{MS\_\-FILTER\_\-SET\_\-BITRATE}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{MS\_\-FILTER\_\-SET\_\-BITRATE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MS\_\-FILTER\_\-SET\_\-BITRATE~MS\_\-FILTER\_\-BASE\_\-METHOD(2,int)}\label{group__mediastreamer2__filter_gad2b1e2f40765ba33021479cf74552a5c}
+Set filter output network bitrate in bit per seconds, this value include IP+UDP+RTP overhead \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MS\_\-FILTER\_\-GET\_\-BITRATE@{MS\_\-FILTER\_\-GET\_\-BITRATE}}
+\index{MS\_\-FILTER\_\-GET\_\-BITRATE@{MS\_\-FILTER\_\-GET\_\-BITRATE}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{MS\_\-FILTER\_\-GET\_\-BITRATE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MS\_\-FILTER\_\-GET\_\-BITRATE~MS\_\-FILTER\_\-BASE\_\-METHOD(3,int)}\label{group__mediastreamer2__filter_gaa284d8f3dca19ce0e802f00d2b42e0de}
+Get filter output network bitrate in bit per seconds, this value include IP+UDP+RTP overhead \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MS\_\-FILTER\_\-ADD\_\-FMTP@{MS\_\-FILTER\_\-ADD\_\-FMTP}}
+\index{MS\_\-FILTER\_\-ADD\_\-FMTP@{MS\_\-FILTER\_\-ADD\_\-FMTP}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{MS\_\-FILTER\_\-ADD\_\-FMTP}]{\setlength{\rightskip}{0pt plus 5cm}\#define MS\_\-FILTER\_\-ADD\_\-FMTP~MS\_\-FILTER\_\-BASE\_\-METHOD(7,const char)}\label{group__mediastreamer2__filter_ga388f3fb78097eace39ee777a6814c2db}
+Set codec dependent attributes as taken from the SDP \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MS\_\-FILTER\_\-GET\_\-LATENCY@{MS\_\-FILTER\_\-GET\_\-LATENCY}}
+\index{MS\_\-FILTER\_\-GET\_\-LATENCY@{MS\_\-FILTER\_\-GET\_\-LATENCY}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{MS\_\-FILTER\_\-GET\_\-LATENCY}]{\setlength{\rightskip}{0pt plus 5cm}\#define MS\_\-FILTER\_\-GET\_\-LATENCY~MS\_\-FILTER\_\-BASE\_\-METHOD(11,int)}\label{group__mediastreamer2__filter_ga46ea587992ab8417d4fd2219b0cfcdbf}
+Filters can return their latency in milliseconds (if known) using this method: 
+
+\subsection{Typedef Documentation}
+\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSFilterFunc@{MSFilterFunc}}
+\index{MSFilterFunc@{MSFilterFunc}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{MSFilterFunc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSFilterFunc}}\label{group__mediastreamer2__filter_gadb946b6054101f84fef23e2544124f3a}
+Structure for filter's methods (init, preprocess, process, postprocess, uninit). \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSFilterMethodFunc@{MSFilterMethodFunc}}
+\index{MSFilterMethodFunc@{MSFilterMethodFunc}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{MSFilterMethodFunc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSFilterMethodFunc}}\label{group__mediastreamer2__filter_ga394990ba18f3830d39d9e9392a50e4f0}
+Structure for filter's methods used to set filter's options. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSFilterNotifyFunc@{MSFilterNotifyFunc}}
+\index{MSFilterNotifyFunc@{MSFilterNotifyFunc}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{MSFilterNotifyFunc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSFilterNotifyFunc}}\label{group__mediastreamer2__filter_gadfed3d54fd085b015839d2b72c991a45}
+Structure for filter's methods used as a callback to notify events. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSFilterMethod@{MSFilterMethod}}
+\index{MSFilterMethod@{MSFilterMethod}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{MSFilterMethod}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSFilterMethod}}\label{group__mediastreamer2__filter_ga753e865f48dbeeb7a6d08d8c0f399809}
+Structure for holding filter's methods to set filter's options. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSFilterCategory@{MSFilterCategory}}
+\index{MSFilterCategory@{MSFilterCategory}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{MSFilterCategory}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSFilterCategory}}\label{group__mediastreamer2__filter_ga70996836a931217af2bd7985d6e78e7d}
+Structure to describe filter's category. 
+\begin{DoxyPre}
+     MS\_FILTER\_OTHER
+     MS\_FILTER\_ENCODER
+     MS\_FILTER\_DECODER
+     MS\_FILTER\_ENCODING\_CAPTURER
+     MS\_FILTER\_DECODING\_RENDERER
+ \end{DoxyPre}
+ \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSFilterFlags@{MSFilterFlags}}
+\index{MSFilterFlags@{MSFilterFlags}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{MSFilterFlags}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf \_\-MSFilterFlags} {\bf MSFilterFlags}}\label{group__mediastreamer2__filter_gabb2f73b067c2842f10a4cb834f8310c0}
+Filter's flags controlling special behaviours. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSFilterDesc@{MSFilterDesc}}
+\index{MSFilterDesc@{MSFilterDesc}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{MSFilterDesc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSFilterDesc}}\label{group__mediastreamer2__filter_ga810878e2d7d2e0da867558e55286b97f}
+Structure for filter's description. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSFilter@{MSFilter}}
+\index{MSFilter@{MSFilter}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{MSFilter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSFilter}}\label{group__mediastreamer2__filter_ga696841ec9e8bd039974353d4630d9726}
+Structure of filter's object. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSConnectionPoint@{MSConnectionPoint}}
+\index{MSConnectionPoint@{MSConnectionPoint}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{MSConnectionPoint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSConnectionPoint}}\label{group__mediastreamer2__filter_ga22125fb86e93b3d69804a2394b6a93e3}
+Structure that represents a connection point of a MSFilter \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSConnectionHelper@{MSConnectionHelper}}
+\index{MSConnectionHelper@{MSConnectionHelper}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{MSConnectionHelper}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSConnectionHelper}}\label{group__mediastreamer2__filter_ga1cd9894460ace57adf4c86fd98f51e18}
+Structure that holds data when using the ms\_\-connection\_\-helper\_\-$\ast$ functions. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSFilterInterfaceId@{MSFilterInterfaceId}}
+\index{MSFilterInterfaceId@{MSFilterInterfaceId}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{MSFilterInterfaceId}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf \_\-MSFilterInterfaceId} {\bf MSFilterInterfaceId}}\label{group__mediastreamer2__filter_ga7dec48ba67eb0aae74d8051ab2716741}
+Interface IDs, used to generate method names (see MS\_\-FILTER\_\-METHOD macro). 
+
+\subsection{Enumeration Type Documentation}
+\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!\_\-MSFilterCategory@{\_\-MSFilterCategory}}
+\index{\_\-MSFilterCategory@{\_\-MSFilterCategory}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{\_\-MSFilterCategory}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \_\-MSFilterCategory}}\label{group__mediastreamer2__filter_gad5279a551f5f10f3b80887f19b345101}
+Filter's category \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{MS\_\-FILTER\_\-OTHER@{MS\_\-FILTER\_\-OTHER}!mediastreamer2\_\-filter@{mediastreamer2\_\-filter}}\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MS\_\-FILTER\_\-OTHER@{MS\_\-FILTER\_\-OTHER}}\item[{\em 
+MS\_\-FILTER\_\-OTHER\label{group__mediastreamer2__filter_ggad5279a551f5f10f3b80887f19b345101a5540387caed9528094e108e2b3ba14c9}
+}]others \index{MS\_\-FILTER\_\-ENCODER@{MS\_\-FILTER\_\-ENCODER}!mediastreamer2\_\-filter@{mediastreamer2\_\-filter}}\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MS\_\-FILTER\_\-ENCODER@{MS\_\-FILTER\_\-ENCODER}}\item[{\em 
+MS\_\-FILTER\_\-ENCODER\label{group__mediastreamer2__filter_ggad5279a551f5f10f3b80887f19b345101a77401d653240a6f21afb6b98dddd0604}
+}]used by encoders \index{MS\_\-FILTER\_\-DECODER@{MS\_\-FILTER\_\-DECODER}!mediastreamer2\_\-filter@{mediastreamer2\_\-filter}}\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MS\_\-FILTER\_\-DECODER@{MS\_\-FILTER\_\-DECODER}}\item[{\em 
+MS\_\-FILTER\_\-DECODER\label{group__mediastreamer2__filter_ggad5279a551f5f10f3b80887f19b345101a113bbb21c331c2eb2174165bf0135ca6}
+}]used by decoders \index{MS\_\-FILTER\_\-ENCODING\_\-CAPTURER@{MS\_\-FILTER\_\-ENCODING\_\-CAPTURER}!mediastreamer2\_\-filter@{mediastreamer2\_\-filter}}\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MS\_\-FILTER\_\-ENCODING\_\-CAPTURER@{MS\_\-FILTER\_\-ENCODING\_\-CAPTURER}}\item[{\em 
+MS\_\-FILTER\_\-ENCODING\_\-CAPTURER\label{group__mediastreamer2__filter_ggad5279a551f5f10f3b80887f19b345101ab31c47a7cac19c9f1020c6bb19f59d67}
+}]used by capture filters that perform encoding \index{MS\_\-FILTER\_\-DECODING\_\-RENDERER@{MS\_\-FILTER\_\-DECODING\_\-RENDERER}!mediastreamer2\_\-filter@{mediastreamer2\_\-filter}}\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MS\_\-FILTER\_\-DECODING\_\-RENDERER@{MS\_\-FILTER\_\-DECODING\_\-RENDERER}}\item[{\em 
+MS\_\-FILTER\_\-DECODING\_\-RENDERER\label{group__mediastreamer2__filter_ggad5279a551f5f10f3b80887f19b345101a7418c82f489df1cfefccc5602f3edd33}
+}]used by render filters that perform decoding \end{description}
+\end{Desc}
+
+\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!\_\-MSFilterFlags@{\_\-MSFilterFlags}}
+\index{\_\-MSFilterFlags@{\_\-MSFilterFlags}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{\_\-MSFilterFlags}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \_\-MSFilterFlags}}\label{group__mediastreamer2__filter_ga49cfb013b0377793bed35373d4287797}
+Filter's flags controlling special behaviours. \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{MS\_\-FILTER\_\-IS\_\-PUMP@{MS\_\-FILTER\_\-IS\_\-PUMP}!mediastreamer2\_\-filter@{mediastreamer2\_\-filter}}\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MS\_\-FILTER\_\-IS\_\-PUMP@{MS\_\-FILTER\_\-IS\_\-PUMP}}\item[{\em 
+MS\_\-FILTER\_\-IS\_\-PUMP\label{group__mediastreamer2__filter_gga49cfb013b0377793bed35373d4287797a2c57b18a2a75986335d2a5cdad120ecd}
+}]The filter must be called in process function every tick. \end{description}
+\end{Desc}
+
+\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!\_\-MSFilterInterfaceId@{\_\-MSFilterInterfaceId}}
+\index{\_\-MSFilterInterfaceId@{\_\-MSFilterInterfaceId}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{\_\-MSFilterInterfaceId}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \_\-MSFilterInterfaceId}}\label{group__mediastreamer2__filter_ga9c11cbec7bf152f42ad3180d49738dc8}
+Interface IDs, used to generate method names (see MS\_\-FILTER\_\-METHOD macro). The purpose of these interfaces is to allow different filter implementations to share the same methods, by implementing the method definitions for these interfaces. For example every video encoder implementation would need a method to request the generation of a key frame. Instead of having each implementation defining its own method to do this, each implementation can just implement the MS\_\-VIDEO\_\-ENCODER\_\-REQ\_\-VFU method of the MSFilterVideoEncoderInterface. \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{MSFilterPlayerInterface@{MSFilterPlayerInterface}!mediastreamer2\_\-filter@{mediastreamer2\_\-filter}}\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSFilterPlayerInterface@{MSFilterPlayerInterface}}\item[{\em 
+MSFilterPlayerInterface\label{group__mediastreamer2__filter_gga9c11cbec7bf152f42ad3180d49738dc8a211b1fdcebde2715e42d90bf68790ddd}
+}]Player interface, used to control playing of files. \index{MSFilterRecorderInterface@{MSFilterRecorderInterface}!mediastreamer2\_\-filter@{mediastreamer2\_\-filter}}\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSFilterRecorderInterface@{MSFilterRecorderInterface}}\item[{\em 
+MSFilterRecorderInterface\label{group__mediastreamer2__filter_gga9c11cbec7bf152f42ad3180d49738dc8af1d7575ac8616878f2cfb2e4b772ea12}
+}]Recorder interface, used to control recording of stream into files. \index{MSFilterVideoDisplayInterface@{MSFilterVideoDisplayInterface}!mediastreamer2\_\-filter@{mediastreamer2\_\-filter}}\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSFilterVideoDisplayInterface@{MSFilterVideoDisplayInterface}}\item[{\em 
+MSFilterVideoDisplayInterface\label{group__mediastreamer2__filter_gga9c11cbec7bf152f42ad3180d49738dc8a93f6cf81003753384f2524c2438d8acf}
+}]Video display interface, used to control the rendering of raw pictures onscreen. \index{MSFilterVideoDecoderInterface@{MSFilterVideoDecoderInterface}!mediastreamer2\_\-filter@{mediastreamer2\_\-filter}}\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSFilterVideoDecoderInterface@{MSFilterVideoDecoderInterface}}\item[{\em 
+MSFilterVideoDecoderInterface\label{group__mediastreamer2__filter_gga9c11cbec7bf152f42ad3180d49738dc8ae1da43310f43bb7d894cf133bb738db5}
+}]Echo canceller interface, used to control echo canceller implementations. Video decoder interface \index{MSFilterVideoCaptureInterface@{MSFilterVideoCaptureInterface}!mediastreamer2\_\-filter@{mediastreamer2\_\-filter}}\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSFilterVideoCaptureInterface@{MSFilterVideoCaptureInterface}}\item[{\em 
+MSFilterVideoCaptureInterface\label{group__mediastreamer2__filter_gga9c11cbec7bf152f42ad3180d49738dc8aa763a9aeb259c0630ed7a186aca6cbf3}
+}]Video capture interface \index{MSFilterAudioDecoderInterface@{MSFilterAudioDecoderInterface}!mediastreamer2\_\-filter@{mediastreamer2\_\-filter}}\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSFilterAudioDecoderInterface@{MSFilterAudioDecoderInterface}}\item[{\em 
+MSFilterAudioDecoderInterface\label{group__mediastreamer2__filter_gga9c11cbec7bf152f42ad3180d49738dc8a83562947d7c873cf082480076a2b775f}
+}]Audio Decoder interface \index{MSFilterVideoEncoderInterface@{MSFilterVideoEncoderInterface}!mediastreamer2\_\-filter@{mediastreamer2\_\-filter}}\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSFilterVideoEncoderInterface@{MSFilterVideoEncoderInterface}}\item[{\em 
+MSFilterVideoEncoderInterface\label{group__mediastreamer2__filter_gga9c11cbec7bf152f42ad3180d49738dc8a27281df23e4c07a504d5390094906a76}
+}]Video encoder interface \index{MSFilterAudioCaptureInterface@{MSFilterAudioCaptureInterface}!mediastreamer2\_\-filter@{mediastreamer2\_\-filter}}\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSFilterAudioCaptureInterface@{MSFilterAudioCaptureInterface}}\item[{\em 
+MSFilterAudioCaptureInterface\label{group__mediastreamer2__filter_gga9c11cbec7bf152f42ad3180d49738dc8aa1ab8bcda5beb0ba1e1660b63a145cb6}
+}]Interface for audio capture filters \index{MSFilterAudioEncoderInterface@{MSFilterAudioEncoderInterface}!mediastreamer2\_\-filter@{mediastreamer2\_\-filter}}\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!MSFilterAudioEncoderInterface@{MSFilterAudioEncoderInterface}}\item[{\em 
+MSFilterAudioEncoderInterface\label{group__mediastreamer2__filter_gga9c11cbec7bf152f42ad3180d49738dc8a25a2ea76bbda02c3e066d65f9a34cf0e}
+}]Interface for audio playback filters. Video encoder interface \end{description}
+\end{Desc}
+
+
+
+\subsection{Function Documentation}
+\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-register@{ms\_\-filter\_\-register}}
+\index{ms\_\-filter\_\-register@{ms\_\-filter\_\-register}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-register}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-filter\_\-register ({\bf MSFilterDesc} $\ast$ {\em desc})}\label{group__mediastreamer2__filter_gae0aca13a45886a793eb3fc4b87e26bd5}
+Register a filter description. (plugins use only!)
+
+When you build your own plugin, this method will add the encoder or decoder to the internal list of supported codec. Then, this plugin can be used transparently from the application.
+
+ms\_\-filter\_\-get\_\-encoder, ms\_\-filter\_\-get\_\-decoder, ms\_\-filter\_\-create\_\-encoder, ms\_\-filter\_\-create\_\-decoder and ms\_\-filter\_\-codec\_\-supported can then be used as if the codec was internally. supported.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em desc}]a filter description. \end{DoxyParams}
+\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-get\_\-encoding\_\-capturer@{ms\_\-filter\_\-get\_\-encoding\_\-capturer}}
+\index{ms\_\-filter\_\-get\_\-encoding\_\-capturer@{ms\_\-filter\_\-get\_\-encoding\_\-capturer}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-get\_\-encoding\_\-capturer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSFilterDesc}$\ast$ ms\_\-filter\_\-get\_\-encoding\_\-capturer (const char $\ast$ {\em mime})}\label{group__mediastreamer2__filter_ga23be7a3d61d9e6e882fba6bb752a5d08}
+Retrieve capture filter that supports encoding to codec name.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em mime}]A string indicating the codec.\end{DoxyParams}
+Returns: a MSFilterDesc if successfull, NULL otherwise. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-get\_\-decoding\_\-renderer@{ms\_\-filter\_\-get\_\-decoding\_\-renderer}}
+\index{ms\_\-filter\_\-get\_\-decoding\_\-renderer@{ms\_\-filter\_\-get\_\-decoding\_\-renderer}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-get\_\-decoding\_\-renderer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSFilterDesc}$\ast$ ms\_\-filter\_\-get\_\-decoding\_\-renderer (const char $\ast$ {\em mime})}\label{group__mediastreamer2__filter_ga3f7aacd21ad1e3b4118ecc1f27391028}
+Retrieve render filter that supports decoding to codec name.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em mime}]A string indicating the codec.\end{DoxyParams}
+Returns: a MSFilterDesc if successfull, NULL otherwise. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-get\_\-encoder@{ms\_\-filter\_\-get\_\-encoder}}
+\index{ms\_\-filter\_\-get\_\-encoder@{ms\_\-filter\_\-get\_\-encoder}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-get\_\-encoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSFilterDesc}$\ast$ ms\_\-filter\_\-get\_\-encoder (const char $\ast$ {\em mime})}\label{group__mediastreamer2__filter_ga77dc40340542242d56e743d42acdf968}
+Retrieve encoders according to codec name.
+
+Internal supported codecs: PCMU, PCMA, speex, gsm Existing Public plugins: iLBC
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em mime}]A string indicating the codec.\end{DoxyParams}
+Returns: a MSFilterDesc if successfull, NULL otherwise. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-get\_\-decoder@{ms\_\-filter\_\-get\_\-decoder}}
+\index{ms\_\-filter\_\-get\_\-decoder@{ms\_\-filter\_\-get\_\-decoder}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-get\_\-decoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSFilterDesc}$\ast$ ms\_\-filter\_\-get\_\-decoder (const char $\ast$ {\em mime})}\label{group__mediastreamer2__filter_ga8c2541925c3ee2ff202ac6b7ae0c4234}
+Retrieve decoders according to codec name.
+
+Internal supported codecs: PCMU, PCMA, speex, gsm Existing Public plugins: iLBC
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em mime}]A string indicating the codec.\end{DoxyParams}
+Returns: a MSFilterDesc if successfull, NULL otherwise. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-lookup\_\-by\_\-name@{ms\_\-filter\_\-lookup\_\-by\_\-name}}
+\index{ms\_\-filter\_\-lookup\_\-by\_\-name@{ms\_\-filter\_\-lookup\_\-by\_\-name}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-lookup\_\-by\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSFilterDesc}$\ast$ ms\_\-filter\_\-lookup\_\-by\_\-name (const char $\ast$ {\em filter\_\-name})}\label{group__mediastreamer2__filter_ga560b155071a66f86a0ff9820d94193bc}
+Lookup a mediastreamer2 filter using its name. If found, the descriptor (MSFilterDesc) is returned. This descriptor can be used to instanciate the filter using \doxyref{ms\_\-filter\_\-new\_\-from\_\-desc()}{p.}{group__mediastreamer2__filter_gae9dd4fbd4b6c436643d8fccb5faf3314} This function can be useful to query the presence of a filter loaded as a plugin, for example.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em name}]The filter name. \end{DoxyParams}
+\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-create\_\-encoder@{ms\_\-filter\_\-create\_\-encoder}}
+\index{ms\_\-filter\_\-create\_\-encoder@{ms\_\-filter\_\-create\_\-encoder}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-create\_\-encoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSFilter}$\ast$ ms\_\-filter\_\-create\_\-encoder (const char $\ast$ {\em mime})}\label{group__mediastreamer2__filter_gae03d01988c40a72003e99568ea7934cb}
+Create encoder filter according to codec name.
+
+Internal supported codecs: PCMU, PCMA, speex, gsm Existing Public plugins: iLBC
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em mime}]A string indicating the codec.\end{DoxyParams}
+Returns: a MSFilter if successfull, NULL otherwise. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-create\_\-decoder@{ms\_\-filter\_\-create\_\-decoder}}
+\index{ms\_\-filter\_\-create\_\-decoder@{ms\_\-filter\_\-create\_\-decoder}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-create\_\-decoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSFilter}$\ast$ ms\_\-filter\_\-create\_\-decoder (const char $\ast$ {\em mime})}\label{group__mediastreamer2__filter_ga2633a5a5f875b8d6b69302cea414bead}
+Create decoder filter according to codec name.
+
+Internal supported codecs: PCMU, PCMA, speex, gsm Existing Public plugins: iLBC
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em mime}]A string indicating the codec.\end{DoxyParams}
+Returns: a MSFilter if successfull, NULL otherwise. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-codec\_\-supported@{ms\_\-filter\_\-codec\_\-supported}}
+\index{ms\_\-filter\_\-codec\_\-supported@{ms\_\-filter\_\-codec\_\-supported}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-codec\_\-supported}]{\setlength{\rightskip}{0pt plus 5cm}bool\_\-t ms\_\-filter\_\-codec\_\-supported (const char $\ast$ {\em mime})}\label{group__mediastreamer2__filter_gaf30accd2bde57be143ceb542b980e60b}
+Check if a encode or decode filter exists for a codec name.
+
+Internal supported codecs: PCMU, PCMA, speex, gsm Existing Public plugins: iLBC
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em mime}]A string indicating the codec.\end{DoxyParams}
+Returns: TRUE if successfull, FALSE otherwise. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-new@{ms\_\-filter\_\-new}}
+\index{ms\_\-filter\_\-new@{ms\_\-filter\_\-new}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSFilter}$\ast$ ms\_\-filter\_\-new (MSFilterId {\em id})}\label{group__mediastreamer2__filter_gad02a4e10eebb5664f6a1573a6d2f20d8}
+Create decoder filter according to a filter's MSFilterId.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em id}]A MSFilterId identifier for the filter.\end{DoxyParams}
+Returns: a MSFilter if successfull, NULL otherwise. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-new\_\-from\_\-name@{ms\_\-filter\_\-new\_\-from\_\-name}}
+\index{ms\_\-filter\_\-new\_\-from\_\-name@{ms\_\-filter\_\-new\_\-from\_\-name}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-new\_\-from\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSFilter}$\ast$ ms\_\-filter\_\-new\_\-from\_\-name (const char $\ast$ {\em name})}\label{group__mediastreamer2__filter_ga3a4ba144a0dd1e269c9c3d9b7c0977d9}
+Create decoder filter according to a filter's name.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em name}]A name for the filter.\end{DoxyParams}
+Returns: a MSFilter if successfull, NULL otherwise. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-new\_\-from\_\-desc@{ms\_\-filter\_\-new\_\-from\_\-desc}}
+\index{ms\_\-filter\_\-new\_\-from\_\-desc@{ms\_\-filter\_\-new\_\-from\_\-desc}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-new\_\-from\_\-desc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSFilter}$\ast$ ms\_\-filter\_\-new\_\-from\_\-desc ({\bf MSFilterDesc} $\ast$ {\em desc})}\label{group__mediastreamer2__filter_gae9dd4fbd4b6c436643d8fccb5faf3314}
+Create decoder filter according to a filter's description.
+
+The primary use is to create your own filter's in your application and avoid registration inside mediastreamer2.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em desc}]A MSFilterDesc for the filter.\end{DoxyParams}
+Returns: a MSFilter if successfull, NULL otherwise. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-link@{ms\_\-filter\_\-link}}
+\index{ms\_\-filter\_\-link@{ms\_\-filter\_\-link}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-link}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-filter\_\-link ({\bf MSFilter} $\ast$ {\em f1}, \/  int {\em pin1}, \/  {\bf MSFilter} $\ast$ {\em f2}, \/  int {\em pin2})}\label{group__mediastreamer2__filter_ga01f8d0ad29999cfadfbc32cd5ab94d4a}
+Link one OUTPUT pin from a filter to an INPUT pin of another filter.
+
+All data coming from the OUTPUT pin of one filter will be distributed to the INPUT pin of the second filter.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em f1}]A MSFilter object containing the OUTPUT pin \item[{\em pin1}]An index of an OUTPUT pin. \item[{\em f2}]A MSFilter object containing the INPUT pin \item[{\em pin2}]An index of an INPUT pin.\end{DoxyParams}
+Returns: 0 if sucessful, -\/1 otherwise. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-unlink@{ms\_\-filter\_\-unlink}}
+\index{ms\_\-filter\_\-unlink@{ms\_\-filter\_\-unlink}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-unlink}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-filter\_\-unlink ({\bf MSFilter} $\ast$ {\em f1}, \/  int {\em pin1}, \/  {\bf MSFilter} $\ast$ {\em f2}, \/  int {\em pin2})}\label{group__mediastreamer2__filter_ga41d3d0194e8e925097a8e663a544de1b}
+Unlink one OUTPUT pin from a filter to an INPUT pin of another filter.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em f1}]A MSFilter object containing the OUTPUT pin \item[{\em pin1}]An index of an OUTPUT pin. \item[{\em f2}]A MSFilter object containing the INPUT pin \item[{\em pin2}]An index of an INPUT pin.\end{DoxyParams}
+Returns: 0 if sucessful, -\/1 otherwise. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-call\_\-method@{ms\_\-filter\_\-call\_\-method}}
+\index{ms\_\-filter\_\-call\_\-method@{ms\_\-filter\_\-call\_\-method}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-call\_\-method}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-filter\_\-call\_\-method ({\bf MSFilter} $\ast$ {\em f}, \/  unsigned int {\em id}, \/  void $\ast$ {\em arg})}\label{group__mediastreamer2__filter_ga97908c1b1ebaea3e7107817f819ba13f}
+Call a filter's method to set or get options.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em f}]A MSFilter object. \item[{\em id}]A private filter ID for the option. \item[{\em arg}]A private user data for the filter.\end{DoxyParams}
+Returns: 0 if successfull, -\/1 otherwise. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-call\_\-method\_\-noarg@{ms\_\-filter\_\-call\_\-method\_\-noarg}}
+\index{ms\_\-filter\_\-call\_\-method\_\-noarg@{ms\_\-filter\_\-call\_\-method\_\-noarg}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-call\_\-method\_\-noarg}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-filter\_\-call\_\-method\_\-noarg ({\bf MSFilter} $\ast$ {\em f}, \/  unsigned int {\em id})}\label{group__mediastreamer2__filter_gaeaa47dcaf40ba95e5de14a26656d1171}
+Call a filter's method to set options.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em f}]A MSFilter object. \item[{\em id}]A method ID.\end{DoxyParams}
+Returns: 0 if successfull, -\/1 otherwise. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-has\_\-method@{ms\_\-filter\_\-has\_\-method}}
+\index{ms\_\-filter\_\-has\_\-method@{ms\_\-filter\_\-has\_\-method}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-has\_\-method}]{\setlength{\rightskip}{0pt plus 5cm}bool\_\-t ms\_\-filter\_\-has\_\-method ({\bf MSFilter} $\ast$ {\em f}, \/  unsigned int {\em id})}\label{group__mediastreamer2__filter_ga351119c469b2863de3eecba55f81c092}
+Returns whether the filter implements a given method
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em f}]A MSFilter object. \item[{\em id}]A method ID.\end{DoxyParams}
+Returns: 0 if successfull, -\/1 otherwise. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-set\_\-notify\_\-callback@{ms\_\-filter\_\-set\_\-notify\_\-callback}}
+\index{ms\_\-filter\_\-set\_\-notify\_\-callback@{ms\_\-filter\_\-set\_\-notify\_\-callback}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-set\_\-notify\_\-callback}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-filter\_\-set\_\-notify\_\-callback ({\bf MSFilter} $\ast$ {\em f}, \/  {\bf MSFilterNotifyFunc} {\em fn}, \/  void $\ast$ {\em userdata})}\label{group__mediastreamer2__filter_ga1692286190b02a02bcf73e9807900033}
+Set a callback on filter's to be informed of private filter's event. This callback is called from the filter's MSTicker, unless a global event queue is created to receive all filter's notification asynchronously. See ms\_\-event\_\-queue\_\-new() for details.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em f}]A MSFilter object. \item[{\em fn}]A MSFilterNotifyFunc that will be called. \item[{\em userdata}]A pointer to private data. \end{DoxyParams}
+\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-get\_\-id@{ms\_\-filter\_\-get\_\-id}}
+\index{ms\_\-filter\_\-get\_\-id@{ms\_\-filter\_\-get\_\-id}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-get\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}MSFilterId ms\_\-filter\_\-get\_\-id ({\bf MSFilter} $\ast$ {\em f})}\label{group__mediastreamer2__filter_ga5cc35d6a372ddc68c4fd477aa11b9973}
+Get MSFilterId's filter.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em f}]A MSFilter object.\end{DoxyParams}
+Returns: MSFilterId if successfull, -\/1 otherwise. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-find\_\-neighbours@{ms\_\-filter\_\-find\_\-neighbours}}
+\index{ms\_\-filter\_\-find\_\-neighbours@{ms\_\-filter\_\-find\_\-neighbours}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-find\_\-neighbours}]{\setlength{\rightskip}{0pt plus 5cm}MSList$\ast$ ms\_\-filter\_\-find\_\-neighbours ({\bf MSFilter} $\ast$ {\em me})}\label{group__mediastreamer2__filter_ga8fe486491f396fa9d75ec30c15602a38}
+Obtain the list of current filter's neighbours, ie filters that are part of same graph.
+
+Returns: a MSList of MSFilter, that needs to be freed by the caller when no more needed. \index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-filter\_\-destroy@{ms\_\-filter\_\-destroy}}
+\index{ms\_\-filter\_\-destroy@{ms\_\-filter\_\-destroy}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-filter\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-filter\_\-destroy ({\bf MSFilter} $\ast$ {\em f})}\label{group__mediastreamer2__filter_gac0119f28333037b191a709f9347b972f}
+Destroy a filter object.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em f}]A MSFilter object. \end{DoxyParams}
+\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-connection\_\-helper\_\-start@{ms\_\-connection\_\-helper\_\-start}}
+\index{ms\_\-connection\_\-helper\_\-start@{ms\_\-connection\_\-helper\_\-start}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-connection\_\-helper\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-connection\_\-helper\_\-start ({\bf MSConnectionHelper} $\ast$ {\em h})}\label{group__mediastreamer2__filter_gacbb0a4a826a9a35f935928495adf9352}
+Initialize a MSConnectionHelper.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em h}]A MSConnectionHelper, usually (but not necessarily) on stack \end{DoxyParams}
+\index{mediastreamer2\_\-filter@{mediastreamer2\_\-filter}!ms\_\-connection\_\-helper\_\-link@{ms\_\-connection\_\-helper\_\-link}}
+\index{ms\_\-connection\_\-helper\_\-link@{ms\_\-connection\_\-helper\_\-link}!mediastreamer2_filter@{mediastreamer2\_\-filter}}
+\subsubsection[{ms\_\-connection\_\-helper\_\-link}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-connection\_\-helper\_\-link ({\bf MSConnectionHelper} $\ast$ {\em h}, \/  {\bf MSFilter} $\ast$ {\em f}, \/  int {\em inpin}, \/  int {\em outpin})}\label{group__mediastreamer2__filter_ga83c60765bfda1674f419c6f2686274b9}
+
+
+Enter a MSFilter to be connected into the MSConnectionHelper object. This functions enters a MSFilter to be connected into the MSConnectionHelper object and connects it to the last entered if not the first one. The MSConnectionHelper is useful to reduce the amount of code necessary to create graphs in case the connections are made in an ordered manner and some filters are present conditionally in graphs. For example, instead of writing 
+\begin{DoxyCode}
+ ms_filter_link(f1,0,f2,1);
+ ms_filter_link(f2,0,f3,0);
+ ms_filter_link(f3,1,f4,0);
+\end{DoxyCode}
+ You can write: 
+\begin{DoxyCode}
+ MSConnectionHelper h;
+ ms_connection_helper_start(&h);
+ ms_connection_helper_link(&h,f1,-1,0);
+ ms_connection_helper_link(&h,f2,1,0);
+ ms_connection_helper_link(&h,f3,0,1);
+ ms_connection_helper_link(&h,f4,0,-1);
+\end{DoxyCode}
+ Which is a bit longer to write here, but now imagine f2 needs to be present in the graph only in certain conditions: in the first case you have rewrite the two first lines, in the second case you just need to replace the fourth line by: 
+\begin{DoxyCode}
+ if (my_condition) ms_connection_helper_link(&h,f2,1,0);
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em h}]a connection helper \item[{\em f}]a MSFilter \item[{\em inpin}]an input pin number with which the MSFilter needs to connect to previously entered MSFilter \item[{\em outpin}]an output pin number with which the MSFilter needs to be connected to the next entered MSFilter\end{DoxyParams}
+Returns: the return value of \doxyref{ms\_\-filter\_\-link()}{p.}{group__mediastreamer2__filter_ga01f8d0ad29999cfadfbc32cd5ab94d4a} that is called internally to this function. 

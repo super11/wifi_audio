@@ -1,0 +1,1032 @@
+.TH "ice.h" 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ice.h \- 
+.PP
+mediastreamer2 \fBice.h\fP include file  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'mscommon.h'\fP
+.br
+\fC#include 'ortp/stun_udp.h'\fP
+.br
+\fC#include 'ortp/stun.h'\fP
+.br
+\fC#include 'ortp/ortp.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fB_IceSession\fP"
+.br
+.ti -1c
+.RI "struct \fB_IceTransportAddress\fP"
+.br
+.ti -1c
+.RI "struct \fB_IceCandidate\fP"
+.br
+.ti -1c
+.RI "struct \fB_IceCandidatePair\fP"
+.br
+.ti -1c
+.RI "struct \fB_IcePairFoundation\fP"
+.br
+.ti -1c
+.RI "struct \fB_IceCheckList\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fB_IceSession\fP \fBIceSession\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_IceTransportAddress\fP \fBIceTransportAddress\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_IceCandidate\fP \fBIceCandidate\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_IceCandidatePair\fP \fBIceCandidatePair\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_IcePairFoundation\fP \fBIcePairFoundation\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_IceCheckList\fP \fBIceCheckList\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBIceRole\fP "
+.br
+.ti -1c
+.RI "enum \fBIceCandidateType\fP "
+.br
+.ti -1c
+.RI "enum \fBIceCandidatePairState\fP "
+.br
+.ti -1c
+.RI "enum \fBIceCheckListState\fP "
+.br
+.ti -1c
+.RI "enum \fBIceSessionState\fP "
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "MS2_PUBLIC \fBIceSession\fP * \fBice_session_new\fP (void)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_session_destroy\fP (\fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC \fBIceCheckList\fP * \fBice_check_list_new\fP (void)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_check_list_destroy\fP (\fBIceCheckList\fP *cl)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC bool_t \fBice_check_list_candidates_gathered\fP (const \fBIceCheckList\fP *cl)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC \fBIceCheckList\fP * \fBice_session_check_list\fP (const \fBIceSession\fP *session, unsigned int n)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC const char * \fBice_session_local_ufrag\fP (const \fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC const char * \fBice_session_local_pwd\fP (const \fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC const char * \fBice_session_remote_ufrag\fP (const \fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC const char * \fBice_session_remote_pwd\fP (const \fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC \fBIceSessionState\fP \fBice_session_state\fP (const \fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC \fBIceRole\fP \fBice_session_role\fP (const \fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_session_set_role\fP (\fBIceSession\fP *session, \fBIceRole\fP role)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_session_set_local_credentials\fP (\fBIceSession\fP *session, const char *ufrag, const char *pwd)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC bool_t \fBice_session_remote_credentials_changed\fP (\fBIceSession\fP *session, const char *ufrag, const char *pwd)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_session_set_remote_credentials\fP (\fBIceSession\fP *session, const char *ufrag, const char *pwd)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_session_set_max_connectivity_checks\fP (\fBIceSession\fP *session, uint8_t max_connectivity_checks)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_session_set_keepalive_timeout\fP (\fBIceSession\fP *session, uint8_t timeout)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC int \fBice_session_nb_check_lists\fP (\fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC bool_t \fBice_session_has_completed_check_list\fP (const \fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_session_add_check_list\fP (\fBIceSession\fP *session, \fBIceCheckList\fP *cl)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_session_remove_check_list\fP (\fBIceSession\fP *session, \fBIceCheckList\fP *cl)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC bool_t \fBice_session_candidates_gathered\fP (const \fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_session_gather_candidates\fP (\fBIceSession\fP *session, struct sockaddr_storage ss, socklen_t ss_len)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC int \fBice_session_gathering_duration\fP (\fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC int \fBice_session_average_gathering_round_trip_time\fP (\fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_session_select_candidates\fP (\fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_session_restart\fP (\fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC \fBIceCheckListState\fP \fBice_check_list_state\fP (const \fBIceCheckList\fP *cl)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_check_list_set_state\fP (\fBIceCheckList\fP *cl, \fBIceCheckListState\fP state)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_check_list_set_rtp_session\fP (\fBIceCheckList\fP *cl, RtpSession *rtp_session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC const char * \fBice_check_list_local_ufrag\fP (const \fBIceCheckList\fP *cl)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC const char * \fBice_check_list_local_pwd\fP (const \fBIceCheckList\fP *cl)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC const char * \fBice_check_list_remote_ufrag\fP (const \fBIceCheckList\fP *cl)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC const char * \fBice_check_list_remote_pwd\fP (const \fBIceCheckList\fP *cl)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC bool_t \fBice_check_list_is_mismatch\fP (const \fBIceCheckList\fP *cl)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC bool_t \fBice_check_list_remote_credentials_changed\fP (\fBIceCheckList\fP *cl, const char *ufrag, const char *pwd)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_check_list_set_remote_credentials\fP (\fBIceCheckList\fP *cl, const char *ufrag, const char *pwd)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC bool_t \fBice_check_list_default_local_candidate\fP (const \fBIceCheckList\fP *cl, const char **rtp_addr, int *rtp_port, const char **rtcp_addr, int *rtcp_port)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC bool_t \fBice_check_list_selected_valid_local_candidate\fP (const \fBIceCheckList\fP *cl, const char **rtp_addr, int *rtp_port, const char **rtcp_addr, int *rtcp_port)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC bool_t \fBice_check_list_selected_valid_remote_candidate\fP (const \fBIceCheckList\fP *cl, const char **rtp_addr, int *rtp_port, const char **rtcp_addr, int *rtcp_port)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC \fBIceCandidateType\fP \fBice_check_list_selected_valid_candidate_type\fP (const \fBIceCheckList\fP *cl)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_check_list_check_completed\fP (\fBIceCheckList\fP *cl)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC const char * \fBice_candidate_type\fP (const \fBIceCandidate\fP *candidate)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC \fBIceCandidate\fP * \fBice_add_local_candidate\fP (\fBIceCheckList\fP *cl, const char *type, const char *ip, int port, uint16_t componentID, \fBIceCandidate\fP *base)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC \fBIceCandidate\fP * \fBice_add_remote_candidate\fP (\fBIceCheckList\fP *cl, const char *type, const char *ip, int port, uint16_t componentID, uint32_t priority, const char *const foundation, bool_t is_default)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_add_losing_pair\fP (\fBIceCheckList\fP *cl, uint16_t componentID, const char *local_addr, int local_port, const char *remote_addr, int remote_port)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC int \fBice_session_nb_losing_pairs\fP (const \fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_check_list_unselect_valid_pairs\fP (\fBIceCheckList\fP *cl)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_session_set_base_for_srflx_candidates\fP (\fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_session_compute_candidates_foundations\fP (\fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_session_eliminate_redundant_candidates\fP (\fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_session_choose_default_candidates\fP (\fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_session_choose_default_remote_candidates\fP (\fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_session_start_connectivity_checks\fP (\fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_session_check_mismatch\fP (\fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBice_check_list_process\fP (\fBIceCheckList\fP *cl, RtpSession *rtp_session)"
+.br
+.ti -1c
+.RI "void \fBice_handle_stun_packet\fP (\fBIceCheckList\fP *cl, RtpSession *rtp_session, const OrtpEventData *evt_data)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_get_remote_addr_and_ports_from_valid_pairs\fP (const \fBIceCheckList\fP *cl, char *rtp_addr, int *rtp_port, char *rtcp_addr, int *rtcp_port, int addr_len)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_check_list_print_route\fP (const \fBIceCheckList\fP *cl, const char *message)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_dump_session\fP (const \fBIceSession\fP *session)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_dump_candidates\fP (const \fBIceCheckList\fP *cl)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_dump_candidate_pairs\fP (const \fBIceCheckList\fP *cl)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_dump_valid_list\fP (const \fBIceCheckList\fP *cl)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_dump_candidate_pairs_foundations\fP (const \fBIceCheckList\fP *cl)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_dump_componentIDs\fP (const \fBIceCheckList\fP *cl)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_dump_check_list\fP (const \fBIceCheckList\fP *cl)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBice_dump_triggered_checks_queue\fP (const \fBIceCheckList\fP *cl)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+mediastreamer2 \fBice.h\fP include file 
+
+This file provides the API to handle the ICE protocol defined in the RFC 5245. 
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fB_IceSession\fP  \fBIceSession\fP"Structure representing an ICE session. 
+.SS "typedef struct \fB_IceTransportAddress\fP  \fBIceTransportAddress\fP"Structure representing an ICE transport address. 
+.SS "typedef struct \fB_IceCandidate\fP  \fBIceCandidate\fP"Structure representing an ICE candidate. 
+.SS "typedef struct \fB_IceCandidatePair\fP  \fBIceCandidatePair\fP"Structure representing an ICE candidate pair. 
+.SS "typedef struct \fB_IcePairFoundation\fP  \fBIcePairFoundation\fP"Structure representing the foundation of an ICE candidate pair.
+.PP
+It is the concatenation of the foundation of a local candidate and the foundation of a remote candidate. 
+.SS "typedef struct \fB_IceCheckList\fP  \fBIceCheckList\fP"Structure representing an ICE check list.
+.PP
+Each media stream must be assigned a check list. Check lists are added to an ICE session using the \fBice_session_add_check_list()\fP function. 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBIceRole\fP"ICE agent role.
+.PP
+See the terminology in paragraph 3 of the RFC 5245 for more details. 
+.SS "enum \fBIceCandidateType\fP"ICE candidate type.
+.PP
+See the terminology in paragraph 3 of the RFC 5245 for more details. 
+.SS "enum \fBIceCandidatePairState\fP"ICE candidate pair state.
+.PP
+See paragraph 5.7.4 ('Computing states') of RFC 5245 for more details. 
+.SS "enum \fBIceCheckListState\fP"ICE check list state.
+.PP
+See paragraph 5.7.4 ('Computing states') of RFC 5245 for more details. 
+.SS "enum \fBIceSessionState\fP"ICE session state. 
+.SH "Function Documentation"
+.PP 
+.SS "MS2_PUBLIC \fBIceSession\fP* ice_session_new (void)"Allocate a new ICE session.
+.PP
+\fBReturns:\fP
+.RS 4
+Pointer to the allocated session
+.RE
+.PP
+This must be performed for each media session that is to use ICE. 
+.SS "MS2_PUBLIC void ice_session_destroy (\fBIceSession\fP * session)"Destroy a previously allocated ICE session.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP The session to destroy.
+.RE
+.PP
+To be used when a media session using ICE is tore down. 
+.SS "MS2_PUBLIC \fBIceCheckList\fP* ice_check_list_new (void)"Allocate a new ICE check list.
+.PP
+\fBReturns:\fP
+.RS 4
+Pointer to the allocated check list
+.RE
+.PP
+A check list must be allocated for each media stream of a media session and be added to an ICE session using the \fBice_session_add_check_list()\fP function. 
+.SS "MS2_PUBLIC void ice_check_list_destroy (\fBIceCheckList\fP * cl)"Destroy a previously allocated ICE check list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP The check list to destroy 
+.RE
+.PP
+
+.SS "MS2_PUBLIC bool_t ice_check_list_candidates_gathered (const \fBIceCheckList\fP * cl)"Tell whether ICE local candidates have been gathered for an ICE check list or not.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a check list 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if local candidates have been gathered for the check list, FALSE otherwise. 
+.RE
+.PP
+
+.SS "MS2_PUBLIC \fBIceCheckList\fP* ice_session_check_list (const \fBIceSession\fP * session, unsigned int n)"Get the nth check list of an ICE session.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.br
+\fIn\fP The number of the check list to access 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the nth check list of the session if it exists, NULL otherwise 
+.RE
+.PP
+
+.SS "MS2_PUBLIC const char* ice_session_local_ufrag (const \fBIceSession\fP * session)"Get the local username fragment of an ICE session.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the local username fragment of the session 
+.RE
+.PP
+
+.SS "MS2_PUBLIC const char* ice_session_local_pwd (const \fBIceSession\fP * session)"Get the local password of an ICE session.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the local password of the session 
+.RE
+.PP
+
+.SS "MS2_PUBLIC const char* ice_session_remote_ufrag (const \fBIceSession\fP * session)"Get the remote username fragment of an ICE session.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the remote username fragment of the session 
+.RE
+.PP
+
+.SS "MS2_PUBLIC const char* ice_session_remote_pwd (const \fBIceSession\fP * session)"Get the remote password of an ICE session.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the remote password of the session 
+.RE
+.PP
+
+.SS "MS2_PUBLIC \fBIceSessionState\fP ice_session_state (const \fBIceSession\fP * session)"Get the state of an ICE session.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The state of the session 
+.RE
+.PP
+
+.SS "MS2_PUBLIC \fBIceRole\fP ice_session_role (const \fBIceSession\fP * session)"Gte the role of the agent for an ICE session.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The role of the agent for the session 
+.RE
+.PP
+
+.SS "MS2_PUBLIC void ice_session_set_role (\fBIceSession\fP * session, \fBIceRole\fP role)"Set the role of the agent for an ICE session.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP The session for which to set the role 
+.br
+\fIrole\fP The role to set the session to 
+.RE
+.PP
+
+.SS "MS2_PUBLIC void ice_session_set_local_credentials (\fBIceSession\fP * session, const char * ufrag, const char * pwd)"Set the local credentials of an ICE session.
+.PP
+This function SHOULD not be used. However, it is used by mediastream for testing purpose to apply the same credentials for local and remote agents because the SDP exchange is bypassed. 
+.SS "MS2_PUBLIC bool_t ice_session_remote_credentials_changed (\fBIceSession\fP * session, const char * ufrag, const char * pwd)"Tell if remote credentials of an ICE session have changed or not.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.br
+\fIufrag\fP The new remote username fragment 
+.br
+\fIpwd\fP The new remote password 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if the remote credentials of the session have changed, FALSE otherwise. 
+.RE
+.PP
+
+.SS "MS2_PUBLIC void ice_session_set_remote_credentials (\fBIceSession\fP * session, const char * ufrag, const char * pwd)"Set the remote credentials of an ICE session.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.br
+\fIufrag\fP The remote username fragment 
+.br
+\fIpwd\fP The remote password
+.RE
+.PP
+This function is to be called once the remote credentials have been received via SDP. 
+.SS "MS2_PUBLIC void ice_session_set_max_connectivity_checks (\fBIceSession\fP * session, uint8_t max_connectivity_checks)"Define the maximum number of connectivity checks that will be performed by the agent.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.br
+\fImax_connectivity_checks\fP The maximum number of connectivity checks to perform
+.RE
+.PP
+This function is to be called just after the creation of the session, before any connectivity check is performed. The default number of connectivity checks is 100. 
+.SS "MS2_PUBLIC void ice_session_set_keepalive_timeout (\fBIceSession\fP * session, uint8_t timeout)"Define the timeout between each keepalive packet in seconds.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.br
+\fItimeout\fP The duration of the keepalive timeout in seconds
+.RE
+.PP
+The default keepalive timeout is set to 15 seconds. 
+.SS "MS2_PUBLIC int ice_session_nb_check_lists (\fBIceSession\fP * session)"Get the number of check lists in an ICE session.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The number of check lists in the ICE session 
+.RE
+.PP
+
+.SS "MS2_PUBLIC bool_t ice_session_has_completed_check_list (const \fBIceSession\fP * session)"Tell whether an ICE session has at least one completed check list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if the session has at least one completed check list, FALSE otherwise 
+.RE
+.PP
+
+.SS "MS2_PUBLIC void ice_session_add_check_list (\fBIceSession\fP * session, \fBIceCheckList\fP * cl)"Add an ICE check list to an ICE session.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP The session that is assigned the check list 
+.br
+\fIcl\fP The check list to assign to the session 
+.RE
+.PP
+
+.SS "MS2_PUBLIC void ice_session_remove_check_list (\fBIceSession\fP * session, \fBIceCheckList\fP * cl)"Remove an ICE check list from an ICE session.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP The session from which to remove the check list 
+.br
+\fIcl\fP The check list to remove from the session 
+.RE
+.PP
+
+.SS "MS2_PUBLIC bool_t ice_session_candidates_gathered (const \fBIceSession\fP * session)"Tell whether ICE local candidates have been gathered for an ICE session or not.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if local candidates have been gathered for the session, FALSE otherwise. 
+.RE
+.PP
+
+.SS "MS2_PUBLIC void ice_session_gather_candidates (\fBIceSession\fP * session, struct sockaddr_storage ss, socklen_t ss_len)"Gather ICE local candidates for an ICE session.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.br
+\fIss\fP The STUN server address 
+.br
+\fIss_len\fP The length of the STUN server address 
+.RE
+.PP
+
+.SS "MS2_PUBLIC int ice_session_gathering_duration (\fBIceSession\fP * session)"Tell the duration of the gathering process for an ICE session in ms.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+-1 if gathering has not been run, the duration of the gathering process in ms otherwise. 
+.RE
+.PP
+
+.SS "MS2_PUBLIC int ice_session_average_gathering_round_trip_time (\fBIceSession\fP * session)"Tell the average round trip time during the gathering process for an ICE session in ms.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+-1 if gathering has not been run, the average round trip time in ms otherwise. 
+.RE
+.PP
+
+.SS "MS2_PUBLIC void ice_session_select_candidates (\fBIceSession\fP * session)"Select ICE candidates that will be used and notified in the SDP.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session
+.RE
+.PP
+This function is to be used by the Controlling agent when ICE processing has finished. 
+.SS "MS2_PUBLIC void ice_session_restart (\fBIceSession\fP * session)"Restart an ICE session.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.RE
+.PP
+
+.SS "MS2_PUBLIC \fBIceCheckListState\fP ice_check_list_state (const \fBIceCheckList\fP * cl)"Get the state of an ICE check list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The check list state 
+.RE
+.PP
+
+.SS "MS2_PUBLIC void ice_check_list_set_state (\fBIceCheckList\fP * cl, \fBIceCheckListState\fP state)"Set the state of an ICE check list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.br
+\fIstate\fP The new state of the check list 
+.RE
+.PP
+
+.SS "MS2_PUBLIC void ice_check_list_set_rtp_session (\fBIceCheckList\fP * cl, RtpSession * rtp_session)"Assign an RTP session to an ICE check list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.br
+\fIrtp_session\fP A pointer to the RTP session to assign to the check list 
+.RE
+.PP
+
+.SS "MS2_PUBLIC const char* ice_check_list_local_ufrag (const \fBIceCheckList\fP * cl)"Get the local username fragment of an ICE check list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the local username fragment of the check list 
+.RE
+.PP
+
+.SS "MS2_PUBLIC const char* ice_check_list_local_pwd (const \fBIceCheckList\fP * cl)"Get the local password of an ICE check list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the local password of the check list 
+.RE
+.PP
+
+.SS "MS2_PUBLIC const char* ice_check_list_remote_ufrag (const \fBIceCheckList\fP * cl)"Get the remote username fragment of an ICE check list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the remote username fragment of the check list 
+.RE
+.PP
+
+.SS "MS2_PUBLIC const char* ice_check_list_remote_pwd (const \fBIceCheckList\fP * cl)"Get the remote password of an ICE check list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the remote password of the check list 
+.RE
+.PP
+
+.SS "MS2_PUBLIC bool_t ice_check_list_is_mismatch (const \fBIceCheckList\fP * cl)"Get the mismatch property of an ICE check list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if there was a mismatch for the check list, FALSE otherwise 
+.RE
+.PP
+
+.SS "MS2_PUBLIC bool_t ice_check_list_remote_credentials_changed (\fBIceCheckList\fP * cl, const char * ufrag, const char * pwd)"Tell if remote credentials of an ICE check list have changed or not.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.br
+\fIufrag\fP The new remote username fragment 
+.br
+\fIpwd\fP The new remote password 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if the remote credentials of the check list have changed, FALSE otherwise. 
+.RE
+.PP
+
+.SS "MS2_PUBLIC void ice_check_list_set_remote_credentials (\fBIceCheckList\fP * cl, const char * ufrag, const char * pwd)"Set the remote credentials of an ICE check list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.br
+\fIufrag\fP The remote username fragment 
+.br
+\fIpwd\fP The remote password
+.RE
+.PP
+This function is to be called once the remote credentials have been received via SDP. 
+.SS "MS2_PUBLIC bool_t ice_check_list_default_local_candidate (const \fBIceCheckList\fP * cl, const char ** rtp_addr, int * rtp_port, const char ** rtcp_addr, int * rtcp_port)"Get the default local candidate for an ICE check list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.br
+\fIrtp_addr\fP A pointer to store the RTP address 
+.br
+\fIrtp_port\fP A pointer to store the RTP port 
+.br
+\fIrtcp_addr\fP A pointer to store the RTCP address 
+.br
+\fIrtcp_port\fP A pointer to store the RTCP port 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if the information have been successfully retrieved, FALSE otherwise 
+.RE
+.PP
+
+.SS "MS2_PUBLIC bool_t ice_check_list_selected_valid_local_candidate (const \fBIceCheckList\fP * cl, const char ** rtp_addr, int * rtp_port, const char ** rtcp_addr, int * rtcp_port)"Get the selected valid local candidate for an ICE check list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.br
+\fIrtp_addr\fP A pointer to store the RTP address 
+.br
+\fIrtp_port\fP A pointer to store the RTP port 
+.br
+\fIrtcp_addr\fP A pointer to store the RTCP address 
+.br
+\fIrtcp_port\fP A pointer to store the RTCP port 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if the information have been successfully retrieved, FALSE otherwise 
+.RE
+.PP
+
+.SS "MS2_PUBLIC bool_t ice_check_list_selected_valid_remote_candidate (const \fBIceCheckList\fP * cl, const char ** rtp_addr, int * rtp_port, const char ** rtcp_addr, int * rtcp_port)"Get the selected valid remote candidate for an ICE check list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.br
+\fIrtp_addr\fP A pointer to store the RTP address 
+.br
+\fIrtp_port\fP A pointer to store the RTP port 
+.br
+\fIrtcp_addr\fP A pointer to store the RTCP address 
+.br
+\fIrtcp_port\fP A pointer to store the RTCP port 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if the information have been successfully retrieved, FALSE otherwise 
+.RE
+.PP
+
+.SS "MS2_PUBLIC \fBIceCandidateType\fP ice_check_list_selected_valid_candidate_type (const \fBIceCheckList\fP * cl)"Get the type of the selected valid candidate for an ICE check list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The type of the selected valid candidate 
+.RE
+.PP
+
+.SS "MS2_PUBLIC void ice_check_list_check_completed (\fBIceCheckList\fP * cl)"Check if an ICE check list can be set in the Completed state after handling losing pairs.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.RE
+.PP
+
+.SS "MS2_PUBLIC const char* ice_candidate_type (const \fBIceCandidate\fP * candidate)"Get the candidate type as a string.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcandidate\fP A pointer to a candidate 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the candidate type as a string 
+.RE
+.PP
+
+.SS "MS2_PUBLIC \fBIceCandidate\fP* ice_add_local_candidate (\fBIceCheckList\fP * cl, const char * type, const char * ip, int port, uint16_t componentID, \fBIceCandidate\fP * base)"Add a local candidate to an ICE check list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.br
+\fItype\fP The type of the local candidate to add as a string (must be one of: 'host', 'srflx', 'prflx' or 'relay') 
+.br
+\fIip\fP The IP address of the local candidate as a string (eg. 192.168.0.10) 
+.br
+\fIport\fP The port of the local candidate 
+.br
+\fIcomponentID\fP The component ID of the local candidate (usually 1 for RTP and 2 for RTCP) 
+.br
+\fIbase\fP A pointer to the base candidate of the candidate to add.
+.RE
+.PP
+This function is to be called when gathering local candidates. 
+.SS "MS2_PUBLIC \fBIceCandidate\fP* ice_add_remote_candidate (\fBIceCheckList\fP * cl, const char * type, const char * ip, int port, uint16_t componentID, uint32_t priority, const char *const  foundation, bool_t is_default)"Add a remote candidate to an ICE check list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.br
+\fItype\fP The type of the remote candidate to add as a string (must be one of: 'host', 'srflx', 'prflx' or 'relay') 
+.br
+\fIip\fP The IP address of the remote candidate as a string (eg. 192.168.0.10) 
+.br
+\fIport\fP The port of the remote candidate 
+.br
+\fIcomponentID\fP The component ID of the remote candidate (usually 1 for RTP and 2 for RTCP) 
+.br
+\fIpriority\fP The priority of the remote candidate 
+.br
+\fIfoundation\fP The foundation of the remote candidate 
+.br
+\fIis_default\fP Boolean value telling whether the remote candidate is a default candidate or not
+.RE
+.PP
+This function is to be called once the remote candidate list has been received via SDP. 
+.SS "MS2_PUBLIC void ice_add_losing_pair (\fBIceCheckList\fP * cl, uint16_t componentID, const char * local_addr, int local_port, const char * remote_addr, int remote_port)"Add a losing pair to an ICE check list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.br
+\fIcomponentID\fP The component ID of the candidates of the pair to add 
+.br
+\fIlocal_addr\fP The address of the local candidate of the pair to add 
+.br
+\fIlocal_port\fP The port of the local candidate of the pair to add 
+.br
+\fIremote_addr\fP The address of the remote candidate of the pair to add 
+.br
+\fIremote_port\fP The port of the remote candidate of the pair to add
+.RE
+.PP
+This function is to be called when a RE-INVITE with an SDP containing a remote-candidates attribute is received. 
+.SS "MS2_PUBLIC int ice_session_nb_losing_pairs (const \fBIceSession\fP * session)"Get the number of losing candidate pairs for an ICE session.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The number of losing candidate pairs for the session. 
+.RE
+.PP
+
+.SS "MS2_PUBLIC void ice_check_list_unselect_valid_pairs (\fBIceCheckList\fP * cl)"Unselect the previously selected valid pairs.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list
+.RE
+.PP
+This function is to be used to use the pairs given by the remote controlling agent instead of the pairs we found ourselves. 
+.SS "MS2_PUBLIC void ice_session_set_base_for_srflx_candidates (\fBIceSession\fP * session)"Set the base for the local server reflexive candidates of an ICE session.
+.PP
+This function SHOULD not be used. However, it is used by mediastream for testing purpose to work around the fact that it does not use candidates gathering. It is to be called automatically when the gathering process finishes. 
+.SS "MS2_PUBLIC void ice_session_compute_candidates_foundations (\fBIceSession\fP * session)"Compute the foundations of the local candidates of an ICE session.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session
+.RE
+.PP
+This function is to be called at the end of the local candidates gathering process, before sending the SDP to the remote agent. 
+.SS "MS2_PUBLIC void ice_session_eliminate_redundant_candidates (\fBIceSession\fP * session)"Eliminate the redundant candidates of an ICE session.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session
+.RE
+.PP
+This function is to be called at the end of the local candidates gathering process, before sending the SDP to the remote agent. 
+.SS "MS2_PUBLIC void ice_session_choose_default_candidates (\fBIceSession\fP * session)"Choose the default candidates of an ICE session.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session
+.RE
+.PP
+This function is to be called at the end of the local candidates gathering process, before sending the SDP to the remote agent. 
+.SS "MS2_PUBLIC void ice_session_choose_default_remote_candidates (\fBIceSession\fP * session)"Choose the default remote candidates of an ICE session.
+.PP
+This function SHOULD not be used. Instead, the default remote candidates MUST be defined as default when creating them with \fBice_add_remote_candidate()\fP. However, this function is used by mediastream for testing purpose. 
+.SS "MS2_PUBLIC void ice_session_start_connectivity_checks (\fBIceSession\fP * session)"Pair the local and the remote candidates for an ICE session and start sending connectivity checks.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.RE
+.PP
+
+.SS "MS2_PUBLIC void ice_session_check_mismatch (\fBIceSession\fP * session)"Check whether all the ICE check lists of the session includes a default candidate for each component ID in its remote candidates list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP A pointer to a session 
+.RE
+.PP
+
+.SS "void ice_check_list_process (\fBIceCheckList\fP * cl, RtpSession * rtp_session)"Core ICE check list processing.
+.PP
+This function is called from the audiostream or the videostream and is NOT to be called by the user. 
+.SS "void ice_handle_stun_packet (\fBIceCheckList\fP * cl, RtpSession * rtp_session, const OrtpEventData * evt_data)"Handle a STUN packet that has been received.
+.PP
+This function is called from the audiostream or the videostream and is NOT to be called by the user. 
+.SS "MS2_PUBLIC void ice_get_remote_addr_and_ports_from_valid_pairs (const \fBIceCheckList\fP * cl, char * rtp_addr, int * rtp_port, char * rtcp_addr, int * rtcp_port, int addr_len)"Get the remote address, RTP port and RTCP port to use to send the stream once the ICE process has finished successfully.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.br
+\fIrtp_addr\fP A pointer to the buffer to use to store the remote RTP address 
+.br
+\fIrtp_port\fP A pointer to the location to store the RTP port to 
+.br
+\fIrtcp_aadr\fP A pointer to the buffer to use to store the remote RTCP address 
+.br
+\fIrtcp_port\fP A pointer to the location to store the RTCP port to 
+.br
+\fIaddr_len\fP The size of the buffer to use to store the remote addresses
+.RE
+.PP
+This function will usually be called from within the success callback defined while creating the ICE check list with \fBice_check_list_new()\fP. 
+.SS "MS2_PUBLIC void ice_check_list_print_route (const \fBIceCheckList\fP * cl, const char * message)"Print the route used to send the stream if the ICE process has finished successfully.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcl\fP A pointer to a check list 
+.br
+\fImessage\fP A message to print before the route 
+.RE
+.PP
+
+.SS "MS2_PUBLIC void ice_dump_session (const \fBIceSession\fP * session)"Dump an ICE session in the traces (debug function). 
+.SS "MS2_PUBLIC void ice_dump_candidates (const \fBIceCheckList\fP * cl)"Dump the candidates of an ICE check list in the traces (debug function). 
+.SS "MS2_PUBLIC void ice_dump_candidate_pairs (const \fBIceCheckList\fP * cl)"Dump the candidate pairs of an ICE check list in the traces (debug function). 
+.SS "MS2_PUBLIC void ice_dump_valid_list (const \fBIceCheckList\fP * cl)"Dump the valid list of an ICE check list in the traces (debug function). 
+.SS "MS2_PUBLIC void ice_dump_candidate_pairs_foundations (const \fBIceCheckList\fP * cl)"Dump the list of candidate pair foundations of an ICE check list in the traces (debug function). 
+.SS "MS2_PUBLIC void ice_dump_componentIDs (const \fBIceCheckList\fP * cl)"Dump the list of component IDs of an ICE check list in the traces (debug function). 
+.SS "MS2_PUBLIC void ice_dump_check_list (const \fBIceCheckList\fP * cl)"Dump an ICE check list in the traces (debug function). 
+.SS "MS2_PUBLIC void ice_dump_triggered_checks_queue (const \fBIceCheckList\fP * cl)"Dump the triggered checks queue of an ICE check list in the traces (debug function). 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

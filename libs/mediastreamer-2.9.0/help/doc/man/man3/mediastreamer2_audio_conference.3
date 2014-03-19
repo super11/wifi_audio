@@ -1,0 +1,238 @@
+.TH "Audio conferencing API - Easily create conferences." 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Audio conferencing API - Easily create conferences. \- 
+.PP
+Audio conferencing API - Easily create conferences.  
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fB_MSAudioConferenceParams\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fB_MSAudioConferenceParams\fP \fBMSAudioConferenceParams\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSAudioConference \fBMSAudioConference\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSAudioEndpoint \fBMSAudioEndpoint\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMSAudioConference\fP * \fBms_audio_conference_new\fP (const \fBMSAudioConferenceParams\fP *params)"
+.br
+.ti -1c
+.RI "const \fBMSAudioConferenceParams\fP * \fBms_audio_conference_get_params\fP (\fBMSAudioConference\fP *obj)"
+.br
+.ti -1c
+.RI "void \fBms_audio_conference_add_member\fP (\fBMSAudioConference\fP *obj, \fBMSAudioEndpoint\fP *ep)"
+.br
+.ti -1c
+.RI "void \fBms_audio_conference_remove_member\fP (\fBMSAudioConference\fP *obj, \fBMSAudioEndpoint\fP *ep)"
+.br
+.ti -1c
+.RI "void \fBms_audio_conference_mute_member\fP (\fBMSAudioConference\fP *obj, \fBMSAudioEndpoint\fP *ep, bool_t muted)"
+.br
+.ti -1c
+.RI "int \fBms_audio_conference_get_size\fP (\fBMSAudioConference\fP *obj)"
+.br
+.ti -1c
+.RI "void \fBms_audio_conference_destroy\fP (\fBMSAudioConference\fP *obj)"
+.br
+.ti -1c
+.RI "\fBMSAudioEndpoint\fP * \fBms_audio_endpoint_get_from_stream\fP (\fBAudioStream\fP *st, bool_t is_remote)"
+.br
+.ti -1c
+.RI "void \fBms_audio_endpoint_release_from_stream\fP (\fBMSAudioEndpoint\fP *obj)"
+.br
+.ti -1c
+.RI "\fBMSAudioEndpoint\fP * \fBms_audio_endpoint_new_recorder\fP (void)"
+.br
+.ti -1c
+.RI "int \fBms_audio_recorder_endpoint_start\fP (\fBMSAudioEndpoint\fP *ep, const char *path)"
+.br
+.ti -1c
+.RI "int \fBms_audio_recorder_endpoint_stop\fP (\fBMSAudioEndpoint\fP *ep)"
+.br
+.ti -1c
+.RI "void \fBms_audio_endpoint_destroy\fP (\fBMSAudioEndpoint\fP *ep)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Audio conferencing API - Easily create conferences. 
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fB_MSAudioConferenceParams\fP \fBMSAudioConferenceParams\fP"Typedef to structure that holds conference parameters 
+.SS "typedef struct _MSAudioConference \fBMSAudioConference\fP"The MSAudioConference is the object representing an audio conference.
+.PP
+First, the conference has to be created with \fBms_audio_conference_new()\fP, with parameters supplied. Then, participants to the conference can be added with \fBms_audio_conference_add_member()\fP. The MSAudioConference takes in charge the mixing and dispatching of the audio to the participants. If participants (MSAudioEndpoint) are using sampling rate different from the conference, then sample rate converters are automatically added and configured. Participants can be removed from the conference with \fBms_audio_conference_remove_member()\fP. The conference processing is performed in a new thread run by a MSTicker object, which is owned by the conference. When all participants are removed, the MSAudioConference object can then be safely destroyed with \fBms_audio_conference_destroy()\fP. 
+.SS "typedef struct _MSAudioEndpoint \fBMSAudioEndpoint\fP"The MSAudioEndpoint represents a participant in the conference. It can be constructed from an existing AudioStream object with \fBms_audio_endpoint_get_from_stream()\fP. 
+.SH "Function Documentation"
+.PP 
+.SS "\fBMSAudioConference\fP* ms_audio_conference_new (const \fBMSAudioConferenceParams\fP * params)"Creates a conference. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIparams\fP a MSAudioConferenceParams structure, containing conference parameters. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a MSAudioConference object. 
+.RE
+.PP
+
+.SS "const \fBMSAudioConferenceParams\fP* ms_audio_conference_get_params (\fBMSAudioConference\fP * obj)"Gets conference's current parameters. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobj\fP the conference. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a read-only pointer to the conference parameters. 
+.RE
+.PP
+
+.SS "void ms_audio_conference_add_member (\fBMSAudioConference\fP * obj, \fBMSAudioEndpoint\fP * ep)"Adds a participant to the conference. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobj\fP the conference 
+.br
+\fIep\fP the participant, represented as a MSAudioEndpoint object 
+.RE
+.PP
+
+.SS "void ms_audio_conference_remove_member (\fBMSAudioConference\fP * obj, \fBMSAudioEndpoint\fP * ep)"Removes a participant from the conference. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobj\fP the conference 
+.br
+\fIep\fP the participant, represented as a MSAudioEndpoint object 
+.RE
+.PP
+
+.SS "void ms_audio_conference_mute_member (\fBMSAudioConference\fP * obj, \fBMSAudioEndpoint\fP * ep, bool_t muted)"Mutes or unmutes a participant.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobj\fP the conference 
+.br
+\fIep\fP the participant, represented as a MSAudioEndpoint object
+.RE
+.PP
+By default all participants are unmuted. 
+.SS "int ms_audio_conference_get_size (\fBMSAudioConference\fP * obj)"Returns the size (ie the number of participants) of a conference. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobj\fP the conference 
+.RE
+.PP
+
+.SS "void ms_audio_conference_destroy (\fBMSAudioConference\fP * obj)"Destroys a conference. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobj\fP the conference All participants must have been removed before destroying the conference. 
+.RE
+.PP
+
+.SS "\fBMSAudioEndpoint\fP* ms_audio_endpoint_get_from_stream (\fBAudioStream\fP * st, bool_t is_remote)"Creates an MSAudioEndpoint from an existing AudioStream.
+.PP
+In order to create graphs for audio processing of each participant, the AudioStream object is used, because this object already handles all the processing for volume control, encoding, decoding, etc...
+.PP
+The construction of the participants depends whether it is a remote participant, that is somebody in the network sending and receiving audio through RTP, or a local participant, that is somebody using the local soundcard to capture and play audio.
+.PP
+To create a remote participant, first create and start an AudioStream for the participant with \fBaudio_stream_new()\fP and audio_stream_start_with_files(), given NULL arguments as input and output files. This participant does not interact with soundcards, this is why we suggest to use \fBaudio_stream_start_full()\fP to avoid holding any reference to the sound system. Then, create a MSAudioEndpoint representing this participant by calling \fBms_audio_endpoint_get_from_stream()\fP with is_remote=TRUE.
+.PP
+To create a local participant, first create and start an AudioStream with \fBaudio_stream_new()\fP and \fBaudio_stream_start_full()\fP, with real soundcard arguments. Arguments controlling RTP should be filled with placeholders value and will not be used for conferencing. Then, create a MSAudioEndpoint representing this local participant by calling \fBms_audio_endpoint_get_from_stream()\fP with the audiostream and is_remote=FALSE.
+.br
+ For example:
+.br
+ 
+.PP
+.nf
+
+ AudioStream *st=audio_stream_new(65000,65001,FALSE);
+ audio_stream_start_full(st, conf->local_dummy_profile,
+				'127.0.0.1',
+				65000,
+				'127.0.0.1',
+				65001,
+				0,
+				40,
+				NULL,
+				NULL,
+				playcard,
+				captcard,
+				needs_echocancellation,
+				);
+ MSAudioEndpoint *local_endpoint=ms_audio_endpoint_get_from_stream(st,FALSE);
+ 
+.fi
+.PP
+ 
+.SS "void ms_audio_endpoint_release_from_stream (\fBMSAudioEndpoint\fP * obj)"Destroys a MSAudioEndpoint that was created from an AudioStream with \fBms_audio_endpoint_get_from_stream()\fP. The AudioStream can then be destroyed if needed. 
+.SS "\fBMSAudioEndpoint\fP* ms_audio_endpoint_new_recorder (void)"Creates an audio endpoint (or virtual participant) to record the conference into a wav file. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpath\fP Path to the wav file to record. 
+.RE
+.PP
+
+.SS "int ms_audio_recorder_endpoint_start (\fBMSAudioEndpoint\fP * ep, const char * path)"Start audio recording. The endpoint must have been created by \fBms_audio_endpoint_new_recorder()\fP. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIep\fP the endpoint 
+.br
+\fIpath\fP path for the wav file where to record samples. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, -1 if the path is invalid. 
+.RE
+.PP
+
+.SS "int ms_audio_recorder_endpoint_stop (\fBMSAudioEndpoint\fP * ep)"Stop audio recording. The endpoint must have been created by \fBms_audio_endpoint_new_recorder()\fP. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIep\fP the endpoint 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, -1 if the record wasn't started. 
+.RE
+.PP
+
+.SS "void ms_audio_endpoint_destroy (\fBMSAudioEndpoint\fP * ep)"Destroy an audio endpoint. 
+.PP
+\fBNote:\fP
+.RS 4
+Endpoints created by \fBms_audio_endpoint_get_from_stream()\fP must be released by \fBms_audio_endpoint_release_from_stream()\fP. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

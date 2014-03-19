@@ -1,0 +1,76 @@
+.TH "Sound Card API - Manage audio capture/play filters" 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Sound Card API - Manage audio capture/play filters \- 
+.PP
+Sound Card API to manage audio capture/play filters.  
+
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fBSound Card Manager API\fP"
+.br
+.ti -1c
+.RI "\fBSound Card Filter API\fP"
+.br
+.in -1c
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMS_SND_CARD_CAP_DISABLED\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBMS_SND_CARD_CAP_CAPTURE\fP   (1)"
+.br
+.ti -1c
+.RI "#define \fBMS_SND_CARD_CAP_PLAYBACK\fP   (1<<1)"
+.br
+.ti -1c
+.RI "#define \fBMS_SND_CARD_CAP_BUILTIN_ECHO_CANCELLER\fP   (1<<2)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct _MSSndCardManager \fBMSSndCardManager\fP"
+.br
+.ti -1c
+.RI "typedef enum _MSSndCardMixerElem \fBMSSndCardMixerElem\fP"
+.br
+.ti -1c
+.RI "typedef enum _MSSndCardCapture \fBMSSndCardCapture\fP"
+.br
+.ti -1c
+.RI "typedef enum _MSSndCardControlElem \fBMSSndCardControlElem\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSSndCardDesc \fBMSSndCardDesc\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSSndCard \fBMSSndCard\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Sound Card API to manage audio capture/play filters. 
+.SH "Define Documentation"
+.PP 
+.SS "#define MS_SND_CARD_CAP_DISABLED   (0)"This soundcard is disabled. 
+.SS "#define MS_SND_CARD_CAP_CAPTURE   (1)"This sound card can capture sound 
+.SS "#define MS_SND_CARD_CAP_PLAYBACK   (1<<1)"This sound card can playback sound 
+.SS "#define MS_SND_CARD_CAP_BUILTIN_ECHO_CANCELLER   (1<<2)"This sound card has built-in echo cancellation 
+.SH "Typedef Documentation"
+.PP 
+.SS "\fBMSSndCardManager\fP"Structure for sound card manager object. 
+.SS "\fBMSSndCardMixerElem\fP"Structure for sound card mixer values. 
+.SS "\fBMSSndCardCapture\fP"Structure for sound card capture source values. 
+.SS "\fBMSSndCardControlElem\fP"Structure for sound card mixer values. 
+.SS "\fBMSSndCardDesc\fP"Structure for sound card description object. 
+.SS "\fBMSSndCard\fP"Structure for sound card object. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

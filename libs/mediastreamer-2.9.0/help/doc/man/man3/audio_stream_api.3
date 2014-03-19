@@ -1,0 +1,127 @@
+.TH "Audio streaming API - Create and run VoIP audio streams." 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Audio streaming API - Create and run VoIP audio streams. \- 
+.PP
+Audio streaming API - Easily run audio streams from soundcard or wav files to RTP.  
+
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct _AudioStream \fBAudioStream\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "MS2_PUBLIC int \fBaudio_stream_start_full\fP (\fBAudioStream\fP *stream, RtpProfile *profile, const char *rem_rtp_ip, int rem_rtp_port, const char *rem_rtcp_ip, int rem_rtcp_port, int payload, int jitt_comp, const char *infile, const char *outfile, \fBMSSndCard\fP *playcard, \fBMSSndCard\fP *captcard, bool_t use_ec)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC \fBAudioStream\fP * \fBaudio_stream_new\fP (int loc_rtp_port, int loc_rtcp_port, bool_t ipv6)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC int \fBaudio_stream_start_now\fP (\fBAudioStream\fP *stream, RtpProfile *prof, const char *remip, int remport, int rem_rtcp_port, int payload_type, int jitt_comp, \fBMSSndCard\fP *playcard, \fBMSSndCard\fP *captcard, bool_t echo_cancel)"
+.br
+.ti -1c
+.RI "MS2_PUBLIC void \fBaudio_stream_iterate\fP (\fBAudioStream\fP *stream)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Audio streaming API - Easily run audio streams from soundcard or wav files to RTP. 
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct _AudioStream \fBAudioStream\fP"The AudioStream holds all resources to create and run typical VoIP audiostream. 
+.SH "Function Documentation"
+.PP 
+.SS "MS2_PUBLIC int audio_stream_start_full (\fBAudioStream\fP * stream, RtpProfile * profile, const char * rem_rtp_ip, int rem_rtp_port, const char * rem_rtcp_ip, int rem_rtcp_port, int payload, int jitt_comp, const char * infile, const char * outfile, \fBMSSndCard\fP * playcard, \fBMSSndCard\fP * captcard, bool_t use_ec)"Starts an audio stream from/to local wav files or soundcards.
+.PP
+This method starts the processing of the audio stream, that is playing from wav file or soundcard, voice processing, encoding, sending through RTP, receiving from RTP, decoding, voice processing and wav file recording or soundcard playback.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstream\fP an AudioStream previously created with \fBaudio_stream_new()\fP. 
+.br
+\fIprof\fP a RtpProfile containing all PayloadType possible during the audio session. 
+.br
+\fIrem_rtp_ip\fP remote IP address where to send the encoded audio. 
+.br
+\fIrem_rtp_port\fP remote IP port where to send the encoded audio. 
+.br
+\fIrem_rtcp_ip\fP remote IP address for RTCP. 
+.br
+\fIrem_rtcp_port\fP remote port for RTCP. 
+.br
+\fIpayload_type\fP payload type index to use for the sending stream. This index must point to a valid PayloadType in the RtpProfile. 
+.br
+\fIjitt_comp\fP Nominal jitter buffer size in milliseconds. 
+.br
+\fIinfile\fP path to wav file to play out (can be NULL) 
+.br
+\fIoutfile\fP path to wav file to record into (can be NULL) 
+.br
+\fIplaycard\fP The soundcard to be used for playback (can be NULL) 
+.br
+\fIcaptcard\fP The soundcard to be used for catpure. (can be NULL) 
+.br
+\fIecho_cancel\fP whether echo cancellation is to be performed. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if sucessful, -1 otherwise. 
+.RE
+.PP
+
+.SS "MS2_PUBLIC \fBAudioStream\fP* audio_stream_new (int loc_rtp_port, int loc_rtcp_port, bool_t ipv6)"Creates an AudioStream object listening on a RTP port. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIloc_rtp_port\fP the local UDP port to listen for RTP packets. 
+.br
+\fIloc_rtcp_port\fP the local UDP port to listen for RTCP packets 
+.br
+\fIipv6\fP TRUE if ipv6 must be used. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new AudioStream. 
+.RE
+.PP
+
+.SS "MS2_PUBLIC int audio_stream_start_now (\fBAudioStream\fP * stream, RtpProfile * prof, const char * remip, int remport, int rem_rtcp_port, int payload_type, int jitt_comp, \fBMSSndCard\fP * playcard, \fBMSSndCard\fP * captcard, bool_t echo_cancel)"Starts an audio stream from local soundcards.
+.PP
+This method starts the processing of the audio stream, that is capture from soundcard, voice processing, encoding, sending through RTP, receiving from RTP, decoding, voice processing and soundcard playback.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstream\fP an AudioStream previously created with \fBaudio_stream_new()\fP. 
+.br
+\fIprof\fP a RtpProfile containing all PayloadType possible during the audio session. 
+.br
+\fIremip\fP remote IP address where to send the encoded audio. 
+.br
+\fIremport\fP remote IP port where to send the encoded audio 
+.br
+\fIrem_rtcp_port\fP remote port for RTCP. 
+.br
+\fIpayload_type\fP payload type index to use for the sending stream. This index must point to a valid PayloadType in the RtpProfile. 
+.br
+\fIjitt_comp\fP Nominal jitter buffer size in milliseconds. 
+.br
+\fIplaycard\fP The soundcard to be used for playback 
+.br
+\fIcaptcard\fP The soundcard to be used for catpure. 
+.br
+\fIecho_cancel\fP whether echo cancellation is to be performed. 
+.RE
+.PP
+
+.SS "MS2_PUBLIC void audio_stream_iterate (\fBAudioStream\fP * stream)"Executes background low priority tasks related to audio processing (RTP statistics analysis). It should be called periodically, for example with an interval of 100 ms or so. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

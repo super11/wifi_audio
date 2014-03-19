@@ -1,0 +1,186 @@
+\section{Camera API -\/ manage video capture devices}
+\label{group__mediastreamer2__webcam}\index{Camera API -\/ manage video capture devices@{Camera API -\/ manage video capture devices}}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf MS\_\-STATIC\_\-IMAGE\_\-SET\_\-IMAGE}~MS\_\-FILTER\_\-METHOD(MS\_\-STATIC\_\-IMAGE\_\-ID,0,const char)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \_\-MSWebCamManager {\bf MSWebCamManager}
+\item 
+typedef struct \_\-MSWebCamDesc {\bf MSWebCamDesc}
+\item 
+typedef struct \_\-MSWebCam {\bf MSWebCam}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf MSWebCamManager} $\ast$ {\bf ms\_\-web\_\-cam\_\-manager\_\-get} (void)
+\item 
+void {\bf ms\_\-web\_\-cam\_\-manager\_\-destroy} (void)
+\item 
+{\bf MSWebCam} $\ast$ {\bf ms\_\-web\_\-cam\_\-manager\_\-get\_\-cam} ({\bf MSWebCamManager} $\ast$m, const char $\ast$id)
+\item 
+{\bf MSWebCam} $\ast$ {\bf ms\_\-web\_\-cam\_\-manager\_\-get\_\-default\_\-cam} ({\bf MSWebCamManager} $\ast$m)
+\item 
+const MSList $\ast$ {\bf ms\_\-web\_\-cam\_\-manager\_\-get\_\-list} ({\bf MSWebCamManager} $\ast$m)
+\item 
+void {\bf ms\_\-web\_\-cam\_\-manager\_\-add\_\-cam} ({\bf MSWebCamManager} $\ast$m, {\bf MSWebCam} $\ast$c)
+\item 
+void {\bf ms\_\-web\_\-cam\_\-manager\_\-prepend\_\-cam} ({\bf MSWebCamManager} $\ast$m, {\bf MSWebCam} $\ast$c)
+\item 
+void {\bf ms\_\-web\_\-cam\_\-manager\_\-register\_\-desc} ({\bf MSWebCamManager} $\ast$m, {\bf MSWebCamDesc} $\ast$desc)
+\item 
+void {\bf ms\_\-web\_\-cam\_\-manager\_\-reload} ({\bf MSWebCamManager} $\ast$m)
+\item 
+struct \_\-MSFilter $\ast$ {\bf ms\_\-web\_\-cam\_\-create\_\-reader} ({\bf MSWebCam} $\ast$obj)
+\item 
+{\bf MSWebCam} $\ast$ {\bf ms\_\-web\_\-cam\_\-new} ({\bf MSWebCamDesc} $\ast$desc)
+\item 
+void {\bf ms\_\-web\_\-cam\_\-destroy} ({\bf MSWebCam} $\ast$obj)
+\item 
+const char $\ast$ {\bf ms\_\-web\_\-cam\_\-get\_\-driver\_\-type} (const {\bf MSWebCam} $\ast$obj)
+\item 
+const char $\ast$ {\bf ms\_\-web\_\-cam\_\-get\_\-name} (const {\bf MSWebCam} $\ast$obj)
+\item 
+const char $\ast$ {\bf ms\_\-web\_\-cam\_\-get\_\-string\_\-id} ({\bf MSWebCam} $\ast$obj)
+\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\index{mediastreamer2\_\-webcam@{mediastreamer2\_\-webcam}!MS\_\-STATIC\_\-IMAGE\_\-SET\_\-IMAGE@{MS\_\-STATIC\_\-IMAGE\_\-SET\_\-IMAGE}}
+\index{MS\_\-STATIC\_\-IMAGE\_\-SET\_\-IMAGE@{MS\_\-STATIC\_\-IMAGE\_\-SET\_\-IMAGE}!mediastreamer2_webcam@{mediastreamer2\_\-webcam}}
+\subsubsection[{MS\_\-STATIC\_\-IMAGE\_\-SET\_\-IMAGE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MS\_\-STATIC\_\-IMAGE\_\-SET\_\-IMAGE~MS\_\-FILTER\_\-METHOD(MS\_\-STATIC\_\-IMAGE\_\-ID,0,const char)}\label{group__mediastreamer2__webcam_ga3f67e63135392e599cd67c42ee4c5fce}
+method for the \char`\"{}nowebcam\char`\"{} filter 
+
+\subsection{Typedef Documentation}
+\index{mediastreamer2\_\-webcam@{mediastreamer2\_\-webcam}!MSWebCamManager@{MSWebCamManager}}
+\index{MSWebCamManager@{MSWebCamManager}!mediastreamer2_webcam@{mediastreamer2\_\-webcam}}
+\subsubsection[{MSWebCamManager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSWebCamManager}}\label{group__mediastreamer2__webcam_gaaef9856e51a7af781e179fd0a2194c6b}
+Structure for webcam manager object. \index{mediastreamer2\_\-webcam@{mediastreamer2\_\-webcam}!MSWebCamDesc@{MSWebCamDesc}}
+\index{MSWebCamDesc@{MSWebCamDesc}!mediastreamer2_webcam@{mediastreamer2\_\-webcam}}
+\subsubsection[{MSWebCamDesc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSWebCamDesc}}\label{group__mediastreamer2__webcam_gac3b2d36f3e03a917acfd7317df521da5}
+Structure for sound card description object. \index{mediastreamer2\_\-webcam@{mediastreamer2\_\-webcam}!MSWebCam@{MSWebCam}}
+\index{MSWebCam@{MSWebCam}!mediastreamer2_webcam@{mediastreamer2\_\-webcam}}
+\subsubsection[{MSWebCam}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSWebCam}}\label{group__mediastreamer2__webcam_gaa86435c43223df186bba3828429d2d43}
+Structure for sound card object. 
+
+\subsection{Function Documentation}
+\index{mediastreamer2\_\-webcam@{mediastreamer2\_\-webcam}!ms\_\-web\_\-cam\_\-manager\_\-get@{ms\_\-web\_\-cam\_\-manager\_\-get}}
+\index{ms\_\-web\_\-cam\_\-manager\_\-get@{ms\_\-web\_\-cam\_\-manager\_\-get}!mediastreamer2_webcam@{mediastreamer2\_\-webcam}}
+\subsubsection[{ms\_\-web\_\-cam\_\-manager\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSWebCamManager}$\ast$ ms\_\-web\_\-cam\_\-manager\_\-get (void)}\label{group__mediastreamer2__webcam_gac2450a52121afa62a04d3a181749106a}
+Retreive a webcam manager object.
+
+Returns: MSWebCamManager if successfull, NULL otherwise. \index{mediastreamer2\_\-webcam@{mediastreamer2\_\-webcam}!ms\_\-web\_\-cam\_\-manager\_\-destroy@{ms\_\-web\_\-cam\_\-manager\_\-destroy}}
+\index{ms\_\-web\_\-cam\_\-manager\_\-destroy@{ms\_\-web\_\-cam\_\-manager\_\-destroy}!mediastreamer2_webcam@{mediastreamer2\_\-webcam}}
+\subsubsection[{ms\_\-web\_\-cam\_\-manager\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-web\_\-cam\_\-manager\_\-destroy (void)}\label{group__mediastreamer2__webcam_gad0bdda1b1d4103ab66e6894113f560ed}
+Destroy the webcam manager object. \index{mediastreamer2\_\-webcam@{mediastreamer2\_\-webcam}!ms\_\-web\_\-cam\_\-manager\_\-get\_\-cam@{ms\_\-web\_\-cam\_\-manager\_\-get\_\-cam}}
+\index{ms\_\-web\_\-cam\_\-manager\_\-get\_\-cam@{ms\_\-web\_\-cam\_\-manager\_\-get\_\-cam}!mediastreamer2_webcam@{mediastreamer2\_\-webcam}}
+\subsubsection[{ms\_\-web\_\-cam\_\-manager\_\-get\_\-cam}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSWebCam}$\ast$ ms\_\-web\_\-cam\_\-manager\_\-get\_\-cam ({\bf MSWebCamManager} $\ast$ {\em m}, \/  const char $\ast$ {\em id})}\label{group__mediastreamer2__webcam_ga81198680b1f43995497d97bc2a4ac21c}
+Retreive a webcam object based on its name.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em m}]A webcam manager containing webcam. \item[{\em id}]A name for card to search.\end{DoxyParams}
+Returns: MSWebCam if successfull, NULL otherwise. \index{mediastreamer2\_\-webcam@{mediastreamer2\_\-webcam}!ms\_\-web\_\-cam\_\-manager\_\-get\_\-default\_\-cam@{ms\_\-web\_\-cam\_\-manager\_\-get\_\-default\_\-cam}}
+\index{ms\_\-web\_\-cam\_\-manager\_\-get\_\-default\_\-cam@{ms\_\-web\_\-cam\_\-manager\_\-get\_\-default\_\-cam}!mediastreamer2_webcam@{mediastreamer2\_\-webcam}}
+\subsubsection[{ms\_\-web\_\-cam\_\-manager\_\-get\_\-default\_\-cam}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSWebCam}$\ast$ ms\_\-web\_\-cam\_\-manager\_\-get\_\-default\_\-cam ({\bf MSWebCamManager} $\ast$ {\em m})}\label{group__mediastreamer2__webcam_gaf04de06bd612fc1d4a735d44c4f8091c}
+Retreive the default webcam object.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em m}]A webcam manager containing webcams.\end{DoxyParams}
+Returns: MSWebCam if successfull, NULL otherwise. \index{mediastreamer2\_\-webcam@{mediastreamer2\_\-webcam}!ms\_\-web\_\-cam\_\-manager\_\-get\_\-list@{ms\_\-web\_\-cam\_\-manager\_\-get\_\-list}}
+\index{ms\_\-web\_\-cam\_\-manager\_\-get\_\-list@{ms\_\-web\_\-cam\_\-manager\_\-get\_\-list}!mediastreamer2_webcam@{mediastreamer2\_\-webcam}}
+\subsubsection[{ms\_\-web\_\-cam\_\-manager\_\-get\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}const MSList$\ast$ ms\_\-web\_\-cam\_\-manager\_\-get\_\-list ({\bf MSWebCamManager} $\ast$ {\em m})}\label{group__mediastreamer2__webcam_ga312eb8452b0512d0cc269dd2c78e54c9}
+Retreive the list of webcam objects.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em m}]A webcam manager containing webcams.\end{DoxyParams}
+Returns: MSList of cards if successfull, NULL otherwise. \index{mediastreamer2\_\-webcam@{mediastreamer2\_\-webcam}!ms\_\-web\_\-cam\_\-manager\_\-add\_\-cam@{ms\_\-web\_\-cam\_\-manager\_\-add\_\-cam}}
+\index{ms\_\-web\_\-cam\_\-manager\_\-add\_\-cam@{ms\_\-web\_\-cam\_\-manager\_\-add\_\-cam}!mediastreamer2_webcam@{mediastreamer2\_\-webcam}}
+\subsubsection[{ms\_\-web\_\-cam\_\-manager\_\-add\_\-cam}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-web\_\-cam\_\-manager\_\-add\_\-cam ({\bf MSWebCamManager} $\ast$ {\em m}, \/  {\bf MSWebCam} $\ast$ {\em c})}\label{group__mediastreamer2__webcam_gad2d3add8ced0a3e680263c242789d755}
+Add a webcam object in a webcam manager's list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em m}]A webcam manager containing webcams \item[{\em c}]A web cam object. \end{DoxyParams}
+\index{mediastreamer2\_\-webcam@{mediastreamer2\_\-webcam}!ms\_\-web\_\-cam\_\-manager\_\-prepend\_\-cam@{ms\_\-web\_\-cam\_\-manager\_\-prepend\_\-cam}}
+\index{ms\_\-web\_\-cam\_\-manager\_\-prepend\_\-cam@{ms\_\-web\_\-cam\_\-manager\_\-prepend\_\-cam}!mediastreamer2_webcam@{mediastreamer2\_\-webcam}}
+\subsubsection[{ms\_\-web\_\-cam\_\-manager\_\-prepend\_\-cam}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-web\_\-cam\_\-manager\_\-prepend\_\-cam ({\bf MSWebCamManager} $\ast$ {\em m}, \/  {\bf MSWebCam} $\ast$ {\em c})}\label{group__mediastreamer2__webcam_ga4537fe9312fe9a647a724d48a7f54a7a}
+Add a webcam object on top of list of the webcam manager's list.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em m}]A webcam manager containing webcams \item[{\em c}]A web cam object. \end{DoxyParams}
+\index{mediastreamer2\_\-webcam@{mediastreamer2\_\-webcam}!ms\_\-web\_\-cam\_\-manager\_\-register\_\-desc@{ms\_\-web\_\-cam\_\-manager\_\-register\_\-desc}}
+\index{ms\_\-web\_\-cam\_\-manager\_\-register\_\-desc@{ms\_\-web\_\-cam\_\-manager\_\-register\_\-desc}!mediastreamer2_webcam@{mediastreamer2\_\-webcam}}
+\subsubsection[{ms\_\-web\_\-cam\_\-manager\_\-register\_\-desc}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-web\_\-cam\_\-manager\_\-register\_\-desc ({\bf MSWebCamManager} $\ast$ {\em m}, \/  {\bf MSWebCamDesc} $\ast$ {\em desc})}\label{group__mediastreamer2__webcam_gad9dc399856a42d88bce8131621d8e624}
+Register a webcam descriptor in a webcam manager.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em m}]A webcam manager containing sound cards. \item[{\em desc}]A webcam descriptor object. \end{DoxyParams}
+\index{mediastreamer2\_\-webcam@{mediastreamer2\_\-webcam}!ms\_\-web\_\-cam\_\-manager\_\-reload@{ms\_\-web\_\-cam\_\-manager\_\-reload}}
+\index{ms\_\-web\_\-cam\_\-manager\_\-reload@{ms\_\-web\_\-cam\_\-manager\_\-reload}!mediastreamer2_webcam@{mediastreamer2\_\-webcam}}
+\subsubsection[{ms\_\-web\_\-cam\_\-manager\_\-reload}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-web\_\-cam\_\-manager\_\-reload ({\bf MSWebCamManager} $\ast$ {\em m})}\label{group__mediastreamer2__webcam_gae179d044696ffc04bb6873f03e84b4ca}
+Ask all registered MSWebCamDesc to detect the webcams again.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em m}]A webcam manager \end{DoxyParams}
+\index{mediastreamer2\_\-webcam@{mediastreamer2\_\-webcam}!ms\_\-web\_\-cam\_\-create\_\-reader@{ms\_\-web\_\-cam\_\-create\_\-reader}}
+\index{ms\_\-web\_\-cam\_\-create\_\-reader@{ms\_\-web\_\-cam\_\-create\_\-reader}!mediastreamer2_webcam@{mediastreamer2\_\-webcam}}
+\subsubsection[{ms\_\-web\_\-cam\_\-create\_\-reader}]{\setlength{\rightskip}{0pt plus 5cm}struct \_\-MSFilter$\ast$ ms\_\-web\_\-cam\_\-create\_\-reader ({\bf MSWebCam} $\ast$ {\em obj})\hspace{0.3cm}{\ttfamily  [read]}}\label{group__mediastreamer2__webcam_ga9f56789f84a638e162db7681141116c3}
+Create an INPUT filter based on the selected camera.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A webcam object.\end{DoxyParams}
+Returns: A MSFilter if successfull, NULL otherwise. \index{mediastreamer2\_\-webcam@{mediastreamer2\_\-webcam}!ms\_\-web\_\-cam\_\-new@{ms\_\-web\_\-cam\_\-new}}
+\index{ms\_\-web\_\-cam\_\-new@{ms\_\-web\_\-cam\_\-new}!mediastreamer2_webcam@{mediastreamer2\_\-webcam}}
+\subsubsection[{ms\_\-web\_\-cam\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSWebCam}$\ast$ ms\_\-web\_\-cam\_\-new ({\bf MSWebCamDesc} $\ast$ {\em desc})}\label{group__mediastreamer2__webcam_ga724d3f85cf299d9424b45b54b49c11db}
+Create a new webcam object.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em desc}]A webcam description object.\end{DoxyParams}
+Returns: MSWebCam if successfull, NULL otherwise. \index{mediastreamer2\_\-webcam@{mediastreamer2\_\-webcam}!ms\_\-web\_\-cam\_\-destroy@{ms\_\-web\_\-cam\_\-destroy}}
+\index{ms\_\-web\_\-cam\_\-destroy@{ms\_\-web\_\-cam\_\-destroy}!mediastreamer2_webcam@{mediastreamer2\_\-webcam}}
+\subsubsection[{ms\_\-web\_\-cam\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-web\_\-cam\_\-destroy ({\bf MSWebCam} $\ast$ {\em obj})}\label{group__mediastreamer2__webcam_gae0c162bbc2b3d8d94652610a2657f925}
+Destroy webcam object.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A MSWebCam object. \end{DoxyParams}
+\index{mediastreamer2\_\-webcam@{mediastreamer2\_\-webcam}!ms\_\-web\_\-cam\_\-get\_\-driver\_\-type@{ms\_\-web\_\-cam\_\-get\_\-driver\_\-type}}
+\index{ms\_\-web\_\-cam\_\-get\_\-driver\_\-type@{ms\_\-web\_\-cam\_\-get\_\-driver\_\-type}!mediastreamer2_webcam@{mediastreamer2\_\-webcam}}
+\subsubsection[{ms\_\-web\_\-cam\_\-get\_\-driver\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ ms\_\-web\_\-cam\_\-get\_\-driver\_\-type (const {\bf MSWebCam} $\ast$ {\em obj})}\label{group__mediastreamer2__webcam_ga391a7f96ec2827ddfece5e85aa9b84cc}
+Retreive a webcam's driver type string.
+
+Internal driver types are either: \char`\"{}V4L V4LV2\char`\"{}
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A webcam object.\end{DoxyParams}
+Returns: a string if successfull, NULL otherwise. \index{mediastreamer2\_\-webcam@{mediastreamer2\_\-webcam}!ms\_\-web\_\-cam\_\-get\_\-name@{ms\_\-web\_\-cam\_\-get\_\-name}}
+\index{ms\_\-web\_\-cam\_\-get\_\-name@{ms\_\-web\_\-cam\_\-get\_\-name}!mediastreamer2_webcam@{mediastreamer2\_\-webcam}}
+\subsubsection[{ms\_\-web\_\-cam\_\-get\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ ms\_\-web\_\-cam\_\-get\_\-name (const {\bf MSWebCam} $\ast$ {\em obj})}\label{group__mediastreamer2__webcam_ga7651c3a20498ff4bf2500c88ba23cc05}
+Retreive a webcam's name.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A webcam object.\end{DoxyParams}
+Returns: a string if successfull, NULL otherwise. \index{mediastreamer2\_\-webcam@{mediastreamer2\_\-webcam}!ms\_\-web\_\-cam\_\-get\_\-string\_\-id@{ms\_\-web\_\-cam\_\-get\_\-string\_\-id}}
+\index{ms\_\-web\_\-cam\_\-get\_\-string\_\-id@{ms\_\-web\_\-cam\_\-get\_\-string\_\-id}!mediastreamer2_webcam@{mediastreamer2\_\-webcam}}
+\subsubsection[{ms\_\-web\_\-cam\_\-get\_\-string\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ ms\_\-web\_\-cam\_\-get\_\-string\_\-id ({\bf MSWebCam} $\ast$ {\em obj})}\label{group__mediastreamer2__webcam_ga2956ae70b19ecc39b793b08153b88a26}
+Retreive webcam's id: (driver\_\-type}
+name).
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em obj}]A webcam object.\end{DoxyParams}
+Returns: A string if successfull, NULL otherwise. 

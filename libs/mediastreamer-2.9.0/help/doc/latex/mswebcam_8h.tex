@@ -1,0 +1,64 @@
+\section{mswebcam.h File Reference}
+\label{mswebcam_8h}\index{mswebcam.h@{mswebcam.h}}
+
+
+mediastreamer2 \doxyref{mswebcam.h}{p.}{mswebcam_8h} include file  
+{\ttfamily \#include $<$mediastreamer2/mscommon.h$>$}\par
+Include dependency graph for mswebcam.h:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=261pt]{mswebcam_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf MS\_\-STATIC\_\-IMAGE\_\-SET\_\-IMAGE}~MS\_\-FILTER\_\-METHOD(MS\_\-STATIC\_\-IMAGE\_\-ID,0,const char)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \_\-MSWebCamManager {\bf MSWebCamManager}
+\item 
+typedef struct \_\-MSWebCamDesc {\bf MSWebCamDesc}
+\item 
+typedef struct \_\-MSWebCam {\bf MSWebCam}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf MSWebCamManager} $\ast$ {\bf ms\_\-web\_\-cam\_\-manager\_\-get} (void)
+\item 
+void {\bf ms\_\-web\_\-cam\_\-manager\_\-destroy} (void)
+\item 
+{\bf MSWebCam} $\ast$ {\bf ms\_\-web\_\-cam\_\-manager\_\-get\_\-cam} ({\bf MSWebCamManager} $\ast$m, const char $\ast$id)
+\item 
+{\bf MSWebCam} $\ast$ {\bf ms\_\-web\_\-cam\_\-manager\_\-get\_\-default\_\-cam} ({\bf MSWebCamManager} $\ast$m)
+\item 
+const MSList $\ast$ {\bf ms\_\-web\_\-cam\_\-manager\_\-get\_\-list} ({\bf MSWebCamManager} $\ast$m)
+\item 
+void {\bf ms\_\-web\_\-cam\_\-manager\_\-add\_\-cam} ({\bf MSWebCamManager} $\ast$m, {\bf MSWebCam} $\ast$c)
+\item 
+void {\bf ms\_\-web\_\-cam\_\-manager\_\-prepend\_\-cam} ({\bf MSWebCamManager} $\ast$m, {\bf MSWebCam} $\ast$c)
+\item 
+void {\bf ms\_\-web\_\-cam\_\-manager\_\-register\_\-desc} ({\bf MSWebCamManager} $\ast$m, {\bf MSWebCamDesc} $\ast$desc)
+\item 
+void {\bf ms\_\-web\_\-cam\_\-manager\_\-reload} ({\bf MSWebCamManager} $\ast$m)
+\item 
+struct \_\-MSFilter $\ast$ {\bf ms\_\-web\_\-cam\_\-create\_\-reader} ({\bf MSWebCam} $\ast$obj)
+\item 
+{\bf MSWebCam} $\ast$ {\bf ms\_\-web\_\-cam\_\-new} ({\bf MSWebCamDesc} $\ast$desc)
+\item 
+void {\bf ms\_\-web\_\-cam\_\-destroy} ({\bf MSWebCam} $\ast$obj)
+\item 
+const char $\ast$ {\bf ms\_\-web\_\-cam\_\-get\_\-driver\_\-type} (const {\bf MSWebCam} $\ast$obj)
+\item 
+const char $\ast$ {\bf ms\_\-web\_\-cam\_\-get\_\-name} (const {\bf MSWebCam} $\ast$obj)
+\item 
+const char $\ast$ {\bf ms\_\-web\_\-cam\_\-get\_\-string\_\-id} ({\bf MSWebCam} $\ast$obj)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+mediastreamer2 \doxyref{mswebcam.h}{p.}{mswebcam_8h} include file This file provide the API needed to manage soundcard filters. 

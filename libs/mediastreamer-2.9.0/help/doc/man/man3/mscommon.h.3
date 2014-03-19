@@ -1,0 +1,77 @@
+.TH "mscommon.h" 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mscommon.h \- 
+.PP
+mediastreamer2 \fBmscommon.h\fP include file  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <ortp/logging.h>\fP
+.br
+\fC#include <ortp/port.h>\fP
+.br
+\fC#include <ortp/str_utils.h>\fP
+.br
+\fC#include <ortp/payloadtype.h>\fP
+.br
+\fC#include <time.h>\fP
+.br
+
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBms_init\fP()   ms_base_init(), ms_voip_init(), ms_plugins_init()"
+.br
+.ti -1c
+.RI "#define \fBms_exit\fP()   ms_voip_exit(), ms_base_exit()"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBms_base_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBms_voip_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBms_plugins_init\fP (void)"
+.br
+.ti -1c
+.RI "int \fBms_load_plugins\fP (const char *directory)"
+.br
+.ti -1c
+.RI "void \fBms_base_exit\fP (void)"
+.br
+.ti -1c
+.RI "void \fBms_voip_exit\fP (void)"
+.br
+.ti -1c
+.RI "int \fBms_get_payload_max_size\fP ()"
+.br
+.ti -1c
+.RI "int \fBms_discover_mtu\fP (const char *destination_host)"
+.br
+.ti -1c
+.RI "void \fBms_set_mtu\fP (int mtu)"
+.br
+.ti -1c
+.RI "int \fBms_get_mtu\fP (void)"
+.br
+.ti -1c
+.RI "void \fBms_set_cpu_count\fP (unsigned int c)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+mediastreamer2 \fBmscommon.h\fP include file 
+
+This file provide the API needed to initialize and reset the mediastreamer2 library. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

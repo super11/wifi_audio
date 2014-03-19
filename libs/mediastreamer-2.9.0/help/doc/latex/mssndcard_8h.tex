@@ -1,0 +1,106 @@
+\section{mssndcard.h File Reference}
+\label{mssndcard_8h}\index{mssndcard.h@{mssndcard.h}}
+
+
+mediastreamer2 \doxyref{mssndcard.h}{p.}{mssndcard_8h} include file  
+{\ttfamily \#include $<$mediastreamer2/mscommon.h$>$}\par
+Include dependency graph for mssndcard.h:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=261pt]{mssndcard_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf MS\_\-SND\_\-CARD\_\-CAP\_\-DISABLED}~(0)
+\item 
+\#define {\bf MS\_\-SND\_\-CARD\_\-CAP\_\-CAPTURE}~(1)
+\item 
+\#define {\bf MS\_\-SND\_\-CARD\_\-CAP\_\-PLAYBACK}~(1$<$$<$1)
+\item 
+\#define {\bf MS\_\-SND\_\-CARD\_\-CAP\_\-BUILTIN\_\-ECHO\_\-CANCELLER}~(1$<$$<$2)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \_\-MSSndCardManager {\bf MSSndCardManager}
+\item 
+typedef enum \_\-MSSndCardMixerElem {\bf MSSndCardMixerElem}
+\item 
+typedef enum \_\-MSSndCardCapture {\bf MSSndCardCapture}
+\item 
+typedef enum \_\-MSSndCardControlElem {\bf MSSndCardControlElem}
+\item 
+typedef struct \_\-MSSndCardDesc {\bf MSSndCardDesc}
+\item 
+typedef struct \_\-MSSndCard {\bf MSSndCard}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf MSSndCardManager} $\ast$ {\bf ms\_\-snd\_\-card\_\-manager\_\-get} (void)
+\item 
+void {\bf ms\_\-snd\_\-card\_\-manager\_\-destroy} (void)
+\item 
+{\bf MSSndCard} $\ast$ {\bf ms\_\-snd\_\-card\_\-manager\_\-get\_\-card} ({\bf MSSndCardManager} $\ast$m, const char $\ast$id)
+\item 
+{\bf MSSndCard} $\ast$ {\bf ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-card} ({\bf MSSndCardManager} $\ast$m)
+\item 
+{\bf MSSndCard} $\ast$ {\bf ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-capture\_\-card} ({\bf MSSndCardManager} $\ast$m)
+\item 
+{\bf MSSndCard} $\ast$ {\bf ms\_\-snd\_\-card\_\-manager\_\-get\_\-default\_\-playback\_\-card} ({\bf MSSndCardManager} $\ast$m)
+\item 
+const MSList $\ast$ {\bf ms\_\-snd\_\-card\_\-manager\_\-get\_\-list} ({\bf MSSndCardManager} $\ast$m)
+\item 
+void {\bf ms\_\-snd\_\-card\_\-manager\_\-add\_\-card} ({\bf MSSndCardManager} $\ast$m, {\bf MSSndCard} $\ast$c)
+\item 
+void {\bf ms\_\-snd\_\-card\_\-manager\_\-register\_\-desc} ({\bf MSSndCardManager} $\ast$m, {\bf MSSndCardDesc} $\ast$desc)
+\item 
+void {\bf ms\_\-snd\_\-card\_\-manager\_\-reload} ({\bf MSSndCardManager} $\ast$m)
+\item 
+struct \_\-MSFilter $\ast$ {\bf ms\_\-snd\_\-card\_\-create\_\-reader} ({\bf MSSndCard} $\ast$obj)
+\item 
+struct \_\-MSFilter $\ast$ {\bf ms\_\-snd\_\-card\_\-create\_\-writer} ({\bf MSSndCard} $\ast$obj)
+\item 
+{\bf MSSndCard} $\ast$ {\bf ms\_\-snd\_\-card\_\-new} ({\bf MSSndCardDesc} $\ast$desc)
+\item 
+{\bf MSSndCard} $\ast$ {\bf ms\_\-snd\_\-card\_\-new\_\-with\_\-name} ({\bf MSSndCardDesc} $\ast$desc, const char $\ast$name)
+\item 
+void {\bf ms\_\-snd\_\-card\_\-destroy} ({\bf MSSndCard} $\ast$obj)
+\item 
+{\bf MSSndCard} $\ast$ {\bf ms\_\-snd\_\-card\_\-dup} ({\bf MSSndCard} $\ast$card)
+\item 
+const char $\ast$ {\bf ms\_\-snd\_\-card\_\-get\_\-driver\_\-type} (const {\bf MSSndCard} $\ast$obj)
+\item 
+const char $\ast$ {\bf ms\_\-snd\_\-card\_\-get\_\-name} (const {\bf MSSndCard} $\ast$obj)
+\item 
+const char $\ast$ {\bf ms\_\-snd\_\-card\_\-get\_\-string\_\-id} ({\bf MSSndCard} $\ast$obj)
+\item 
+unsigned int {\bf ms\_\-snd\_\-card\_\-get\_\-capabilities} (const {\bf MSSndCard} $\ast$obj)
+\item 
+int {\bf ms\_\-snd\_\-card\_\-get\_\-minimal\_\-latency} ({\bf MSSndCard} $\ast$obj)
+\item 
+void {\bf ms\_\-snd\_\-card\_\-set\_\-level} ({\bf MSSndCard} $\ast$obj, {\bf MSSndCardMixerElem} e, int percent)
+\item 
+int {\bf ms\_\-snd\_\-card\_\-get\_\-level} ({\bf MSSndCard} $\ast$obj, {\bf MSSndCardMixerElem} e)
+\item 
+void {\bf ms\_\-snd\_\-card\_\-set\_\-capture} ({\bf MSSndCard} $\ast$obj, {\bf MSSndCardCapture} c)
+\item 
+int {\bf ms\_\-snd\_\-card\_\-set\_\-control} ({\bf MSSndCard} $\ast$obj, {\bf MSSndCardControlElem} e, int val)
+\item 
+int {\bf ms\_\-snd\_\-card\_\-get\_\-control} ({\bf MSSndCard} $\ast$obj, {\bf MSSndCardControlElem} e)
+\item 
+int {\bf ms\_\-snd\_\-card\_\-get\_\-preferred\_\-sample\_\-rate} (const {\bf MSSndCard} $\ast$obj)
+\item 
+int {\bf ms\_\-snd\_\-card\_\-set\_\-preferred\_\-sample\_\-rate} ({\bf MSSndCard} $\ast$obj, int rate)
+\item 
+{\bf MSSndCard} $\ast$ {\bf ms\_\-alsa\_\-card\_\-new\_\-custom} (const char $\ast$pcmdev, const char $\ast$mixdev)
+\item 
+void {\bf ms\_\-alsa\_\-card\_\-set\_\-forced\_\-sample\_\-rate} (int samplerate)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+mediastreamer2 \doxyref{mssndcard.h}{p.}{mssndcard_8h} include file This file provide the API needed to manage soundcard filters. 

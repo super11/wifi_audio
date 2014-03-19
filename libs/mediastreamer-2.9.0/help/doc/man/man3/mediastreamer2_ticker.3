@@ -1,0 +1,224 @@
+.TH "Ticker API - Manage mediastreamer2 graphs" 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Ticker API - Manage mediastreamer2 graphs \- 
+.PP
+Ticker API to manage mediastreamer2 graphs.  
+
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef uint64_t(* \fBMSTickerTimeFunc\fP )(void *)"
+.br
+.ti -1c
+.RI "typedef int(* \fBMSTickerTickFunc\fP )(void *, uint64_t ticker_virtual_time)"
+.br
+.ti -1c
+.RI "typedef struct _MSTicker \fBMSTicker\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSTickerSynchronizer \fBMSTickerSynchronizer\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fB_MSTickerPrio\fP { \fBMS_TICKER_PRIO_NORMAL\fP, \fBMS_TICKER_PRIO_HIGH\fP, \fBMS_TICKER_PRIO_REALTIME\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMSTicker\fP * \fBms_ticker_new\fP (void)"
+.br
+.ti -1c
+.RI "\fBMSTicker\fP * \fBms_ticker_new_with_params\fP (const MSTickerParams *params)"
+.br
+.ti -1c
+.RI "void \fBms_ticker_set_name\fP (\fBMSTicker\fP *ticker, const char *name)"
+.br
+.ti -1c
+.RI "void \fBms_ticker_set_priority\fP (\fBMSTicker\fP *ticker, MSTickerPrio prio)"
+.br
+.ti -1c
+.RI "int \fBms_ticker_attach\fP (\fBMSTicker\fP *ticker, \fBMSFilter\fP *f)"
+.br
+.ti -1c
+.RI "int \fBms_ticker_attach_multiple\fP (\fBMSTicker\fP *ticker, \fBMSFilter\fP *f,...)"
+.br
+.ti -1c
+.RI "int \fBms_ticker_detach\fP (\fBMSTicker\fP *ticker, \fBMSFilter\fP *f)"
+.br
+.ti -1c
+.RI "void \fBms_ticker_destroy\fP (\fBMSTicker\fP *ticker)"
+.br
+.ti -1c
+.RI "void \fBms_ticker_set_time_func\fP (\fBMSTicker\fP *ticker, \fBMSTickerTimeFunc\fP func, void *user_data)"
+.br
+.ti -1c
+.RI "void \fBms_ticker_set_tick_func\fP (\fBMSTicker\fP *ticker, \fBMSTickerTickFunc\fP func, void *user_data)"
+.br
+.ti -1c
+.RI "void \fBms_ticker_print_graphs\fP (\fBMSTicker\fP *ticker)"
+.br
+.ti -1c
+.RI "float \fBms_ticker_get_average_load\fP (\fBMSTicker\fP *ticker)"
+.br
+.ti -1c
+.RI "\fBMSTickerSynchronizer\fP * \fBms_ticker_synchronizer_new\fP (void)"
+.br
+.ti -1c
+.RI "double \fBms_ticker_synchronizer_set_external_time\fP (\fBMSTickerSynchronizer\fP *ts, const MSTimeSpec *time)"
+.br
+.ti -1c
+.RI "uint64_t \fBms_ticker_synchronizer_get_corrected_time\fP (\fBMSTickerSynchronizer\fP *ts)"
+.br
+.ti -1c
+.RI "void \fBms_ticker_synchronizer_destroy\fP (\fBMSTickerSynchronizer\fP *ts)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Ticker API to manage mediastreamer2 graphs. 
+
+Describes the ticker API. The ticker is the thread responsible for scheduling audio & video processing for one or several filter graphs. 
+.SH "Typedef Documentation"
+.PP 
+.SS "\fBMSTickerTimeFunc\fP"Function pointer for method getting time in miliseconds from an external source. 
+.SS "\fBMSTickerTickFunc\fP"Function pointer for method waiting next tick from an external source.
+.PP
+It shall return the number of late milliseconds, if this value is known. 
+.SS "\fBMSTicker\fP"Structure for ticker object. 
+.SS "\fBMSTickerSynchronizer\fP"Structure for ticker synchronizer object. 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fB_MSTickerPrio\fP"Enum for ticker priority 
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fIMS_TICKER_PRIO_NORMAL \fP\fP
+the default OS priority for threads 
+.TP
+\fB\fIMS_TICKER_PRIO_HIGH \fP\fP
+Increased priority: done by setpriority() or sched_setschedparams() with SCHED_RR on linux/MacOS 
+.TP
+\fB\fIMS_TICKER_PRIO_REALTIME \fP\fP
+Topmost priority, running SCHED_FIFO on linux 
+.SH "Function Documentation"
+.PP 
+.SS "\fBMSTicker\fP* ms_ticker_new (void)"Create a ticker that will be used to start and stop a graph.
+.PP
+Returns: MSTicker * if successfull, NULL otherwise. 
+.SS "\fBMSTicker\fP* ms_ticker_new_with_params (const MSTickerParams * params)"Create a ticker that will be used to start and stop a graph.
+.PP
+Returns: MSTicker * if successfull, NULL otherwise. 
+.SS "void ms_ticker_set_name (\fBMSTicker\fP * ticker, const char * name)"Set a name to the ticker (used for logging) 
+.SS "void ms_ticker_set_priority (\fBMSTicker\fP * ticker, MSTickerPrio prio)"Deprecated: Set priority to the ticker 
+.SS "int ms_ticker_attach (\fBMSTicker\fP * ticker, \fBMSFilter\fP * f)"Attach a chain of filters to a ticker. The processing chain will be executed until ms_ticker_detach will be called.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIticker\fP A \fBMSTicker\fP object. 
+.br
+\fIf\fP A \fBMSFilter\fP object.
+.RE
+.PP
+Returns: 0 if successfull, -1 otherwise. 
+.SS "int ms_ticker_attach_multiple (\fBMSTicker\fP * ticker, \fBMSFilter\fP * f,  ...)"Attach a chain of filters to a ticker. The processing chain will be executed until ms_ticker_detach will be called. This variadic can be used to attach multiple chains in a single call. The argument list MUST be NULL terminated.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIticker\fP A \fBMSTicker\fP object. 
+.br
+\fIf\fP A \fBMSFilter\fP object.
+.RE
+.PP
+Returns: 0 if successfull, -1 otherwise. 
+.SS "int ms_ticker_detach (\fBMSTicker\fP * ticker, \fBMSFilter\fP * f)"Dettach a chain of filters to a ticker. The processing chain will no more be executed.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIticker\fP A \fBMSTicker\fP object. 
+.br
+\fIf\fP A \fBMSFilter\fP object.
+.RE
+.PP
+Returns: 0 if successfull, -1 otherwise. 
+.SS "void ms_ticker_destroy (\fBMSTicker\fP * ticker)"Destroy a ticker.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIticker\fP A \fBMSTicker\fP object. 
+.RE
+.PP
+
+.SS "void ms_ticker_set_time_func (\fBMSTicker\fP * ticker, \fBMSTickerTimeFunc\fP func, void * user_data)"Override MSTicker's time function. This can be used to control the ticker from an external time provider, for example the clock of a sound card. WARNING: this must not be used in conjunction with \fBms_ticker_set_tick_func()\fP.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIticker\fP A \fBMSTicker\fP object. 
+.br
+\fIfunc\fP A replacement method for calculating 'current time' 
+.br
+\fIuser_data\fP Any pointer to user private data. 
+.RE
+.PP
+
+.SS "void ms_ticker_set_tick_func (\fBMSTicker\fP * ticker, \fBMSTickerTickFunc\fP func, void * user_data)"Override MSTicker's ticking function. This can be used to control the ticker from an external ticking source, for example an interrupt, an event on a file descriptor, etc. WARNING: this must not be used in conjunction with \fBms_ticker_set_time_func()\fP.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIticker\fP A \fBMSTicker\fP object. 
+.br
+\fIfunc\fP A replacement method waiting the next tick. 
+.br
+\fIuser_data\fP Any pointer to user private data. 
+.RE
+.PP
+
+.SS "void ms_ticker_print_graphs (\fBMSTicker\fP * ticker)"Print on stdout all filters of a ticker. (INTERNAL: DO NOT USE)
+.PP
+\fBParameters:\fP
+.RS 4
+\fIticker\fP A \fBMSTicker\fP object. 
+.RE
+.PP
+
+.SS "float ms_ticker_get_average_load (\fBMSTicker\fP * ticker)"Get the average load of the ticker. It is expressed as the ratio between real time spent in processing all graphs for a tick divided by the tick interval (default is 10 ms). This value is averaged over several ticks to get consistent and useful value. A load greater than 100% clearly means that the ticker is over loaded and runs late. 
+.SS "\fBMSTickerSynchronizer\fP* ms_ticker_synchronizer_new (void)"Create a ticker synchronizer.
+.PP
+Returns: MSTickerSynchronizer * if successfull, NULL otherwise. 
+.SS "double ms_ticker_synchronizer_set_external_time (\fBMSTickerSynchronizer\fP * ts, const MSTimeSpec * time)"Set the current external time.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIts\fP A \fBMSTickerSynchronizer\fP object. 
+.br
+\fItime\fP A MSTimeSpec object.
+.RE
+.PP
+Returns: Average skew. 
+.SS "uint64_t ms_ticker_synchronizer_get_corrected_time (\fBMSTickerSynchronizer\fP * ts)"Get the corrected current time following the set external times.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIts\fP A \fBMSTickerSynchronizer\fP object.
+.RE
+.PP
+Returns: A corrected current time. 
+.SS "void ms_ticker_synchronizer_destroy (\fBMSTickerSynchronizer\fP * ts)"Destroy a ticker synchronizer.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIts\fP A \fBMSTickerSynchronizer\fP object. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

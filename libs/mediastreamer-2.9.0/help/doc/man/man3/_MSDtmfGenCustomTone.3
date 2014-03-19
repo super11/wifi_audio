@@ -1,0 +1,47 @@
+.TH "_MSDtmfGenCustomTone" 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_MSDtmfGenCustomTone \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dtmfgen.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "char \fBtone_name\fP [8]"
+.br
+.ti -1c
+.RI "int \fBduration\fP"
+.br
+.ti -1c
+.RI "int \fBfrequencies\fP [2]"
+.br
+.ti -1c
+.RI "float \fBamplitude\fP"
+.br
+.ti -1c
+.RI "int \fBinterval\fP"
+.br
+.ti -1c
+.RI "int \fBrepeat_count\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Structure describing a custom tone. 
+.SH "Field Documentation"
+.PP 
+.SS "char \fB_MSDtmfGenCustomTone::tone_name\fP[8]"Tone name for convenience 
+.SS "int \fB_MSDtmfGenCustomTone::duration\fP"Duration of the tone in milliseconds 
+.SS "int \fB_MSDtmfGenCustomTone::frequencies\fP[2]"Frequencies of the tone to be played 
+.SS "float \fB_MSDtmfGenCustomTone::amplitude\fP"Amplitude of the tone, 1.0 being the 0dbm normalized level 
+.SS "int \fB_MSDtmfGenCustomTone::interval\fP"Interval 'between tones' in milliseconds 
+.SS "int \fB_MSDtmfGenCustomTone::repeat_count\fP"Number of times the tone is repeated. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

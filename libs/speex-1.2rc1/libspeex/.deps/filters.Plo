@@ -1,0 +1,60 @@
+filters.lo: filters.c ../config.h filters.h arch.h \
+ ../include/speex/speex_types.h ../include/speex/speex_config_types.h \
+ stack_alloc.h math_approx.h ltp.h ../include/speex/speex_bits.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/math.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/features.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sys/cdefs.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/wordsize.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/gnu/stubs.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/huge_val.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/huge_valf.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/huge_vall.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/inf.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/nan.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/mathdef.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/mathcalls.h \
+ /home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/mathinline.h
+
+../config.h:
+
+filters.h:
+
+arch.h:
+
+../include/speex/speex_types.h:
+
+../include/speex/speex_config_types.h:
+
+stack_alloc.h:
+
+math_approx.h:
+
+ltp.h:
+
+../include/speex/speex_bits.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/math.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/features.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/sys/cdefs.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/wordsize.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/gnu/stubs.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/huge_val.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/huge_valf.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/huge_vall.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/inf.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/nan.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/mathdef.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/mathcalls.h:
+
+/home/yyz/tiny210/gcc/4.5.1/bin/../lib/gcc/arm-none-linux-gnueabi/4.5.1/../../../../arm-none-linux-gnueabi/include/bits/mathinline.h:

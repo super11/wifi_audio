@@ -1,0 +1,85 @@
+\section{\_\-IceCandidatePair Struct Reference}
+\label{struct__IceCandidatePair}\index{\_\-IceCandidatePair@{\_\-IceCandidatePair}}
+
+
+{\ttfamily \#include $<$ice.h$>$}Collaboration diagram for \_\-IceCandidatePair:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{struct__IceCandidatePair__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf IceCandidate} $\ast$ {\bf local}
+\item 
+{\bf IceCandidate} $\ast$ {\bf remote}
+\item 
+{\bf IceCandidatePairState} {\bf state}
+\item 
+uint64\_\-t {\bf priority}
+\item 
+MSTimeSpec {\bf transmission\_\-time}
+\item 
+uint32\_\-t {\bf rto}
+\item 
+uint8\_\-t {\bf retransmissions}
+\item 
+{\bf IceRole} {\bf role}
+\item 
+bool\_\-t {\bf is\_\-default}
+\item 
+bool\_\-t {\bf use\_\-candidate}
+\item 
+bool\_\-t {\bf is\_\-nominated}
+\item 
+bool\_\-t {\bf wait\_\-transaction\_\-timeout}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Structure representing an ICE candidate pair. 
+
+\subsection{Field Documentation}
+\index{\_\-IceCandidatePair@{\_\-IceCandidatePair}!local@{local}}
+\index{local@{local}!_IceCandidatePair@{\_\-IceCandidatePair}}
+\subsubsection[{local}]{\setlength{\rightskip}{0pt plus 5cm}{\bf IceCandidate}$\ast$ {\bf \_\-IceCandidatePair::local}}\label{struct__IceCandidatePair_a041aa630a7cea25cb26be5101d4e8f03}
+Pointer to the local candidate of the pair \index{\_\-IceCandidatePair@{\_\-IceCandidatePair}!remote@{remote}}
+\index{remote@{remote}!_IceCandidatePair@{\_\-IceCandidatePair}}
+\subsubsection[{remote}]{\setlength{\rightskip}{0pt plus 5cm}{\bf IceCandidate}$\ast$ {\bf \_\-IceCandidatePair::remote}}\label{struct__IceCandidatePair_ab9021218927f7822d741502588bec905}
+Pointer to the remote candidate of the pair \index{\_\-IceCandidatePair@{\_\-IceCandidatePair}!state@{state}}
+\index{state@{state}!_IceCandidatePair@{\_\-IceCandidatePair}}
+\subsubsection[{state}]{\setlength{\rightskip}{0pt plus 5cm}{\bf IceCandidatePairState} {\bf \_\-IceCandidatePair::state}}\label{struct__IceCandidatePair_a7cdb53031897601cced2d853381361d5}
+State of the candidate pair \index{\_\-IceCandidatePair@{\_\-IceCandidatePair}!priority@{priority}}
+\index{priority@{priority}!_IceCandidatePair@{\_\-IceCandidatePair}}
+\subsubsection[{priority}]{\setlength{\rightskip}{0pt plus 5cm}uint64\_\-t {\bf \_\-IceCandidatePair::priority}}\label{struct__IceCandidatePair_ae9c22b971ffe5c3ca287c6a5ef23c8e8}
+Priority of the candidate pair \index{\_\-IceCandidatePair@{\_\-IceCandidatePair}!transmission\_\-time@{transmission\_\-time}}
+\index{transmission\_\-time@{transmission\_\-time}!_IceCandidatePair@{\_\-IceCandidatePair}}
+\subsubsection[{transmission\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}MSTimeSpec {\bf \_\-IceCandidatePair::transmission\_\-time}}\label{struct__IceCandidatePair_a7d20e43f7f8338deecfde0508b11f5ec}
+Time when the connectivity check for the candidate pair has been sent \index{\_\-IceCandidatePair@{\_\-IceCandidatePair}!rto@{rto}}
+\index{rto@{rto}!_IceCandidatePair@{\_\-IceCandidatePair}}
+\subsubsection[{rto}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t {\bf \_\-IceCandidatePair::rto}}\label{struct__IceCandidatePair_a2f33ff606ddf4fa90eef726bc39bb3c2}
+Duration of the retransmit timer for the connectivity check sent for the candidate pair in ms \index{\_\-IceCandidatePair@{\_\-IceCandidatePair}!retransmissions@{retransmissions}}
+\index{retransmissions@{retransmissions}!_IceCandidatePair@{\_\-IceCandidatePair}}
+\subsubsection[{retransmissions}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf \_\-IceCandidatePair::retransmissions}}\label{struct__IceCandidatePair_aaac3713a3ae22f72ba8e282f60094a84}
+Number of retransmissions for the connectivity check sent for the candidate pair \index{\_\-IceCandidatePair@{\_\-IceCandidatePair}!role@{role}}
+\index{role@{role}!_IceCandidatePair@{\_\-IceCandidatePair}}
+\subsubsection[{role}]{\setlength{\rightskip}{0pt plus 5cm}{\bf IceRole} {\bf \_\-IceCandidatePair::role}}\label{struct__IceCandidatePair_a7a9c3e96efc6ea595f1b8f80896f4b20}
+Role of the agent when the connectivity check has been sent for the candidate pair \index{\_\-IceCandidatePair@{\_\-IceCandidatePair}!is\_\-default@{is\_\-default}}
+\index{is\_\-default@{is\_\-default}!_IceCandidatePair@{\_\-IceCandidatePair}}
+\subsubsection[{is\_\-default}]{\setlength{\rightskip}{0pt plus 5cm}bool\_\-t {\bf \_\-IceCandidatePair::is\_\-default}}\label{struct__IceCandidatePair_a8d0e670fbbd8faff39f147d37e03f7db}
+Boolean value telling whether this candidate pair is a default candidate pair or not \index{\_\-IceCandidatePair@{\_\-IceCandidatePair}!use\_\-candidate@{use\_\-candidate}}
+\index{use\_\-candidate@{use\_\-candidate}!_IceCandidatePair@{\_\-IceCandidatePair}}
+\subsubsection[{use\_\-candidate}]{\setlength{\rightskip}{0pt plus 5cm}bool\_\-t {\bf \_\-IceCandidatePair::use\_\-candidate}}\label{struct__IceCandidatePair_ade0f25dd51aeddca137f9733fded3f8e}
+Boolean value telling if the USE-\/CANDIDATE attribute must be set for the connectivity checks send for the candidate pair \index{\_\-IceCandidatePair@{\_\-IceCandidatePair}!is\_\-nominated@{is\_\-nominated}}
+\index{is\_\-nominated@{is\_\-nominated}!_IceCandidatePair@{\_\-IceCandidatePair}}
+\subsubsection[{is\_\-nominated}]{\setlength{\rightskip}{0pt plus 5cm}bool\_\-t {\bf \_\-IceCandidatePair::is\_\-nominated}}\label{struct__IceCandidatePair_aaa24f39a17b3715384256822dc40a1f6}
+Boolean value telling whether this candidate pair is nominated or not \index{\_\-IceCandidatePair@{\_\-IceCandidatePair}!wait\_\-transaction\_\-timeout@{wait\_\-transaction\_\-timeout}}
+\index{wait\_\-transaction\_\-timeout@{wait\_\-transaction\_\-timeout}!_IceCandidatePair@{\_\-IceCandidatePair}}
+\subsubsection[{wait\_\-transaction\_\-timeout}]{\setlength{\rightskip}{0pt plus 5cm}bool\_\-t {\bf \_\-IceCandidatePair::wait\_\-transaction\_\-timeout}}\label{struct__IceCandidatePair_a427bbb087d9ed087d3388e4e4e3af46c}
+Boolean value telling to create a new binding request on retransmission timeout 
+
+The documentation for this struct was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+{\bf ice.h}\end{DoxyCompactItemize}

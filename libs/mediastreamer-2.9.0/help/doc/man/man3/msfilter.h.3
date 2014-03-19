@@ -1,0 +1,208 @@
+.TH "msfilter.h" 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+msfilter.h \- 
+.PP
+mediastreamer2 \fBmsfilter.h\fP include file  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'mscommon.h'\fP
+.br
+\fC#include 'msqueue.h'\fP
+.br
+\fC#include 'allfilters.h'\fP
+.br
+\fC#include 'msinterfaces.h'\fP
+.br
+
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMS_FILTER_METHOD\fP(_id_, _count_, _argtype_)   MS_FILTER_METHOD_ID(_id_,_count_,sizeof(_argtype_))"
+.br
+.ti -1c
+.RI "#define \fBMS_FILTER_METHOD_NO_ARG\fP(_id_, _count_)   MS_FILTER_METHOD_ID(_id_,_count_,0)"
+.br
+.ti -1c
+.RI "#define \fBMS_FILTER_SET_SAMPLE_RATE\fP   MS_FILTER_BASE_METHOD(0,int)"
+.br
+.ti -1c
+.RI "#define \fBMS_FILTER_GET_SAMPLE_RATE\fP   MS_FILTER_BASE_METHOD(1,int)"
+.br
+.ti -1c
+.RI "#define \fBMS_FILTER_SET_BITRATE\fP   MS_FILTER_BASE_METHOD(2,int)"
+.br
+.ti -1c
+.RI "#define \fBMS_FILTER_GET_BITRATE\fP   MS_FILTER_BASE_METHOD(3,int)"
+.br
+.ti -1c
+.RI "#define \fBMS_FILTER_ADD_FMTP\fP   MS_FILTER_BASE_METHOD(7,const char)"
+.br
+.ti -1c
+.RI "#define \fBMS_FILTER_GET_LATENCY\fP   MS_FILTER_BASE_METHOD(11,int)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBMSFilterFunc\fP )(struct _MSFilter *f)"
+.br
+.ti -1c
+.RI "typedef int(* \fBMSFilterMethodFunc\fP )(struct _MSFilter *f, void *arg)"
+.br
+.ti -1c
+.RI "typedef void(* \fBMSFilterNotifyFunc\fP )(void *userdata, struct _MSFilter *f, unsigned int id, void *arg)"
+.br
+.ti -1c
+.RI "typedef struct _MSFilterMethod \fBMSFilterMethod\fP"
+.br
+.ti -1c
+.RI "typedef enum \fB_MSFilterCategory\fP \fBMSFilterCategory\fP"
+.br
+.ti -1c
+.RI "typedef enum \fB_MSFilterFlags\fP \fBMSFilterFlags\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSFilterDesc \fBMSFilterDesc\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSFilter \fBMSFilter\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSConnectionPoint \fBMSConnectionPoint\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSConnectionHelper \fBMSConnectionHelper\fP"
+.br
+.ti -1c
+.RI "typedef enum \fB_MSFilterInterfaceId\fP \fBMSFilterInterfaceId\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fB_MSFilterCategory\fP { \fBMS_FILTER_OTHER\fP, \fBMS_FILTER_ENCODER\fP, \fBMS_FILTER_DECODER\fP, \fBMS_FILTER_ENCODING_CAPTURER\fP, \fBMS_FILTER_DECODING_RENDERER\fP }"
+.br
+.ti -1c
+.RI "enum \fB_MSFilterFlags\fP { \fBMS_FILTER_IS_PUMP\fP =  1 }"
+.br
+.ti -1c
+.RI "enum \fB_MSFilterInterfaceId\fP { , \fBMSFilterPlayerInterface\fP, \fBMSFilterRecorderInterface\fP, \fBMSFilterVideoDisplayInterface\fP, \fBMSFilterVideoDecoderInterface\fP, \fBMSFilterVideoCaptureInterface\fP, \fBMSFilterAudioDecoderInterface\fP, \fBMSFilterVideoEncoderInterface\fP, \fBMSFilterAudioCaptureInterface\fP, \fBMSFilterAudioEncoderInterface\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBms_filter_register\fP (\fBMSFilterDesc\fP *desc)"
+.br
+.ti -1c
+.RI "\fBMSFilterDesc\fP * \fBms_filter_get_encoding_capturer\fP (const char *mime)"
+.br
+.ti -1c
+.RI "\fBMSFilterDesc\fP * \fBms_filter_get_decoding_renderer\fP (const char *mime)"
+.br
+.ti -1c
+.RI "\fBMSFilterDesc\fP * \fBms_filter_get_encoder\fP (const char *mime)"
+.br
+.ti -1c
+.RI "\fBMSFilterDesc\fP * \fBms_filter_get_decoder\fP (const char *mime)"
+.br
+.ti -1c
+.RI "\fBMSFilterDesc\fP * \fBms_filter_lookup_by_name\fP (const char *filter_name)"
+.br
+.ti -1c
+.RI "\fBMSFilter\fP * \fBms_filter_create_encoder\fP (const char *mime)"
+.br
+.ti -1c
+.RI "\fBMSFilter\fP * \fBms_filter_create_decoder\fP (const char *mime)"
+.br
+.ti -1c
+.RI "bool_t \fBms_filter_codec_supported\fP (const char *mime)"
+.br
+.ti -1c
+.RI "\fBMSFilter\fP * \fBms_filter_new\fP (MSFilterId id)"
+.br
+.ti -1c
+.RI "\fBMSFilter\fP * \fBms_filter_new_from_name\fP (const char *name)"
+.br
+.ti -1c
+.RI "\fBMSFilter\fP * \fBms_filter_new_from_desc\fP (\fBMSFilterDesc\fP *desc)"
+.br
+.ti -1c
+.RI "int \fBms_filter_link\fP (\fBMSFilter\fP *f1, int pin1, \fBMSFilter\fP *f2, int pin2)"
+.br
+.ti -1c
+.RI "int \fBms_filter_unlink\fP (\fBMSFilter\fP *f1, int pin1, \fBMSFilter\fP *f2, int pin2)"
+.br
+.ti -1c
+.RI "int \fBms_filter_call_method\fP (\fBMSFilter\fP *f, unsigned int id, void *arg)"
+.br
+.ti -1c
+.RI "int \fBms_filter_call_method_noarg\fP (\fBMSFilter\fP *f, unsigned int id)"
+.br
+.ti -1c
+.RI "bool_t \fBms_filter_has_method\fP (\fBMSFilter\fP *f, unsigned int id)"
+.br
+.ti -1c
+.RI "void \fBms_filter_set_notify_callback\fP (\fBMSFilter\fP *f, \fBMSFilterNotifyFunc\fP fn, void *userdata)"
+.br
+.ti -1c
+.RI "MSFilterId \fBms_filter_get_id\fP (\fBMSFilter\fP *f)"
+.br
+.ti -1c
+.RI "MSList * \fBms_filter_find_neighbours\fP (\fBMSFilter\fP *me)"
+.br
+.ti -1c
+.RI "void \fBms_filter_destroy\fP (\fBMSFilter\fP *f)"
+.br
+.ti -1c
+.RI "void \fBms_connection_helper_start\fP (\fBMSConnectionHelper\fP *h)"
+.br
+.ti -1c
+.RI "int \fBms_connection_helper_link\fP (\fBMSConnectionHelper\fP *h, \fBMSFilter\fP *f, int inpin, int outpin)"
+.br
+.RI "\fIEnter a MSFilter to be connected into the MSConnectionHelper object. \fP"
+.ti -1c
+.RI "int \fBms_connection_helper_unlink\fP (\fBMSConnectionHelper\fP *h, \fBMSFilter\fP *f, int inpin, int outpin)"
+.br
+.RI "\fIEnter a MSFilter to be disconnected into the MSConnectionHelper object. Process exactly the same way as \fBms_connection_helper_link()\fP but calls \fBms_filter_unlink()\fP on the entered filters. \fP"
+.ti -1c
+.RI "void \fBms_filter_enable_statistics\fP (bool_t enabled)"
+.br
+.RI "\fIEnable processing time measurements statistics for filters. \fP"
+.ti -1c
+.RI "void \fBms_filter_reset_statistics\fP (void)"
+.br
+.RI "\fIReset processing time statistics for filters. \fP"
+.ti -1c
+.RI "const MSList * \fBms_filter_get_statistics\fP (void)"
+.br
+.RI "\fIRetrieves statistics for running filters. Returns a list of MSFilterStats. \fP"
+.ti -1c
+.RI "void \fBms_filter_log_statistics\fP (void)"
+.br
+.RI "\fILogs runtime statistics for running filters. \fP"
+.ti -1c
+.RI "void \fBms_filter_postpone_task\fP (\fBMSFilter\fP *f, \fBMSFilterFunc\fP taskfunc)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+mediastreamer2 \fBmsfilter.h\fP include file 
+
+This file provide the API needed to create, link, unlink, find and destroy filter.
+.PP
+It also provides definitions if you wish to implement your own filters. 
+.SH "Function Documentation"
+.PP 
+.SS "void ms_filter_postpone_task (\fBMSFilter\fP * f, \fBMSFilterFunc\fP taskfunc)"Allow a filter to request the ticker to call him the tick after. The ticker will call the taskfunc prior to all filter's process func. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

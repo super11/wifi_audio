@@ -1,0 +1,211 @@
+.TH "Camera API - manage video capture devices" 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Camera API - manage video capture devices \- 
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMS_STATIC_IMAGE_SET_IMAGE\fP   MS_FILTER_METHOD(MS_STATIC_IMAGE_ID,0,const char)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct _MSWebCamManager \fBMSWebCamManager\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSWebCamDesc \fBMSWebCamDesc\fP"
+.br
+.ti -1c
+.RI "typedef struct _MSWebCam \fBMSWebCam\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMSWebCamManager\fP * \fBms_web_cam_manager_get\fP (void)"
+.br
+.ti -1c
+.RI "void \fBms_web_cam_manager_destroy\fP (void)"
+.br
+.ti -1c
+.RI "\fBMSWebCam\fP * \fBms_web_cam_manager_get_cam\fP (\fBMSWebCamManager\fP *m, const char *id)"
+.br
+.ti -1c
+.RI "\fBMSWebCam\fP * \fBms_web_cam_manager_get_default_cam\fP (\fBMSWebCamManager\fP *m)"
+.br
+.ti -1c
+.RI "const MSList * \fBms_web_cam_manager_get_list\fP (\fBMSWebCamManager\fP *m)"
+.br
+.ti -1c
+.RI "void \fBms_web_cam_manager_add_cam\fP (\fBMSWebCamManager\fP *m, \fBMSWebCam\fP *c)"
+.br
+.ti -1c
+.RI "void \fBms_web_cam_manager_prepend_cam\fP (\fBMSWebCamManager\fP *m, \fBMSWebCam\fP *c)"
+.br
+.ti -1c
+.RI "void \fBms_web_cam_manager_register_desc\fP (\fBMSWebCamManager\fP *m, \fBMSWebCamDesc\fP *desc)"
+.br
+.ti -1c
+.RI "void \fBms_web_cam_manager_reload\fP (\fBMSWebCamManager\fP *m)"
+.br
+.ti -1c
+.RI "struct _MSFilter * \fBms_web_cam_create_reader\fP (\fBMSWebCam\fP *obj)"
+.br
+.ti -1c
+.RI "\fBMSWebCam\fP * \fBms_web_cam_new\fP (\fBMSWebCamDesc\fP *desc)"
+.br
+.ti -1c
+.RI "void \fBms_web_cam_destroy\fP (\fBMSWebCam\fP *obj)"
+.br
+.ti -1c
+.RI "const char * \fBms_web_cam_get_driver_type\fP (const \fBMSWebCam\fP *obj)"
+.br
+.ti -1c
+.RI "const char * \fBms_web_cam_get_name\fP (const \fBMSWebCam\fP *obj)"
+.br
+.ti -1c
+.RI "const char * \fBms_web_cam_get_string_id\fP (\fBMSWebCam\fP *obj)"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define MS_STATIC_IMAGE_SET_IMAGE   MS_FILTER_METHOD(MS_STATIC_IMAGE_ID,0,const char)"method for the 'nowebcam' filter 
+.SH "Typedef Documentation"
+.PP 
+.SS "\fBMSWebCamManager\fP"Structure for webcam manager object. 
+.SS "\fBMSWebCamDesc\fP"Structure for sound card description object. 
+.SS "\fBMSWebCam\fP"Structure for sound card object. 
+.SH "Function Documentation"
+.PP 
+.SS "\fBMSWebCamManager\fP* ms_web_cam_manager_get (void)"Retreive a webcam manager object.
+.PP
+Returns: MSWebCamManager if successfull, NULL otherwise. 
+.SS "void ms_web_cam_manager_destroy (void)"Destroy the webcam manager object. 
+.SS "\fBMSWebCam\fP* ms_web_cam_manager_get_cam (\fBMSWebCamManager\fP * m, const char * id)"Retreive a webcam object based on its name.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP A webcam manager containing webcam. 
+.br
+\fIid\fP A name for card to search.
+.RE
+.PP
+Returns: MSWebCam if successfull, NULL otherwise. 
+.SS "\fBMSWebCam\fP* ms_web_cam_manager_get_default_cam (\fBMSWebCamManager\fP * m)"Retreive the default webcam object.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP A webcam manager containing webcams.
+.RE
+.PP
+Returns: MSWebCam if successfull, NULL otherwise. 
+.SS "const MSList* ms_web_cam_manager_get_list (\fBMSWebCamManager\fP * m)"Retreive the list of webcam objects.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP A webcam manager containing webcams.
+.RE
+.PP
+Returns: MSList of cards if successfull, NULL otherwise. 
+.SS "void ms_web_cam_manager_add_cam (\fBMSWebCamManager\fP * m, \fBMSWebCam\fP * c)"Add a webcam object in a webcam manager's list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP A webcam manager containing webcams 
+.br
+\fIc\fP A web cam object. 
+.RE
+.PP
+
+.SS "void ms_web_cam_manager_prepend_cam (\fBMSWebCamManager\fP * m, \fBMSWebCam\fP * c)"Add a webcam object on top of list of the webcam manager's list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP A webcam manager containing webcams 
+.br
+\fIc\fP A web cam object. 
+.RE
+.PP
+
+.SS "void ms_web_cam_manager_register_desc (\fBMSWebCamManager\fP * m, \fBMSWebCamDesc\fP * desc)"Register a webcam descriptor in a webcam manager.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP A webcam manager containing sound cards. 
+.br
+\fIdesc\fP A webcam descriptor object. 
+.RE
+.PP
+
+.SS "void ms_web_cam_manager_reload (\fBMSWebCamManager\fP * m)"Ask all registered MSWebCamDesc to detect the webcams again.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP A webcam manager 
+.RE
+.PP
+
+.SS "struct _MSFilter* ms_web_cam_create_reader (\fBMSWebCam\fP * obj)\fC [read]\fP"Create an INPUT filter based on the selected camera.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobj\fP A webcam object.
+.RE
+.PP
+Returns: A MSFilter if successfull, NULL otherwise. 
+.SS "\fBMSWebCam\fP* ms_web_cam_new (\fBMSWebCamDesc\fP * desc)"Create a new webcam object.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdesc\fP A webcam description object.
+.RE
+.PP
+Returns: MSWebCam if successfull, NULL otherwise. 
+.SS "void ms_web_cam_destroy (\fBMSWebCam\fP * obj)"Destroy webcam object.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobj\fP A MSWebCam object. 
+.RE
+.PP
+
+.SS "const char* ms_web_cam_get_driver_type (const \fBMSWebCam\fP * obj)"Retreive a webcam's driver type string.
+.PP
+Internal driver types are either: 'V4L V4LV2'
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobj\fP A webcam object.
+.RE
+.PP
+Returns: a string if successfull, NULL otherwise. 
+.SS "const char* ms_web_cam_get_name (const \fBMSWebCam\fP * obj)"Retreive a webcam's name.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobj\fP A webcam object.
+.RE
+.PP
+Returns: a string if successfull, NULL otherwise. 
+.SS "const char* ms_web_cam_get_string_id (\fBMSWebCam\fP * obj)"Retreive webcam's id: (
+.PP
+\fBdriver_type\fP.RS 4
+
+.RE
+.PP
+name).
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobj\fP A webcam object.
+.RE
+.PP
+Returns: A string if successfull, NULL otherwise. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

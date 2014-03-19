@@ -1,0 +1,71 @@
+.TH "_IceCandidatePair" 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_IceCandidatePair \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ice.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBIceCandidate\fP * \fBlocal\fP"
+.br
+.ti -1c
+.RI "\fBIceCandidate\fP * \fBremote\fP"
+.br
+.ti -1c
+.RI "\fBIceCandidatePairState\fP \fBstate\fP"
+.br
+.ti -1c
+.RI "uint64_t \fBpriority\fP"
+.br
+.ti -1c
+.RI "MSTimeSpec \fBtransmission_time\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBrto\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBretransmissions\fP"
+.br
+.ti -1c
+.RI "\fBIceRole\fP \fBrole\fP"
+.br
+.ti -1c
+.RI "bool_t \fBis_default\fP"
+.br
+.ti -1c
+.RI "bool_t \fBuse_candidate\fP"
+.br
+.ti -1c
+.RI "bool_t \fBis_nominated\fP"
+.br
+.ti -1c
+.RI "bool_t \fBwait_transaction_timeout\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Structure representing an ICE candidate pair. 
+.SH "Field Documentation"
+.PP 
+.SS "\fBIceCandidate\fP* \fB_IceCandidatePair::local\fP"Pointer to the local candidate of the pair 
+.SS "\fBIceCandidate\fP* \fB_IceCandidatePair::remote\fP"Pointer to the remote candidate of the pair 
+.SS "\fBIceCandidatePairState\fP \fB_IceCandidatePair::state\fP"State of the candidate pair 
+.SS "uint64_t \fB_IceCandidatePair::priority\fP"Priority of the candidate pair 
+.SS "MSTimeSpec \fB_IceCandidatePair::transmission_time\fP"Time when the connectivity check for the candidate pair has been sent 
+.SS "uint32_t \fB_IceCandidatePair::rto\fP"Duration of the retransmit timer for the connectivity check sent for the candidate pair in ms 
+.SS "uint8_t \fB_IceCandidatePair::retransmissions\fP"Number of retransmissions for the connectivity check sent for the candidate pair 
+.SS "\fBIceRole\fP \fB_IceCandidatePair::role\fP"Role of the agent when the connectivity check has been sent for the candidate pair 
+.SS "bool_t \fB_IceCandidatePair::is_default\fP"Boolean value telling whether this candidate pair is a default candidate pair or not 
+.SS "bool_t \fB_IceCandidatePair::use_candidate\fP"Boolean value telling if the USE-CANDIDATE attribute must be set for the connectivity checks send for the candidate pair 
+.SS "bool_t \fB_IceCandidatePair::is_nominated\fP"Boolean value telling whether this candidate pair is nominated or not 
+.SS "bool_t \fB_IceCandidatePair::wait_transaction_timeout\fP"Boolean value telling to create a new binding request on retransmission timeout 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

@@ -1,0 +1,49 @@
+.TH "Video streaming API - Create and run video streams." 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Video streaming API - Create and run video streams. \- 
+.PP
+Video streaming API - Easily run video streams from camera capture or static picture files to RTP.  
+
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef VideoStream \fBVideoPreview\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "MS2_PUBLIC int \fBvideo_stream_get_camera_sensor_rotation\fP (VideoStream *stream)"
+.br
+.RI "\fIGets the camera sensor rotation. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Video streaming API - Easily run video streams from camera capture or static picture files to RTP. 
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef VideoStream \fBVideoPreview\fP"Small API to display a local preview window. 
+.SH "Function Documentation"
+.PP 
+.SS "MS2_PUBLIC int video_stream_get_camera_sensor_rotation (VideoStream * stream)"
+.PP
+Gets the camera sensor rotation. This is needed on some mobile platforms to get the number of degrees the camera sensor is rotated relative to the screen.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstream\fP The video stream related to the operation 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The camera sensor rotation in degrees (0 to 360) or -1 if it could not be retrieved 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.

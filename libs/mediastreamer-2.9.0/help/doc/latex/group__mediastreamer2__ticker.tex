@@ -1,0 +1,207 @@
+\section{Ticker API -\/ Manage mediastreamer2 graphs}
+\label{group__mediastreamer2__ticker}\index{Ticker API -\/ Manage mediastreamer2 graphs@{Ticker API -\/ Manage mediastreamer2 graphs}}
+
+
+Ticker API to manage mediastreamer2 graphs.  
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint64\_\-t($\ast$ {\bf MSTickerTimeFunc} )(void $\ast$)
+\item 
+typedef int($\ast$ {\bf MSTickerTickFunc} )(void $\ast$, uint64\_\-t ticker\_\-virtual\_\-time)
+\item 
+typedef struct \_\-MSTicker {\bf MSTicker}
+\item 
+typedef struct \_\-MSTickerSynchronizer {\bf MSTickerSynchronizer}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf \_\-MSTickerPrio} \{ \par
+{\bf MS\_\-TICKER\_\-PRIO\_\-NORMAL}, 
+\par
+{\bf MS\_\-TICKER\_\-PRIO\_\-HIGH}, 
+\par
+{\bf MS\_\-TICKER\_\-PRIO\_\-REALTIME}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf MSTicker} $\ast$ {\bf ms\_\-ticker\_\-new} (void)
+\item 
+{\bf MSTicker} $\ast$ {\bf ms\_\-ticker\_\-new\_\-with\_\-params} (const MSTickerParams $\ast$params)
+\item 
+void {\bf ms\_\-ticker\_\-set\_\-name} ({\bf MSTicker} $\ast$ticker, const char $\ast$name)
+\item 
+void {\bf ms\_\-ticker\_\-set\_\-priority} ({\bf MSTicker} $\ast$ticker, MSTickerPrio prio)
+\item 
+int {\bf ms\_\-ticker\_\-attach} ({\bf MSTicker} $\ast$ticker, {\bf MSFilter} $\ast$f)
+\item 
+int {\bf ms\_\-ticker\_\-attach\_\-multiple} ({\bf MSTicker} $\ast$ticker, {\bf MSFilter} $\ast$f,...)
+\item 
+int {\bf ms\_\-ticker\_\-detach} ({\bf MSTicker} $\ast$ticker, {\bf MSFilter} $\ast$f)
+\item 
+void {\bf ms\_\-ticker\_\-destroy} ({\bf MSTicker} $\ast$ticker)
+\item 
+void {\bf ms\_\-ticker\_\-set\_\-time\_\-func} ({\bf MSTicker} $\ast$ticker, {\bf MSTickerTimeFunc} func, void $\ast$user\_\-data)
+\item 
+void {\bf ms\_\-ticker\_\-set\_\-tick\_\-func} ({\bf MSTicker} $\ast$ticker, {\bf MSTickerTickFunc} func, void $\ast$user\_\-data)
+\item 
+void {\bf ms\_\-ticker\_\-print\_\-graphs} ({\bf MSTicker} $\ast$ticker)
+\item 
+float {\bf ms\_\-ticker\_\-get\_\-average\_\-load} ({\bf MSTicker} $\ast$ticker)
+\item 
+{\bf MSTickerSynchronizer} $\ast$ {\bf ms\_\-ticker\_\-synchronizer\_\-new} (void)
+\item 
+double {\bf ms\_\-ticker\_\-synchronizer\_\-set\_\-external\_\-time} ({\bf MSTickerSynchronizer} $\ast$ts, const MSTimeSpec $\ast$time)
+\item 
+uint64\_\-t {\bf ms\_\-ticker\_\-synchronizer\_\-get\_\-corrected\_\-time} ({\bf MSTickerSynchronizer} $\ast$ts)
+\item 
+void {\bf ms\_\-ticker\_\-synchronizer\_\-destroy} ({\bf MSTickerSynchronizer} $\ast$ts)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Ticker API to manage mediastreamer2 graphs. Describes the ticker API. The ticker is the thread responsible for scheduling audio \& video processing for one or several filter graphs. 
+
+\subsection{Typedef Documentation}
+\index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!MSTickerTimeFunc@{MSTickerTimeFunc}}
+\index{MSTickerTimeFunc@{MSTickerTimeFunc}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{MSTickerTimeFunc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSTickerTimeFunc}}\label{group__mediastreamer2__ticker_gaf797c03ae14397dabec29aed425f614e}
+Function pointer for method getting time in miliseconds from an external source. \index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!MSTickerTickFunc@{MSTickerTickFunc}}
+\index{MSTickerTickFunc@{MSTickerTickFunc}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{MSTickerTickFunc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSTickerTickFunc}}\label{group__mediastreamer2__ticker_gabc9140d942df71ed918dfb3b93f17463}
+Function pointer for method waiting next tick from an external source.
+
+It shall return the number of late milliseconds, if this value is known. \index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!MSTicker@{MSTicker}}
+\index{MSTicker@{MSTicker}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{MSTicker}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSTicker}}\label{group__mediastreamer2__ticker_ga5ab8bc4cd2b4c24418e06a3fc87a36d3}
+Structure for ticker object. \index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!MSTickerSynchronizer@{MSTickerSynchronizer}}
+\index{MSTickerSynchronizer@{MSTickerSynchronizer}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{MSTickerSynchronizer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSTickerSynchronizer}}\label{group__mediastreamer2__ticker_gaeb889a566dbb5b135239177cb08bed1f}
+Structure for ticker synchronizer object. 
+
+\subsection{Enumeration Type Documentation}
+\index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!\_\-MSTickerPrio@{\_\-MSTickerPrio}}
+\index{\_\-MSTickerPrio@{\_\-MSTickerPrio}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{\_\-MSTickerPrio}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \_\-MSTickerPrio}}\label{group__mediastreamer2__ticker_gad69f661f1db2a4e8cb6be3c160b282bc}
+Enum for ticker priority \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{MS\_\-TICKER\_\-PRIO\_\-NORMAL@{MS\_\-TICKER\_\-PRIO\_\-NORMAL}!mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}}\index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!MS\_\-TICKER\_\-PRIO\_\-NORMAL@{MS\_\-TICKER\_\-PRIO\_\-NORMAL}}\item[{\em 
+MS\_\-TICKER\_\-PRIO\_\-NORMAL\label{group__mediastreamer2__ticker_ggad69f661f1db2a4e8cb6be3c160b282bca6283d7852d272587a67728422f969b09}
+}]the default OS priority for threads \index{MS\_\-TICKER\_\-PRIO\_\-HIGH@{MS\_\-TICKER\_\-PRIO\_\-HIGH}!mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}}\index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!MS\_\-TICKER\_\-PRIO\_\-HIGH@{MS\_\-TICKER\_\-PRIO\_\-HIGH}}\item[{\em 
+MS\_\-TICKER\_\-PRIO\_\-HIGH\label{group__mediastreamer2__ticker_ggad69f661f1db2a4e8cb6be3c160b282bcaad33b5ea171c69063eb3cad2ba21c1a4}
+}]Increased priority: done by setpriority() or sched\_\-setschedparams() with SCHED\_\-RR on linux/MacOS \index{MS\_\-TICKER\_\-PRIO\_\-REALTIME@{MS\_\-TICKER\_\-PRIO\_\-REALTIME}!mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}}\index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!MS\_\-TICKER\_\-PRIO\_\-REALTIME@{MS\_\-TICKER\_\-PRIO\_\-REALTIME}}\item[{\em 
+MS\_\-TICKER\_\-PRIO\_\-REALTIME\label{group__mediastreamer2__ticker_ggad69f661f1db2a4e8cb6be3c160b282bcaf0a212318994b18993e9157562af148e}
+}]Topmost priority, running SCHED\_\-FIFO on linux \end{description}
+\end{Desc}
+
+
+
+\subsection{Function Documentation}
+\index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!ms\_\-ticker\_\-new@{ms\_\-ticker\_\-new}}
+\index{ms\_\-ticker\_\-new@{ms\_\-ticker\_\-new}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{ms\_\-ticker\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSTicker}$\ast$ ms\_\-ticker\_\-new (void)}\label{group__mediastreamer2__ticker_ga2d6dd1731d1afbb834b3d4279e7eca37}
+Create a ticker that will be used to start and stop a graph.
+
+Returns: MSTicker $\ast$ if successfull, NULL otherwise. \index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!ms\_\-ticker\_\-new\_\-with\_\-params@{ms\_\-ticker\_\-new\_\-with\_\-params}}
+\index{ms\_\-ticker\_\-new\_\-with\_\-params@{ms\_\-ticker\_\-new\_\-with\_\-params}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{ms\_\-ticker\_\-new\_\-with\_\-params}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSTicker}$\ast$ ms\_\-ticker\_\-new\_\-with\_\-params (const MSTickerParams $\ast$ {\em params})}\label{group__mediastreamer2__ticker_gadc132fb8e3a778caa92ca67dd783e67e}
+Create a ticker that will be used to start and stop a graph.
+
+Returns: MSTicker $\ast$ if successfull, NULL otherwise. \index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!ms\_\-ticker\_\-set\_\-name@{ms\_\-ticker\_\-set\_\-name}}
+\index{ms\_\-ticker\_\-set\_\-name@{ms\_\-ticker\_\-set\_\-name}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{ms\_\-ticker\_\-set\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-ticker\_\-set\_\-name ({\bf MSTicker} $\ast$ {\em ticker}, \/  const char $\ast$ {\em name})}\label{group__mediastreamer2__ticker_ga8ed311bdb3b31ded9a25436ce6329f01}
+Set a name to the ticker (used for logging) \index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!ms\_\-ticker\_\-set\_\-priority@{ms\_\-ticker\_\-set\_\-priority}}
+\index{ms\_\-ticker\_\-set\_\-priority@{ms\_\-ticker\_\-set\_\-priority}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{ms\_\-ticker\_\-set\_\-priority}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-ticker\_\-set\_\-priority ({\bf MSTicker} $\ast$ {\em ticker}, \/  MSTickerPrio {\em prio})}\label{group__mediastreamer2__ticker_ga34a8a1e94532ee09c32c06d0655dfa9d}
+Deprecated: Set priority to the ticker \index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!ms\_\-ticker\_\-attach@{ms\_\-ticker\_\-attach}}
+\index{ms\_\-ticker\_\-attach@{ms\_\-ticker\_\-attach}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{ms\_\-ticker\_\-attach}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-ticker\_\-attach ({\bf MSTicker} $\ast$ {\em ticker}, \/  {\bf MSFilter} $\ast$ {\em f})}\label{group__mediastreamer2__ticker_ga0ec886a8cab0d0463f1489bf5a3642a8}
+Attach a chain of filters to a ticker. The processing chain will be executed until ms\_\-ticker\_\-detach will be called.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em ticker}]A \doxyref{MSTicker}{p.}{group__mediastreamer2__ticker_ga5ab8bc4cd2b4c24418e06a3fc87a36d3} object. \item[{\em f}]A \doxyref{MSFilter}{p.}{group__mediastreamer2__filter_ga696841ec9e8bd039974353d4630d9726} object.\end{DoxyParams}
+Returns: 0 if successfull, -\/1 otherwise. \index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!ms\_\-ticker\_\-attach\_\-multiple@{ms\_\-ticker\_\-attach\_\-multiple}}
+\index{ms\_\-ticker\_\-attach\_\-multiple@{ms\_\-ticker\_\-attach\_\-multiple}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{ms\_\-ticker\_\-attach\_\-multiple}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-ticker\_\-attach\_\-multiple ({\bf MSTicker} $\ast$ {\em ticker}, \/  {\bf MSFilter} $\ast$ {\em f}, \/   {\em ...})}\label{group__mediastreamer2__ticker_gafdeee14611103043a8faaf684995f09e}
+Attach a chain of filters to a ticker. The processing chain will be executed until ms\_\-ticker\_\-detach will be called. This variadic can be used to attach multiple chains in a single call. The argument list MUST be NULL terminated.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em ticker}]A \doxyref{MSTicker}{p.}{group__mediastreamer2__ticker_ga5ab8bc4cd2b4c24418e06a3fc87a36d3} object. \item[{\em f}]A \doxyref{MSFilter}{p.}{group__mediastreamer2__filter_ga696841ec9e8bd039974353d4630d9726} object.\end{DoxyParams}
+Returns: 0 if successfull, -\/1 otherwise. \index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!ms\_\-ticker\_\-detach@{ms\_\-ticker\_\-detach}}
+\index{ms\_\-ticker\_\-detach@{ms\_\-ticker\_\-detach}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{ms\_\-ticker\_\-detach}]{\setlength{\rightskip}{0pt plus 5cm}int ms\_\-ticker\_\-detach ({\bf MSTicker} $\ast$ {\em ticker}, \/  {\bf MSFilter} $\ast$ {\em f})}\label{group__mediastreamer2__ticker_gad7ef87ce6e7b688849b9e660016135a7}
+Dettach a chain of filters to a ticker. The processing chain will no more be executed.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em ticker}]A \doxyref{MSTicker}{p.}{group__mediastreamer2__ticker_ga5ab8bc4cd2b4c24418e06a3fc87a36d3} object. \item[{\em f}]A \doxyref{MSFilter}{p.}{group__mediastreamer2__filter_ga696841ec9e8bd039974353d4630d9726} object.\end{DoxyParams}
+Returns: 0 if successfull, -\/1 otherwise. \index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!ms\_\-ticker\_\-destroy@{ms\_\-ticker\_\-destroy}}
+\index{ms\_\-ticker\_\-destroy@{ms\_\-ticker\_\-destroy}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{ms\_\-ticker\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-ticker\_\-destroy ({\bf MSTicker} $\ast$ {\em ticker})}\label{group__mediastreamer2__ticker_ga85fd41d44d64f35966af7c60e52adf10}
+Destroy a ticker.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em ticker}]A \doxyref{MSTicker}{p.}{group__mediastreamer2__ticker_ga5ab8bc4cd2b4c24418e06a3fc87a36d3} object. \end{DoxyParams}
+\index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!ms\_\-ticker\_\-set\_\-time\_\-func@{ms\_\-ticker\_\-set\_\-time\_\-func}}
+\index{ms\_\-ticker\_\-set\_\-time\_\-func@{ms\_\-ticker\_\-set\_\-time\_\-func}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{ms\_\-ticker\_\-set\_\-time\_\-func}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-ticker\_\-set\_\-time\_\-func ({\bf MSTicker} $\ast$ {\em ticker}, \/  {\bf MSTickerTimeFunc} {\em func}, \/  void $\ast$ {\em user\_\-data})}\label{group__mediastreamer2__ticker_ga53ca75ed83740bc6827c399cfdfe231f}
+Override MSTicker's time function. This can be used to control the ticker from an external time provider, for example the clock of a sound card. WARNING: this must not be used in conjunction with \doxyref{ms\_\-ticker\_\-set\_\-tick\_\-func()}{p.}{group__mediastreamer2__ticker_gaad7d47bff07fac2629ce428d2d0354cd}.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em ticker}]A \doxyref{MSTicker}{p.}{group__mediastreamer2__ticker_ga5ab8bc4cd2b4c24418e06a3fc87a36d3} object. \item[{\em func}]A replacement method for calculating \char`\"{}current time\char`\"{} \item[{\em user\_\-data}]Any pointer to user private data. \end{DoxyParams}
+\index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!ms\_\-ticker\_\-set\_\-tick\_\-func@{ms\_\-ticker\_\-set\_\-tick\_\-func}}
+\index{ms\_\-ticker\_\-set\_\-tick\_\-func@{ms\_\-ticker\_\-set\_\-tick\_\-func}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{ms\_\-ticker\_\-set\_\-tick\_\-func}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-ticker\_\-set\_\-tick\_\-func ({\bf MSTicker} $\ast$ {\em ticker}, \/  {\bf MSTickerTickFunc} {\em func}, \/  void $\ast$ {\em user\_\-data})}\label{group__mediastreamer2__ticker_gaad7d47bff07fac2629ce428d2d0354cd}
+Override MSTicker's ticking function. This can be used to control the ticker from an external ticking source, for example an interrupt, an event on a file descriptor, etc. WARNING: this must not be used in conjunction with \doxyref{ms\_\-ticker\_\-set\_\-time\_\-func()}{p.}{group__mediastreamer2__ticker_ga53ca75ed83740bc6827c399cfdfe231f}.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em ticker}]A \doxyref{MSTicker}{p.}{group__mediastreamer2__ticker_ga5ab8bc4cd2b4c24418e06a3fc87a36d3} object. \item[{\em func}]A replacement method waiting the next tick. \item[{\em user\_\-data}]Any pointer to user private data. \end{DoxyParams}
+\index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!ms\_\-ticker\_\-print\_\-graphs@{ms\_\-ticker\_\-print\_\-graphs}}
+\index{ms\_\-ticker\_\-print\_\-graphs@{ms\_\-ticker\_\-print\_\-graphs}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{ms\_\-ticker\_\-print\_\-graphs}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-ticker\_\-print\_\-graphs ({\bf MSTicker} $\ast$ {\em ticker})}\label{group__mediastreamer2__ticker_ga6fd6a71595e7773136825d9de8afc204}
+Print on stdout all filters of a ticker. (INTERNAL: DO NOT USE)
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em ticker}]A \doxyref{MSTicker}{p.}{group__mediastreamer2__ticker_ga5ab8bc4cd2b4c24418e06a3fc87a36d3} object. \end{DoxyParams}
+\index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!ms\_\-ticker\_\-get\_\-average\_\-load@{ms\_\-ticker\_\-get\_\-average\_\-load}}
+\index{ms\_\-ticker\_\-get\_\-average\_\-load@{ms\_\-ticker\_\-get\_\-average\_\-load}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{ms\_\-ticker\_\-get\_\-average\_\-load}]{\setlength{\rightskip}{0pt plus 5cm}float ms\_\-ticker\_\-get\_\-average\_\-load ({\bf MSTicker} $\ast$ {\em ticker})}\label{group__mediastreamer2__ticker_gafef4f65447ee08d7228de691d2a71f94}
+Get the average load of the ticker. It is expressed as the ratio between real time spent in processing all graphs for a tick divided by the tick interval (default is 10 ms). This value is averaged over several ticks to get consistent and useful value. A load greater than 100\% clearly means that the ticker is over loaded and runs late. \index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!ms\_\-ticker\_\-synchronizer\_\-new@{ms\_\-ticker\_\-synchronizer\_\-new}}
+\index{ms\_\-ticker\_\-synchronizer\_\-new@{ms\_\-ticker\_\-synchronizer\_\-new}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{ms\_\-ticker\_\-synchronizer\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSTickerSynchronizer}$\ast$ ms\_\-ticker\_\-synchronizer\_\-new (void)}\label{group__mediastreamer2__ticker_ga5fd3dd62ea74ef10201c9a77be40db39}
+Create a ticker synchronizer.
+
+Returns: MSTickerSynchronizer $\ast$ if successfull, NULL otherwise. \index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!ms\_\-ticker\_\-synchronizer\_\-set\_\-external\_\-time@{ms\_\-ticker\_\-synchronizer\_\-set\_\-external\_\-time}}
+\index{ms\_\-ticker\_\-synchronizer\_\-set\_\-external\_\-time@{ms\_\-ticker\_\-synchronizer\_\-set\_\-external\_\-time}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{ms\_\-ticker\_\-synchronizer\_\-set\_\-external\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}double ms\_\-ticker\_\-synchronizer\_\-set\_\-external\_\-time ({\bf MSTickerSynchronizer} $\ast$ {\em ts}, \/  const MSTimeSpec $\ast$ {\em time})}\label{group__mediastreamer2__ticker_ga29472fb895f5cd357db6b0b22f7a719a}
+Set the current external time.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em ts}]A \doxyref{MSTickerSynchronizer}{p.}{group__mediastreamer2__ticker_gaeb889a566dbb5b135239177cb08bed1f} object. \item[{\em time}]A MSTimeSpec object.\end{DoxyParams}
+Returns: Average skew. \index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!ms\_\-ticker\_\-synchronizer\_\-get\_\-corrected\_\-time@{ms\_\-ticker\_\-synchronizer\_\-get\_\-corrected\_\-time}}
+\index{ms\_\-ticker\_\-synchronizer\_\-get\_\-corrected\_\-time@{ms\_\-ticker\_\-synchronizer\_\-get\_\-corrected\_\-time}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{ms\_\-ticker\_\-synchronizer\_\-get\_\-corrected\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}uint64\_\-t ms\_\-ticker\_\-synchronizer\_\-get\_\-corrected\_\-time ({\bf MSTickerSynchronizer} $\ast$ {\em ts})}\label{group__mediastreamer2__ticker_gaeb1bf4189504f130da3f849455fa53c4}
+Get the corrected current time following the set external times.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em ts}]A \doxyref{MSTickerSynchronizer}{p.}{group__mediastreamer2__ticker_gaeb889a566dbb5b135239177cb08bed1f} object.\end{DoxyParams}
+Returns: A corrected current time. \index{mediastreamer2\_\-ticker@{mediastreamer2\_\-ticker}!ms\_\-ticker\_\-synchronizer\_\-destroy@{ms\_\-ticker\_\-synchronizer\_\-destroy}}
+\index{ms\_\-ticker\_\-synchronizer\_\-destroy@{ms\_\-ticker\_\-synchronizer\_\-destroy}!mediastreamer2_ticker@{mediastreamer2\_\-ticker}}
+\subsubsection[{ms\_\-ticker\_\-synchronizer\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void ms\_\-ticker\_\-synchronizer\_\-destroy ({\bf MSTickerSynchronizer} $\ast$ {\em ts})}\label{group__mediastreamer2__ticker_ga4e4045a23f39743e8c2f4afcb476e5b8}
+Destroy a ticker synchronizer.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em ts}]A \doxyref{MSTickerSynchronizer}{p.}{group__mediastreamer2__ticker_gaeb889a566dbb5b135239177cb08bed1f} object. \end{DoxyParams}

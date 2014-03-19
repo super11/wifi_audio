@@ -1,0 +1,118 @@
+.TH "Sound Card Manager API" 3 "18 Mar 2014" "Version 2.9.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Sound Card Manager API \- 
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMSSndCardManager\fP * \fBms_snd_card_manager_get\fP (void)"
+.br
+.ti -1c
+.RI "void \fBms_snd_card_manager_destroy\fP (void)"
+.br
+.ti -1c
+.RI "\fBMSSndCard\fP * \fBms_snd_card_manager_get_card\fP (\fBMSSndCardManager\fP *m, const char *id)"
+.br
+.ti -1c
+.RI "\fBMSSndCard\fP * \fBms_snd_card_manager_get_default_card\fP (\fBMSSndCardManager\fP *m)"
+.br
+.ti -1c
+.RI "\fBMSSndCard\fP * \fBms_snd_card_manager_get_default_capture_card\fP (\fBMSSndCardManager\fP *m)"
+.br
+.ti -1c
+.RI "\fBMSSndCard\fP * \fBms_snd_card_manager_get_default_playback_card\fP (\fBMSSndCardManager\fP *m)"
+.br
+.ti -1c
+.RI "const MSList * \fBms_snd_card_manager_get_list\fP (\fBMSSndCardManager\fP *m)"
+.br
+.ti -1c
+.RI "void \fBms_snd_card_manager_add_card\fP (\fBMSSndCardManager\fP *m, \fBMSSndCard\fP *c)"
+.br
+.ti -1c
+.RI "void \fBms_snd_card_manager_register_desc\fP (\fBMSSndCardManager\fP *m, \fBMSSndCardDesc\fP *desc)"
+.br
+.ti -1c
+.RI "void \fBms_snd_card_manager_reload\fP (\fBMSSndCardManager\fP *m)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBMSSndCardManager\fP* ms_snd_card_manager_get (void)"Retreive a sound card manager object.
+.PP
+Returns: MSSndCardManager if successfull, NULL otherwise. 
+.SS "void ms_snd_card_manager_destroy (void)"Destroy a sound card manager object. 
+.SS "\fBMSSndCard\fP* ms_snd_card_manager_get_card (\fBMSSndCardManager\fP * m, const char * id)"Retreive a sound card object based on its name.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP A sound card manager containing sound cards. 
+.br
+\fIid\fP A name for card to search.
+.RE
+.PP
+Returns: MSSndCard if successfull, NULL otherwise. 
+.SS "\fBMSSndCard\fP* ms_snd_card_manager_get_default_card (\fBMSSndCardManager\fP * m)"Retreive the default sound card object.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP A sound card manager containing sound cards.
+.RE
+.PP
+Returns: MSSndCard if successfull, NULL otherwise. 
+.SS "\fBMSSndCard\fP* ms_snd_card_manager_get_default_capture_card (\fBMSSndCardManager\fP * m)"Retreive the default capture sound card object.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP A sound card manager containing sound cards.
+.RE
+.PP
+Returns: MSSndCard if successfull, NULL otherwise. 
+.SS "\fBMSSndCard\fP* ms_snd_card_manager_get_default_playback_card (\fBMSSndCardManager\fP * m)"Retreive the default playback sound card object.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP A sound card manager containing sound cards.
+.RE
+.PP
+Returns: MSSndCard if successfull, NULL otherwise. 
+.SS "const MSList* ms_snd_card_manager_get_list (\fBMSSndCardManager\fP * m)"Retreive the list of sound card objects.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP A sound card manager containing sound cards.
+.RE
+.PP
+Returns: MSList of cards if successfull, NULL otherwise. 
+.SS "void ms_snd_card_manager_add_card (\fBMSSndCardManager\fP * m, \fBMSSndCard\fP * c)"Add a sound card object in a sound card manager's list.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP A sound card manager containing sound cards. 
+.br
+\fIc\fP A sound card object. 
+.RE
+.PP
+
+.SS "void ms_snd_card_manager_register_desc (\fBMSSndCardManager\fP * m, \fBMSSndCardDesc\fP * desc)"Register a sound card description in a sound card manager.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP A sound card manager containing sound cards. 
+.br
+\fIdesc\fP A sound card description object. 
+.RE
+.PP
+
+.SS "void ms_snd_card_manager_reload (\fBMSSndCardManager\fP * m)"Ask all registered MSSndCardDesc to re-detect their soundcards. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP The sound card manager. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code.
